@@ -2,6 +2,8 @@
 */
 #pragma once
 
+#include "systems/log.h"
+
 namespace Engine {
 
 	/**
