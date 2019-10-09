@@ -16,23 +16,40 @@ namespace Engine {
 			s_instance = this;
 		}
 
+		bRunning = true;
+		fTotalTimeElapsed = 0;
+
 		Log::start();
-		/*LOG_INFO("Hello world");
-		LOG_TRACE("Trace");
-		LOG_WARN("Warning: {0}", 42);
-		LOG_ERROR("Error code: {0}, error message: {1}", 134, "WHY?!?!?!");
-		LOG_CRITICAL("Error code: {0}, error message: {1}", 666, "That was a big mistake, good luck fixing it");*/
+		
+		pTimer = Timer::getInstance();
+		pTimer->start(SystemSignal::None);
 	}
 
 	Application::~Application()
 	{
+		pTimer->stop(SystemSignal::None);
+		Log::stop();
 	}
 
 	
 
 	void Application::run()
 	{
+		while (bRunning)
+		{
+			LOG_INFO("Frame, FRAME, FRAAAAME!");
 
+			fLastFrameTime = pTimer->timestep();
+
+			float FPS = 1 / fLastFrameTime;
+			LOG_INFO("FPS: {0}", FPS);
+
+			fTotalTimeElapsed += fLastFrameTime;
+			if (fTotalTimeElapsed >= 5.f)
+				bRunning = false;
+		}
+
+		LOG_INFO("Application run loop ended after {0} seconds", fTotalTimeElapsed);
 	}
 
 }
