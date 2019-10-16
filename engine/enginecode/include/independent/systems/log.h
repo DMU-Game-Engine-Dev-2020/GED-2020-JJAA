@@ -17,17 +17,17 @@ namespace Engine
 	class Log : public System
 	{
 	private:
-		static bool s_bInstanceFlag; //!< A boolean for if the system is running
-		static std::shared_ptr<Log> s_pThis; //!< Pointer to Log object
+		static bool ms_bInstanceFlag; //!< A boolean for if the system is running
+		static std::shared_ptr<Log> ms_pThis; //!< Pointer to Log object
 
-		static std::shared_ptr<spdlog::logger> s_pLogger; //!< Pointer to the logger
+		static std::shared_ptr<spdlog::logger> ms_pLogger; //!< Pointer to the logger
 	public:
 		static std::shared_ptr<Log> getInstance(); //!< Create instance of object and return a pointer to it
 
 		void start(SystemSignal init, ...) override; //!< A function to start the logger
 		void stop(SystemSignal close, ...) override; //!< A function to stop the logger
 
-		inline static std::shared_ptr<spdlog::logger> getLogger() { return s_pLogger; } //!< To get the logger
+		inline static std::shared_ptr<spdlog::logger> getLogger() { return ms_pLogger; } //!< To get the logger
 	};
 }
 

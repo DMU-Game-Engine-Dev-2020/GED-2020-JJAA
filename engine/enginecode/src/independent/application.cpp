@@ -7,63 +7,93 @@
 
 
 namespace Engine {
-	Application* Application::s_instance = nullptr;
+	Application* Application::ms_instance = nullptr;
 
 	Application::Application()
 	{
-		if (s_instance == nullptr)
+		if (ms_instance == nullptr)
 		{
-			s_instance = this;
+			ms_instance = this;
 		}
 
-		bRunning = true; // Application is running
-		fTotalTimeElapsed = 0; // Set the time elapsed to nothing
+		m_bRunning = true; // Application is running
+		m_fTotalTimeElapsed = 0; // Set the time elapsed to nothing
 
 		// Create and get instances of the objects
-		pLog = Log::getInstance();
-		pTimer = Timer::getInstance();
+		m_pLogger = Log::getInstance();
+		m_pTimer = Timer::getInstance();
 
 		// Run the start functions of the systems
-		pLog->start(SystemSignal::None);
-		pTimer->start(SystemSignal::None);
+		m_pLogger->start(SystemSignal::None);
+		m_pTimer->start(SystemSignal::None);
 	}
 
 	Application::~Application()
 	{
 		// Run the stop functions of the systems
-		pTimer->stop(SystemSignal::None);
-		pLog->stop(SystemSignal::None);
+		m_pTimer->stop(SystemSignal::None);
+		m_pLogger->stop(SystemSignal::None);
 
 		// Set the pointers to the systems to null
-		pTimer = nullptr;
-		pLog = nullptr;
+		m_pTimer = nullptr;
+		m_pLogger = nullptr;
 	}
 
-	
+	void Application::onEvent(Event& e)
+	{
+		// Create event dispatcher
+		EventDispatcher dispatcher(e);
+		// If the Event type matches, call the corresponding function
+		dispatcher.dispatch<WindowCloseEvent>(std::bind(&Application::onClose, this, std::placeholders::_1));
+		dispatcher.dispatch<WindowResizeEvent>(std::bind(&Application::onResize, this, std::placeholders::_1));
+	}
+
+	bool Application::onClose(WindowCloseEvent& e)
+	{
+		// Log what's happening
+		LOG_INFO("Window closing");
+		m_bRunning = false; // No longer running
+		return true;
+	}
+
+	bool Application::onResize(WindowResizeEvent& e)
+	{
+		// Log what's happening
+		LOG_INFO("Window resize event. Width {0}, Height {1}", e.getWidth(), e.getHeight());
+		return true;
+	}
 
 	void Application::run()
 	{
 		// While application is running
-		while (bRunning)
+		while (m_bRunning)
 		{
 			// Log information
 			LOG_INFO("Frame, FRAME, FRAAAAME!");
-			TIMER_NEWFRAME(); // Tell timer to start for new frame
+			TIMER_NEWFRAME; // Tell timer to start for new frame
 
-			fLastFrameTime = TIMER_TIMESTEP(); // Get the time taken to run the previous frame
+			m_fLastFrameTime = TIMER_TIMESTEP; // Get the time taken to run the previous frame
 
 			// Calculate and display the FPS
-			float FPS = 1 / fLastFrameTime;
+			float FPS = 1 / m_fLastFrameTime;
 			LOG_INFO("FPS: {0}", FPS);
 
-			fTotalTimeElapsed += fLastFrameTime; // Add the time to run the previous frame to the total time elapsed
+			m_fTotalTimeElapsed += m_fLastFrameTime; // Add the time to run the previous frame to the total time elapsed
 			// If 5 seconds have passed
-			if (fTotalTimeElapsed >= 5.f)
-				bRunning = false; // No longer running
-		}
-		// Show the total time the application has been running
-		LOG_INFO("Application running loop ended after {0} seconds", fTotalTimeElapsed);
+			if (m_fTotalTimeElapsed >= 5.f)
+			{
+				// Show the total time the application has been running
+				LOG_INFO("Application running loop ended after {0} seconds", m_fTotalTimeElapsed);
 
+				// Resize the window
+				WindowResizeEvent re(1024, 720);
+				onEvent(re);
+				// Close the window
+				WindowCloseEvent ce;
+				onEvent(ce);
+			}
+		}
+		/*
 		// Test the timer
 		// Start two timers with the same tag
 		TIMER_START("Tag");
@@ -72,9 +102,9 @@ namespace Engine {
 		// Get and display time from a timer with tag 'tag'
 		float time = TIMER_END("Tag");
 		LOG_INFO("Tag time:  {0}", time);
-		
+
 		// Try to end a timer with a tag that wasn't used to start a timer
 		float time2 = TIMER_END("Test");
-		LOG_INFO("Time:  {0}", time2);
+		LOG_INFO("Time:  {0}", time2);*/
 	}
 }

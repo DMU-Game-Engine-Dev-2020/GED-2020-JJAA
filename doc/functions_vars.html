@@ -39,30 +39,53 @@ $(function() {
 <div id="main-nav"></div>
 </div><!-- top -->
 <div class="contents">
-&#160;<ul>
-<li>bRunning
-: <a class="el" href="class_engine_1_1_application.html#a54e2a432c631187a54eabd2e4d28b495">Engine::Application</a>
+&#160;
+
+<h3><a id="index_m"></a>- m -</h3><ul>
+<li>m_bHandled
+: <a class="el" href="class_engine_1_1_event.html#abac2dcc25f027d182ae8fcd96364f206">Engine::Event</a>
 </li>
-<li>fLastFrameTime
-: <a class="el" href="class_engine_1_1_application.html#ab72c997a942afcf6fecd70d39d062298">Engine::Application</a>
-</li>
-<li>frameDuration
-: <a class="el" href="class_engine_1_1_timer.html#aa5ea67d11a8db96d3ef1b71e979944c1">Engine::Timer</a>
-</li>
-<li>frameEnd
-: <a class="el" href="class_engine_1_1_timer.html#aa19a61c1f5d4cae253c57a0db02d3080">Engine::Timer</a>
-</li>
-<li>frameStart
-: <a class="el" href="class_engine_1_1_timer.html#a5be541b7b62f33afd4ef1b8de435a686">Engine::Timer</a>
-</li>
-<li>fTotalTimeElapsed
-: <a class="el" href="class_engine_1_1_application.html#aec46cd51e75b36bed74efbe7c543302f">Engine::Application</a>
+<li>m_bRunning
+: <a class="el" href="class_engine_1_1_application.html#ad50ffbccc8985d3f84b9c70da8699911">Engine::Application</a>
 </li>
 <li>m_context
 : <a class="el" href="class_engine_1_1_window.html#aab162cb1a1572464283d8327413f1e08">Engine::Window</a>
 </li>
+<li>m_event
+: <a class="el" href="class_engine_1_1_event_dispatcher.html#a44fb6bbdb1061127eb21764aa81e9609">Engine::EventDispatcher</a>
+</li>
+<li>m_fLastFrameTime
+: <a class="el" href="class_engine_1_1_application.html#a56a93880a6e277685617fa52ef4212a1">Engine::Application</a>
+</li>
+<li>m_fMouseX
+: <a class="el" href="class_engine_1_1_mouse_moved_event.html#a8bcdf5a7ebc96200bb9a004f10331622">Engine::MouseMovedEvent</a>
+</li>
+<li>m_fMouseY
+: <a class="el" href="class_engine_1_1_mouse_moved_event.html#ade6c464d3a579a4fa55ea9eb2a7f963c">Engine::MouseMovedEvent</a>
+</li>
+<li>m_fTotalTimeElapsed
+: <a class="el" href="class_engine_1_1_application.html#a3ee0686e252bf90905881e0c5983740e">Engine::Application</a>
+</li>
+<li>m_fXOffset
+: <a class="el" href="class_engine_1_1_mouse_scrolled_event.html#a5e8172f052e1c5df5a378f135cc99a8d">Engine::MouseScrolledEvent</a>
+</li>
+<li>m_fYOffset
+: <a class="el" href="class_engine_1_1_mouse_scrolled_event.html#a6d186cfabcc770076160c6a3b54a79db">Engine::MouseScrolledEvent</a>
+</li>
 <li>m_height
 : <a class="el" href="struct_engine_1_1_window_properties.html#a01a614a9f1e06bf22dbe4c17c0a0a6a5">Engine::WindowProperties</a>
+</li>
+<li>m_iButton
+: <a class="el" href="class_engine_1_1_mouse_button_event.html#aaf940ee90aa58cbaa24a6d8b6f602b41">Engine::MouseButtonEvent</a>
+</li>
+<li>m_iHeight
+: <a class="el" href="class_engine_1_1_window_resize_event.html#adfc91eddd49ac6e80a5c5a718c925ff6">Engine::WindowResizeEvent</a>
+</li>
+<li>m_iKeyCode
+: <a class="el" href="class_engine_1_1_key_event.html#ac767b7780566e3f5361fe9956889539a">Engine::KeyEvent</a>
+</li>
+<li>m_iRepeated
+: <a class="el" href="class_engine_1_1_key_pressed_event.html#a13d99481d072a237dcf780dc6b03b840">Engine::KeyPressedEvent</a>
 </li>
 <li>m_isFullScreen
 : <a class="el" href="struct_engine_1_1_window_properties.html#ab878a43facc7d83f335952a094d34f40">Engine::WindowProperties</a>
@@ -70,40 +93,52 @@ $(function() {
 <li>m_isVSync
 : <a class="el" href="struct_engine_1_1_window_properties.html#a8be8793d00a34fa5bfc84ab9dd8f4cab">Engine::WindowProperties</a>
 </li>
+<li>m_iWidth
+: <a class="el" href="class_engine_1_1_window_resize_event.html#a3659650b79a3501c081ef80c26af51a0">Engine::WindowResizeEvent</a>
+</li>
+<li>m_pLogger
+: <a class="el" href="class_engine_1_1_application.html#a9f3a3f2ebfc873ed841cb2717f19627e">Engine::Application</a>
+</li>
+<li>m_pTimer
+: <a class="el" href="class_engine_1_1_application.html#a0203b18a2c689d8c85f9497ac5326f04">Engine::Application</a>
+</li>
 <li>m_title
 : <a class="el" href="struct_engine_1_1_window_properties.html#aa27ba6c50e97deb268242550a7aed00f">Engine::WindowProperties</a>
 </li>
 <li>m_width
 : <a class="el" href="struct_engine_1_1_window_properties.html#ae127d04cab173562dc0457c367d0c9fb">Engine::WindowProperties</a>
 </li>
-<li>pLog
-: <a class="el" href="class_engine_1_1_application.html#a6608d8f9d9709dba2b435314db1e6567">Engine::Application</a>
+<li>ms_bInstanceFlag
+: <a class="el" href="class_engine_1_1_log.html#ad12bbdccb96ff1959001b03e4c1166ff">Engine::Log</a>
+, <a class="el" href="class_engine_1_1_timer.html#aa98408dfd78194d98e719ac55828151d">Engine::Timer</a>
 </li>
-<li>pTimer
-: <a class="el" href="class_engine_1_1_application.html#aeab24ba5252b60cb0706ea5a75dc5ed4">Engine::Application</a>
+<li>ms_bWorking
+: <a class="el" href="class_engine_1_1_timer.html#a89e66d299ed13ebc43de433db62e846c">Engine::Timer</a>
 </li>
-<li>s_bInstanceFlag
-: <a class="el" href="class_engine_1_1_log.html#a0f8d2ef4cc1b4aebc91800eb4d01ca64">Engine::Log</a>
-, <a class="el" href="class_engine_1_1_timer.html#a63e759ee00a9f3fd9a49f522f53fea27">Engine::Timer</a>
+<li>ms_frameDuration
+: <a class="el" href="class_engine_1_1_timer.html#a649bc3f2c917f67806fe5f8668d2257f">Engine::Timer</a>
 </li>
-<li>s_instance
-: <a class="el" href="class_engine_1_1_application.html#ae0e46a024a6a021a88a6b288ec61596f">Engine::Application</a>
+<li>ms_frameEnd
+: <a class="el" href="class_engine_1_1_timer.html#ab4ad546d73010ee6a543d741f6816263">Engine::Timer</a>
 </li>
-<li>s_pLogger
-: <a class="el" href="class_engine_1_1_log.html#aeaf8c2f9880c8977203695343f35d7d1">Engine::Log</a>
+<li>ms_frameStart
+: <a class="el" href="class_engine_1_1_timer.html#a13056d35b3b037d8f2cc566d3f10ef47">Engine::Timer</a>
 </li>
-<li>s_pThis
-: <a class="el" href="class_engine_1_1_log.html#a98495829a34940d922507a3c697205f7">Engine::Log</a>
-, <a class="el" href="class_engine_1_1_timer.html#aa694d366bc1c0734fc0f01937a52f024">Engine::Timer</a>
+<li>ms_instance
+: <a class="el" href="class_engine_1_1_application.html#a453e757c2e20bdaad18e9dad91677bb3">Engine::Application</a>
 </li>
-<li>sectionTimeDuration
-: <a class="el" href="class_engine_1_1_timer.html#a08c565e5d986d7a3c48e045d4f1362a6">Engine::Timer</a>
+<li>ms_pLogger
+: <a class="el" href="class_engine_1_1_log.html#a4d094ed31ed7027c719837758b92e100">Engine::Log</a>
 </li>
-<li>sectionTimeEnd
-: <a class="el" href="class_engine_1_1_timer.html#ae1493ad347d7f053f134db5b102fc0a2">Engine::Timer</a>
+<li>ms_pThis
+: <a class="el" href="class_engine_1_1_log.html#af97a3984465a151e12cf84c8c4a89d14">Engine::Log</a>
+, <a class="el" href="class_engine_1_1_timer.html#ae730e577f4f9f43bd82bd8c52dab1acc">Engine::Timer</a>
 </li>
-<li>sectionTimeStart
-: <a class="el" href="class_engine_1_1_timer.html#a2ecec610235f4512e4403d2335fc128e">Engine::Timer</a>
+<li>ms_sectionTimeDuration
+: <a class="el" href="class_engine_1_1_timer.html#a55de4b1331df905fca9725bc65b26467">Engine::Timer</a>
+</li>
+<li>ms_sectionTimer
+: <a class="el" href="class_engine_1_1_timer.html#a74937c25239dd1f3d665d6b77fdf583e">Engine::Timer</a>
 </li>
 </ul>
 </div><!-- contents -->

@@ -87,15 +87,15 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
-<tr class="memitem:a0f8d2ef4cc1b4aebc91800eb4d01ca64"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_log.html#a0f8d2ef4cc1b4aebc91800eb4d01ca64">s_bInstanceFlag</a> = false</td></tr>
-<tr class="memdesc:a0f8d2ef4cc1b4aebc91800eb4d01ca64"><td class="mdescLeft">&#160;</td><td class="mdescRight">A boolean for if the system is running.  <a href="class_engine_1_1_log.html#a0f8d2ef4cc1b4aebc91800eb4d01ca64">More...</a><br /></td></tr>
-<tr class="separator:a0f8d2ef4cc1b4aebc91800eb4d01ca64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98495829a34940d922507a3c697205f7"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_engine_1_1_log.html">Log</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_log.html#a98495829a34940d922507a3c697205f7">s_pThis</a> = nullptr</td></tr>
-<tr class="memdesc:a98495829a34940d922507a3c697205f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to <a class="el" href="class_engine_1_1_log.html">Log</a> object.  <a href="class_engine_1_1_log.html#a98495829a34940d922507a3c697205f7">More...</a><br /></td></tr>
-<tr class="separator:a98495829a34940d922507a3c697205f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeaf8c2f9880c8977203695343f35d7d1"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_log.html#aeaf8c2f9880c8977203695343f35d7d1">s_pLogger</a> = nullptr</td></tr>
-<tr class="memdesc:aeaf8c2f9880c8977203695343f35d7d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shared pointer to the logger.  <a href="class_engine_1_1_log.html#aeaf8c2f9880c8977203695343f35d7d1">More...</a><br /></td></tr>
-<tr class="separator:aeaf8c2f9880c8977203695343f35d7d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad12bbdccb96ff1959001b03e4c1166ff"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_log.html#ad12bbdccb96ff1959001b03e4c1166ff">ms_bInstanceFlag</a> = false</td></tr>
+<tr class="memdesc:ad12bbdccb96ff1959001b03e4c1166ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">A boolean for if the system is running.  <a href="class_engine_1_1_log.html#ad12bbdccb96ff1959001b03e4c1166ff">More...</a><br /></td></tr>
+<tr class="separator:ad12bbdccb96ff1959001b03e4c1166ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af97a3984465a151e12cf84c8c4a89d14"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_engine_1_1_log.html">Log</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_log.html#af97a3984465a151e12cf84c8c4a89d14">ms_pThis</a> = nullptr</td></tr>
+<tr class="memdesc:af97a3984465a151e12cf84c8c4a89d14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to <a class="el" href="class_engine_1_1_log.html">Log</a> object.  <a href="class_engine_1_1_log.html#af97a3984465a151e12cf84c8c4a89d14">More...</a><br /></td></tr>
+<tr class="separator:af97a3984465a151e12cf84c8c4a89d14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d094ed31ed7027c719837758b92e100"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_log.html#a4d094ed31ed7027c719837758b92e100">ms_pLogger</a> = nullptr</td></tr>
+<tr class="memdesc:a4d094ed31ed7027c719837758b92e100"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the logger.  <a href="class_engine_1_1_log.html#a4d094ed31ed7027c719837758b92e100">More...</a><br /></td></tr>
+<tr class="separator:a4d094ed31ed7027c719837758b92e100"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A system class to be used for logging information, errors etc. to help a programmer know what is happening if something goes wrong. It is a class which provides access to the 3rd party library 'spdlog' </p>
@@ -198,7 +198,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="class_engine_1_1_system.html#a7020561bd617d4237e7e5841f56216c8">Engine::System</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="log_8cpp_source.html#l00028">28</a> of file <a class="el" href="log_8cpp_source.html">log.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="log_8cpp_source.html#l00030">30</a> of file <a class="el" href="log_8cpp_source.html">log.cpp</a>.</p>
 
 </div>
 </div>
@@ -240,13 +240,13 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="class_engine_1_1_system.html#a42c92dca4ba99d16bc5f117460d712a1">Engine::System</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="log_8cpp_source.html#l00035">35</a> of file <a class="el" href="log_8cpp_source.html">log.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="log_8cpp_source.html#l00038">38</a> of file <a class="el" href="log_8cpp_source.html">log.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a0f8d2ef4cc1b4aebc91800eb4d01ca64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f8d2ef4cc1b4aebc91800eb4d01ca64">&#9670;&nbsp;</a></span>s_bInstanceFlag</h2>
+<a id="ad12bbdccb96ff1959001b03e4c1166ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad12bbdccb96ff1959001b03e4c1166ff">&#9670;&nbsp;</a></span>ms_bInstanceFlag</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -255,7 +255,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Engine::Log::s_bInstanceFlag = false</td>
+          <td class="memname">bool Engine::Log::ms_bInstanceFlag = false</td>
         </tr>
       </table>
   </td>
@@ -271,8 +271,8 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aeaf8c2f9880c8977203695343f35d7d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeaf8c2f9880c8977203695343f35d7d1">&#9670;&nbsp;</a></span>s_pLogger</h2>
+<a id="a4d094ed31ed7027c719837758b92e100"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d094ed31ed7027c719837758b92e100">&#9670;&nbsp;</a></span>ms_pLogger</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -281,7 +281,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; spdlog::logger &gt; Engine::Log::s_pLogger = nullptr</td>
+          <td class="memname">std::shared_ptr&lt; spdlog::logger &gt; Engine::Log::ms_pLogger = nullptr</td>
         </tr>
       </table>
   </td>
@@ -291,14 +291,14 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>A shared pointer to the logger. </p>
+<p>Pointer to the logger. </p>
 
 <p class="definition">Definition at line <a class="el" href="log_8h_source.html#l00023">23</a> of file <a class="el" href="log_8h_source.html">log.h</a>.</p>
 
 </div>
 </div>
-<a id="a98495829a34940d922507a3c697205f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98495829a34940d922507a3c697205f7">&#9670;&nbsp;</a></span>s_pThis</h2>
+<a id="af97a3984465a151e12cf84c8c4a89d14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af97a3984465a151e12cf84c8c4a89d14">&#9670;&nbsp;</a></span>ms_pThis</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -307,7 +307,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_engine_1_1_log.html">Log</a> &gt; Engine::Log::s_pThis = nullptr</td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_engine_1_1_log.html">Log</a> &gt; Engine::Log::ms_pThis = nullptr</td>
         </tr>
       </table>
   </td>

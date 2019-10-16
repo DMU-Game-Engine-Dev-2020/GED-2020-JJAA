@@ -45,13 +45,16 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">timer.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="system_8h_source.html">system.h</a>&quot;</code><br />
 <code>#include &quot;chrono&quot;</code><br />
+<code>#include &quot;<a class="el" href="log_8h_source.html">log.h</a>&quot;</code><br />
+<code>#include &lt;map&gt;</code><br />
 </div>
 <p><a href="timer_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -64,7 +67,69 @@ Classes</h2></td></tr>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespace_engine"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_engine.html">Engine</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a1ef094b26ffb01d5c814e7cca9db5322"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer_8h.html#a1ef094b26ffb01d5c814e7cca9db5322">TIMER_NEWFRAME</a>&#160;&#160;&#160;<a class="el" href="class_engine_1_1_timer.html#a28ed0f3ff72fc76bf75718fd3340ef63">Engine::Timer::newFrame</a>();</td></tr>
+<tr class="separator:a1ef094b26ffb01d5c814e7cca9db5322"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcfd44ec3f7d4991c6502a8a4da09baa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer_8h.html#adcfd44ec3f7d4991c6502a8a4da09baa">TIMER_TIMESTEP</a>&#160;&#160;&#160;<a class="el" href="class_engine_1_1_timer.html#a3f1104887d81c2759d0deb0c32fa90ba">Engine::Timer::timestep</a>();</td></tr>
+<tr class="separator:adcfd44ec3f7d4991c6502a8a4da09baa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fbebda1d0e3a6fb04ee916d10f40d87"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer_8h.html#a8fbebda1d0e3a6fb04ee916d10f40d87">TIMER_START</a>(...)&#160;&#160;&#160;<a class="el" href="class_engine_1_1_timer.html#a57c38d737c96e11389bf97df95827392">Engine::Timer::startTimer</a>(__VA_ARGS__)</td></tr>
+<tr class="separator:a8fbebda1d0e3a6fb04ee916d10f40d87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a1ef094b26ffb01d5c814e7cca9db5322"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ef094b26ffb01d5c814e7cca9db5322">&#9670;&nbsp;</a></span>TIMER_NEWFRAME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TIMER_NEWFRAME&#160;&#160;&#160;<a class="el" href="class_engine_1_1_timer.html#a28ed0f3ff72fc76bf75718fd3340ef63">Engine::Timer::newFrame</a>();</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="timer_8h_source.html#l00048">48</a> of file <a class="el" href="timer_8h_source.html">timer.h</a>.</p>
+
+</div>
+</div>
+<a id="a8fbebda1d0e3a6fb04ee916d10f40d87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fbebda1d0e3a6fb04ee916d10f40d87">&#9670;&nbsp;</a></span>TIMER_START</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TIMER_START</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="class_engine_1_1_timer.html#a57c38d737c96e11389bf97df95827392">Engine::Timer::startTimer</a>(__VA_ARGS__)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="timer_8h_source.html#l00050">50</a> of file <a class="el" href="timer_8h_source.html">timer.h</a>.</p>
+
+</div>
+</div>
+<a id="adcfd44ec3f7d4991c6502a8a4da09baa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcfd44ec3f7d4991c6502a8a4da09baa">&#9670;&nbsp;</a></span>TIMER_TIMESTEP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TIMER_TIMESTEP&#160;&#160;&#160;<a class="el" href="class_engine_1_1_timer.html#a3f1104887d81c2759d0deb0c32fa90ba">Engine::Timer::timestep</a>();</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="timer_8h_source.html#l00049">49</a> of file <a class="el" href="timer_8h_source.html">timer.h</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

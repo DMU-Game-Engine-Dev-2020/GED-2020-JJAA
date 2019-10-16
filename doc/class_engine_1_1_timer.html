@@ -46,7 +46,6 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="class_engine_1_1_timer-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -73,15 +72,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a70945adb69163af5477bb631bc1f4453"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#a70945adb69163af5477bb631bc1f4453">stop</a> (<a class="el" href="namespace_engine.html#a3779187ef31b30930abda7fbea542e17">SystemSignal</a> close,...) override</td></tr>
 <tr class="memdesc:a70945adb69163af5477bb631bc1f4453"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop the timer.  <a href="class_engine_1_1_timer.html#a70945adb69163af5477bb631bc1f4453">More...</a><br /></td></tr>
 <tr class="separator:a70945adb69163af5477bb631bc1f4453"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08a9b58f67742180ef04bab15e580763"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#a08a9b58f67742180ef04bab15e580763">timestep</a> ()</td></tr>
-<tr class="memdesc:a08a9b58f67742180ef04bab15e580763"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the time passed since the last frame.  <a href="class_engine_1_1_timer.html#a08a9b58f67742180ef04bab15e580763">More...</a><br /></td></tr>
-<tr class="separator:a08a9b58f67742180ef04bab15e580763"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc99b744bd09342479729e979ceb7172"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#adc99b744bd09342479729e979ceb7172">startTimer</a> ()</td></tr>
-<tr class="memdesc:adc99b744bd09342479729e979ceb7172"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the timer for a section of code.  <a href="class_engine_1_1_timer.html#adc99b744bd09342479729e979ceb7172">More...</a><br /></td></tr>
-<tr class="separator:adc99b744bd09342479729e979ceb7172"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8597f639fa82cea0b0e63f368454702a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#a8597f639fa82cea0b0e63f368454702a">endTimer</a> ()</td></tr>
-<tr class="memdesc:a8597f639fa82cea0b0e63f368454702a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop the timer for the section of code.  <a href="class_engine_1_1_timer.html#a8597f639fa82cea0b0e63f368454702a">More...</a><br /></td></tr>
-<tr class="separator:a8597f639fa82cea0b0e63f368454702a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_engine_1_1_system"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_engine_1_1_system')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_engine_1_1_system.html">Engine::System</a></td></tr>
 <tr class="memitem:a4ed810746929ee960ea5fa6648230c48 inherit pub_methods_class_engine_1_1_system"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_system.html#a4ed810746929ee960ea5fa6648230c48">~System</a> ()</td></tr>
 <tr class="separator:a4ed810746929ee960ea5fa6648230c48 inherit pub_methods_class_engine_1_1_system"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -91,60 +81,78 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a304b3d804c79d6478693204fb6cd1f12"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_engine_1_1_timer.html">Timer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#a304b3d804c79d6478693204fb6cd1f12">getInstance</a> ()</td></tr>
 <tr class="memdesc:a304b3d804c79d6478693204fb6cd1f12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create instance of object and return a pointer to it.  <a href="class_engine_1_1_timer.html#a304b3d804c79d6478693204fb6cd1f12">More...</a><br /></td></tr>
 <tr class="separator:a304b3d804c79d6478693204fb6cd1f12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a5be541b7b62f33afd4ef1b8de435a686"><td class="memItemLeft" align="right" valign="top">std::chrono::high_resolution_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#a5be541b7b62f33afd4ef1b8de435a686">frameStart</a></td></tr>
-<tr class="memdesc:a5be541b7b62f33afd4ef1b8de435a686"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time at the start of the frame.  <a href="class_engine_1_1_timer.html#a5be541b7b62f33afd4ef1b8de435a686">More...</a><br /></td></tr>
-<tr class="separator:a5be541b7b62f33afd4ef1b8de435a686"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa19a61c1f5d4cae253c57a0db02d3080"><td class="memItemLeft" align="right" valign="top">std::chrono::high_resolution_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#aa19a61c1f5d4cae253c57a0db02d3080">frameEnd</a></td></tr>
-<tr class="memdesc:aa19a61c1f5d4cae253c57a0db02d3080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time at the end of the frame.  <a href="class_engine_1_1_timer.html#aa19a61c1f5d4cae253c57a0db02d3080">More...</a><br /></td></tr>
-<tr class="separator:aa19a61c1f5d4cae253c57a0db02d3080"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5ea67d11a8db96d3ef1b71e979944c1"><td class="memItemLeft" align="right" valign="top">std::chrono::duration&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#aa5ea67d11a8db96d3ef1b71e979944c1">frameDuration</a></td></tr>
-<tr class="memdesc:aa5ea67d11a8db96d3ef1b71e979944c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duration of the frame.  <a href="class_engine_1_1_timer.html#aa5ea67d11a8db96d3ef1b71e979944c1">More...</a><br /></td></tr>
-<tr class="separator:aa5ea67d11a8db96d3ef1b71e979944c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ecec610235f4512e4403d2335fc128e"><td class="memItemLeft" align="right" valign="top">std::chrono::high_resolution_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#a2ecec610235f4512e4403d2335fc128e">sectionTimeStart</a></td></tr>
-<tr class="memdesc:a2ecec610235f4512e4403d2335fc128e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time at the start of a section of code.  <a href="class_engine_1_1_timer.html#a2ecec610235f4512e4403d2335fc128e">More...</a><br /></td></tr>
-<tr class="separator:a2ecec610235f4512e4403d2335fc128e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1493ad347d7f053f134db5b102fc0a2"><td class="memItemLeft" align="right" valign="top">std::chrono::high_resolution_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#ae1493ad347d7f053f134db5b102fc0a2">sectionTimeEnd</a></td></tr>
-<tr class="memdesc:ae1493ad347d7f053f134db5b102fc0a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time at the end of the section of code.  <a href="class_engine_1_1_timer.html#ae1493ad347d7f053f134db5b102fc0a2">More...</a><br /></td></tr>
-<tr class="separator:ae1493ad347d7f053f134db5b102fc0a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08c565e5d986d7a3c48e045d4f1362a6"><td class="memItemLeft" align="right" valign="top">std::chrono::duration&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#a08c565e5d986d7a3c48e045d4f1362a6">sectionTimeDuration</a></td></tr>
-<tr class="memdesc:a08c565e5d986d7a3c48e045d4f1362a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time taken to run the code.  <a href="class_engine_1_1_timer.html#a08c565e5d986d7a3c48e045d4f1362a6">More...</a><br /></td></tr>
-<tr class="separator:a08c565e5d986d7a3c48e045d4f1362a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28ed0f3ff72fc76bf75718fd3340ef63"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#a28ed0f3ff72fc76bf75718fd3340ef63">newFrame</a> ()</td></tr>
+<tr class="memdesc:a28ed0f3ff72fc76bf75718fd3340ef63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the time passed since the last frame.  <a href="class_engine_1_1_timer.html#a28ed0f3ff72fc76bf75718fd3340ef63">More...</a><br /></td></tr>
+<tr class="separator:a28ed0f3ff72fc76bf75718fd3340ef63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f1104887d81c2759d0deb0c32fa90ba"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#a3f1104887d81c2759d0deb0c32fa90ba">timestep</a> ()</td></tr>
+<tr class="memdesc:a3f1104887d81c2759d0deb0c32fa90ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">To return the current time between frames.  <a href="class_engine_1_1_timer.html#a3f1104887d81c2759d0deb0c32fa90ba">More...</a><br /></td></tr>
+<tr class="separator:a3f1104887d81c2759d0deb0c32fa90ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57c38d737c96e11389bf97df95827392"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#a57c38d737c96e11389bf97df95827392">startTimer</a> (std::string tag)</td></tr>
+<tr class="memdesc:a57c38d737c96e11389bf97df95827392"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the timer for a section of code.  <a href="class_engine_1_1_timer.html#a57c38d737c96e11389bf97df95827392">More...</a><br /></td></tr>
+<tr class="separator:a57c38d737c96e11389bf97df95827392"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab072053a3582ee4b2c417d94f8cdebb1"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#ab072053a3582ee4b2c417d94f8cdebb1">endTimer</a> (std::string tag)</td></tr>
+<tr class="memdesc:ab072053a3582ee4b2c417d94f8cdebb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop the timer for the section of code.  <a href="class_engine_1_1_timer.html#ab072053a3582ee4b2c417d94f8cdebb1">More...</a><br /></td></tr>
+<tr class="separator:ab072053a3582ee4b2c417d94f8cdebb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
-<tr class="memitem:a63e759ee00a9f3fd9a49f522f53fea27"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#a63e759ee00a9f3fd9a49f522f53fea27">s_bInstanceFlag</a> = false</td></tr>
-<tr class="memdesc:a63e759ee00a9f3fd9a49f522f53fea27"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the timer object exists.  <a href="class_engine_1_1_timer.html#a63e759ee00a9f3fd9a49f522f53fea27">More...</a><br /></td></tr>
-<tr class="separator:a63e759ee00a9f3fd9a49f522f53fea27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa694d366bc1c0734fc0f01937a52f024"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_engine_1_1_timer.html">Timer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#aa694d366bc1c0734fc0f01937a52f024">s_pThis</a> = nullptr</td></tr>
-<tr class="memdesc:aa694d366bc1c0734fc0f01937a52f024"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to <a class="el" href="class_engine_1_1_timer.html">Timer</a> object.  <a href="class_engine_1_1_timer.html#aa694d366bc1c0734fc0f01937a52f024">More...</a><br /></td></tr>
-<tr class="separator:aa694d366bc1c0734fc0f01937a52f024"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa98408dfd78194d98e719ac55828151d"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#aa98408dfd78194d98e719ac55828151d">ms_bInstanceFlag</a> = false</td></tr>
+<tr class="memdesc:aa98408dfd78194d98e719ac55828151d"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the timer object exists.  <a href="class_engine_1_1_timer.html#aa98408dfd78194d98e719ac55828151d">More...</a><br /></td></tr>
+<tr class="separator:aa98408dfd78194d98e719ac55828151d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae730e577f4f9f43bd82bd8c52dab1acc"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_engine_1_1_timer.html">Timer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#ae730e577f4f9f43bd82bd8c52dab1acc">ms_pThis</a> = nullptr</td></tr>
+<tr class="memdesc:ae730e577f4f9f43bd82bd8c52dab1acc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to <a class="el" href="class_engine_1_1_timer.html">Timer</a> object.  <a href="class_engine_1_1_timer.html#ae730e577f4f9f43bd82bd8c52dab1acc">More...</a><br /></td></tr>
+<tr class="separator:ae730e577f4f9f43bd82bd8c52dab1acc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13056d35b3b037d8f2cc566d3f10ef47"><td class="memItemLeft" align="right" valign="top">static std::chrono::high_resolution_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#a13056d35b3b037d8f2cc566d3f10ef47">ms_frameStart</a></td></tr>
+<tr class="memdesc:a13056d35b3b037d8f2cc566d3f10ef47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time at the start of the frame.  <a href="class_engine_1_1_timer.html#a13056d35b3b037d8f2cc566d3f10ef47">More...</a><br /></td></tr>
+<tr class="separator:a13056d35b3b037d8f2cc566d3f10ef47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4ad546d73010ee6a543d741f6816263"><td class="memItemLeft" align="right" valign="top">static std::chrono::high_resolution_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#ab4ad546d73010ee6a543d741f6816263">ms_frameEnd</a></td></tr>
+<tr class="memdesc:ab4ad546d73010ee6a543d741f6816263"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time at the end of the frame.  <a href="class_engine_1_1_timer.html#ab4ad546d73010ee6a543d741f6816263">More...</a><br /></td></tr>
+<tr class="separator:ab4ad546d73010ee6a543d741f6816263"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a649bc3f2c917f67806fe5f8668d2257f"><td class="memItemLeft" align="right" valign="top">static std::chrono::duration&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#a649bc3f2c917f67806fe5f8668d2257f">ms_frameDuration</a></td></tr>
+<tr class="memdesc:a649bc3f2c917f67806fe5f8668d2257f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duration of the frame.  <a href="class_engine_1_1_timer.html#a649bc3f2c917f67806fe5f8668d2257f">More...</a><br /></td></tr>
+<tr class="separator:a649bc3f2c917f67806fe5f8668d2257f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74937c25239dd1f3d665d6b77fdf583e"><td class="memItemLeft" align="right" valign="top">static std::map&lt; std::string, std::pair&lt; std::chrono::high_resolution_clock::time_point, std::chrono::high_resolution_clock::time_point &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#a74937c25239dd1f3d665d6b77fdf583e">ms_sectionTimer</a></td></tr>
+<tr class="memdesc:a74937c25239dd1f3d665d6b77fdf583e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map containing time points and corresponding tag for timing sections of code.  <a href="class_engine_1_1_timer.html#a74937c25239dd1f3d665d6b77fdf583e">More...</a><br /></td></tr>
+<tr class="separator:a74937c25239dd1f3d665d6b77fdf583e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55de4b1331df905fca9725bc65b26467"><td class="memItemLeft" align="right" valign="top">static std::chrono::duration&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#a55de4b1331df905fca9725bc65b26467">ms_sectionTimeDuration</a></td></tr>
+<tr class="memdesc:a55de4b1331df905fca9725bc65b26467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used for calculating the time taken to run a section of code.  <a href="class_engine_1_1_timer.html#a55de4b1331df905fca9725bc65b26467">More...</a><br /></td></tr>
+<tr class="separator:a55de4b1331df905fca9725bc65b26467"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89e66d299ed13ebc43de433db62e846c"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html#a89e66d299ed13ebc43de433db62e846c">ms_bWorking</a> = true</td></tr>
+<tr class="memdesc:a89e66d299ed13ebc43de433db62e846c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will be false if multiple timers with the same tag are started.  <a href="class_engine_1_1_timer.html#a89e66d299ed13ebc43de433db62e846c">More...</a><br /></td></tr>
+<tr class="separator:a89e66d299ed13ebc43de433db62e846c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A system class used for getting the time for a frame. Can also be used to find how long a specific piece of code takes to run </p>
+<div class="textblock"><p>A system class used for getting the time for a frame. Can also be used to find how long sections of code take to run </p>
 
-<p class="definition">Definition at line <a class="el" href="timer_8h_source.html#l00016">16</a> of file <a class="el" href="timer_8h_source.html">timer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="timer_8h_source.html#l00019">19</a> of file <a class="el" href="timer_8h_source.html">timer.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a8597f639fa82cea0b0e63f368454702a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8597f639fa82cea0b0e63f368454702a">&#9670;&nbsp;</a></span>endTimer()</h2>
+<a id="ab072053a3582ee4b2c417d94f8cdebb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab072053a3582ee4b2c417d94f8cdebb1">&#9670;&nbsp;</a></span>endTimer()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">float Engine::Timer::endTimer </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>tag</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Stop the timer for the section of code. </p>
 
-<p class="definition">Definition at line <a class="el" href="timer_8cpp_source.html#l00049">49</a> of file <a class="el" href="timer_8cpp_source.html">timer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="timer_8cpp_source.html#l00071">71</a> of file <a class="el" href="timer_8cpp_source.html">timer.cpp</a>.</p>
 
 </div>
 </div>
@@ -173,7 +181,36 @@ Static Private Attributes</h2></td></tr>
 
 <p>Create instance of object and return a pointer to it. </p>
 
-<p class="definition">Definition at line <a class="el" href="timer_8cpp_source.html#l00012">12</a> of file <a class="el" href="timer_8cpp_source.html">timer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="timer_8cpp_source.html#l00021">21</a> of file <a class="el" href="timer_8cpp_source.html">timer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a28ed0f3ff72fc76bf75718fd3340ef63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28ed0f3ff72fc76bf75718fd3340ef63">&#9670;&nbsp;</a></span>newFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::Timer::newFrame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculate the time passed since the last frame. </p>
+
+<p class="definition">Definition at line <a class="el" href="timer_8cpp_source.html#l00049">49</a> of file <a class="el" href="timer_8cpp_source.html">timer.cpp</a>.</p>
 
 </div>
 </div>
@@ -215,28 +252,37 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="class_engine_1_1_system.html#a7020561bd617d4237e7e5841f56216c8">Engine::System</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="timer_8cpp_source.html#l00025">25</a> of file <a class="el" href="timer_8cpp_source.html">timer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="timer_8cpp_source.html#l00036">36</a> of file <a class="el" href="timer_8cpp_source.html">timer.cpp</a>.</p>
 
 </div>
 </div>
-<a id="adc99b744bd09342479729e979ceb7172"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc99b744bd09342479729e979ceb7172">&#9670;&nbsp;</a></span>startTimer()</h2>
+<a id="a57c38d737c96e11389bf97df95827392"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57c38d737c96e11389bf97df95827392">&#9670;&nbsp;</a></span>startTimer()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Engine::Timer::startTimer </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>tag</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Start the timer for a section of code. </p>
 
-<p class="definition">Definition at line <a class="el" href="timer_8cpp_source.html#l00044">44</a> of file <a class="el" href="timer_8cpp_source.html">timer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="timer_8cpp_source.html#l00056">56</a> of file <a class="el" href="timer_8cpp_source.html">timer.cpp</a>.</p>
 
 </div>
 </div>
@@ -278,34 +324,42 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="class_engine_1_1_system.html#a42c92dca4ba99d16bc5f117460d712a1">Engine::System</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="timer_8cpp_source.html#l00030">30</a> of file <a class="el" href="timer_8cpp_source.html">timer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="timer_8cpp_source.html#l00042">42</a> of file <a class="el" href="timer_8cpp_source.html">timer.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a08a9b58f67742180ef04bab15e580763"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08a9b58f67742180ef04bab15e580763">&#9670;&nbsp;</a></span>timestep()</h2>
+<a id="a3f1104887d81c2759d0deb0c32fa90ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f1104887d81c2759d0deb0c32fa90ba">&#9670;&nbsp;</a></span>timestep()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float Engine::Timer::timestep </td>
+          <td class="memname">static float Engine::Timer::timestep </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Calculate the time passed since the last frame. </p>
+<p>To return the current time between frames. </p>
 
-<p class="definition">Definition at line <a class="el" href="timer_8cpp_source.html#l00036">36</a> of file <a class="el" href="timer_8cpp_source.html">timer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="timer_8h_source.html#l00040">40</a> of file <a class="el" href="timer_8h_source.html">timer.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="aa5ea67d11a8db96d3ef1b71e979944c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5ea67d11a8db96d3ef1b71e979944c1">&#9670;&nbsp;</a></span>frameDuration</h2>
+<a id="aa98408dfd78194d98e719ac55828151d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa98408dfd78194d98e719ac55828151d">&#9670;&nbsp;</a></span>ms_bInstanceFlag</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -314,85 +368,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::chrono::duration&lt;float&gt; Engine::Timer::frameDuration</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Duration of the frame. </p>
-
-<p class="definition">Definition at line <a class="el" href="timer_8h_source.html#l00024">24</a> of file <a class="el" href="timer_8h_source.html">timer.h</a>.</p>
-
-</div>
-</div>
-<a id="aa19a61c1f5d4cae253c57a0db02d3080"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa19a61c1f5d4cae253c57a0db02d3080">&#9670;&nbsp;</a></span>frameEnd</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::chrono::high_resolution_clock::time_point Engine::Timer::frameEnd</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Time at the end of the frame. </p>
-
-<p class="definition">Definition at line <a class="el" href="timer_8h_source.html#l00023">23</a> of file <a class="el" href="timer_8h_source.html">timer.h</a>.</p>
-
-</div>
-</div>
-<a id="a5be541b7b62f33afd4ef1b8de435a686"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5be541b7b62f33afd4ef1b8de435a686">&#9670;&nbsp;</a></span>frameStart</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::chrono::high_resolution_clock::time_point Engine::Timer::frameStart</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Time at the start of the frame. </p>
-
-<p class="definition">Definition at line <a class="el" href="timer_8h_source.html#l00022">22</a> of file <a class="el" href="timer_8h_source.html">timer.h</a>.</p>
-
-</div>
-</div>
-<a id="a63e759ee00a9f3fd9a49f522f53fea27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63e759ee00a9f3fd9a49f522f53fea27">&#9670;&nbsp;</a></span>s_bInstanceFlag</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Engine::Timer::s_bInstanceFlag = false</td>
+          <td class="memname">bool Engine::Timer::ms_bInstanceFlag = false</td>
         </tr>
       </table>
   </td>
@@ -404,12 +380,12 @@ Static Private Attributes</h2></td></tr>
 
 <p>If the timer object exists. </p>
 
-<p class="definition">Definition at line <a class="el" href="timer_8h_source.html#l00019">19</a> of file <a class="el" href="timer_8h_source.html">timer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="timer_8h_source.html#l00022">22</a> of file <a class="el" href="timer_8h_source.html">timer.h</a>.</p>
 
 </div>
 </div>
-<a id="aa694d366bc1c0734fc0f01937a52f024"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa694d366bc1c0734fc0f01937a52f024">&#9670;&nbsp;</a></span>s_pThis</h2>
+<a id="a89e66d299ed13ebc43de433db62e846c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89e66d299ed13ebc43de433db62e846c">&#9670;&nbsp;</a></span>ms_bWorking</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -418,7 +394,111 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_engine_1_1_timer.html">Timer</a> &gt; Engine::Timer::s_pThis = nullptr</td>
+          <td class="memname">bool Engine::Timer::ms_bWorking = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Will be false if multiple timers with the same tag are started. </p>
+
+<p class="definition">Definition at line <a class="el" href="timer_8h_source.html#l00032">32</a> of file <a class="el" href="timer_8h_source.html">timer.h</a>.</p>
+
+</div>
+</div>
+<a id="a649bc3f2c917f67806fe5f8668d2257f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a649bc3f2c917f67806fe5f8668d2257f">&#9670;&nbsp;</a></span>ms_frameDuration</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::chrono::duration&lt; float &gt; Engine::Timer::ms_frameDuration</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Duration of the frame. </p>
+
+<p class="definition">Definition at line <a class="el" href="timer_8h_source.html#l00027">27</a> of file <a class="el" href="timer_8h_source.html">timer.h</a>.</p>
+
+</div>
+</div>
+<a id="ab4ad546d73010ee6a543d741f6816263"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4ad546d73010ee6a543d741f6816263">&#9670;&nbsp;</a></span>ms_frameEnd</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::chrono::high_resolution_clock::time_point Engine::Timer::ms_frameEnd</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Time at the end of the frame. </p>
+
+<p class="definition">Definition at line <a class="el" href="timer_8h_source.html#l00026">26</a> of file <a class="el" href="timer_8h_source.html">timer.h</a>.</p>
+
+</div>
+</div>
+<a id="a13056d35b3b037d8f2cc566d3f10ef47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13056d35b3b037d8f2cc566d3f10ef47">&#9670;&nbsp;</a></span>ms_frameStart</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::chrono::high_resolution_clock::time_point Engine::Timer::ms_frameStart</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Time at the start of the frame. </p>
+
+<p class="definition">Definition at line <a class="el" href="timer_8h_source.html#l00025">25</a> of file <a class="el" href="timer_8h_source.html">timer.h</a>.</p>
+
+</div>
+</div>
+<a id="ae730e577f4f9f43bd82bd8c52dab1acc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae730e577f4f9f43bd82bd8c52dab1acc">&#9670;&nbsp;</a></span>ms_pThis</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_engine_1_1_timer.html">Timer</a> &gt; Engine::Timer::ms_pThis = nullptr</td>
         </tr>
       </table>
   </td>
@@ -430,12 +510,12 @@ Static Private Attributes</h2></td></tr>
 
 <p>Pointer to <a class="el" href="class_engine_1_1_timer.html">Timer</a> object. </p>
 
-<p class="definition">Definition at line <a class="el" href="timer_8h_source.html#l00020">20</a> of file <a class="el" href="timer_8h_source.html">timer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="timer_8h_source.html#l00023">23</a> of file <a class="el" href="timer_8h_source.html">timer.h</a>.</p>
 
 </div>
 </div>
-<a id="a08c565e5d986d7a3c48e045d4f1362a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08c565e5d986d7a3c48e045d4f1362a6">&#9670;&nbsp;</a></span>sectionTimeDuration</h2>
+<a id="a55de4b1331df905fca9725bc65b26467"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55de4b1331df905fca9725bc65b26467">&#9670;&nbsp;</a></span>ms_sectionTimeDuration</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -444,24 +524,24 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::chrono::duration&lt;float&gt; Engine::Timer::sectionTimeDuration</td>
+          <td class="memname">std::chrono::duration&lt; float &gt; Engine::Timer::ms_sectionTimeDuration</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Time taken to run the code. </p>
+<p>Used for calculating the time taken to run a section of code. </p>
 
-<p class="definition">Definition at line <a class="el" href="timer_8h_source.html#l00028">28</a> of file <a class="el" href="timer_8h_source.html">timer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="timer_8h_source.html#l00030">30</a> of file <a class="el" href="timer_8h_source.html">timer.h</a>.</p>
 
 </div>
 </div>
-<a id="ae1493ad347d7f053f134db5b102fc0a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1493ad347d7f053f134db5b102fc0a2">&#9670;&nbsp;</a></span>sectionTimeEnd</h2>
+<a id="a74937c25239dd1f3d665d6b77fdf583e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74937c25239dd1f3d665d6b77fdf583e">&#9670;&nbsp;</a></span>ms_sectionTimer</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -470,45 +550,19 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::chrono::high_resolution_clock::time_point Engine::Timer::sectionTimeEnd</td>
+          <td class="memname">std::map&lt; std::string, std::pair&lt; std::chrono::high_resolution_clock::time_point, std::chrono::high_resolution_clock::time_point &gt; &gt; Engine::Timer::ms_sectionTimer</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Time at the end of the section of code. </p>
+<p>Map containing time points and corresponding tag for timing sections of code. </p>
 
-<p class="definition">Definition at line <a class="el" href="timer_8h_source.html#l00027">27</a> of file <a class="el" href="timer_8h_source.html">timer.h</a>.</p>
-
-</div>
-</div>
-<a id="a2ecec610235f4512e4403d2335fc128e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ecec610235f4512e4403d2335fc128e">&#9670;&nbsp;</a></span>sectionTimeStart</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::chrono::high_resolution_clock::time_point Engine::Timer::sectionTimeStart</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Time at the start of a section of code. </p>
-
-<p class="definition">Definition at line <a class="el" href="timer_8h_source.html#l00026">26</a> of file <a class="el" href="timer_8h_source.html">timer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="timer_8h_source.html#l00029">29</a> of file <a class="el" href="timer_8h_source.html">timer.h</a>.</p>
 
 </div>
 </div>
