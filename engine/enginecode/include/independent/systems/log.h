@@ -9,11 +9,10 @@ namespace Engine
 {
 	/**
 	\class Log
-	A system class to be used for logging information, errors etc. to help a programmer know what is happening if
-	something goes wrong.
-	It is a class which provides access to the 3rd party library 'spdlog'
+	\brief A system class to be used for logging information, errors etc. 
+	
+	This class inherits fron System and provides access to the 3rd party library 'spdlog'
 	*/
-
 	class Log : public System
 	{
 	private:
@@ -27,7 +26,7 @@ namespace Engine
 		void start(SystemSignal init, ...) override; //!< A function to start the logger
 		void stop(SystemSignal close, ...) override; //!< A function to stop the logger
 
-		inline static std::shared_ptr<spdlog::logger> getLogger() { return ms_pLogger; } //!< To get the logger
+		inline static std::shared_ptr<spdlog::logger> getLogger() { return ms_pLogger; } //!< Returns a pointer to the logger
 	};
 }
 

@@ -53,6 +53,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A system class to be used for logging information, errors etc.  
+ <a href="class_engine_1_1_log.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="log_8h_source.html">log.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Engine::Log:</div>
@@ -82,7 +85,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:ac94ff844d1c489ef5e5209483d730aa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create instance of object and return a pointer to it.  <a href="class_engine_1_1_log.html#ac94ff844d1c489ef5e5209483d730aa2">More...</a><br /></td></tr>
 <tr class="separator:ac94ff844d1c489ef5e5209483d730aa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8571bf318bfda59903d34f25a28a36cf"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_log.html#a8571bf318bfda59903d34f25a28a36cf">getLogger</a> ()</td></tr>
-<tr class="memdesc:a8571bf318bfda59903d34f25a28a36cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">To get the logger.  <a href="class_engine_1_1_log.html#a8571bf318bfda59903d34f25a28a36cf">More...</a><br /></td></tr>
+<tr class="memdesc:a8571bf318bfda59903d34f25a28a36cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the logger.  <a href="class_engine_1_1_log.html#a8571bf318bfda59903d34f25a28a36cf">More...</a><br /></td></tr>
 <tr class="separator:a8571bf318bfda59903d34f25a28a36cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
@@ -91,16 +94,17 @@ Static Private Attributes</h2></td></tr>
 <tr class="memdesc:ad12bbdccb96ff1959001b03e4c1166ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">A boolean for if the system is running.  <a href="class_engine_1_1_log.html#ad12bbdccb96ff1959001b03e4c1166ff">More...</a><br /></td></tr>
 <tr class="separator:ad12bbdccb96ff1959001b03e4c1166ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af97a3984465a151e12cf84c8c4a89d14"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_engine_1_1_log.html">Log</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_log.html#af97a3984465a151e12cf84c8c4a89d14">ms_pThis</a> = nullptr</td></tr>
-<tr class="memdesc:af97a3984465a151e12cf84c8c4a89d14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to <a class="el" href="class_engine_1_1_log.html">Log</a> object.  <a href="class_engine_1_1_log.html#af97a3984465a151e12cf84c8c4a89d14">More...</a><br /></td></tr>
+<tr class="memdesc:af97a3984465a151e12cf84c8c4a89d14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to <a class="el" href="class_engine_1_1_log.html" title="A system class to be used for logging information, errors etc.">Log</a> object.  <a href="class_engine_1_1_log.html#af97a3984465a151e12cf84c8c4a89d14">More...</a><br /></td></tr>
 <tr class="separator:af97a3984465a151e12cf84c8c4a89d14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d094ed31ed7027c719837758b92e100"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_log.html#a4d094ed31ed7027c719837758b92e100">ms_pLogger</a> = nullptr</td></tr>
 <tr class="memdesc:a4d094ed31ed7027c719837758b92e100"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the logger.  <a href="class_engine_1_1_log.html#a4d094ed31ed7027c719837758b92e100">More...</a><br /></td></tr>
 <tr class="separator:a4d094ed31ed7027c719837758b92e100"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A system class to be used for logging information, errors etc. to help a programmer know what is happening if something goes wrong. It is a class which provides access to the 3rd party library 'spdlog' </p>
+<div class="textblock"><p>A system class to be used for logging information, errors etc. </p>
+<p>This class inherits fron <a class="el" href="class_engine_1_1_system.html">System</a> and provides access to the 3rd party library 'spdlog' </p>
 
-<p class="definition">Definition at line <a class="el" href="log_8h_source.html#l00017">17</a> of file <a class="el" href="log_8h_source.html">log.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="log_8h_source.html#l00016">16</a> of file <a class="el" href="log_8h_source.html">log.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac94ff844d1c489ef5e5209483d730aa2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac94ff844d1c489ef5e5209483d730aa2">&#9670;&nbsp;</a></span>getInstance()</h2>
@@ -154,9 +158,9 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>To get the logger. </p>
+<p>Returns a pointer to the logger. </p>
 
-<p class="definition">Definition at line <a class="el" href="log_8h_source.html#l00030">30</a> of file <a class="el" href="log_8h_source.html">log.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="log_8h_source.html#l00029">29</a> of file <a class="el" href="log_8h_source.html">log.h</a>.</p>
 
 </div>
 </div>
@@ -267,7 +271,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>A boolean for if the system is running. </p>
 
-<p class="definition">Definition at line <a class="el" href="log_8h_source.html#l00020">20</a> of file <a class="el" href="log_8h_source.html">log.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="log_8h_source.html#l00019">19</a> of file <a class="el" href="log_8h_source.html">log.h</a>.</p>
 
 </div>
 </div>
@@ -293,7 +297,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Pointer to the logger. </p>
 
-<p class="definition">Definition at line <a class="el" href="log_8h_source.html#l00023">23</a> of file <a class="el" href="log_8h_source.html">log.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="log_8h_source.html#l00022">22</a> of file <a class="el" href="log_8h_source.html">log.h</a>.</p>
 
 </div>
 </div>
@@ -317,9 +321,9 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Pointer to <a class="el" href="class_engine_1_1_log.html">Log</a> object. </p>
+<p>Pointer to <a class="el" href="class_engine_1_1_log.html" title="A system class to be used for logging information, errors etc.">Log</a> object. </p>
 
-<p class="definition">Definition at line <a class="el" href="log_8h_source.html#l00021">21</a> of file <a class="el" href="log_8h_source.html">log.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="log_8h_source.html#l00020">20</a> of file <a class="el" href="log_8h_source.html">log.h</a>.</p>
 
 </div>
 </div>

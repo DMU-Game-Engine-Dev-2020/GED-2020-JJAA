@@ -12,10 +12,10 @@ namespace Engine
 {
 	/**
 	\class Timer
-	A system class used for getting the time for a frame. Can also be used to find how long sections of code
-	take to run
+	\brief A system class used for timing things
+	
+	It is used to get the time taken for a frame. It can also be used to find how long sections of code take to run
 	*/
-
 	class Timer : public System
 	{
 	private:

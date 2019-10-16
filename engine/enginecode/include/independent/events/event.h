@@ -18,7 +18,7 @@ namespace Engine
 		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
 	};
 
-	enum EventCategory //!< Categories for events. Bit shifting to give each category a bit pattern
+	enum EventCategory //! Categories for events. Bit shifting to give each category a bit pattern
 	{
 		None = 0,                          // Bit patterns
 		EventCategoryWindow = 1 << 0,      // 00000001
@@ -49,7 +49,7 @@ namespace Engine
 
 	/**
 	\class EventDispatcher
-	\brief 
+	\brief Dispatches events to boolean functions which take a reference to the event
 	*/
 	class EventDispatcher
 	{
@@ -60,18 +60,18 @@ namespace Engine
 	public:
 		EventDispatcher(Event& event) : m_event(event) {} //!< Constructor, set the stored event reference to the one passed in
 
-		//! Function comparing the type of the stored event with the type of the 
-		/**
-		\param func 
-		*/
+		//! Function comparing the type of the stored event with the type of the event passed in
 		template<typename T>
 		bool dispatch(EventFunc<T> func)
 		{
+			// If the event types match
 			if (m_event.getEventType() == T::getStaticType())
 			{
+				// Handle the event
 				m_event.handle(func(*((T*)&m_event)));
 				return true;
 			}
+			// The event types didn't match
 			return false;
 		}
 	};
