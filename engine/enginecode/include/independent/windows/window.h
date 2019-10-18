@@ -1,7 +1,7 @@
 #pragma once
 
 #include "graphicsContext.h"
-#include "events/event.h"
+
 #include "events/windowEvents.h"
 #include "events/keyEvents.h"
 #include "events/mouseEvents.h"

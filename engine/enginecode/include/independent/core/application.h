@@ -29,15 +29,17 @@ namespace Engine {
 		float m_fTotalTimeElapsed; //!< The total time the program has been active in seconds
 		float m_fLastFrameTime; //!< Time in seconds for the last frame
 
-		std::unique_ptr<Window> m_pWindow;
+		std::unique_ptr<Window> m_pWindow; //!< Unique pointer to the window
 	public:
 		virtual ~Application(); //!< Deconstructor
 		inline static Application& getInstance() { return *ms_instance; } //!< Instance getter from singleton pattern
 		void onEvent(Event& e); //!< When an event happens
 		bool onClose(WindowCloseEvent& e); //!< Called if the event is a window close event
 		bool onResize(WindowResizeEvent& e); //!< Called if the event is a window resize event
+		bool onFocus(WindowFocusEvent& e); //!< Called if the window gets focus
+		bool onLostFocus(WindowLostFocusEvent& e); //!< Callsed if the window loses focus
 		void run(); //!< Main loop
-		inline Window& getWindow() { return *m_pWindow; }
+		inline Window& getWindow() { return *m_pWindow; } //!< Returns window
 	};
 
 	// To be defined in users code

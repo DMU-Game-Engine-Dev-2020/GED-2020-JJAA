@@ -41,7 +41,6 @@ namespace Engine
 		glfwSetWindowUserPointer(m_pNativeWindow, &m_callback);
 		setVSync(true);
 
-
 		glfwSetWindowCloseCallback(m_pNativeWindow,
 			[](GLFWwindow* window)
 		{
@@ -57,6 +56,23 @@ namespace Engine
 
 			WindowResizeEvent event(width, height);
 			callback(event);
+		});
+
+		glfwSetWindowFocusCallback(m_pNativeWindow,
+			[](GLFWwindow* window, int focused)
+		{
+			std::function<void(Event&)>& callback = *(std::function<void(Event&)>*)glfwGetWindowUserPointer(window);
+
+			if (focused == GLFW_TRUE)
+			{
+				WindowFocusEvent event(0, 0);
+				callback(event);
+			}
+			else if (focused == GLFW_FALSE)
+			{
+				WindowLostFocusEvent event(0, 0);
+				callback(event);
+			}
 		});
 
 		glfwSetKeyCallback(m_pNativeWindow,

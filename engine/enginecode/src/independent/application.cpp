@@ -48,6 +48,8 @@ namespace Engine {
 		// If the Event type matches, call the corresponding function
 		dispatcher.dispatch<WindowCloseEvent>(std::bind(&Application::onClose, this, std::placeholders::_1));
 		dispatcher.dispatch<WindowResizeEvent>(std::bind(&Application::onResize, this, std::placeholders::_1));
+		dispatcher.dispatch<WindowFocusEvent>(std::bind(&Application::onFocus, this, std::placeholders::_1));
+		dispatcher.dispatch<WindowLostFocusEvent>(std::bind(&Application::onLostFocus, this, std::placeholders::_1));
 	}
 
 	bool Application::onClose(WindowCloseEvent& e)
@@ -63,6 +65,18 @@ namespace Engine {
 		// Log what's happening
 		LOG_TRACE("Window resize event. Width {0}, Height {1}", e.getWidth(), e.getHeight());
 		m_pWindow->onResize(e.getWidth(), e.getHeight()); // Set the windows new size in its properties
+		return true;
+	}
+
+	bool Application::onFocus(WindowFocusEvent& e)
+	{
+		LOG_TRACE("Window being focused on");
+		return true;
+	}
+
+	bool Application::onLostFocus(WindowLostFocusEvent& e)
+	{
+		LOG_TRACE("Window losing focus");
 		return true;
 	}
 
