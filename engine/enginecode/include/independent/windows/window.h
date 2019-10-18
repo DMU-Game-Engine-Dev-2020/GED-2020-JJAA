@@ -1,13 +1,13 @@
 #pragma once
 
 #include "graphicsContext.h"
+#include "events/event.h"
+
 #include <string>
 #include <functional>
 
-namespace Engine {
-
-	class Event; // Be replaced
-
+namespace Engine 
+{
 	struct WindowProperties
 	{
 		std::string m_title;

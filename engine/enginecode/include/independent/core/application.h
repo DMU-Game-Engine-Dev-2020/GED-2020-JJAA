@@ -5,6 +5,7 @@
 #include "systems/log.h"
 #include "systems/timer.h"
 #include "events/windowEvents.h"
+#include "windows/window.h"
 
 namespace Engine {
 
@@ -27,6 +28,8 @@ namespace Engine {
 		bool m_bRunning; //!< If the application is running
 		float m_fTotalTimeElapsed; //!< The total time the program has been active in seconds
 		float m_fLastFrameTime; //!< Time in seconds for the last frame
+
+		std::unique_ptr<Window> m_pWindow;
 	public:
 		virtual ~Application(); //!< Deconstructor
 		inline static Application& getInstance() { return *ms_instance; } //!< Instance getter from singleton pattern

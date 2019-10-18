@@ -26,6 +26,9 @@ namespace Engine {
 		// Run the start functions of the systems
 		m_pLogger->start(SystemSignal::None);
 		m_pTimer->start(SystemSignal::None);
+
+		m_pWindow = std::unique_ptr<Window>(Window::create());
+		m_pWindow->setEventCallback(std::bind(&Application::onEvent, this, std::placeholders::_1));
 	}
 
 	Application::~Application()
@@ -69,21 +72,21 @@ namespace Engine {
 		while (m_bRunning)
 		{
 			// Log information
-			LOG_INFO("Frame, FRAME, FRAAAAME!");
+			//LOG_INFO("Frame, FRAME, FRAAAAME!");
 			TIMER_NEWFRAME; // Tell timer to start for new frame
 
 			m_fLastFrameTime = TIMER_TIMESTEP; // Get the time taken to run the previous frame
 
 			// Calculate and display the FPS
 			float FPS = 1 / m_fLastFrameTime;
-			LOG_INFO("FPS: {0}", FPS);
+			//LOG_INFO("FPS: {0}", FPS);
 
 			m_fTotalTimeElapsed += m_fLastFrameTime; // Add the time to run the previous frame to the total time elapsed
 			// If 5 seconds have passed
 			if (m_fTotalTimeElapsed >= 5.f)
 			{
 				// Show the total time the application has been running
-				LOG_INFO("Application running loop ended after {0} seconds", m_fTotalTimeElapsed);
+				//LOG_INFO("Application running loop ended after {0} seconds", m_fTotalTimeElapsed);
 
 				// Resize the window
 				WindowResizeEvent re(1024, 720);
@@ -92,9 +95,10 @@ namespace Engine {
 				WindowCloseEvent ce;
 				onEvent(ce);
 			}
+			m_pWindow->onUpdate(m_fLastFrameTime);
 		}
-		/*
-		// Test the timer
+		
+		/*// Test the timer
 		// Start two timers with the same tag
 		TIMER_START("Tag");
 		TIMER_START("Tag");

@@ -48,12 +48,18 @@ namespace Engine
 	*/
 	class WindowFocusEvent : public Event
 	{
+	private:
+		float m_fXPos;
+		float m_fYPos;
 	public:
-		WindowFocusEvent() {} //!< Constructor
+		WindowFocusEvent(float xPos, float yPos) : m_fXPos(xPos), m_fYPos(yPos) {} //!< Constructor
 
 		static EventType getStaticType() { return EventType::WindowFocus; } //!< Returns the type even if the event has not been created
 		EventType getEventType() const override { return EventType::WindowFocus; } //!< Returns the event type
 		int getCategoryFlags() const override { return EventCategoryWindow; } //!< Returns the category flags
+
+		float getXPos() { return m_fXPos; } //!< Returns the x position
+		float getYPos() { return m_fYPos; } //!< Returns the y position
 	};
 
 	/**
@@ -62,12 +68,18 @@ namespace Engine
 	*/
 	class WindowLostFocusEvent : public Event
 	{
+	private:
+		float m_fXPos;
+		float m_fYPos;
 	public:
-		WindowLostFocusEvent() {} //!< Constructor
+		WindowLostFocusEvent(float xPos, float yPos) : m_fXPos(xPos), m_fYPos(yPos) {} //!< Constructor
 
 		static EventType getStaticType() { return EventType::WindowLostFocus; } //!< Returns the type even if the event has not been created
 		EventType getEventType() const override { return EventType::WindowLostFocus; } //!< Returns the event type
 		int getCategoryFlags() const override { return EventCategoryWindow; } //!< Returns the category flags
+
+		float getXPos() { return m_fXPos; } //!< Returns the x position
+		float getYPos() { return m_fYPos; } //!< Returns the y position
 	};
 
 	/**
