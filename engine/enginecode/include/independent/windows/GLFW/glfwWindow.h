@@ -1,8 +1,8 @@
 #pragma once
 
-#include "window.h"
+#include "windows/window.h"
 #include "systems/log.h"
-#include "openGL_GLFWGraphicsContext.h"
+#include "windows/GLFW/openGL_GLFWGraphicsContext.h"
 
 namespace Engine
 {

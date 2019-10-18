@@ -5,7 +5,6 @@
 #include "engine_pch.h"
 #include "core/application.h"
 
-
 namespace Engine {
 	Application* Application::ms_instance = nullptr;
 
@@ -54,7 +53,7 @@ namespace Engine {
 	bool Application::onClose(WindowCloseEvent& e)
 	{
 		// Log what's happening
-		LOG_INFO("Window closing");
+		LOG_TRACE("Window closing");
 		m_bRunning = false; // No longer running
 		return true;
 	}
@@ -62,7 +61,8 @@ namespace Engine {
 	bool Application::onResize(WindowResizeEvent& e)
 	{
 		// Log what's happening
-		LOG_INFO("Window resize event. Width {0}, Height {1}", e.getWidth(), e.getHeight());
+		LOG_TRACE("Window resize event. Width {0}, Height {1}", e.getWidth(), e.getHeight());
+		m_pWindow->onResize(e.getWidth(), e.getHeight()); // Set the windows new size in its properties
 		return true;
 	}
 
@@ -82,19 +82,7 @@ namespace Engine {
 			//LOG_INFO("FPS: {0}", FPS);
 
 			m_fTotalTimeElapsed += m_fLastFrameTime; // Add the time to run the previous frame to the total time elapsed
-			// If 5 seconds have passed
-			if (m_fTotalTimeElapsed >= 5.f)
-			{
-				// Show the total time the application has been running
-				//LOG_INFO("Application running loop ended after {0} seconds", m_fTotalTimeElapsed);
 
-				// Resize the window
-				WindowResizeEvent re(1024, 720);
-				onEvent(re);
-				// Close the window
-				WindowCloseEvent ce;
-				onEvent(ce);
-			}
 			m_pWindow->onUpdate(m_fLastFrameTime);
 		}
 		

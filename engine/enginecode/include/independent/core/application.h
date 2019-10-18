@@ -4,7 +4,7 @@
 
 #include "systems/log.h"
 #include "systems/timer.h"
-#include "events/windowEvents.h"
+
 #include "windows/window.h"
 
 namespace Engine {
@@ -37,6 +37,7 @@ namespace Engine {
 		bool onClose(WindowCloseEvent& e); //!< Called if the event is a window close event
 		bool onResize(WindowResizeEvent& e); //!< Called if the event is a window resize event
 		void run(); //!< Main loop
+		inline Window& getWindow() { return *m_pWindow; }
 	};
 
 	// To be defined in users code
