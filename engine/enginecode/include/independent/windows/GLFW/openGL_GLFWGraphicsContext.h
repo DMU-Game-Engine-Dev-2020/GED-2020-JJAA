@@ -1,3 +1,5 @@
+/** \file openGL_GLFWGraphicsContext.h
+*/
 #pragma once
 
 #include "windows/graphicsContext.h"
@@ -5,12 +7,17 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+/**
+\class OpenGL_GLFWGraphicsContext
+\brief Implementation to a graphics context for openGL and GLFW
+*/
 class OpenGL_GLFWGraphicsContext : public GraphicsContext
 {
 private:
-	GLFWwindow* m_pWindow;
+	GLFWwindow* m_pWindow; //!< Pointer to the window
 public:
+	//! Constructor
 	OpenGL_GLFWGraphicsContext(GLFWwindow* window) : m_pWindow(window) {}
-	void init() override;
-	void swapBuffers() override;
+	void init() override; //!< Initialize object
+	void swapBuffers() override; //!< Swap the buffers, update the window
 };

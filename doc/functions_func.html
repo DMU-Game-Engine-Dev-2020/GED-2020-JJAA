@@ -50,10 +50,11 @@ $(function() {
 
 <h3><a id="index_c"></a>- c -</h3><ul>
 <li>close()
-: <a class="el" href="class_engine_1_1_window.html#a38d3c1012c983e7f276a21cff4555426">Engine::Window</a>
+: <a class="el" href="class_engine_1_1_g_l_f_w_window_impl.html#a7de899d771d169db2a239def86238dc3">Engine::GLFWWindowImpl</a>
+, <a class="el" href="class_engine_1_1_window.html#a38d3c1012c983e7f276a21cff4555426">Engine::Window</a>
 </li>
 <li>create()
-: <a class="el" href="class_engine_1_1_window.html#a7da6eb976d0b4fa6336d741871f26e14">Engine::Window</a>
+: <a class="el" href="class_engine_1_1_window.html#aaa5c2093ac89dae5b31ba426462f6894">Engine::Window</a>
 </li>
 </ul>
 
@@ -107,7 +108,8 @@ $(function() {
 , <a class="el" href="class_engine_1_1_window_resize_event.html#aea60e336781a151f21f99675847c75ec">Engine::WindowResizeEvent</a>
 </li>
 <li>getHeight()
-: <a class="el" href="class_engine_1_1_window.html#af212cb0a8ea1fd68974f73b44e33b733">Engine::Window</a>
+: <a class="el" href="class_engine_1_1_g_l_f_w_window_impl.html#afc3412287fc12374b8500dcae94c78b5">Engine::GLFWWindowImpl</a>
+, <a class="el" href="class_engine_1_1_window.html#af212cb0a8ea1fd68974f73b44e33b733">Engine::Window</a>
 , <a class="el" href="class_engine_1_1_window_resize_event.html#a4813b966b4efa6a173f19e24067c1339">Engine::WindowResizeEvent</a>
 </li>
 <li>getInstance()
@@ -121,8 +123,30 @@ $(function() {
 <li>getMouseButton()
 : <a class="el" href="class_engine_1_1_mouse_button_event.html#a8f02c73755e0df55cfc1cc4a6cc81745">Engine::MouseButtonEvent</a>
 </li>
+<li>getMousePosition()
+: <a class="el" href="class_engine_1_1_input_poller.html#a4ee181e085c40e014843a708d3982d37">Engine::InputPoller</a>
+</li>
+<li>getMousePositionImpl()
+: <a class="el" href="class_engine_1_1_g_l_f_w_input_poller.html#a317c25d952f62762f29a5b26cd9c26a4">Engine::GLFWInputPoller</a>
+, <a class="el" href="class_engine_1_1_input_poller.html#a07d16d9418611ea0ec374c7d535bfecf">Engine::InputPoller</a>
+</li>
+<li>getMouseX()
+: <a class="el" href="class_engine_1_1_input_poller.html#a58862fad712d368056822d468b17baf9">Engine::InputPoller</a>
+</li>
+<li>getMouseXImpl()
+: <a class="el" href="class_engine_1_1_g_l_f_w_input_poller.html#a79277e1c73f9e1c57b0b113a3e506150">Engine::GLFWInputPoller</a>
+, <a class="el" href="class_engine_1_1_input_poller.html#a6d6772b7ee82df51b33a4dfa4896252c">Engine::InputPoller</a>
+</li>
+<li>getMouseY()
+: <a class="el" href="class_engine_1_1_input_poller.html#a3228e177d6067b7ac2405007768f31d9">Engine::InputPoller</a>
+</li>
+<li>getMouseYImpl()
+: <a class="el" href="class_engine_1_1_g_l_f_w_input_poller.html#aeca6176b3ff62efa4a703d059b59f4ab">Engine::GLFWInputPoller</a>
+, <a class="el" href="class_engine_1_1_input_poller.html#af437eb25cc84d2ac2ae0f9a8e29469d5">Engine::InputPoller</a>
+</li>
 <li>getNativeWindow()
-: <a class="el" href="class_engine_1_1_window.html#a1b629ee9bae245cc64d42f969b634f13">Engine::Window</a>
+: <a class="el" href="class_engine_1_1_g_l_f_w_window_impl.html#a35c31d89d35e986f4fc51ae03c3395d4">Engine::GLFWWindowImpl</a>
+, <a class="el" href="class_engine_1_1_window.html#a1b629ee9bae245cc64d42f969b634f13">Engine::Window</a>
 </li>
 <li>getRepeated()
 : <a class="el" href="class_engine_1_1_key_pressed_event.html#a3bb6d839562e22fd919841cd4397a7b2">Engine::KeyPressedEvent</a>
@@ -142,8 +166,12 @@ $(function() {
 , <a class="el" href="class_engine_1_1_window_resize_event.html#a131f428f843773118362352924b12353">Engine::WindowResizeEvent</a>
 </li>
 <li>getWidth()
-: <a class="el" href="class_engine_1_1_window.html#a8c267e602cd2d6482272857208ac41f9">Engine::Window</a>
+: <a class="el" href="class_engine_1_1_g_l_f_w_window_impl.html#a656cd926170b54513717a5221e81ce3e">Engine::GLFWWindowImpl</a>
+, <a class="el" href="class_engine_1_1_window.html#a8c267e602cd2d6482272857208ac41f9">Engine::Window</a>
 , <a class="el" href="class_engine_1_1_window_resize_event.html#ad67de69fb49d26e4609db958d3bfb9ea">Engine::WindowResizeEvent</a>
+</li>
+<li>getWindow()
+: <a class="el" href="class_engine_1_1_application.html#a67c87170b40b8c66106e9a6f0ea2bad5">Engine::Application</a>
 </li>
 <li>getX()
 : <a class="el" href="class_engine_1_1_mouse_moved_event.html#aa00a1d72b75011cd2560ae2397a8e0ae">Engine::MouseMovedEvent</a>
@@ -151,11 +179,22 @@ $(function() {
 <li>getXOffset()
 : <a class="el" href="class_engine_1_1_mouse_scrolled_event.html#ab2ba679dc436d1f9f9420e3bbe199f18">Engine::MouseScrolledEvent</a>
 </li>
+<li>getXPos()
+: <a class="el" href="class_engine_1_1_window_focus_event.html#a4fc5ec9107922a49886c33a058df7835">Engine::WindowFocusEvent</a>
+, <a class="el" href="class_engine_1_1_window_lost_focus_event.html#aaf289a95d4b8e8b2710b5d2e00af9e78">Engine::WindowLostFocusEvent</a>
+</li>
 <li>getY()
 : <a class="el" href="class_engine_1_1_mouse_moved_event.html#a867750f24e13cc1b0a55ad94cbbe3262">Engine::MouseMovedEvent</a>
 </li>
 <li>getYOffset()
 : <a class="el" href="class_engine_1_1_mouse_scrolled_event.html#a7d64bce052146ef0a3f6b0ee03c79430">Engine::MouseScrolledEvent</a>
+</li>
+<li>getYPos()
+: <a class="el" href="class_engine_1_1_window_focus_event.html#a81e046e3828452d4d850eb5367bc2d26">Engine::WindowFocusEvent</a>
+, <a class="el" href="class_engine_1_1_window_lost_focus_event.html#a4f01c876a6939421ca133f6b86c7b15c">Engine::WindowLostFocusEvent</a>
+</li>
+<li>GLFWWindowImpl()
+: <a class="el" href="class_engine_1_1_g_l_f_w_window_impl.html#ac8195571682a90b62aae57812f510b06">Engine::GLFWWindowImpl</a>
 </li>
 </ul>
 
@@ -172,17 +211,35 @@ $(function() {
 
 <h3><a id="index_i"></a>- i -</h3><ul>
 <li>init()
-: <a class="el" href="class_engine_1_1_window.html#aa601f7c6065b7017e3747fb5d73f5969">Engine::Window</a>
+: <a class="el" href="class_engine_1_1_g_l_f_w_window_impl.html#a5edd24c277e0eb699924c586854f647d">Engine::GLFWWindowImpl</a>
+, <a class="el" href="class_engine_1_1_window.html#aa601f7c6065b7017e3747fb5d73f5969">Engine::Window</a>
 , <a class="el" href="class_graphics_context.html#a9d9e893ff7a5f64f7f0807e264068662">GraphicsContext</a>
+, <a class="el" href="class_open_g_l___g_l_f_w_graphics_context.html#a426654924afd47c9c654bbdbea8db1cc">OpenGL_GLFWGraphicsContext</a>
 </li>
 <li>isFullScreenMode()
-: <a class="el" href="class_engine_1_1_window.html#a04486d3f3a9909fb729b0143116066bb">Engine::Window</a>
+: <a class="el" href="class_engine_1_1_g_l_f_w_window_impl.html#a292f10a85fc8d125992eaa7a15e9b324">Engine::GLFWWindowImpl</a>
+, <a class="el" href="class_engine_1_1_window.html#a04486d3f3a9909fb729b0143116066bb">Engine::Window</a>
 </li>
 <li>isInCategory()
 : <a class="el" href="class_engine_1_1_event.html#a5f30afe98ebd8e8c37c9400653a84ada">Engine::Event</a>
 </li>
+<li>isKeyPressed()
+: <a class="el" href="class_engine_1_1_input_poller.html#aa4c6ac9f117092cea628fcfdf7ce1002">Engine::InputPoller</a>
+</li>
+<li>isKeyPressedImpl()
+: <a class="el" href="class_engine_1_1_g_l_f_w_input_poller.html#a8507c910db0092c8318cd40e0550ad7c">Engine::GLFWInputPoller</a>
+, <a class="el" href="class_engine_1_1_input_poller.html#a53bc931ed5f1a5b0a3c527d8b2de70c2">Engine::InputPoller</a>
+</li>
+<li>isMouseButtonPressed()
+: <a class="el" href="class_engine_1_1_input_poller.html#aff9b0041ada77193398c1dd6df47deb5">Engine::InputPoller</a>
+</li>
+<li>isMouseButtonPressedImpl()
+: <a class="el" href="class_engine_1_1_g_l_f_w_input_poller.html#a87c96b7995e18fa6af4b4e37cb2c457f">Engine::GLFWInputPoller</a>
+, <a class="el" href="class_engine_1_1_input_poller.html#a5980f84e1d66dc59730582792f5c7704">Engine::InputPoller</a>
+</li>
 <li>isVSync()
-: <a class="el" href="class_engine_1_1_window.html#acfec841fb83d7401cd5dfb7e203bf1cf">Engine::Window</a>
+: <a class="el" href="class_engine_1_1_g_l_f_w_window_impl.html#acc906dd105a5e3814358c5f226106721">Engine::GLFWWindowImpl</a>
+, <a class="el" href="class_engine_1_1_window.html#acfec841fb83d7401cd5dfb7e203bf1cf">Engine::Window</a>
 </li>
 </ul>
 
@@ -236,12 +293,23 @@ $(function() {
 <li>onEvent()
 : <a class="el" href="class_engine_1_1_application.html#a715baf41602421143cd0bed7343493a6">Engine::Application</a>
 </li>
+<li>onFocus()
+: <a class="el" href="class_engine_1_1_application.html#a59a442c9c21363a2bf04e9443c30c797">Engine::Application</a>
+</li>
+<li>onLostFocus()
+: <a class="el" href="class_engine_1_1_application.html#a9ca6b3d540327588f4fd1385d73b42ee">Engine::Application</a>
+</li>
 <li>onResize()
 : <a class="el" href="class_engine_1_1_application.html#aa8123e19ea327d806a7f02b82a837183">Engine::Application</a>
+, <a class="el" href="class_engine_1_1_g_l_f_w_window_impl.html#abc43e60fcd2ac03d7194912589dc0d9b">Engine::GLFWWindowImpl</a>
 , <a class="el" href="class_engine_1_1_window.html#a7816915072123b15d1fda1601fb2c9d5">Engine::Window</a>
 </li>
 <li>onUpdate()
-: <a class="el" href="class_engine_1_1_window.html#abdb4e0a16ec760470b68d2c88028bcc6">Engine::Window</a>
+: <a class="el" href="class_engine_1_1_g_l_f_w_window_impl.html#a839aa2522d64303a818f54dad93e1031">Engine::GLFWWindowImpl</a>
+, <a class="el" href="class_engine_1_1_window.html#abdb4e0a16ec760470b68d2c88028bcc6">Engine::Window</a>
+</li>
+<li>OpenGL_GLFWGraphicsContext()
+: <a class="el" href="class_open_g_l___g_l_f_w_graphics_context.html#a2b9bceefd7bd9c54370c6622c16ef324">OpenGL_GLFWGraphicsContext</a>
 </li>
 </ul>
 
@@ -255,10 +323,12 @@ $(function() {
 
 <h3><a id="index_s"></a>- s -</h3><ul>
 <li>setEventCallback()
-: <a class="el" href="class_engine_1_1_window.html#afec5978ef0bda960ecee3bb969549936">Engine::Window</a>
+: <a class="el" href="class_engine_1_1_g_l_f_w_window_impl.html#a0f73542340c76fecec91d12aa6aeef8a">Engine::GLFWWindowImpl</a>
+, <a class="el" href="class_engine_1_1_window.html#afec5978ef0bda960ecee3bb969549936">Engine::Window</a>
 </li>
 <li>setVSync()
-: <a class="el" href="class_engine_1_1_window.html#ab69e1de70ef657b3395452e571e61439">Engine::Window</a>
+: <a class="el" href="class_engine_1_1_g_l_f_w_window_impl.html#a70a1984ee4f32d2e52623e485ca4c305">Engine::GLFWWindowImpl</a>
+, <a class="el" href="class_engine_1_1_window.html#ab69e1de70ef657b3395452e571e61439">Engine::Window</a>
 </li>
 <li>start()
 : <a class="el" href="class_engine_1_1_log.html#af12297af3fcf6f8a8b1e8b401a79267b">Engine::Log</a>
@@ -275,6 +345,7 @@ $(function() {
 </li>
 <li>swapBuffers()
 : <a class="el" href="class_graphics_context.html#a7d85caf6065d0e5adc280c2cf2f65a8a">GraphicsContext</a>
+, <a class="el" href="class_open_g_l___g_l_f_w_graphics_context.html#a9c058e039c6f48ee8bf9122a94997313">OpenGL_GLFWGraphicsContext</a>
 </li>
 </ul>
 
@@ -291,10 +362,10 @@ $(function() {
 : <a class="el" href="class_engine_1_1_window_close_event.html#a89bb9a61554357ee19fbc863a4ebb8a2">Engine::WindowCloseEvent</a>
 </li>
 <li>WindowFocusEvent()
-: <a class="el" href="class_engine_1_1_window_focus_event.html#a4c236593f17f68f1f6225cd092fbcb28">Engine::WindowFocusEvent</a>
+: <a class="el" href="class_engine_1_1_window_focus_event.html#a14a09043009cc4dde2af5647186314b4">Engine::WindowFocusEvent</a>
 </li>
 <li>WindowLostFocusEvent()
-: <a class="el" href="class_engine_1_1_window_lost_focus_event.html#a957c723083d0fa50823e8842c95593c7">Engine::WindowLostFocusEvent</a>
+: <a class="el" href="class_engine_1_1_window_lost_focus_event.html#a9b12a8b0f53e6ca32d9b6416f5cfc6c7">Engine::WindowLostFocusEvent</a>
 </li>
 <li>WindowMovedEvent()
 : <a class="el" href="class_engine_1_1_window_moved_event.html#ae4517d96869db6c491ad14c01dfb316b">Engine::WindowMovedEvent</a>
@@ -311,6 +382,9 @@ $(function() {
 <h3><a id="index__7E"></a>- ~ -</h3><ul>
 <li>~Application()
 : <a class="el" href="class_engine_1_1_application.html#aa8a9745dbd56969a77cab6c81a16cdda">Engine::Application</a>
+</li>
+<li>~GLFWWindowImpl()
+: <a class="el" href="class_engine_1_1_g_l_f_w_window_impl.html#adf148dae87ac43d53f93cf11990e75e0">Engine::GLFWWindowImpl</a>
 </li>
 <li>~System()
 : <a class="el" href="class_engine_1_1_system.html#a4ed810746929ee960ea5fa6648230c48">Engine::System</a>

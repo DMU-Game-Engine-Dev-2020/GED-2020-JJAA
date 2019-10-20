@@ -26,7 +26,9 @@ namespace Engine {
 		m_pLogger->start(SystemSignal::None);
 		m_pTimer->start(SystemSignal::None);
 
+		// Create a window
 		m_pWindow = std::unique_ptr<Window>(Window::create());
+		// Set the windows event callback to call the onEvent function in Application
 		m_pWindow->setEventCallback(std::bind(&Application::onEvent, this, std::placeholders::_1));
 	}
 
@@ -70,12 +72,14 @@ namespace Engine {
 
 	bool Application::onFocus(WindowFocusEvent& e)
 	{
+		// Log what's happening
 		LOG_TRACE("Window being focused on");
 		return true;
 	}
 
 	bool Application::onLostFocus(WindowLostFocusEvent& e)
 	{
+		// Log what's happening
 		LOG_TRACE("Window losing focus");
 		return true;
 	}
@@ -97,7 +101,7 @@ namespace Engine {
 
 			m_fTotalTimeElapsed += m_fLastFrameTime; // Add the time to run the previous frame to the total time elapsed
 
-			m_pWindow->onUpdate(m_fLastFrameTime);
+			m_pWindow->onUpdate(m_fLastFrameTime); // Update the window
 		}
 		
 		/*// Test the timer

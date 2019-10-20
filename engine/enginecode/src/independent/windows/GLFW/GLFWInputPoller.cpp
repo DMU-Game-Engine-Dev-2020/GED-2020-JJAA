@@ -9,42 +9,45 @@
 
 namespace Engine
 {
-	InputPoller* InputPoller::s_pInstance = new GLFWInputPoller();
+	InputPoller* InputPoller::s_pInstance = new GLFWInputPoller(); // Create an instance of the object
 
 	bool GLFWInputPoller::isKeyPressedImpl(int keycode)
 	{
+		// Get a pointer to the window
 		GLFWwindow* window = static_cast<GLFWwindow*>(Application::getInstance().getWindow().getNativeWindow());
-		int result = glfwGetKey(window, keycode);
-		return result == GLFW_PRESS || result == GLFW_REPEAT;
+		int result = glfwGetKey(window, keycode); // Check if the key is currently being pressed
+		return result == GLFW_PRESS || result == GLFW_REPEAT; // Return if it is
 	}
 
 	bool GLFWInputPoller::isMouseButtonPressedImpl(int button)
 	{
+		// Get a pointer to the window
 		GLFWwindow* window = static_cast<GLFWwindow*>(Application::getInstance().getWindow().getNativeWindow());
-		int result = glfwGetMouseButton(window, button);
-		return result == GLFW_PRESS;
+		int result = glfwGetMouseButton(window, button); // Check if the button is currently being pressed
+		return result == GLFW_PRESS; // Return if it is
 	}
 
 	glm::vec2 GLFWInputPoller::getMousePositionImpl()
 	{
+		// Get a pointer to the window
 		GLFWwindow* window = static_cast<GLFWwindow*>(Application::getInstance().getWindow().getNativeWindow());
-		double x;
+		double x; // Variables to get the position
 		double y;
-		glfwGetCursorPos(window, &x, &y);
+		glfwGetCursorPos(window, &x, &y); // Get the mouse position
 
-		return { (float)x, (float)y };
+		return { (float)x, (float)y }; // Return it
 
 	}
 
 	float GLFWInputPoller::getMouseXImpl()
 	{
-		glm::vec2 pos = getMousePositionImpl();
-		return pos.x;
+		glm::vec2 pos = getMousePositionImpl(); // Get the mouse position
+		return pos.x; // Return the x position
 	}
 
 	float GLFWInputPoller::getMouseYImpl()
 	{
-		glm::vec2 pos = getMousePositionImpl();
-		return pos.y;
+		glm::vec2 pos = getMousePositionImpl(); // Get the mouse position
+		return pos.y; // Return the y position
 	}
 }

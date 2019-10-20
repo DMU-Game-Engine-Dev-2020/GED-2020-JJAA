@@ -9,10 +9,12 @@ namespace Engine
 	bool Timer::ms_bInstanceFlag = false; // Initialise instance flag as false
 	std::shared_ptr<Timer> Timer::ms_pThis = nullptr; // Initialise pointer to this object as null
 
+	// Initialize the frame timer
 	std::chrono::high_resolution_clock::time_point Timer::ms_frameStart;
 	std::chrono::high_resolution_clock::time_point Timer::ms_frameEnd;
 	std::chrono::duration<float> Timer::ms_frameDuration;
 
+	// Initialize the other timer
 	std::map<std::string, std::pair<std::chrono::high_resolution_clock::time_point, std::chrono::high_resolution_clock::time_point>> Timer::ms_sectionTimer;
 	std::chrono::duration<float> Timer::ms_sectionTimeDuration;
 
