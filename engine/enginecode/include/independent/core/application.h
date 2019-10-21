@@ -6,6 +6,7 @@
 #include "systems/timer.h"
 
 #include "windows/window.h"
+#include "GLFWCodes.h"
 
 namespace Engine {
 
@@ -38,6 +39,7 @@ namespace Engine {
 		bool onResize(WindowResizeEvent& e); //!< Called if the event is a window resize event
 		bool onFocus(WindowFocusEvent& e); //!< Called if the window gets focus
 		bool onLostFocus(WindowLostFocusEvent& e); //!< Callsed if the window loses focus
+		bool onKeyPressed(KeyPressedEvent& e);
 		void run(); //!< Main loop
 		inline Window& getWindow() { return *m_pWindow; } //!< Returns window
 	};

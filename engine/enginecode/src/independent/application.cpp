@@ -52,6 +52,7 @@ namespace Engine {
 		dispatcher.dispatch<WindowResizeEvent>(std::bind(&Application::onResize, this, std::placeholders::_1));
 		dispatcher.dispatch<WindowFocusEvent>(std::bind(&Application::onFocus, this, std::placeholders::_1));
 		dispatcher.dispatch<WindowLostFocusEvent>(std::bind(&Application::onLostFocus, this, std::placeholders::_1));
+		dispatcher.dispatch<KeyPressedEvent>(std::bind(&Application::onKeyPressed, this, std::placeholders::_1));
 	}
 
 	bool Application::onClose(WindowCloseEvent& e)
@@ -84,6 +85,24 @@ namespace Engine {
 		return true;
 	}
 
+	bool Application::onKeyPressed(KeyPressedEvent& e)
+	{
+		if (e.getCeyCode() == ENGINE_KEY_SPACE)
+		{
+			if (!m_pWindow->isFullScreenMode())
+			{
+				LOG_TRACE("Entering fullscreen");
+				m_pWindow->setFullscreen(true);
+			}
+			else if (m_pWindow->isFullScreenMode())
+			{
+				LOG_TRACE("Exiting fullscreen");
+				m_pWindow->setFullscreen(false);
+			}
+		}
+		return true;
+	}
+
 	void Application::run()
 	{
 		// While application is running
@@ -103,7 +122,7 @@ namespace Engine {
 
 			m_pWindow->onUpdate(m_fLastFrameTime); // Update the window
 		}
-		
+
 		/*// Test the timer
 		// Start two timers with the same tag
 		TIMER_START("Tag");

@@ -11,10 +11,10 @@
 #include <string>
 #include <functional>
 
-namespace Engine 
+namespace Engine
 {
 	//! Contains the properties of the window
-	struct WindowProperties 
+	struct WindowProperties
 	{
 		std::string m_title; //!< The title of the window
 		unsigned int m_width; //!< The width of the window in pixels
@@ -22,15 +22,18 @@ namespace Engine
 		bool m_isFullScreen; //!< Is the window fullscreen
 		bool m_isVSync; //!< Is vSync on
 
+		unsigned int m_startWidth;
+		unsigned int m_startHeight;
+
 		//! Set all of the properties to default values if the user doesn't set them when creating the window
-		WindowProperties(const std::string& title = "My Window", unsigned int width = 800, unsigned int height = 600, bool fullscreen = false) : m_title(title), m_width(width), m_height(height), m_isFullScreen(fullscreen) {}
+		WindowProperties(const std::string& title = "My Window", unsigned int width = 800, unsigned int height = 600, bool fullscreen = false) : m_title(title), m_width(width), m_height(height), m_isFullScreen(fullscreen), m_startWidth(width), m_startHeight(height) {}
 	};
 
 	/**
 	\class Window
 	\brief A base (interface) class for any window to use
 
-	Abstract class with functions to be overridden by classes which inherit from it. 
+	Abstract class with functions to be overridden by classes which inherit from it.
 	*/
 	class Window
 	{
@@ -43,7 +46,7 @@ namespace Engine
 		*/
 		virtual void init(const WindowProperties& properties) = 0;
 		//! Called when closing the window
-		virtual void close() = 0; 
+		virtual void close() = 0;
 		//! Destructor
 		virtual ~Window() {};
 		//! Called every frame to update the window
@@ -57,6 +60,8 @@ namespace Engine
 		\param height The new height of the window
 		*/
 		virtual void onResize(unsigned int width, unsigned int height) = 0;
+
+		virtual void setFullscreen(bool fullscreen) = 0;
 		//! Set if vSync is on
 		/*!
 		\param VSync True if turning vSync on

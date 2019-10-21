@@ -2,6 +2,7 @@
 */
 #include "engine_pch.h"
 #include "windows/GLFW/glfwWindow.h"
+#include "core/core.h"
 
 namespace Engine
 {
@@ -37,7 +38,9 @@ namespace Engine
 		// If GLFW has not been initialize
 		if (!s_bGLFWInitialized)
 		{
-			glfwInit(); // Initialize GLFW
+			int success = glfwInit(); // Initialize GLFW
+			ENGINE_ASSERT(success--, "Could not initialise GLFW");
+
 			s_bGLFWInitialized = true; // So that if another window is created GLFW is not re initialized
 		}
 		// Create a new window
@@ -156,7 +159,7 @@ namespace Engine
 
 	void GLFWWindowImpl::onUpdate(float timestep)
 	{
-		glClearColor(1, 0, 1, 1);
+		glClearColor(1, 0, 0, 1);
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		glfwPollEvents();
@@ -168,6 +171,23 @@ namespace Engine
 		// Set the stored size to the new size
 		m_properties.m_width = width;
 		m_properties.m_height = height;
+	}
+
+	void GLFWWindowImpl::setFullscreen(bool fullscreen)
+	{
+		m_properties.m_isFullScreen = fullscreen;
+
+		GLFWmonitor* monitor = glfwGetPrimaryMonitor();
+		const GLFWvidmode* mode = glfwGetVideoMode(monitor);
+
+		if (fullscreen)
+		{
+			glfwSetWindowMonitor(m_pNativeWindow, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
+		}
+		else
+		{
+			glfwSetWindowMonitor(m_pNativeWindow, nullptr, m_properties.m_width / 4, m_properties.m_height / 4, m_properties.m_startWidth, m_properties.m_startHeight, mode->refreshRate);
+		}
 	}
 
 	void GLFWWindowImpl::setVSync(bool vSync)

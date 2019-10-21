@@ -44,6 +44,8 @@ namespace Engine
 		\param height The new height of the window
 		*/
 		void onResize(unsigned int width, unsigned int height) override;
+
+		void setFullscreen(bool fullscreen) override;
 		//! Set if vSync is on
 		/*!
 		\param VSync True if turning vSync on
