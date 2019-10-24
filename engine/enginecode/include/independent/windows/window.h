@@ -22,11 +22,16 @@ namespace Engine
 		bool m_isFullScreen; //!< Is the window fullscreen
 		bool m_isVSync; //!< Is vSync on
 
-		unsigned int m_startWidth;
-		unsigned int m_startHeight;
+		float m_fAspect; //!< Aspect ratio for the viewport
+
+		unsigned int m_storedWidth; //!< Width that the window goes back to if going to fullscreen and back
+		unsigned int m_storedHeight; //!< Height that the window goes back to if going to fullscreen and back
+		int m_storedXPos; //!< X position that the window goes back to if going to fullscreen and back
+		int m_storedYPos; //!< Y position that the window goes back to if going to fullscreen and back
 
 		//! Set all of the properties to default values if the user doesn't set them when creating the window
-		WindowProperties(const std::string& title = "My Window", unsigned int width = 800, unsigned int height = 600, bool fullscreen = false) : m_title(title), m_width(width), m_height(height), m_isFullScreen(fullscreen), m_startWidth(width), m_startHeight(height) {}
+		WindowProperties(const std::string& title = "My Window", unsigned int width = 800, unsigned int height = 600, bool fullscreen = false) : 
+			m_title(title), m_width(width), m_height(height), m_isFullScreen(fullscreen), m_fAspect((float)width / (float)height), m_storedWidth(width), m_storedHeight(height) {}
 	};
 
 	/**
@@ -60,7 +65,10 @@ namespace Engine
 		\param height The new height of the window
 		*/
 		virtual void onResize(unsigned int width, unsigned int height) = 0;
-
+		//! Called to enter or exit fullscreen mode
+		/*!
+		\param fullscreen Whether the window is being made fullscreen or not
+		*/
 		virtual void setFullscreen(bool fullscreen) = 0;
 		//! Set if vSync is on
 		/*!

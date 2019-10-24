@@ -94,7 +94,7 @@ namespace Engine {
 				LOG_TRACE("Entering fullscreen");
 				m_pWindow->setFullscreen(true);
 			}
-			else if (m_pWindow->isFullScreenMode())
+			else
 			{
 				LOG_TRACE("Exiting fullscreen");
 				m_pWindow->setFullscreen(false);

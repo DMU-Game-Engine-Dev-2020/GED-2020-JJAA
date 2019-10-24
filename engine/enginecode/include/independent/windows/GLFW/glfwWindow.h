@@ -16,6 +16,7 @@ namespace Engine
 	{
 	private:
 		GLFWwindow* m_pNativeWindow; //!< Pointer to GLFWwindow (the window being created)
+		GLFWmonitor* m_pMonitor; //!< Pointer to GLFWmonitor (used to get the screen size)
 
 		//! Initialize the window, called from the constructor when making a new window
 		/*!
@@ -44,7 +45,10 @@ namespace Engine
 		\param height The new height of the window
 		*/
 		void onResize(unsigned int width, unsigned int height) override;
-
+		//! Called to enter or exit fullscreen mode
+		/*!
+		\param fullscreen Whether the window is being made fullscreen or not
+		*/
 		void setFullscreen(bool fullscreen) override;
 		//! Set if vSync is on
 		/*!

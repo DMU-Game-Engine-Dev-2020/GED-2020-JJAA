@@ -39,12 +39,16 @@ namespace Engine
 		if (!s_bGLFWInitialized)
 		{
 			int success = glfwInit(); // Initialize GLFW
-			ENGINE_ASSERT(success--, "Could not initialise GLFW");
+			ENGINE_ASSERT(success, "Could not initialise GLFW");
 
 			s_bGLFWInitialized = true; // So that if another window is created GLFW is not re initialized
 		}
+
+		m_pMonitor = glfwGetPrimaryMonitor();
+
 		// Create a new window
 		m_pNativeWindow = glfwCreateWindow((int)properties.m_width, (int)properties.m_height, m_properties.m_title.c_str(), nullptr, nullptr);
+
 		// Set graphics context to a new GLFW Graphics Context object
 		m_context = std::shared_ptr<GraphicsContext>(new OpenGL_GLFWGraphicsContext(m_pNativeWindow));
 		m_context->init(); // Initialize the graphics context object
@@ -157,13 +161,57 @@ namespace Engine
 		glfwDestroyWindow(m_pNativeWindow);
 	}
 
-	void GLFWWindowImpl::onUpdate(float timestep)
+	void GLFWWindowImpl::onUpdate(float timestep) // Function, update the window with passed timestep (time passed)
 	{
-		glClearColor(1, 0, 0, 1);
-		glClear(GL_COLOR_BUFFER_BIT);
+		glfwPollEvents(); // GLFW polls events (check current status)
+		m_context->swapBuffers(); // Swap buffers for GLFW graphics context
 
-		glfwPollEvents();
-		m_context->swapBuffers();
+		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		glClearColor(1, 0, 0, 1);
+
+		int iWindowWidth; // The current width of the window in pixels
+		int iWindowHeight; // The current height of the window in pixels
+
+		int iViewportWidth; // The new width of the viewport
+		int iViewportHeight; // The new height of the viewport
+
+		int iViewportPositionX = 0; // The new x position of the viewport
+		int iViewportPositionY = 0; // The new y position of the viewport
+
+		// Get the size of the frame buffer
+		glfwGetFramebufferSize(m_pNativeWindow, &iWindowWidth, &iWindowHeight);
+
+		// Set the viewport to the current window size
+		iViewportWidth = iWindowWidth;
+		iViewportHeight = iWindowHeight;
+
+		// If window is wider than the aspect ratio allows
+		if (iWindowWidth > iWindowHeight * m_properties.m_fAspect) // Pillar box
+		{
+			// Calculate viewport width using current window height
+			iViewportWidth = iWindowHeight * m_properties.m_fAspect;
+			// Set x position so that the viewport is in the middle of the window
+			iViewportPositionX = (iWindowWidth - iViewportWidth) / 2;
+		}
+		// If window is taller than the aspect ratio allows
+		else if (iWindowHeight > iWindowWidth / m_properties.m_fAspect) // Letter box
+		{
+			// Calculate viewport height using current window width
+			iViewportHeight = iWindowWidth / m_properties.m_fAspect;
+			// Set y position so that the viewport is in the middle of the window
+			iViewportPositionY = (iWindowHeight - iViewportHeight) / 2;
+		}
+
+		glViewport(iViewportPositionX, iViewportPositionY, iViewportWidth, iViewportHeight);
+
+		glEnable(GL_SCISSOR_TEST);
+
+		glClear(GL_COLOR_BUFFER_BIT);
+		glScissor(iViewportPositionX, iViewportPositionY, iViewportWidth, iViewportHeight);
+
+		glDisable(GL_SCISSOR_TEST);
 	}
 
 	void GLFWWindowImpl::onResize(unsigned int width, unsigned int height)
@@ -175,18 +223,23 @@ namespace Engine
 
 	void GLFWWindowImpl::setFullscreen(bool fullscreen)
 	{
-		m_properties.m_isFullScreen = fullscreen;
-
-		GLFWmonitor* monitor = glfwGetPrimaryMonitor();
-		const GLFWvidmode* mode = glfwGetVideoMode(monitor);
-
+		m_properties.m_isFullScreen = fullscreen; // Set the m_isFullScreen property
+		// Get the current video mode of the monitor
+		const GLFWvidmode* mode = glfwGetVideoMode(m_pMonitor);
+		// If fullscreen is being turned on
 		if (fullscreen)
 		{
-			glfwSetWindowMonitor(m_pNativeWindow, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
+			// Set the current window size and position to the stored positions
+			m_properties.m_storedWidth = m_properties.m_width;
+			m_properties.m_storedHeight = m_properties.m_height;
+			glfwGetWindowPos(m_pNativeWindow, &m_properties.m_storedXPos, &m_properties.m_storedYPos);
+			// Makes the window fullscreen
+			glfwSetWindowMonitor(m_pNativeWindow, m_pMonitor, 0, 0, mode->width, mode->height, mode->refreshRate);
 		}
-		else
+		else // If fullscreen is being turned off
 		{
-			glfwSetWindowMonitor(m_pNativeWindow, nullptr, m_properties.m_width / 4, m_properties.m_height / 4, m_properties.m_startWidth, m_properties.m_startHeight, mode->refreshRate);
+			// Set the window back to the stored size and position
+			glfwSetWindowMonitor(m_pNativeWindow, nullptr, m_properties.m_storedXPos, m_properties.m_storedYPos, m_properties.m_storedWidth, m_properties.m_storedHeight, mode->refreshRate);
 		}
 	}
 
