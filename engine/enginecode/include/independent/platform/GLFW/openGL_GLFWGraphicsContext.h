@@ -2,7 +2,7 @@
 */
 #pragma once
 
-#include "windows/graphicsContext.h"
+#include "platform/windows/graphicsContext.h"
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>

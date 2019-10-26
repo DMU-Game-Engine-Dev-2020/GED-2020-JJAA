@@ -1,7 +1,7 @@
 /** \file glfwWindow.cpp
 */
 #include "engine_pch.h"
-#include "windows/GLFW/glfwWindow.h"
+#include "platform/GLFW/glfwWindow.h"
 #include "core/core.h"
 
 namespace Engine

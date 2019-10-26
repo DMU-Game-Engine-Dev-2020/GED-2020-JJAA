@@ -5,7 +5,7 @@
 #include "systems/log.h"
 #include "systems/timer.h"
 
-#include "windows/window.h"
+#include "platform/windows/window.h"
 #include "GLFWCodes.h"
 
 namespace Engine {
@@ -28,9 +28,28 @@ namespace Engine {
 
 		bool m_bRunning; //!< If the application is running
 		float m_fTotalTimeElapsed; //!< The total time the program has been active in seconds
-		float m_fLastFrameTime; //!< Time in seconds for the last frame
+		float m_fTimestep; //!< Time in seconds for the last frame
 
 		std::unique_ptr<Window> m_pWindow; //!< Unique pointer to the window
+
+
+#pragma region TempVars
+// Temp stuff
+		unsigned int m_FCvertexArray; // Flat Colour VAO
+		unsigned int m_FCvertexBuffer;// Flat Colour VBO
+		unsigned int m_TPvertexArray; // Textured Phong VAO
+		unsigned int m_TPvertexBuffer;// Textured Phong VBO
+		unsigned int m_FCindexBuffer; // Index buffer for colour cube
+		unsigned int m_TPindexBuffer; // Index buffer for texture Phong cube
+		unsigned int m_FCprogram; // Flat colour shader ID
+		unsigned int m_TPprogram; // Textured Phong shader ID
+		unsigned int m_numberTexture; // Texture ID
+		unsigned int m_letterTexture; // Texture ID
+		unsigned int m_textureSlots[2]; // Slot where the textures are stored
+		bool m_goingUp = false; // Is the cude going up?
+		float m_timeSummed = 10.f; // How much timer has elasped?
+#pragma endregion TempVars
+
 	public:
 		virtual ~Application(); //!< Deconstructor
 		inline static Application& getInstance() { return *ms_instance; } //!< Instance getter from singleton pattern

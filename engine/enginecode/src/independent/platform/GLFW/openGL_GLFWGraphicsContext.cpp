@@ -1,7 +1,7 @@
 /** \file openGL_GLFWGraphicsContext.cpp
 */
 #include "engine_pch.h"
-#include "windows/GLFW/openGL_GLFWGraphicsContext.h"
+#include "platform/GLFW/openGL_GLFWGraphicsContext.h"
 #include "core/core.h"
 
 void OpenGL_GLFWGraphicsContext::init()

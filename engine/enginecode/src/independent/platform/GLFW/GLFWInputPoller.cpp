@@ -3,7 +3,7 @@
 
 #include "engine_pch.h"
 #include "core/application.h"
-#include "windows/GLFW/GLFWInputPoller.h"
+#include "platform/GLFW/GLFWInputPoller.h"
 
 #include <GLFW/glfw3.h>
 

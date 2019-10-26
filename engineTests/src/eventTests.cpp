@@ -38,3 +38,12 @@ TEST(Events, DispatchHandleFalse)
 	bool result = re.handled();
 	EXPECT_FALSE(result);
 }
+
+TEST(Events, MousePressConstructor)
+{
+	int gotButtonPressed = mbpe.getMouseButton();
+	int gotButtonReleased = mbre.getMouseButton();
+
+	EXPECT_EQ(gotButtonPressed, button1);
+	EXPECT_EQ(gotButtonReleased, button2);
+}
