@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "platform/windows/inputPoller.h"
+#include "windows/inputPoller.h"
 
 namespace Engine
 {

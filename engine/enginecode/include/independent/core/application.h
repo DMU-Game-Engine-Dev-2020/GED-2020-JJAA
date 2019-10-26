@@ -4,9 +4,11 @@
 
 #include "systems/log.h"
 #include "systems/timer.h"
+#include "systems/windows.h"
 
-#include "platform/windows/window.h"
-#include "GLFWCodes.h"
+#include "windows/window.h"
+#include "windows/inputPoller.h"
+#include "core/codes.h"
 
 namespace Engine {
 
@@ -25,13 +27,13 @@ namespace Engine {
 
 		std::shared_ptr<Log> m_pLogger; //!< Pointer to the Log system object
 		std::shared_ptr<Timer> m_pTimer; //!< Pointer to the Timer system object
+		std::shared_ptr<WindowsSystem> m_pWindows;
 
 		bool m_bRunning; //!< If the application is running
 		float m_fTotalTimeElapsed; //!< The total time the program has been active in seconds
 		float m_fTimestep; //!< Time in seconds for the last frame
 
 		std::unique_ptr<Window> m_pWindow; //!< Unique pointer to the window
-
 
 #pragma region TempVars
 // Temp stuff

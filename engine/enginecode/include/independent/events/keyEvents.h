@@ -21,7 +21,7 @@ namespace Engine
 
 		KeyEvent(int keyCode) : m_iKeyCode(keyCode) {} //!< Constructor, sets stored key code to the one passed in. Protected so only classes inheriting from the class can create it
 	public:
-		inline int getCeyCode() const { return m_iKeyCode; } //!< Returns the key code
+		inline int getKeyCode() const { return m_iKeyCode; } //!< Returns the key code
 
 		int getCategoryFlags() const override { return EventCategoryInput | EventCategoryKeyboard; } //!< Returns the category flags
 	};

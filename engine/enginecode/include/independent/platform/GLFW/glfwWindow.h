@@ -2,7 +2,7 @@
 */
 #pragma once
 
-#include "platform/windows/window.h"
+#include "windows/window.h"
 #include "systems/log.h"
 #include "platform/GLFW/openGL_GLFWGraphicsContext.h"
 

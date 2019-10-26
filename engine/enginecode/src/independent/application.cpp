@@ -17,6 +17,10 @@
 
 #include "core/application.h"
 
+#ifdef NG_PLATFORM_WINDOWS
+#include "platform/GLFW/GLFWWindowsSystem.h"
+#endif // NG_PLATFORM_WINDOWS
+
 namespace Engine 
 {
 	Application* Application::ms_instance = nullptr;
@@ -39,11 +43,15 @@ namespace Engine
 
 		// Create and get instances of the objects
 		m_pLogger = Log::getInstance();
-		m_pTimer = Timer::getInstance();
-
-		// Run the start functions of the systems
 		m_pLogger->start(SystemSignal::None);
+		m_pTimer = Timer::getInstance();
 		m_pTimer->start(SystemSignal::None);
+
+#ifdef NG_PLATFORM_WINDOWS
+		m_pWindows = GLFWWindowsSystem::getInstance();
+#endif // NG_PLATFORM_WINDOWS
+		m_pWindows->start(SystemSignal::None);
+		LOG_INFO("Windows system initialised");
 
 		// Create a window
 		m_pWindow = std::unique_ptr<Window>(Window::create());
@@ -449,10 +457,12 @@ namespace Engine
 	Application::~Application()
 	{
 		// Run the stop functions of the systems
+		m_pWindows->stop(SystemSignal::None);
 		m_pTimer->stop(SystemSignal::None);
 		m_pLogger->stop(SystemSignal::None);
 
 		// Set the pointers to the systems to null
+		m_pWindows = nullptr;
 		m_pTimer = nullptr;
 		m_pLogger = nullptr;
 	}
@@ -501,7 +511,7 @@ namespace Engine
 
 	bool Application::onKeyPressed(KeyPressedEvent& e)
 	{
-		if (e.getCeyCode() == ENGINE_KEY_SPACE)
+		if (e.getKeyCode() == ENGINE_KEY_SPACE)
 		{
 			if (!m_pWindow->isFullScreenMode())
 			{
@@ -513,8 +523,23 @@ namespace Engine
 				LOG_TRACE("Exiting fullscreen");
 				m_pWindow->setFullscreen(false);
 			}
+			return true;
 		}
-		return true;
+		if (e.getKeyCode() == ENGINE_KEY_ESCAPE)
+		{
+			LOG_TRACE("Window closing");
+			m_bRunning = false;
+			return true;
+		}
+		if (e.getKeyCode() == ENGINE_KEY_ENTER)
+		{
+			float mouseX = InputPoller::getMouseX();
+			float mouseY = InputPoller::getMouseY();
+
+			LOG_TRACE("Mouse at: {0}, {1}", mouseX, mouseY);
+			return true;
+		}
+		return false;
 	}
 
 	void Application::run()
@@ -617,6 +642,8 @@ namespace Engine
 
 			m_pWindow->onUpdate(m_fTimestep); // Update the window
 		}
+
+		m_pWindow->close();
 
 		/*// Test the timer
 		// Start two timers with the same tag

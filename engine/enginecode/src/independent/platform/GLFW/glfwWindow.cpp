@@ -2,15 +2,14 @@
 */
 #include "engine_pch.h"
 #include "platform/GLFW/glfwWindow.h"
-#include "core/core.h"
 
 namespace Engine
 {
-	static bool s_bGLFWInitialized = false; // If GLFW is alreasy initialized
-
 	Window* Window::create(const WindowProperties& properties)
 	{
+#ifdef NG_PLATFORM_WINDOWS
 		return new GLFWWindowImpl(properties); // Return a pointer to a GLFW window
+#endif // NG_PLATFORM_WINDOWS
 	}
 
 	GLFWWindowImpl::GLFWWindowImpl(const WindowProperties& properties)
@@ -33,16 +32,7 @@ namespace Engine
 		m_properties.m_height = properties.m_height;
 
 		// Show in the log that a window is being created
-		LOG_INFO("Creating window {0} ({1}, {2})", properties.m_title, properties.m_width, properties.m_height);
-
-		// If GLFW has not been initialize
-		if (!s_bGLFWInitialized)
-		{
-			int success = glfwInit(); // Initialize GLFW
-			ENGINE_ASSERT(success, "Could not initialise GLFW");
-
-			s_bGLFWInitialized = true; // So that if another window is created GLFW is not re initialized
-		}
+		LOG_INFO("Creating window: {0} ({1}, {2})", properties.m_title, properties.m_width, properties.m_height);		
 
 		m_pMonitor = glfwGetPrimaryMonitor();
 
