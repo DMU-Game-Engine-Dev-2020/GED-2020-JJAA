@@ -16,6 +16,7 @@
 #pragma endregion TempIncludes
 
 #include "core/application.h"
+#include "core/core.h"
 
 #ifdef NG_PLATFORM_WINDOWS
 #include "platform/GLFW/GLFWWindowsSystem.h"
@@ -41,16 +42,16 @@ namespace Engine
 		m_bRunning = true; // Application is running
 		m_fTotalTimeElapsed = 0; // Set the time elapsed to nothing
 
-		// Create and get instances of the objects
+		// Create and get instances of the system objects
 		m_pLogger = Log::getInstance();
 		m_pLogger->start(SystemSignal::None);
 		m_pTimer = Timer::getInstance();
 		m_pTimer->start(SystemSignal::None);
 
-#ifdef NG_PLATFORM_WINDOWS
-		m_pWindows = GLFWWindowsSystem::getInstance();
+#ifdef NG_PLATFORM_WINDOWS // If the engine is running on a windows computer
+		m_pWindows = GLFWWindowsSystem::getInstance(); // Create an instance of the GLFW windows system
 #endif // NG_PLATFORM_WINDOWS
-		m_pWindows->start(SystemSignal::None);
+		m_pWindows->start(SystemSignal::None); // Start the windows system
 		LOG_INFO("Windows system initialised");
 
 		// Create a window
@@ -443,7 +444,7 @@ namespace Engine
 #pragma endregion TempSetup
 
 
-		TIMER_NEWFRAME; // Tell timer to start for a new frame
+		TIMER_NEWFRAME; // Tell the timer to start for a new frame
 	}
 
 	Application::~Application()
@@ -511,33 +512,38 @@ namespace Engine
 
 	bool Application::onKeyPressed(KeyPressedEvent& e)
 	{
+		// If the space key is pressed
 		if (e.getKeyCode() == ENGINE_KEY_SPACE)
 		{
+			// If the window is not in fullscreen mode
 			if (!m_pWindow->isFullScreenMode())
 			{
-				LOG_TRACE("Entering fullscreen");
-				m_pWindow->setFullscreen(true);
+				LOG_TRACE("Entering fullscreen"); // Log what's happening
+				m_pWindow->setFullscreen(true); // Set the window to fullscreen
 			}
-			else
+			else // If the window is in fullscreen mode
 			{
-				LOG_TRACE("Exiting fullscreen");
-				m_pWindow->setFullscreen(false);
+				LOG_TRACE("Exiting fullscreen"); // Log what's happening
+				m_pWindow->setFullscreen(false); // Set the window to not fullscreen
 			}
-			return true;
+			return true; // Leave the function
 		}
+		// If escape key is pressed
 		if (e.getKeyCode() == ENGINE_KEY_ESCAPE)
 		{
-			LOG_TRACE("Window closing");
-			m_bRunning = false;
-			return true;
+			LOG_TRACE("Window closing"); // Log what's happening
+			m_bRunning = false; // Stop the application from running
+			return true; // Leave the function
 		}
+		// If the enter key is pressed
 		if (e.getKeyCode() == ENGINE_KEY_ENTER)
 		{
+			// Use the input poller to get the mouse position
 			float mouseX = InputPoller::getMouseX();
 			float mouseY = InputPoller::getMouseY();
 
-			LOG_TRACE("Mouse at: {0}, {1}", mouseX, mouseY);
-			return true;
+			LOG_TRACE("Mouse at: {0}, {1}", mouseX, mouseY); // Log the mouse position
+			return true; // Leave the function
 		}
 		return false;
 	}
@@ -650,8 +656,6 @@ namespace Engine
 
 			m_pWindow->onUpdate(m_fTimestep); // Update the window
 		}
-
-		m_pWindow->close();
 
 		/*// Test the timer
 		// Start two timers with the same tag

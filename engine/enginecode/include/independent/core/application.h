@@ -14,8 +14,8 @@
 #include "rendering/vertexBuffer.h"
 #include "rendering/vertexArray.h"
 
-namespace Engine {
-
+namespace Engine 
+{
 	/**
 	\class Application
 	Fundemental class of the engine. A singleton which runs the game loop infinitely.
@@ -31,16 +31,16 @@ namespace Engine {
 
 		std::shared_ptr<Log> m_pLogger; //!< Pointer to the Log system object
 		std::shared_ptr<Timer> m_pTimer; //!< Pointer to the Timer system object
-		std::shared_ptr<WindowsSystem> m_pWindows;
+		std::shared_ptr<WindowsSystem> m_pWindows; //!< Pointer to the Windows system
 
-		std::shared_ptr<IndexBuffer> m_pFCIndexBuffer;
-		std::shared_ptr<IndexBuffer> m_pTPIndexBuffer;
+		std::shared_ptr<IndexBuffer> m_pFCIndexBuffer; //!< Pointer to the index buffer for the flat colour cube
+		std::shared_ptr<IndexBuffer> m_pTPIndexBuffer; //!< Pointer to the index buffer for the textured phong cube
 
-		std::shared_ptr<VertexBuffer> m_pFCVertexBuffer;
-		std::shared_ptr<VertexBuffer> m_pTPVertexBuffer;
+		std::shared_ptr<VertexBuffer> m_pFCVertexBuffer; //!< Pointer to the vertex buffer for the flat colour cube
+		std::shared_ptr<VertexBuffer> m_pTPVertexBuffer; //!< Pointer to the vertex buffer for the textured phong cube
 
-		std::shared_ptr<VertexArray> m_pFCVertexArray;
-		std::shared_ptr<VertexArray> m_pTPVertexArray;
+		std::shared_ptr<VertexArray> m_pFCVertexArray; //!< Pointer to the vertex array for the flat colour cube
+		std::shared_ptr<VertexArray> m_pTPVertexArray; //!< Pointer to the vertex array for the textured phong cube
 
 		bool m_bRunning; //!< If the application is running
 		float m_fTotalTimeElapsed; //!< The total time the program has been active in seconds
@@ -66,9 +66,9 @@ namespace Engine {
 		bool onClose(WindowCloseEvent& e); //!< Called if the event is a window close event
 		bool onResize(WindowResizeEvent& e); //!< Called if the event is a window resize event
 		bool onFocus(WindowFocusEvent& e); //!< Called if the window gets focus
-		bool onLostFocus(WindowLostFocusEvent& e); //!< Callsed if the window loses focus
-		bool onWindowMoved(WindowMovedEvent& e);
-		bool onKeyPressed(KeyPressedEvent& e);
+		bool onLostFocus(WindowLostFocusEvent& e); //!< Called if the window loses focus
+		bool onWindowMoved(WindowMovedEvent& e); //!< Called if the window is moved
+		bool onKeyPressed(KeyPressedEvent& e); //!< Called if a keyboard key is pressed
 		void run(); //!< Main loop
 		inline Window& getWindow() { return *m_pWindow; } //!< Returns window
 	};

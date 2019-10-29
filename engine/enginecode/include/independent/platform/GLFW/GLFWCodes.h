@@ -1,9 +1,7 @@
 /** \file GLFWCodes.h
+\brief Contains definitions for key and mouse button codes, adapted from glfw3.h
 */
 #pragma once
-
-/*! Adapted from glfw3.h
-*/
 
 /* The unknown key */
 #define ENGINE_KEY_UNKNOWN            -1

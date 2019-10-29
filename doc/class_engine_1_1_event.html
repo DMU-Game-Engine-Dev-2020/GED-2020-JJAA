@@ -77,19 +77,19 @@ Inheritance diagram for Engine::Event:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3cf52840d3dbdb7a56dee18dd56c094a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespace_engine.html#a77fa362c4492c2c28f1bd41256002f16">EventType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_event.html#a3cf52840d3dbdb7a56dee18dd56c094a">getEventType</a> () const =0</td></tr>
-<tr class="memdesc:a3cf52840d3dbdb7a56dee18dd56c094a"><td class="mdescLeft">&#160;</td><td class="mdescRight">To be overridden, will return the event type.  <a href="class_engine_1_1_event.html#a3cf52840d3dbdb7a56dee18dd56c094a">More...</a><br /></td></tr>
+<tr class="memdesc:a3cf52840d3dbdb7a56dee18dd56c094a"><td class="mdescLeft">&#160;</td><td class="mdescRight">To be overridden, used to get the type of the event.  <a href="class_engine_1_1_event.html#a3cf52840d3dbdb7a56dee18dd56c094a">More...</a><br /></td></tr>
 <tr class="separator:a3cf52840d3dbdb7a56dee18dd56c094a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a924e0d8e3bb50af792c74c40820be03e"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_event.html#a924e0d8e3bb50af792c74c40820be03e">getCategoryFlags</a> () const =0</td></tr>
-<tr class="memdesc:a924e0d8e3bb50af792c74c40820be03e"><td class="mdescLeft">&#160;</td><td class="mdescRight">To be overridden, will return the event category.  <a href="class_engine_1_1_event.html#a924e0d8e3bb50af792c74c40820be03e">More...</a><br /></td></tr>
+<tr class="memdesc:a924e0d8e3bb50af792c74c40820be03e"><td class="mdescLeft">&#160;</td><td class="mdescRight">To be overridden, used to get the categories of the event.  <a href="class_engine_1_1_event.html#a924e0d8e3bb50af792c74c40820be03e">More...</a><br /></td></tr>
 <tr class="separator:a924e0d8e3bb50af792c74c40820be03e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a567dbec7ac0102867152648f672b0578"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_event.html#a567dbec7ac0102867152648f672b0578">handled</a> () const</td></tr>
-<tr class="memdesc:a567dbec7ac0102867152648f672b0578"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns if the event has been handled or not.  <a href="class_engine_1_1_event.html#a567dbec7ac0102867152648f672b0578">More...</a><br /></td></tr>
+<tr class="memdesc:a567dbec7ac0102867152648f672b0578"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a boolean representing if the event has been handled or not.  <a href="class_engine_1_1_event.html#a567dbec7ac0102867152648f672b0578">More...</a><br /></td></tr>
 <tr class="separator:a567dbec7ac0102867152648f672b0578"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2de2492837a1c99dd7d2aa075d67355a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_event.html#a2de2492837a1c99dd7d2aa075d67355a">handle</a> (bool isHandled)</td></tr>
 <tr class="memdesc:a2de2492837a1c99dd7d2aa075d67355a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set if the event has been handled.  <a href="class_engine_1_1_event.html#a2de2492837a1c99dd7d2aa075d67355a">More...</a><br /></td></tr>
 <tr class="separator:a2de2492837a1c99dd7d2aa075d67355a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f30afe98ebd8e8c37c9400653a84ada"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_event.html#a5f30afe98ebd8e8c37c9400653a84ada">isInCategory</a> (<a class="el" href="namespace_engine.html#a629eac9f8d060a1f7261a9b912e0fa77">EventCategory</a> category)</td></tr>
-<tr class="memdesc:a5f30afe98ebd8e8c37c9400653a84ada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the event is in a category.  <a href="class_engine_1_1_event.html#a5f30afe98ebd8e8c37c9400653a84ada">More...</a><br /></td></tr>
+<tr class="memdesc:a5f30afe98ebd8e8c37c9400653a84ada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if an event category is one of the categories of the event.  <a href="class_engine_1_1_event.html#a5f30afe98ebd8e8c37c9400653a84ada">More...</a><br /></td></tr>
 <tr class="separator:a5f30afe98ebd8e8c37c9400653a84ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -127,7 +127,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>To be overridden, will return the event category. </p>
+<p>To be overridden, used to get the categories of the event. </p>
+<dl class="section return"><dt>Returns</dt><dd>The event category </dd></dl>
 
 <p>Implemented in <a class="el" href="class_engine_1_1_window_moved_event.html#a012b328ff97de2973361aea28a886474">Engine::WindowMovedEvent</a>, <a class="el" href="class_engine_1_1_mouse_scrolled_event.html#a971b0d8c77e0f55de8d27dcc636581eb">Engine::MouseScrolledEvent</a>, <a class="el" href="class_engine_1_1_window_lost_focus_event.html#a1d6da74ca1241e0f1656b2b5538e6649">Engine::WindowLostFocusEvent</a>, <a class="el" href="class_engine_1_1_mouse_moved_event.html#a073bfb10fb4dd6196b5c5ce745714b95">Engine::MouseMovedEvent</a>, <a class="el" href="class_engine_1_1_window_focus_event.html#a9faec00393e6be6478b01966b94960f9">Engine::WindowFocusEvent</a>, <a class="el" href="class_engine_1_1_window_resize_event.html#a27da2032c959fee2fd1424b34fead180">Engine::WindowResizeEvent</a>, <a class="el" href="class_engine_1_1_key_event.html#a586e45a69839a43b5f4b991f15f34182">Engine::KeyEvent</a>, <a class="el" href="class_engine_1_1_mouse_button_event.html#aa38e6edb102b6dd4939cad36986f3eba">Engine::MouseButtonEvent</a>, and <a class="el" href="class_engine_1_1_window_close_event.html#af59bb1e10a714647e6b7545d3ccc9b6e">Engine::WindowCloseEvent</a>.</p>
 
@@ -156,7 +157,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>To be overridden, will return the event type. </p>
+<p>To be overridden, used to get the type of the event. </p>
+<dl class="section return"><dt>Returns</dt><dd>The event type </dd></dl>
 
 <p>Implemented in <a class="el" href="class_engine_1_1_window_moved_event.html#a2067ec4a9e38cfc487c072db5f1acdb8">Engine::WindowMovedEvent</a>, <a class="el" href="class_engine_1_1_mouse_scrolled_event.html#a04d4f8a47245908a26c6a2cc7e661302">Engine::MouseScrolledEvent</a>, <a class="el" href="class_engine_1_1_window_lost_focus_event.html#a41949a262dd8a7d238648b711ccc94da">Engine::WindowLostFocusEvent</a>, <a class="el" href="class_engine_1_1_key_typed_event.html#a12768b5c6bf9b20a55dcc26118048f1e">Engine::KeyTypedEvent</a>, <a class="el" href="class_engine_1_1_mouse_moved_event.html#ac338e06ef42ff0341a19d85ea1f8bcd3">Engine::MouseMovedEvent</a>, <a class="el" href="class_engine_1_1_window_focus_event.html#ad58994a5a96478538c09ec6fa7623b52">Engine::WindowFocusEvent</a>, <a class="el" href="class_engine_1_1_key_released_event.html#aa9a9048fc35f06a7001376f681f959ed">Engine::KeyReleasedEvent</a>, <a class="el" href="class_engine_1_1_mouse_button_released_event.html#a66a81c4000919f4b690ecb8789ce8a87">Engine::MouseButtonReleasedEvent</a>, <a class="el" href="class_engine_1_1_key_pressed_event.html#a50d89b2235d1e3518091d2bdda1d6ba3">Engine::KeyPressedEvent</a>, <a class="el" href="class_engine_1_1_mouse_button_pressed_event.html#a52fa294188cb35d4e7fd9a856a5874df">Engine::MouseButtonPressedEvent</a>, <a class="el" href="class_engine_1_1_window_resize_event.html#aea60e336781a151f21f99675847c75ec">Engine::WindowResizeEvent</a>, and <a class="el" href="class_engine_1_1_window_close_event.html#ad6f49ec85695dc2a7917d709084cd6c2">Engine::WindowCloseEvent</a>.</p>
 
@@ -187,8 +189,14 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set if the event has been handled. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">isHandled</td><td>Boolean to set the stored handled bool to </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="event_8h_source.html#l00048">48</a> of file <a class="el" href="event_8h_source.html">event.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="event_8h_source.html#l00064">64</a> of file <a class="el" href="event_8h_source.html">event.h</a>.</p>
 
 </div>
 </div>
@@ -215,9 +223,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns if the event has been handled or not. </p>
+<p>Returns a boolean representing if the event has been handled or not. </p>
+<dl class="section return"><dt>Returns</dt><dd>If the event has been handled </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="event_8h_source.html#l00047">47</a> of file <a class="el" href="event_8h_source.html">event.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="event_8h_source.html#l00059">59</a> of file <a class="el" href="event_8h_source.html">event.h</a>.</p>
 
 </div>
 </div>
@@ -245,9 +254,16 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Check if the event is in a category. </p>
+<p>Check if an event category is one of the categories of the event. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">category</td><td>The category being checked </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A boolean representing if it is or not </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="event_8h_source.html#l00049">49</a> of file <a class="el" href="event_8h_source.html">event.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="event_8h_source.html#l00070">70</a> of file <a class="el" href="event_8h_source.html">event.h</a>.</p>
 
 </div>
 </div>

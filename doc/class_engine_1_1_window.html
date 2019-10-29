@@ -84,6 +84,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7816915072123b15d1fda1601fb2c9d5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_window.html#a7816915072123b15d1fda1601fb2c9d5">onResize</a> (unsigned int width, unsigned int height)=0</td></tr>
 <tr class="memdesc:a7816915072123b15d1fda1601fb2c9d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the window size is changed.  <a href="class_engine_1_1_window.html#a7816915072123b15d1fda1601fb2c9d5">More...</a><br /></td></tr>
 <tr class="separator:a7816915072123b15d1fda1601fb2c9d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c3059fbe005b0500d9ddf112807dda2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_window.html#a3c3059fbe005b0500d9ddf112807dda2">setFullscreen</a> (bool fullscreen)=0</td></tr>
+<tr class="memdesc:a3c3059fbe005b0500d9ddf112807dda2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called to enter or exit fullscreen mode.  <a href="class_engine_1_1_window.html#a3c3059fbe005b0500d9ddf112807dda2">More...</a><br /></td></tr>
+<tr class="separator:a3c3059fbe005b0500d9ddf112807dda2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab69e1de70ef657b3395452e571e61439"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_window.html#ab69e1de70ef657b3395452e571e61439">setVSync</a> (bool VSync)=0</td></tr>
 <tr class="memdesc:ab69e1de70ef657b3395452e571e61439"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set if vSync is on.  <a href="class_engine_1_1_window.html#ab69e1de70ef657b3395452e571e61439">More...</a><br /></td></tr>
 <tr class="separator:ab69e1de70ef657b3395452e571e61439"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,7 +125,7 @@ Protected Attributes</h2></td></tr>
 <div class="textblock"><p>A base (interface) class for any window to use. </p>
 <p>Abstract class with functions to be overridden by classes which inherit from it. </p>
 
-<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00035">35</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00043">43</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab3723c9b47bc710f190d4cf022ce0c12"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab3723c9b47bc710f190d4cf022ce0c12">&#9670;&nbsp;</a></span>~Window()</h2>
@@ -149,7 +152,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00048">48</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00056">56</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
 
 </div>
 </div>
@@ -216,7 +219,7 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the new window </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="glfw_window_8cpp_source.html#l00010">10</a> of file <a class="el" href="glfw_window_8cpp_source.html">glfwWindow.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="glfw_window_8cpp_source.html#l00008">8</a> of file <a class="el" href="glfw_window_8cpp_source.html">glfwWindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -525,6 +528,42 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a3c3059fbe005b0500d9ddf112807dda2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c3059fbe005b0500d9ddf112807dda2">&#9670;&nbsp;</a></span>setFullscreen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Engine::Window::setFullscreen </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>fullscreen</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called to enter or exit fullscreen mode. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fullscreen</td><td>Whether the window is being made fullscreen or not </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_engine_1_1_g_l_f_w_window_impl.html#a075f96cb1547e6cea81e58d8ebee6875">Engine::GLFWWindowImpl</a>.</p>
+
+</div>
+</div>
 <a id="ab69e1de70ef657b3395452e571e61439"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab69e1de70ef657b3395452e571e61439">&#9670;&nbsp;</a></span>setVSync()</h2>
 
@@ -584,13 +623,13 @@ Protected Attributes</h2></td></tr>
 
 <p>Pointer to the <a class="el" href="class_graphics_context.html">GraphicsContext</a> class. </p>
 
-<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00038">38</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00046">46</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>engine/enginecode/include/independent/windows/<a class="el" href="window_8h_source.html">window.h</a></li>
-<li>engine/enginecode/src/independent/windows/GLFW/<a class="el" href="glfw_window_8cpp_source.html">glfwWindow.cpp</a></li>
+<li>engine/enginecode/src/independent/platform/GLFW/<a class="el" href="glfw_window_8cpp_source.html">glfwWindow.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

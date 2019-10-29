@@ -67,7 +67,7 @@ namespace Engine
 			index++;
 		}
 
-		m_vertexBuffer = vertexBuffer;
+		m_pVertexBuffer = vertexBuffer;
 	}
 
 	void OpenGLVertexArray::setIndexBuffer(const std::shared_ptr<IndexBuffer>& indexBuffer)
@@ -75,7 +75,7 @@ namespace Engine
 		glBindVertexArray(m_iRendererID);
 		indexBuffer->bind();
 
-		m_indexBuffer = indexBuffer;
+		m_pIndexBuffer = indexBuffer;
 	}
 
 }

@@ -17,9 +17,21 @@ namespace Engine
 	public:
 		WindowCloseEvent() {} //!< Constructor
 
-		static EventType getStaticType() { return EventType::WindowClose; } //!< Returns the type even if the event has not been created
-		EventType getEventType() const override { return EventType::WindowClose; } //!< Returns the event type
-		int getCategoryFlags() const override { return EventCategoryWindow; } //!< Returns the category flags
+		//! Used to get the event type even if the event has not been created
+		/*!
+		\return The event type
+		*/
+		static EventType getStaticType() { return EventType::WindowClose; }
+		//! Used to get the event type
+		/*!
+		\return The event type
+		*/
+		EventType getEventType() const override { return EventType::WindowClose; }
+		//! Used to get the category flags of the event
+		/*!
+		\return The category flags
+		*/
+		int getCategoryFlags() const override { return EventCategoryWindow; }
 	};
 
 	/**
@@ -32,14 +44,39 @@ namespace Engine
 		int m_iWidth; //!< Width of the window
 		int m_iHeight; //!< Height of the window
 	public:
-		WindowResizeEvent(int width, int height) : m_iWidth(width), m_iHeight(height) {} //!< Constructor
+		//! Constructor, sets the width and height to the ones passed in
+		/*!
+		\param width The new width of the window
+		\param height The new height of the window
+		*/
+		WindowResizeEvent(int width, int height) : m_iWidth(width), m_iHeight(height) {}
 
-		static EventType getStaticType() { return EventType::WindowResize; } //!< Returns the type even if the event has not been created
-		EventType getEventType() const override { return EventType::WindowResize; }	//!< Returns the event type
-		int getCategoryFlags() const override { return EventCategoryWindow; } //!< Returns the category flags
+		//! Used to get the event type even if the event has not been created
+		/*!
+		\return The event type
+		*/
+		static EventType getStaticType() { return EventType::WindowResize; }
+		//! Used to get the event type
+		/*!
+		\return The event type
+		*/
+		EventType getEventType() const override { return EventType::WindowResize; }
+		//! Used to get the category flags of the event
+		/*!
+		\return The category flags
+		*/
+		int getCategoryFlags() const override { return EventCategoryWindow; }
 
-		inline int getWidth() const { return m_iWidth; } //!< Return the width of the window
-		inline int getHeight() const { return m_iHeight; } //!< Return the height of the window
+		//! Used to get the width
+		/*!
+		\return The width of the window
+		*/
+		inline int getWidth() const { return m_iWidth; }
+		//! Used to get the height
+		/*!
+		\return The height of the window
+		*/
+		inline int getHeight() const { return m_iHeight; }
 	};
 
 	/**
@@ -49,17 +86,42 @@ namespace Engine
 	class WindowFocusEvent : public Event
 	{
 	private:
-		float m_fXPos;
-		float m_fYPos;
+		float m_fXPos; //!< The x position
+		float m_fYPos; //!< The y position
 	public:
-		WindowFocusEvent(float xPos, float yPos) : m_fXPos(xPos), m_fYPos(yPos) {} //!< Constructor
+		//! Constructor, sets the x and y positions to the ones passed in
+		/*!
+		\param xPos The new x position
+		\param yPos The new y position
+		*/
+		WindowFocusEvent(float xPos, float yPos) : m_fXPos(xPos), m_fYPos(yPos) {}
 
-		static EventType getStaticType() { return EventType::WindowFocus; } //!< Returns the type even if the event has not been created
-		EventType getEventType() const override { return EventType::WindowFocus; } //!< Returns the event type
-		int getCategoryFlags() const override { return EventCategoryWindow; } //!< Returns the category flags
+		//! Used to get the event type even if the event has not been created
+		/*!
+		\return The event type
+		*/
+		static EventType getStaticType() { return EventType::WindowFocus; }
+		//! Used to get the event type
+		/*!
+		\return The event type
+		*/
+		EventType getEventType() const override { return EventType::WindowFocus; }
+		//! Used to get the category flags of the event
+		/*!
+		\return The category flags
+		*/
+		int getCategoryFlags() const override { return EventCategoryWindow; }
 
-		float getXPos() { return m_fXPos; } //!< Returns the x position
-		float getYPos() { return m_fYPos; } //!< Returns the y position
+		//! Used to get the x position
+		/*!
+		\return The x position
+		*/
+		float getXPos() { return m_fXPos; }
+		//! Used to get the y position
+		/*!
+		\return The y position
+		*/
+		float getYPos() { return m_fYPos; }
 	};
 
 	/**
@@ -69,17 +131,42 @@ namespace Engine
 	class WindowLostFocusEvent : public Event
 	{
 	private:
-		float m_fXPos;
-		float m_fYPos;
+		float m_fXPos; //!< The x position
+		float m_fYPos; //!< The y position
 	public:
-		WindowLostFocusEvent(float xPos, float yPos) : m_fXPos(xPos), m_fYPos(yPos) {} //!< Constructor
+		//! Constructor, sets the x and y positions to the ones passed in
+		/*!
+		\param xPos The new x position
+		\param yPos The new y position
+		*/
+		WindowLostFocusEvent(float xPos, float yPos) : m_fXPos(xPos), m_fYPos(yPos) {}
 
-		static EventType getStaticType() { return EventType::WindowLostFocus; } //!< Returns the type even if the event has not been created
-		EventType getEventType() const override { return EventType::WindowLostFocus; } //!< Returns the event type
-		int getCategoryFlags() const override { return EventCategoryWindow; } //!< Returns the category flags
+		//! Used to get the event type even if the event has not been created
+		/*!
+		\return The event type
+		*/
+		static EventType getStaticType() { return EventType::WindowLostFocus; }
+		//! Used to get the event type
+		/*!
+		\return The event type
+		*/
+		EventType getEventType() const override { return EventType::WindowLostFocus; }
+		//! Used to get the category flags of the event
+		/*!
+		\return The category flags
+		*/
+		int getCategoryFlags() const override { return EventCategoryWindow; }
 
-		float getXPos() { return m_fXPos; } //!< Returns the x position
-		float getYPos() { return m_fYPos; } //!< Returns the y position
+		//! Used to get the x position
+		/*!
+		\return The x position
+		*/
+		float getXPos() { return m_fXPos; }
+		//! Used to get the y position
+		/*!
+		\return The y position
+		*/
+		float getYPos() { return m_fYPos; }
 	};
 
 	/**
@@ -89,16 +176,41 @@ namespace Engine
 	class WindowMovedEvent : public Event
 	{
 	private:
-		int m_fXPos;
-		int m_fYPos;
+		int m_fXPos; //!< The new x position
+		int m_fYPos; //!< The new y position
 	public:
-		WindowMovedEvent(int xPos, int yPos) : m_fXPos(xPos), m_fYPos(yPos) {} //!< Constructor
+		//! Constructor, sets the x and y positions to the ones passed in
+		/*!
+		\param xPos The new x position of the window
+		\param yPos The new y position of the window
+		*/
+		WindowMovedEvent(int xPos, int yPos) : m_fXPos(xPos), m_fYPos(yPos) {}
 
-		static EventType getStaticType() { return EventType::WindowMoved; } //!< Returns the type even if the event has not been created
-		EventType getEventType() const override { return EventType::WindowMoved; } //!< Returns the event type
-		int getCategoryFlags() const override { return EventCategoryWindow; } //!< Returns the category flags
+		//! Used to get the event type even if the event has not been created
+		/*!
+		\return The event type
+		*/
+		static EventType getStaticType() { return EventType::WindowMoved; }
+		//! Used to get the event type
+		/*!
+		\return The event type
+		*/
+		EventType getEventType() const override { return EventType::WindowMoved; }
+		//! Used to get the category flags of the event
+		/*!
+		\return The category flags
+		*/
+		int getCategoryFlags() const override { return EventCategoryWindow; }
 
-		float getXPos() { return m_fXPos; } //!< Returns the x position
-		float getYPos() { return m_fYPos; } //!< Returns the y position
+		//! Used to get the x position of the window
+		/*!
+		\return The x position of the window
+		*/
+		float getXPos() { return m_fXPos; }
+		//! Used to get the y position of the window
+		/*!
+		\return The y position of the window
+		*/
+		float getYPos() { return m_fYPos; }
 	};
 }

@@ -51,7 +51,7 @@ $(function() {
 <p>Implementation to a graphics context for openGL and GLFW.  
  <a href="class_open_g_l___g_l_f_w_graphics_context.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="open_g_l___g_l_f_w_graphics_context_8h_source.html">openGL_GLFWGraphicsContext.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_g_l_f_w_graphics_context_8h_source.html">GLFWGraphicsContext.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for OpenGL_GLFWGraphicsContext:</div>
 <div class="dyncontent">
@@ -65,7 +65,7 @@ Inheritance diagram for OpenGL_GLFWGraphicsContext:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2b9bceefd7bd9c54370c6622c16ef324"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_open_g_l___g_l_f_w_graphics_context.html#a2b9bceefd7bd9c54370c6622c16ef324">OpenGL_GLFWGraphicsContext</a> (GLFWwindow *window)</td></tr>
-<tr class="memdesc:a2b9bceefd7bd9c54370c6622c16ef324"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="class_open_g_l___g_l_f_w_graphics_context.html#a2b9bceefd7bd9c54370c6622c16ef324">More...</a><br /></td></tr>
+<tr class="memdesc:a2b9bceefd7bd9c54370c6622c16ef324"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, sets the window pointer to the one passed in.  <a href="class_open_g_l___g_l_f_w_graphics_context.html#a2b9bceefd7bd9c54370c6622c16ef324">More...</a><br /></td></tr>
 <tr class="separator:a2b9bceefd7bd9c54370c6622c16ef324"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a426654924afd47c9c654bbdbea8db1cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_open_g_l___g_l_f_w_graphics_context.html#a426654924afd47c9c654bbdbea8db1cc">init</a> () override</td></tr>
 <tr class="memdesc:a426654924afd47c9c654bbdbea8db1cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize object.  <a href="class_open_g_l___g_l_f_w_graphics_context.html#a426654924afd47c9c654bbdbea8db1cc">More...</a><br /></td></tr>
@@ -83,7 +83,7 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation to a graphics context for openGL and GLFW. </p>
 
-<p class="definition">Definition at line <a class="el" href="open_g_l___g_l_f_w_graphics_context_8h_source.html#l00014">14</a> of file <a class="el" href="open_g_l___g_l_f_w_graphics_context_8h_source.html">openGL_GLFWGraphicsContext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_g_l_f_w_graphics_context_8h_source.html#l00014">14</a> of file <a class="el" href="_g_l_f_w_graphics_context_8h_source.html">GLFWGraphicsContext.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2b9bceefd7bd9c54370c6622c16ef324"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2b9bceefd7bd9c54370c6622c16ef324">&#9670;&nbsp;</a></span>OpenGL_GLFWGraphicsContext()</h2>
@@ -109,9 +109,15 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructor. </p>
+<p>Constructor, sets the window pointer to the one passed in. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>A pointer to a GLFW window </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="open_g_l___g_l_f_w_graphics_context_8h_source.html#l00020">20</a> of file <a class="el" href="open_g_l___g_l_f_w_graphics_context_8h_source.html">openGL_GLFWGraphicsContext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_g_l_f_w_graphics_context_8h_source.html#l00023">23</a> of file <a class="el" href="_g_l_f_w_graphics_context_8h_source.html">GLFWGraphicsContext.h</a>.</p>
 
 </div>
 </div>
@@ -143,7 +149,7 @@ Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="class_graphics_context.html#a9d9e893ff7a5f64f7f0807e264068662">GraphicsContext</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="open_g_l___g_l_f_w_graphics_context_8cpp_source.html#l00006">6</a> of file <a class="el" href="open_g_l___g_l_f_w_graphics_context_8cpp_source.html">openGL_GLFWGraphicsContext.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_g_l_f_w_graphics_context_8cpp_source.html#l00007">7</a> of file <a class="el" href="_g_l_f_w_graphics_context_8cpp_source.html">GLFWGraphicsContext.cpp</a>.</p>
 
 </div>
 </div>
@@ -174,7 +180,7 @@ Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="class_graphics_context.html#a7d85caf6065d0e5adc280c2cf2f65a8a">GraphicsContext</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="open_g_l___g_l_f_w_graphics_context_8cpp_source.html#l00013">13</a> of file <a class="el" href="open_g_l___g_l_f_w_graphics_context_8cpp_source.html">openGL_GLFWGraphicsContext.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_g_l_f_w_graphics_context_8cpp_source.html#l00015">15</a> of file <a class="el" href="_g_l_f_w_graphics_context_8cpp_source.html">GLFWGraphicsContext.cpp</a>.</p>
 
 </div>
 </div>
@@ -201,13 +207,13 @@ Private Attributes</h2></td></tr>
 
 <p>Pointer to the window. </p>
 
-<p class="definition">Definition at line <a class="el" href="open_g_l___g_l_f_w_graphics_context_8h_source.html#l00017">17</a> of file <a class="el" href="open_g_l___g_l_f_w_graphics_context_8h_source.html">openGL_GLFWGraphicsContext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_g_l_f_w_graphics_context_8h_source.html#l00017">17</a> of file <a class="el" href="_g_l_f_w_graphics_context_8h_source.html">GLFWGraphicsContext.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>engine/enginecode/include/independent/windows/GLFW/<a class="el" href="open_g_l___g_l_f_w_graphics_context_8h_source.html">openGL_GLFWGraphicsContext.h</a></li>
-<li>engine/enginecode/src/independent/windows/GLFW/<a class="el" href="open_g_l___g_l_f_w_graphics_context_8cpp_source.html">openGL_GLFWGraphicsContext.cpp</a></li>
+<li>engine/enginecode/include/independent/platform/GLFW/<a class="el" href="_g_l_f_w_graphics_context_8h_source.html">GLFWGraphicsContext.h</a></li>
+<li>engine/enginecode/src/independent/platform/GLFW/<a class="el" href="_g_l_f_w_graphics_context_8cpp_source.html">GLFWGraphicsContext.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

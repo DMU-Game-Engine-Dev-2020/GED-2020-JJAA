@@ -80,6 +80,21 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a8be8793d00a34fa5bfc84ab9dd8f4cab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_engine_1_1_window_properties.html#a8be8793d00a34fa5bfc84ab9dd8f4cab">m_isVSync</a></td></tr>
 <tr class="memdesc:a8be8793d00a34fa5bfc84ab9dd8f4cab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is vSync on.  <a href="struct_engine_1_1_window_properties.html#a8be8793d00a34fa5bfc84ab9dd8f4cab">More...</a><br /></td></tr>
 <tr class="separator:a8be8793d00a34fa5bfc84ab9dd8f4cab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9031050c0377943c1a0cf846689f07be"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_engine_1_1_window_properties.html#a9031050c0377943c1a0cf846689f07be">m_fAspect</a></td></tr>
+<tr class="memdesc:a9031050c0377943c1a0cf846689f07be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aspect ratio for the viewport.  <a href="struct_engine_1_1_window_properties.html#a9031050c0377943c1a0cf846689f07be">More...</a><br /></td></tr>
+<tr class="separator:a9031050c0377943c1a0cf846689f07be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1937a6a8a7ba0167ea16541073d1211f"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_engine_1_1_window_properties.html#a1937a6a8a7ba0167ea16541073d1211f">m_storedWidth</a></td></tr>
+<tr class="memdesc:a1937a6a8a7ba0167ea16541073d1211f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Width that the window goes back to if going to fullscreen and back.  <a href="struct_engine_1_1_window_properties.html#a1937a6a8a7ba0167ea16541073d1211f">More...</a><br /></td></tr>
+<tr class="separator:a1937a6a8a7ba0167ea16541073d1211f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a660e6361fb042cb343fed41964e8c399"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_engine_1_1_window_properties.html#a660e6361fb042cb343fed41964e8c399">m_storedHeight</a></td></tr>
+<tr class="memdesc:a660e6361fb042cb343fed41964e8c399"><td class="mdescLeft">&#160;</td><td class="mdescRight">Height that the window goes back to if going to fullscreen and back.  <a href="struct_engine_1_1_window_properties.html#a660e6361fb042cb343fed41964e8c399">More...</a><br /></td></tr>
+<tr class="separator:a660e6361fb042cb343fed41964e8c399"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee1e13a3b37ec09b35b5d798fd8b7f9b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_engine_1_1_window_properties.html#aee1e13a3b37ec09b35b5d798fd8b7f9b">m_storedXPos</a></td></tr>
+<tr class="memdesc:aee1e13a3b37ec09b35b5d798fd8b7f9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">X position that the window goes back to if going to fullscreen and back.  <a href="struct_engine_1_1_window_properties.html#aee1e13a3b37ec09b35b5d798fd8b7f9b">More...</a><br /></td></tr>
+<tr class="separator:aee1e13a3b37ec09b35b5d798fd8b7f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b56699803c31a5b21b0beb5ed63abd1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_engine_1_1_window_properties.html#a8b56699803c31a5b21b0beb5ed63abd1">m_storedYPos</a></td></tr>
+<tr class="memdesc:a8b56699803c31a5b21b0beb5ed63abd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Y position that the window goes back to if going to fullscreen and back.  <a href="struct_engine_1_1_window_properties.html#a8b56699803c31a5b21b0beb5ed63abd1">More...</a><br /></td></tr>
+<tr class="separator:a8b56699803c31a5b21b0beb5ed63abd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains the properties of the window. </p>
@@ -134,11 +149,29 @@ Public Attributes</h2></td></tr>
 
 <p>Set all of the properties to default values if the user doesn't set them when creating the window. </p>
 
-<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00026">26</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00033">33</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a9031050c0377943c1a0cf846689f07be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9031050c0377943c1a0cf846689f07be">&#9670;&nbsp;</a></span>m_fAspect</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Engine::WindowProperties::m_fAspect</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Aspect ratio for the viewport. </p>
+
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00025">25</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+</div>
+</div>
 <a id="a01a614a9f1e06bf22dbe4c17c0a0a6a5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a01a614a9f1e06bf22dbe4c17c0a0a6a5">&#9670;&nbsp;</a></span>m_height</h2>
 
@@ -190,6 +223,78 @@ Public Attributes</h2></td></tr>
 <p>Is vSync on. </p>
 
 <p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00023">23</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+</div>
+</div>
+<a id="a660e6361fb042cb343fed41964e8c399"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a660e6361fb042cb343fed41964e8c399">&#9670;&nbsp;</a></span>m_storedHeight</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Engine::WindowProperties::m_storedHeight</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Height that the window goes back to if going to fullscreen and back. </p>
+
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00028">28</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+</div>
+</div>
+<a id="a1937a6a8a7ba0167ea16541073d1211f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1937a6a8a7ba0167ea16541073d1211f">&#9670;&nbsp;</a></span>m_storedWidth</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Engine::WindowProperties::m_storedWidth</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Width that the window goes back to if going to fullscreen and back. </p>
+
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00027">27</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+</div>
+</div>
+<a id="aee1e13a3b37ec09b35b5d798fd8b7f9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee1e13a3b37ec09b35b5d798fd8b7f9b">&#9670;&nbsp;</a></span>m_storedXPos</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Engine::WindowProperties::m_storedXPos</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>X position that the window goes back to if going to fullscreen and back. </p>
+
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00029">29</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+</div>
+</div>
+<a id="a8b56699803c31a5b21b0beb5ed63abd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b56699803c31a5b21b0beb5ed63abd1">&#9670;&nbsp;</a></span>m_storedYPos</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Engine::WindowProperties::m_storedYPos</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Y position that the window goes back to if going to fullscreen and back. </p>
+
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00030">30</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
 
 </div>
 </div>

@@ -42,11 +42,32 @@ namespace Engine
 	private:
 		bool m_bHandled = false; //!< If the event has been handled
 	public:
-		virtual EventType getEventType() const = 0; //!< To be overridden, will return the event type
-		virtual int getCategoryFlags() const = 0; //!< To be overridden, will return the event category
-		inline bool handled() const { return m_bHandled; } //!< Returns if the event has been handled or not
-		inline void handle(bool isHandled) { m_bHandled = isHandled; } //!< Set if the event has been handled
-		inline bool isInCategory(EventCategory category) { return getCategoryFlags()& category; } //!< Check if the event is in a category
+		//! To be overridden, used to get the type of the event
+		/*!
+		\return The event type
+		*/
+		virtual EventType getEventType() const = 0; 
+		//! To be overridden, used to get the categories of the event
+		/*!
+		\return The event category
+		*/
+		virtual int getCategoryFlags() const = 0; 
+		//! Returns a boolean representing if the event has been handled or not
+		/*!
+		\return If the event has been handled
+		*/
+		inline bool handled() const { return m_bHandled; } 
+		//! Set if the event has been handled
+		/*!
+		\param isHandled Boolean to set the stored handled bool to
+		*/
+		inline void handle(bool isHandled) { m_bHandled = isHandled; } 
+		//! Check if an event category is one of the categories of the event
+		/*!
+		\param category The category being checked
+		\return A boolean representing if it is or not
+		*/
+		inline bool isInCategory(EventCategory category) { return getCategoryFlags()& category; } 
 	};
 
 	/**
@@ -60,9 +81,16 @@ namespace Engine
 	private:
 		Event& m_event; //!< Reference to the Event
 	public:
-		EventDispatcher(Event& event) : m_event(event) {} //!< Constructor, set the stored event reference to the one passed in
+		//! Constructor, set the stored event reference to the one passed in
+		/*!
+		\param event A reference to the Event class being dispatched
+		*/
+		EventDispatcher(Event& event) : m_event(event) {} 
 
 		//! Function comparing the type of the stored event with the type of the event passed in
+		/*!
+		\param func The function to call when handling the event
+		*/
 		template<typename T>
 		bool dispatch(EventFunc<T> func)
 		{

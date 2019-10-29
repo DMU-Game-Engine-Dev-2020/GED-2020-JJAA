@@ -19,11 +19,23 @@ namespace Engine
 	protected:
 		int m_iKeyCode; //!< Identifying number for which key is being used
 
-		KeyEvent(int keyCode) : m_iKeyCode(keyCode) {} //!< Constructor, sets stored key code to the one passed in. Protected so only classes inheriting from the class can create it
+		//! Constructor, sets stored key code to the one passed in. Protected so only classes inheriting from the class can create it
+		/*!
+		\param keyCode The code of the key pressed/released
+		*/
+		KeyEvent(int keyCode) : m_iKeyCode(keyCode) {} 
 	public:
-		inline int getKeyCode() const { return m_iKeyCode; } //!< Returns the key code
+		//! Used to get the code of the key pressed/released
+		/*!
+		\return The key code
+		*/
+		inline int getKeyCode() const { return m_iKeyCode; } 
 
-		int getCategoryFlags() const override { return EventCategoryInput | EventCategoryKeyboard; } //!< Returns the category flags
+		//! Used to get the category flags of the event
+		/*!
+		\return The category flags
+		*/
+		int getCategoryFlags() const override { return EventCategoryInput | EventCategoryKeyboard; } 
 	};
 
 
@@ -36,12 +48,29 @@ namespace Engine
 	private:
 		int m_iRepeated; //!< If the key press is a repeat and if so how many times has it been pressed
 	public:
-		KeyPressedEvent(int keyCode, int repeatCount) : KeyEvent(keyCode), m_iRepeated(repeatCount) {} //!< Constructor
+		//! Constructor, constructs the base class and sets the repeat count
+		/*!
+		\param keyCode The key code of the key that has been pressed
+		\param repeatCount If the key press is a repeat
+		*/
+		KeyPressedEvent(int keyCode, int repeatCount) : KeyEvent(keyCode), m_iRepeated(repeatCount) {} 
 
-		static EventType getStaticType() { return EventType::KeyPressed; } //!< Returns the type even if the event has not been created
-		EventType getEventType() const override { return EventType::KeyPressed; } //!< Returns the event type
+		//! Used to get the event type even if the event has not been created
+		/*!
+		\return The event type
+		*/
+		static EventType getStaticType() { return EventType::KeyPressed; } 
+		//! Used to get the event type
+		/*!
+		\return The event type
+		*/
+		EventType getEventType() const override { return EventType::KeyPressed; }
 
-		inline bool getRepeated() const { return m_iRepeated; } //!< Returns the numer of times the key has been repeatedly pressed
+		//! Used to see if the key has been repeatedly pressed
+		/*!
+		\return A boolean representing if the key press is a repeat press or not
+		*/
+		inline bool getRepeated() const { return m_iRepeated; } 
 	};
 
 	/**
@@ -51,10 +80,22 @@ namespace Engine
 	class KeyReleasedEvent : public KeyEvent
 	{
 	public:
-		KeyReleasedEvent(int keyCode) : KeyEvent(keyCode) {} //!< Constructor
+		//! Constructor, constructs the base class
+		/*!
+		\param keyCode The key code of the key that has been pressed
+		*/
+		KeyReleasedEvent(int keyCode) : KeyEvent(keyCode) {}
 
-		static EventType getStaticType() { return EventType::KeyReleased; } //!< Returns the type even if the event has not been created
-		EventType getEventType() const override { return EventType::KeyReleased; } //!< Returns the event type
+		//! Used to get the event type even if the event has not been created
+		/*!
+		\return The event type
+		*/
+		static EventType getStaticType() { return EventType::KeyReleased; }
+		//! Used to get the event type
+		/*!
+		\return The event type
+		*/
+		EventType getEventType() const override { return EventType::KeyReleased; }
 	};
 
 	/**
@@ -64,9 +105,21 @@ namespace Engine
 	class KeyTypedEvent : public KeyEvent
 	{
 	public:
-		KeyTypedEvent(int keyCode) : KeyEvent(keyCode) {} //!< Constructor
+		//! Constructor, constructs the base class
+		/*!
+		\param keyCode The key code of the key that has been pressed
+		*/
+		KeyTypedEvent(int keyCode) : KeyEvent(keyCode) {}
 
-		static EventType getStaticType() { return EventType::KeyTyped; } //!< Returns the type even if the event has not been created
-		EventType getEventType() const override { return EventType::KeyTyped; } //!< Returns the event type
+		//! Used to get the event type even if the event has not been created
+		/*!
+		\return The event type
+		*/
+		static EventType getStaticType() { return EventType::KeyTyped; }
+		//! Used to get the event type
+		/*!
+		\return The event type
+		*/
+		EventType getEventType() const override { return EventType::KeyTyped; }
 	};
 }

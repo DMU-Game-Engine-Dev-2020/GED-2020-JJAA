@@ -16,7 +16,10 @@ class OpenGL_GLFWGraphicsContext : public GraphicsContext
 private:
 	GLFWwindow* m_pWindow; //!< Pointer to the window
 public:
-	//! Constructor
+	//! Constructor, sets the window pointer to the one passed in
+	/*!
+	\param window A pointer to a GLFW window
+	*/
 	OpenGL_GLFWGraphicsContext(GLFWwindow* window) : m_pWindow(window) {}
 	void init() override; //!< Initialize object
 	void swapBuffers() override; //!< Swap the buffers, update the window

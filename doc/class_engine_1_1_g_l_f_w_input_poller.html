@@ -105,7 +105,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>GLFW API specific input polling. </p>
 
-<p class="definition">Definition at line <a class="el" href="_g_l_f_w_input_poller_8h_source.html#l00014">14</a> of file <a class="el" href="_g_l_f_w_input_poller_8h_source.html">GLFWInputPoller.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_g_l_f_w_input_poller_8h_source.html#l00013">13</a> of file <a class="el" href="_g_l_f_w_input_poller_8h_source.html">GLFWInputPoller.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a317c25d952f62762f29a5b26cd9c26a4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a317c25d952f62762f29a5b26cd9c26a4">&#9670;&nbsp;</a></span>getMousePositionImpl()</h2>
@@ -131,6 +131,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Windows API specific implementation of mouse position. </p>
+<dl class="section return"><dt>Returns</dt><dd>The mouse position </dd></dl>
 
 <p>Implements <a class="el" href="class_engine_1_1_input_poller.html#a07d16d9418611ea0ec374c7d535bfecf">Engine::InputPoller</a>.</p>
 
@@ -162,6 +163,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Windows API specific implementation of mouse x position. </p>
+<dl class="section return"><dt>Returns</dt><dd>The mouse x position </dd></dl>
 
 <p>Implements <a class="el" href="class_engine_1_1_input_poller.html#a6d6772b7ee82df51b33a4dfa4896252c">Engine::InputPoller</a>.</p>
 
@@ -193,6 +195,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Windows API specific implementation of mouse y postion. </p>
+<dl class="section return"><dt>Returns</dt><dd>The mouse y position </dd></dl>
 
 <p>Implements <a class="el" href="class_engine_1_1_input_poller.html#af437eb25cc84d2ac2ae0f9a8e29469d5">Engine::InputPoller</a>.</p>
 
@@ -225,6 +228,13 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Windows API specific implementation of key press. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">keycode</td><td>The code for the key being checked </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A boolean representing if the key is currently being pressed </dd></dl>
 
 <p>Implements <a class="el" href="class_engine_1_1_input_poller.html#a53bc931ed5f1a5b0a3c527d8b2de70c2">Engine::InputPoller</a>.</p>
 
@@ -257,6 +267,13 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Windows API specific implementation of mouse button press. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">button</td><td>The code for the button being checked </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A boolean representing if the button is currently being pressed </dd></dl>
 
 <p>Implements <a class="el" href="class_engine_1_1_input_poller.html#a5980f84e1d66dc59730582792f5c7704">Engine::InputPoller</a>.</p>
 
@@ -265,8 +282,8 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>engine/enginecode/include/independent/windows/GLFW/<a class="el" href="_g_l_f_w_input_poller_8h_source.html">GLFWInputPoller.h</a></li>
-<li>engine/enginecode/src/independent/windows/GLFW/<a class="el" href="_g_l_f_w_input_poller_8cpp_source.html">GLFWInputPoller.cpp</a></li>
+<li>engine/enginecode/include/independent/platform/GLFW/<a class="el" href="_g_l_f_w_input_poller_8h_source.html">GLFWInputPoller.h</a></li>
+<li>engine/enginecode/src/independent/platform/GLFW/<a class="el" href="_g_l_f_w_input_poller_8cpp_source.html">GLFWInputPoller.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

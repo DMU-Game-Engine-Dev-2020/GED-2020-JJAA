@@ -81,6 +81,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abc43e60fcd2ac03d7194912589dc0d9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_g_l_f_w_window_impl.html#abc43e60fcd2ac03d7194912589dc0d9b">onResize</a> (unsigned int width, unsigned int height) override</td></tr>
 <tr class="memdesc:abc43e60fcd2ac03d7194912589dc0d9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the window size is changed.  <a href="class_engine_1_1_g_l_f_w_window_impl.html#abc43e60fcd2ac03d7194912589dc0d9b">More...</a><br /></td></tr>
 <tr class="separator:abc43e60fcd2ac03d7194912589dc0d9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a075f96cb1547e6cea81e58d8ebee6875"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_g_l_f_w_window_impl.html#a075f96cb1547e6cea81e58d8ebee6875">setFullscreen</a> (bool fullscreen) override</td></tr>
+<tr class="memdesc:a075f96cb1547e6cea81e58d8ebee6875"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called to enter or exit fullscreen mode.  <a href="class_engine_1_1_g_l_f_w_window_impl.html#a075f96cb1547e6cea81e58d8ebee6875">More...</a><br /></td></tr>
+<tr class="separator:a075f96cb1547e6cea81e58d8ebee6875"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70a1984ee4f32d2e52623e485ca4c305"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_g_l_f_w_window_impl.html#a70a1984ee4f32d2e52623e485ca4c305">setVSync</a> (bool VSync) override</td></tr>
 <tr class="memdesc:a70a1984ee4f32d2e52623e485ca4c305"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set if vSync is on.  <a href="class_engine_1_1_g_l_f_w_window_impl.html#a70a1984ee4f32d2e52623e485ca4c305">More...</a><br /></td></tr>
 <tr class="separator:a70a1984ee4f32d2e52623e485ca4c305"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,6 +124,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:aefbf7aa99a9a22954c2e9cf3783f31bf"><td class="memItemLeft" align="right" valign="top">GLFWwindow *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_g_l_f_w_window_impl.html#aefbf7aa99a9a22954c2e9cf3783f31bf">m_pNativeWindow</a></td></tr>
 <tr class="memdesc:aefbf7aa99a9a22954c2e9cf3783f31bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to GLFWwindow (the window being created)  <a href="class_engine_1_1_g_l_f_w_window_impl.html#aefbf7aa99a9a22954c2e9cf3783f31bf">More...</a><br /></td></tr>
 <tr class="separator:aefbf7aa99a9a22954c2e9cf3783f31bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52efee39ac053e9a03e209d65fa05707"><td class="memItemLeft" align="right" valign="top">GLFWmonitor *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_g_l_f_w_window_impl.html#a52efee39ac053e9a03e209d65fa05707">m_pMonitor</a></td></tr>
+<tr class="memdesc:a52efee39ac053e9a03e209d65fa05707"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to GLFWmonitor (used to get the screen size)  <a href="class_engine_1_1_g_l_f_w_window_impl.html#a52efee39ac053e9a03e209d65fa05707">More...</a><br /></td></tr>
+<tr class="separator:a52efee39ac053e9a03e209d65fa05707"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3cd18c727b7590df60254f030b5c1c45"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_engine_1_1_window_properties.html">WindowProperties</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_g_l_f_w_window_impl.html#a3cd18c727b7590df60254f030b5c1c45">m_properties</a></td></tr>
 <tr class="memdesc:a3cd18c727b7590df60254f030b5c1c45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the properties of the window.  <a href="class_engine_1_1_g_l_f_w_window_impl.html#a3cd18c727b7590df60254f030b5c1c45">More...</a><br /></td></tr>
 <tr class="separator:a3cd18c727b7590df60254f030b5c1c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -221,7 +227,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_engine_1_1_window.html#a38d3c1012c983e7f276a21cff4555426">Engine::Window</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="glfw_window_8cpp_source.html#l00151">151</a> of file <a class="el" href="glfw_window_8cpp_source.html">glfwWindow.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="glfw_window_8cpp_source.html#l00157">157</a> of file <a class="el" href="glfw_window_8cpp_source.html">glfwWindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -253,7 +259,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_engine_1_1_window.html#af212cb0a8ea1fd68974f73b44e33b733">Engine::Window</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="glfw_window_8h_source.html#l00066">66</a> of file <a class="el" href="glfw_window_8h_source.html">glfwWindow.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="glfw_window_8h_source.html#l00072">72</a> of file <a class="el" href="glfw_window_8h_source.html">glfwWindow.h</a>.</p>
 
 </div>
 </div>
@@ -285,7 +291,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_engine_1_1_window.html#a1b629ee9bae245cc64d42f969b634f13">Engine::Window</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="glfw_window_8h_source.html#l00071">71</a> of file <a class="el" href="glfw_window_8h_source.html">glfwWindow.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="glfw_window_8h_source.html#l00077">77</a> of file <a class="el" href="glfw_window_8h_source.html">glfwWindow.h</a>.</p>
 
 </div>
 </div>
@@ -317,7 +323,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_engine_1_1_window.html#a8c267e602cd2d6482272857208ac41f9">Engine::Window</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="glfw_window_8h_source.html#l00061">61</a> of file <a class="el" href="glfw_window_8h_source.html">glfwWindow.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="glfw_window_8h_source.html#l00067">67</a> of file <a class="el" href="glfw_window_8h_source.html">glfwWindow.h</a>.</p>
 
 </div>
 </div>
@@ -387,7 +393,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_engine_1_1_window.html#a04486d3f3a9909fb729b0143116066bb">Engine::Window</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="glfw_window_8h_source.html#l00076">76</a> of file <a class="el" href="glfw_window_8h_source.html">glfwWindow.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="glfw_window_8h_source.html#l00082">82</a> of file <a class="el" href="glfw_window_8h_source.html">glfwWindow.h</a>.</p>
 
 </div>
 </div>
@@ -419,7 +425,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_engine_1_1_window.html#acfec841fb83d7401cd5dfb7e203bf1cf">Engine::Window</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="glfw_window_8h_source.html#l00081">81</a> of file <a class="el" href="glfw_window_8h_source.html">glfwWindow.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="glfw_window_8h_source.html#l00087">87</a> of file <a class="el" href="glfw_window_8h_source.html">glfwWindow.h</a>.</p>
 
 </div>
 </div>
@@ -468,7 +474,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_engine_1_1_window.html#a7816915072123b15d1fda1601fb2c9d5">Engine::Window</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="glfw_window_8cpp_source.html#l00166">166</a> of file <a class="el" href="glfw_window_8cpp_source.html">glfwWindow.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="glfw_window_8cpp_source.html#l00216">216</a> of file <a class="el" href="glfw_window_8cpp_source.html">glfwWindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -506,7 +512,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_engine_1_1_window.html#abdb4e0a16ec760470b68d2c88028bcc6">Engine::Window</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="glfw_window_8cpp_source.html#l00157">157</a> of file <a class="el" href="glfw_window_8cpp_source.html">glfwWindow.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="glfw_window_8cpp_source.html#l00163">163</a> of file <a class="el" href="glfw_window_8cpp_source.html">glfwWindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -544,7 +550,45 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_engine_1_1_window.html#afec5978ef0bda960ecee3bb969549936">Engine::Window</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="glfw_window_8cpp_source.html#l00185">185</a> of file <a class="el" href="glfw_window_8cpp_source.html">glfwWindow.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="glfw_window_8cpp_source.html#l00257">257</a> of file <a class="el" href="glfw_window_8cpp_source.html">glfwWindow.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a075f96cb1547e6cea81e58d8ebee6875"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a075f96cb1547e6cea81e58d8ebee6875">&#9670;&nbsp;</a></span>setFullscreen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::GLFWWindowImpl::setFullscreen </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>fullscreen</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called to enter or exit fullscreen mode. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fullscreen</td><td>Whether the window is being made fullscreen or not </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_engine_1_1_window.html#a3c3059fbe005b0500d9ddf112807dda2">Engine::Window</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="glfw_window_8cpp_source.html#l00223">223</a> of file <a class="el" href="glfw_window_8cpp_source.html">glfwWindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -582,7 +626,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_engine_1_1_window.html#ab69e1de70ef657b3395452e571e61439">Engine::Window</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="glfw_window_8cpp_source.html#l00173">173</a> of file <a class="el" href="glfw_window_8cpp_source.html">glfwWindow.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="glfw_window_8cpp_source.html#l00245">245</a> of file <a class="el" href="glfw_window_8cpp_source.html">glfwWindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -609,7 +653,33 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Callback for events, bound to <a class="el" href="class_engine_1_1_application.html#a715baf41602421143cd0bed7343493a6" title="When an event happens.">Application::onEvent</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="glfw_window_8h_source.html#l00027">27</a> of file <a class="el" href="glfw_window_8h_source.html">glfwWindow.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="glfw_window_8h_source.html#l00028">28</a> of file <a class="el" href="glfw_window_8h_source.html">glfwWindow.h</a>.</p>
+
+</div>
+</div>
+<a id="a52efee39ac053e9a03e209d65fa05707"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52efee39ac053e9a03e209d65fa05707">&#9670;&nbsp;</a></span>m_pMonitor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLFWmonitor* Engine::GLFWWindowImpl::m_pMonitor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pointer to GLFWmonitor (used to get the screen size) </p>
+
+<p class="definition">Definition at line <a class="el" href="glfw_window_8h_source.html#l00019">19</a> of file <a class="el" href="glfw_window_8h_source.html">glfwWindow.h</a>.</p>
 
 </div>
 </div>
@@ -661,13 +731,13 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Stores the properties of the window. </p>
 
-<p class="definition">Definition at line <a class="el" href="glfw_window_8h_source.html#l00026">26</a> of file <a class="el" href="glfw_window_8h_source.html">glfwWindow.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="glfw_window_8h_source.html#l00027">27</a> of file <a class="el" href="glfw_window_8h_source.html">glfwWindow.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>engine/enginecode/include/independent/windows/GLFW/<a class="el" href="glfw_window_8h_source.html">glfwWindow.h</a></li>
-<li>engine/enginecode/src/independent/windows/GLFW/<a class="el" href="glfw_window_8cpp_source.html">glfwWindow.cpp</a></li>
+<li>engine/enginecode/include/independent/platform/GLFW/<a class="el" href="glfw_window_8h_source.html">glfwWindow.h</a></li>
+<li>engine/enginecode/src/independent/platform/GLFW/<a class="el" href="glfw_window_8cpp_source.html">glfwWindow.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
