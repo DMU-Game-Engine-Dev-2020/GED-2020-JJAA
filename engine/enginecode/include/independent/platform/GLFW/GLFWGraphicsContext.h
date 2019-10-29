@@ -1,4 +1,4 @@
-/** \file openGL_GLFWGraphicsContext.h
+/** \file GLFWGraphicsContext.h
 */
 #pragma once
 

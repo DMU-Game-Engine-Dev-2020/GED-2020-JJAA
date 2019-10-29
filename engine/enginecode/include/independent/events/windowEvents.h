@@ -88,11 +88,17 @@ namespace Engine
 	*/
 	class WindowMovedEvent : public Event
 	{
+	private:
+		int m_fXPos;
+		int m_fYPos;
 	public:
-		WindowMovedEvent() {} //!< Constructor
+		WindowMovedEvent(int xPos, int yPos) : m_fXPos(xPos), m_fYPos(yPos) {} //!< Constructor
 
 		static EventType getStaticType() { return EventType::WindowMoved; } //!< Returns the type even if the event has not been created
 		EventType getEventType() const override { return EventType::WindowMoved; } //!< Returns the event type
 		int getCategoryFlags() const override { return EventCategoryWindow; } //!< Returns the category flags
+
+		float getXPos() { return m_fXPos; } //!< Returns the x position
+		float getYPos() { return m_fYPos; } //!< Returns the y position
 	};
 }

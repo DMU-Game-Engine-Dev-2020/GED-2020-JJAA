@@ -4,7 +4,7 @@
 
 #include "windows/window.h"
 #include "systems/log.h"
-#include "platform/GLFW/openGL_GLFWGraphicsContext.h"
+#include "platform/GLFW/GLFWGraphicsContext.h"
 
 namespace Engine
 {

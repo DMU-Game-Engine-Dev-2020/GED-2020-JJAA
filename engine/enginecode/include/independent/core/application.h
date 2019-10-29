@@ -10,6 +10,10 @@
 #include "windows/inputPoller.h"
 #include "core/codes.h"
 
+#include "rendering/indexBuffer.h"
+#include "rendering/vertexBuffer.h"
+#include "rendering/vertexArray.h"
+
 namespace Engine {
 
 	/**
@@ -29,6 +33,15 @@ namespace Engine {
 		std::shared_ptr<Timer> m_pTimer; //!< Pointer to the Timer system object
 		std::shared_ptr<WindowsSystem> m_pWindows;
 
+		std::shared_ptr<IndexBuffer> m_pFCIndexBuffer;
+		std::shared_ptr<IndexBuffer> m_pTPIndexBuffer;
+
+		std::shared_ptr<VertexBuffer> m_pFCVertexBuffer;
+		std::shared_ptr<VertexBuffer> m_pTPVertexBuffer;
+
+		std::shared_ptr<VertexArray> m_pFCVertexArray;
+		std::shared_ptr<VertexArray> m_pTPVertexArray;
+
 		bool m_bRunning; //!< If the application is running
 		float m_fTotalTimeElapsed; //!< The total time the program has been active in seconds
 		float m_fTimestep; //!< Time in seconds for the last frame
@@ -37,12 +50,6 @@ namespace Engine {
 
 #pragma region TempVars
 // Temp stuff
-		unsigned int m_FCvertexArray; // Flat Colour VAO
-		unsigned int m_FCvertexBuffer;// Flat Colour VBO
-		unsigned int m_TPvertexArray; // Textured Phong VAO
-		unsigned int m_TPvertexBuffer;// Textured Phong VBO
-		unsigned int m_FCindexBuffer; // Index buffer for colour cube
-		unsigned int m_TPindexBuffer; // Index buffer for texture Phong cube
 		unsigned int m_FCprogram; // Flat colour shader ID
 		unsigned int m_TPprogram; // Textured Phong shader ID
 		unsigned int m_numberTexture; // Texture ID
@@ -60,6 +67,7 @@ namespace Engine {
 		bool onResize(WindowResizeEvent& e); //!< Called if the event is a window resize event
 		bool onFocus(WindowFocusEvent& e); //!< Called if the window gets focus
 		bool onLostFocus(WindowLostFocusEvent& e); //!< Callsed if the window loses focus
+		bool onWindowMoved(WindowMovedEvent& e);
 		bool onKeyPressed(KeyPressedEvent& e);
 		void run(); //!< Main loop
 		inline Window& getWindow() { return *m_pWindow; } //!< Returns window

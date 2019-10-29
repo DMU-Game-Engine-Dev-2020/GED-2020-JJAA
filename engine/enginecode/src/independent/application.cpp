@@ -58,7 +58,6 @@ namespace Engine
 		// Set the windows event callback to call the onEvent function in Application
 		m_pWindow->setEventCallback(std::bind(&Application::onEvent, this, std::placeholders::_1));
 
-
 #pragma region TempSetup
 		//  Temporary set up code to be abstracted
 		
@@ -69,11 +68,7 @@ namespace Engine
 		glEnable(GL_CULL_FACE);
 		glCullFace(GL_BACK);
 
-		glGenVertexArrays(1, &m_FCvertexArray);
-		glBindVertexArray(m_FCvertexArray);
-
-		glCreateBuffers(1, &m_FCvertexBuffer);
-		glBindBuffer(GL_ARRAY_BUFFER, m_FCvertexBuffer);
+		m_pFCVertexArray.reset(VertexArray::create());
 
 		float FCvertices[6 * 24] = {
 			-0.5f, -0.5f, -0.5f, 0.8f, 0.2f, 0.2f, // red square
@@ -102,16 +97,14 @@ namespace Engine
 			0.5f,  -0.5f, 0.5f, 0.2f, 0.2f, 0.8f
 		};
 
-		glBufferData(GL_ARRAY_BUFFER, sizeof(FCvertices), FCvertices, GL_STATIC_DRAW);
+		BufferLayout FCLayout =
+		{
+			{ ShaderDataType::Float3 },
+			{ ShaderDataType::Float3 }
+		};
 
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0); // (pos 0 (pos), 3 floats, float, not normalised, 6 float between each data line, start at 0)
-		glEnableVertexAttribArray(1);
-		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(sizeof(float) * 3)); // (pos 1 (colour), 3 floats, float, not normalised, 6 float between each data line, start at 3)
-
-		glCreateBuffers(1, &m_FCindexBuffer);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_FCindexBuffer);
-
+		m_pFCVertexBuffer.reset(VertexBuffer::create(FCvertices, sizeof(FCvertices), FCLayout));
+		m_pFCVertexArray->setVertexBuffer(m_pFCVertexBuffer);
 
 		unsigned int indices[3 * 12] = {
 			2, 1, 0,
@@ -127,7 +120,9 @@ namespace Engine
 			20, 21, 22,
 			22, 23, 20
 		};
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+		m_pFCIndexBuffer.reset(IndexBuffer::create(indices, sizeof(indices) / sizeof(unsigned int)));
+		m_pFCVertexArray->setIndexBuffer(m_pFCIndexBuffer);
 
 		std::string FCvertSrc = R"(
 				#version 440 core
@@ -223,14 +218,11 @@ namespace Engine
 		glDetachShader(m_FCprogram, FCVertShader);
 		glDetachShader(m_FCprogram, FCFragShader);
 
-		// Added textuer phong shader and cube
+		/////////////////////////////////////////////////////////
+		// Added textuer phong shader and cube //////////////////
+		/////////////////////////////////////////////////////////
 
-		glGenVertexArrays(1, &m_TPvertexArray);
-		glBindVertexArray(m_TPvertexArray);
-
-		glCreateBuffers(1, &m_TPvertexBuffer);
-		glBindBuffer(GL_ARRAY_BUFFER, m_TPvertexBuffer);
-
+		m_pTPVertexArray.reset(VertexArray::create());
 
 		float TPvertices[8 * 24] = {
 			-0.5f, -0.5f, -0.5f, 0.f, 0.f, -1.f, 0.33f, 0.5f,
@@ -259,18 +251,18 @@ namespace Engine
 			0.5f,  -0.5f, 0.5f,  1.f, 0.f, 0.f, 0.66f, 1.0f
 		};
 
-		glBufferData(GL_ARRAY_BUFFER, sizeof(TPvertices), TPvertices, GL_STATIC_DRAW);
+		BufferLayout TPLayout =
+		{
+			{ ShaderDataType::Float3 },
+			{ ShaderDataType::Float3 },
+			{ ShaderDataType::Float2 }
+		};
 
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0); // (pos 0 (pos), 3 floats, float, not normalised, 6 float between each data line, start at 0)
-		glEnableVertexAttribArray(1);
-		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(sizeof(float) * 3)); // (pos 1 (normal), 3 floats, float, not normalised, 6 float between each data line, start at 3)
-		glEnableVertexAttribArray(2);
-		glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(sizeof(float) * 6)); // (pos 1 (normal), 3 floats, float, not normalised, 6 float between each data line, start at 3)
+		m_pTPVertexBuffer.reset(VertexBuffer::create(TPvertices, sizeof(TPvertices), TPLayout));
+		m_pTPVertexArray->setVertexBuffer(m_pTPVertexBuffer);
 
-		glCreateBuffers(1, &m_TPindexBuffer);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_TPindexBuffer);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+		m_pTPIndexBuffer.reset(IndexBuffer::create(indices, sizeof(indices) / sizeof(unsigned int)));
+		m_pTPVertexArray->setIndexBuffer(m_pTPIndexBuffer);
 
 		std::string TPvertSrc = R"(
 				#version 440 core
@@ -476,6 +468,7 @@ namespace Engine
 		dispatcher.dispatch<WindowResizeEvent>(std::bind(&Application::onResize, this, std::placeholders::_1));
 		dispatcher.dispatch<WindowFocusEvent>(std::bind(&Application::onFocus, this, std::placeholders::_1));
 		dispatcher.dispatch<WindowLostFocusEvent>(std::bind(&Application::onLostFocus, this, std::placeholders::_1));
+		dispatcher.dispatch<WindowMovedEvent>(std::bind(&Application::onWindowMoved, this, std::placeholders::_1));
 		dispatcher.dispatch<KeyPressedEvent>(std::bind(&Application::onKeyPressed, this, std::placeholders::_1));
 	}
 
@@ -506,6 +499,13 @@ namespace Engine
 	{
 		// Log what's happening
 		LOG_TRACE("Window losing focus");
+		return true;
+	}
+
+	bool Application::onWindowMoved(WindowMovedEvent & e)
+	{
+		// Log what's happening
+		LOG_TRACE("Window moved event. Position: {0}, {1}", e.getXPos(), e.getYPos());
 		return true;
 	}
 
@@ -598,12 +598,20 @@ namespace Engine
 
 			// End of code to make the cube move.
 
+			///////////////////////////////////////
+			// colour cube ////////////////////////
+			///////////////////////////////////////
+
 			glm::mat4 fcMVP = projection * view * FCmodel;
 			glUseProgram(m_FCprogram);
-			glBindVertexArray(m_FCvertexArray);
+			m_pFCVertexArray->bind();
 			GLuint MVPLoc = glGetUniformLocation(m_FCprogram, "u_MVP");
 			glUniformMatrix4fv(MVPLoc, 1, GL_FALSE, &fcMVP[0][0]);
-			glDrawElements(GL_TRIANGLES, 3 * 12, GL_UNSIGNED_INT, nullptr);
+			glDrawElements(GL_TRIANGLES, m_pFCIndexBuffer->getCount(), GL_UNSIGNED_INT, nullptr);
+
+			///////////////////////////////////////
+			// textured phong cube ////////////////
+			///////////////////////////////////////
 
 			glm::mat4 tpMVP = projection * view * TPmodel;
 			unsigned int texSlot;
@@ -611,7 +619,7 @@ namespace Engine
 			else texSlot = m_textureSlots[1];
 
 			glUseProgram(m_TPprogram);
-			glBindVertexArray(m_TPvertexArray);
+			m_pTPVertexArray->bind();
 
 			MVPLoc = glGetUniformLocation(m_TPprogram, "u_MVP");
 			glUniformMatrix4fv(MVPLoc, 1, GL_FALSE, &tpMVP[0][0]);
@@ -634,7 +642,7 @@ namespace Engine
 			GLuint texDataLoc = glGetUniformLocation(m_TPprogram, "u_texData");
 			glUniform1i(texDataLoc, texSlot);
 
-			glDrawElements(GL_TRIANGLES, 3 * 12, GL_UNSIGNED_INT, nullptr);
+			glDrawElements(GL_TRIANGLES, m_pTPIndexBuffer->getCount(), GL_UNSIGNED_INT, nullptr);
 
 			// End temporary code
 #pragma endregion TempDrawCode

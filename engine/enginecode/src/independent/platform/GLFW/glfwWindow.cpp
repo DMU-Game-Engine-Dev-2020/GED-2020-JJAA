@@ -82,6 +82,15 @@ namespace Engine
 			}
 		});
 
+		glfwSetWindowPosCallback(m_pNativeWindow,
+			[](GLFWwindow* window, int xPosition, int yPosition)
+		{
+			std::function<void(Event&)>& callback = *(std::function<void(Event&)>*)glfwGetWindowUserPointer(window);
+
+			WindowMovedEvent event(xPosition, yPosition);
+			callback(event);
+		});
+
 		glfwSetKeyCallback(m_pNativeWindow,
 			[](GLFWwindow* window, int key, int scancode, int action, int mods)
 		{

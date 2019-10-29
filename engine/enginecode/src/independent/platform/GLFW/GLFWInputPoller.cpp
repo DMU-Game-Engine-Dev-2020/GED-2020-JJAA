@@ -9,6 +9,8 @@
 
 namespace Engine
 {
+	InputPoller* InputPoller::s_pInstance = new GLFWInputPoller(); // Create an instance of the object
+
 	bool GLFWInputPoller::isKeyPressedImpl(int keycode)
 	{
 		// Get a pointer to the window
