@@ -60,7 +60,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab6867584762a8de7cce696dccc699997"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_engine_1_1_window_properties.html#ab6867584762a8de7cce696dccc699997">WindowProperties</a> (const std::string &amp;title=&quot;My <a class="el" href="class_engine_1_1_window.html">Window</a>&quot;, unsigned int width=800, unsigned int height=600, bool fullscreen=false)</td></tr>
-<tr class="memdesc:ab6867584762a8de7cce696dccc699997"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set all of the properties to default values if the user doesn't set them when creating the window.  <a href="struct_engine_1_1_window_properties.html#ab6867584762a8de7cce696dccc699997">More...</a><br /></td></tr>
+<tr class="memdesc:ab6867584762a8de7cce696dccc699997"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, set all of the properties to values passed in. If the user doesn't set them when creating the window, set them to default values.  <a href="struct_engine_1_1_window_properties.html#ab6867584762a8de7cce696dccc699997">More...</a><br /></td></tr>
 <tr class="separator:ab6867584762a8de7cce696dccc699997"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -99,7 +99,7 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains the properties of the window. </p>
 
-<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00017">17</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00018">18</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab6867584762a8de7cce696dccc699997"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab6867584762a8de7cce696dccc699997">&#9670;&nbsp;</a></span>WindowProperties()</h2>
@@ -147,9 +147,18 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Set all of the properties to default values if the user doesn't set them when creating the window. </p>
+<p>Constructor, set all of the properties to values passed in. If the user doesn't set them when creating the window, set them to default values. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">title</td><td>The title to give the window </td></tr>
+    <tr><td class="paramname">width</td><td>The window width </td></tr>
+    <tr><td class="paramname">height</td><td>The window height </td></tr>
+    <tr><td class="paramname">fullscreen</td><td>Whether the window is fullscreen when starting </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00033">33</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00040">40</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
 
 </div>
 </div>
@@ -168,7 +177,7 @@ Public Attributes</h2></td></tr>
 
 <p>Aspect ratio for the viewport. </p>
 
-<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00025">25</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00026">26</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
 
 </div>
 </div>
@@ -186,7 +195,7 @@ Public Attributes</h2></td></tr>
 
 <p>The height of the window in pixels. </p>
 
-<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00021">21</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00022">22</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
 
 </div>
 </div>
@@ -204,7 +213,7 @@ Public Attributes</h2></td></tr>
 
 <p>Is the window fullscreen. </p>
 
-<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00022">22</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00023">23</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
 
 </div>
 </div>
@@ -222,7 +231,7 @@ Public Attributes</h2></td></tr>
 
 <p>Is vSync on. </p>
 
-<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00023">23</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00024">24</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
 
 </div>
 </div>
@@ -240,7 +249,7 @@ Public Attributes</h2></td></tr>
 
 <p>Height that the window goes back to if going to fullscreen and back. </p>
 
-<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00028">28</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00029">29</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
 
 </div>
 </div>
@@ -258,7 +267,7 @@ Public Attributes</h2></td></tr>
 
 <p>Width that the window goes back to if going to fullscreen and back. </p>
 
-<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00027">27</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00028">28</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
 
 </div>
 </div>
@@ -276,7 +285,7 @@ Public Attributes</h2></td></tr>
 
 <p>X position that the window goes back to if going to fullscreen and back. </p>
 
-<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00029">29</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00030">30</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
 
 </div>
 </div>
@@ -294,7 +303,7 @@ Public Attributes</h2></td></tr>
 
 <p>Y position that the window goes back to if going to fullscreen and back. </p>
 
-<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00030">30</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00031">31</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
 
 </div>
 </div>
@@ -312,7 +321,7 @@ Public Attributes</h2></td></tr>
 
 <p>The title of the window. </p>
 
-<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00019">19</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00020">20</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
 
 </div>
 </div>
@@ -330,7 +339,7 @@ Public Attributes</h2></td></tr>
 
 <p>The width of the window in pixels. </p>
 
-<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00020">20</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00021">21</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
 
 </div>
 </div>

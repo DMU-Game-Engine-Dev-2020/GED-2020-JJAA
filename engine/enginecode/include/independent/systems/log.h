@@ -21,12 +21,20 @@ namespace Engine
 
 		static std::shared_ptr<spdlog::logger> ms_pLogger; //!< Pointer to the logger
 	public:
-		static std::shared_ptr<Log> getInstance(); //!< Create instance of object and return a pointer to it
+		//! Create instance of object and return a pointer to it
+		/*!
+		\return A pointer to the instance of the object
+		*/
+		static std::shared_ptr<Log> getInstance(); 
 
 		void start(SystemSignal init, ...) override; //!< A function to start the logger
 		void stop(SystemSignal close, ...) override; //!< A function to stop the logger
 
-		inline static std::shared_ptr<spdlog::logger> getLogger() { return ms_pLogger; } //!< Returns a pointer to the logger
+		//! Used to access the logger
+		/*!
+		\return A pointer to the spdlog logger
+		*/
+		inline static std::shared_ptr<spdlog::logger> getLogger() { return ms_pLogger; } 
 	};
 }
 

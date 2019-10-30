@@ -51,6 +51,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Interface class for all systems.  
+ <a href="class_engine_1_1_system.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="system_8h_source.html">system.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Engine::System:</div>
@@ -60,7 +63,7 @@ Inheritance diagram for Engine::System:</div>
   <map id="Engine::System_map" name="Engine::System_map">
 <area href="class_engine_1_1_log.html" title="A system class to be used for logging information, errors etc." alt="Engine::Log" shape="rect" coords="0,56,182,80"/>
 <area href="class_engine_1_1_timer.html" title="A system class used for timing things." alt="Engine::Timer" shape="rect" coords="192,56,374,80"/>
-<area href="class_engine_1_1_windows_system.html" alt="Engine::WindowsSystem" shape="rect" coords="384,56,566,80"/>
+<area href="class_engine_1_1_windows_system.html" title="API agnostic windows system." alt="Engine::WindowsSystem" shape="rect" coords="384,56,566,80"/>
 <area href="class_engine_1_1_g_l_f_w_windows_system.html" title="GLFW specific WindowsSystem class, used to initialize and terminate glfw." alt="Engine::GLFWWindowsSystem" shape="rect" coords="384,112,566,136"/>
   </map>
 </div></div>
@@ -68,6 +71,7 @@ Inheritance diagram for Engine::System:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4ed810746929ee960ea5fa6648230c48"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_system.html#a4ed810746929ee960ea5fa6648230c48">~System</a> ()</td></tr>
+<tr class="memdesc:a4ed810746929ee960ea5fa6648230c48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="class_engine_1_1_system.html#a4ed810746929ee960ea5fa6648230c48">More...</a><br /></td></tr>
 <tr class="separator:a4ed810746929ee960ea5fa6648230c48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7020561bd617d4237e7e5841f56216c8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_system.html#a7020561bd617d4237e7e5841f56216c8">start</a> (<a class="el" href="namespace_engine.html#a3779187ef31b30930abda7fbea542e17">SystemSignal</a> init=<a class="el" href="namespace_engine.html#a3779187ef31b30930abda7fbea542e17a6adf97f83acf6453d4a6a4b1070f3754">SystemSignal::None</a>,...)=0</td></tr>
 <tr class="memdesc:a7020561bd617d4237e7e5841f56216c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the system.  <a href="class_engine_1_1_system.html#a7020561bd617d4237e7e5841f56216c8">More...</a><br /></td></tr>
@@ -77,7 +81,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a42c92dca4ba99d16bc5f117460d712a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
+<div class="textblock"><p>Interface class for all systems. </p>
+
 <p class="definition">Definition at line <a class="el" href="system_8h_source.html#l00016">16</a> of file <a class="el" href="system_8h_source.html">system.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4ed810746929ee960ea5fa6648230c48"></a>
@@ -103,7 +108,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="system_8h_source.html#l00019">19</a> of file <a class="el" href="system_8h_source.html">system.h</a>.</p>
+<p>Destructor. </p>
+
+<p class="definition">Definition at line <a class="el" href="system_8h_source.html#l00020">20</a> of file <a class="el" href="system_8h_source.html">system.h</a>.</p>
 
 </div>
 </div>
@@ -144,7 +151,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Start the system. </p>
 
-<p>Implemented in <a class="el" href="class_engine_1_1_windows_system.html#aa2cd283cb5d73c5eb53d43cb8c35c9f1">Engine::WindowsSystem</a>, <a class="el" href="class_engine_1_1_timer.html#a09f725298a2d29499c0dc423b29b13ac">Engine::Timer</a>, <a class="el" href="class_engine_1_1_g_l_f_w_windows_system.html#a3cc075315e2f73068e8b0ffe94f9aaad">Engine::GLFWWindowsSystem</a>, and <a class="el" href="class_engine_1_1_log.html#af12297af3fcf6f8a8b1e8b401a79267b">Engine::Log</a>.</p>
+<p>Implemented in <a class="el" href="class_engine_1_1_windows_system.html#aa2cd283cb5d73c5eb53d43cb8c35c9f1">Engine::WindowsSystem</a>, <a class="el" href="class_engine_1_1_timer.html#a09f725298a2d29499c0dc423b29b13ac">Engine::Timer</a>, <a class="el" href="class_engine_1_1_log.html#af12297af3fcf6f8a8b1e8b401a79267b">Engine::Log</a>, and <a class="el" href="class_engine_1_1_g_l_f_w_windows_system.html#a3cc075315e2f73068e8b0ffe94f9aaad">Engine::GLFWWindowsSystem</a>.</p>
 
 </div>
 </div>
@@ -184,7 +191,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Stop the system. </p>
 
-<p>Implemented in <a class="el" href="class_engine_1_1_windows_system.html#ae2426d7e2ac96f57c84d073350e6e69e">Engine::WindowsSystem</a>, <a class="el" href="class_engine_1_1_timer.html#a70945adb69163af5477bb631bc1f4453">Engine::Timer</a>, <a class="el" href="class_engine_1_1_g_l_f_w_windows_system.html#a8f4560cac50808c9dbc490cd1ee91503">Engine::GLFWWindowsSystem</a>, and <a class="el" href="class_engine_1_1_log.html#a4d40db4278fb7859c858f8eb0d966395">Engine::Log</a>.</p>
+<p>Implemented in <a class="el" href="class_engine_1_1_windows_system.html#ae2426d7e2ac96f57c84d073350e6e69e">Engine::WindowsSystem</a>, <a class="el" href="class_engine_1_1_timer.html#a70945adb69163af5477bb631bc1f4453">Engine::Timer</a>, <a class="el" href="class_engine_1_1_log.html#a4d40db4278fb7859c858f8eb0d966395">Engine::Log</a>, and <a class="el" href="class_engine_1_1_g_l_f_w_windows_system.html#a8f4560cac50808c9dbc490cd1ee91503">Engine::GLFWWindowsSystem</a>.</p>
 
 </div>
 </div>

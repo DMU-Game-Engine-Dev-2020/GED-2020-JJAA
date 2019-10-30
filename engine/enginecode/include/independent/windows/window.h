@@ -1,4 +1,5 @@
 /** \file window.h
+\brief Contains the base class for window and the struct containing the window properties
 */
 #pragma once
 
@@ -29,9 +30,15 @@ namespace Engine
 		int m_storedXPos; //!< X position that the window goes back to if going to fullscreen and back
 		int m_storedYPos; //!< Y position that the window goes back to if going to fullscreen and back
 
-		//! Set all of the properties to default values if the user doesn't set them when creating the window
+		//! Constructor, set all of the properties to values passed in. If the user doesn't set them when creating the window, set them to default values
+		/*!
+		\param title The title to give the window
+		\param width The window width
+		\param height The window height
+		\param fullscreen Whether the window is fullscreen when starting
+		*/
 		WindowProperties(const std::string& title = "My Window", unsigned int width = 800, unsigned int height = 600, bool fullscreen = false) : 
-			m_title(title), m_width(width), m_height(height), m_isFullScreen(fullscreen), m_fAspect((float)width / (float)height), m_storedWidth(width), m_storedHeight(height) {}
+			m_title(title), m_width(width), m_height(height), m_isFullScreen(fullscreen), m_fAspect((float)width / (float)height), m_storedWidth(width), m_storedHeight(height), m_storedXPos(100), m_storedYPos(100) {}
 	};
 
 	/**

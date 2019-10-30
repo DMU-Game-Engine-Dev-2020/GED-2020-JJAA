@@ -47,6 +47,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Interface class for all graphics contexts.  
+ <a href="class_graphics_context.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="graphics_context_8h_source.html">graphicsContext.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for GraphicsContext:</div>
@@ -61,13 +64,17 @@ Inheritance diagram for GraphicsContext:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9d9e893ff7a5f64f7f0807e264068662"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_context.html#a9d9e893ff7a5f64f7f0807e264068662">init</a> ()=0</td></tr>
+<tr class="memdesc:a9d9e893ff7a5f64f7f0807e264068662"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize object.  <a href="class_graphics_context.html#a9d9e893ff7a5f64f7f0807e264068662">More...</a><br /></td></tr>
 <tr class="separator:a9d9e893ff7a5f64f7f0807e264068662"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d85caf6065d0e5adc280c2cf2f65a8a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_context.html#a7d85caf6065d0e5adc280c2cf2f65a8a">swapBuffers</a> ()=0</td></tr>
+<tr class="memdesc:a7d85caf6065d0e5adc280c2cf2f65a8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap the buffers, update the window.  <a href="class_graphics_context.html#a7d85caf6065d0e5adc280c2cf2f65a8a">More...</a><br /></td></tr>
 <tr class="separator:a7d85caf6065d0e5adc280c2cf2f65a8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="graphics_context_8h_source.html#l00011">11</a> of file <a class="el" href="graphics_context_8h_source.html">graphicsContext.h</a>.</p>
+<div class="textblock"><p>Interface class for all graphics contexts. </p>
+<p>Will combine windows tech with graphics <a class="el" href="class_a_p_i.html" title="Enum for the API being used.">API</a> i.e. OPENGLGLFW or WIN32DIRECTX. Basically provides means for initialisation and swapchain implementation. </p>
+
+<p class="definition">Definition at line <a class="el" href="graphics_context_8h_source.html#l00013">13</a> of file <a class="el" href="graphics_context_8h_source.html">graphicsContext.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9d9e893ff7a5f64f7f0807e264068662"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9d9e893ff7a5f64f7f0807e264068662">&#9670;&nbsp;</a></span>init()</h2>
@@ -91,6 +98,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Initialize object. </p>
 
 <p>Implemented in <a class="el" href="class_open_g_l___g_l_f_w_graphics_context.html#a426654924afd47c9c654bbdbea8db1cc">OpenGL_GLFWGraphicsContext</a>.</p>
 
@@ -118,6 +127,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Swap the buffers, update the window. </p>
 
 <p>Implemented in <a class="el" href="class_open_g_l___g_l_f_w_graphics_context.html#a9c058e039c6f48ee8bf9122a94997313">OpenGL_GLFWGraphicsContext</a>.</p>
 

@@ -12,7 +12,7 @@ namespace Engine
 	*/
 	class GLFWInputPoller : public InputPoller
 	{
-	protected:
+	private:
 		//! Windows API specific implementation of key press
 		/*!
 		\param keycode The code for the key being checked

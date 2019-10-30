@@ -30,6 +30,7 @@ namespace Engine
 		m_properties.m_title = properties.m_title;
 		m_properties.m_width = properties.m_width;
 		m_properties.m_height = properties.m_height;
+		m_properties.m_isFullScreen = properties.m_isFullScreen;
 
 		// Show in the log that a window is being created
 		LOG_INFO("Creating window: {0} ({1}, {2})", properties.m_title, properties.m_width, properties.m_height);		
@@ -38,6 +39,15 @@ namespace Engine
 
 		// Create a new window
 		m_pNativeWindow = glfwCreateWindow((int)properties.m_width, (int)properties.m_height, m_properties.m_title.c_str(), nullptr, nullptr);
+
+		// If fullscreen on startup
+		if (properties.m_isFullScreen)
+		{
+			// Get the current video mode of the monitor
+			const GLFWvidmode* mode = glfwGetVideoMode(m_pMonitor);
+			// Makes the window fullscreen
+			glfwSetWindowMonitor(m_pNativeWindow, m_pMonitor, 0, 0, mode->width, mode->height, mode->refreshRate);
+		}
 
 		// Set graphics context to a new GLFW Graphics Context object
 		m_context = std::shared_ptr<GraphicsContext>(new OpenGL_GLFWGraphicsContext(m_pNativeWindow));

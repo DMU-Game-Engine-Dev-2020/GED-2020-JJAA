@@ -6,8 +6,8 @@
 
 namespace Engine
 {
-	bool GLFWWindowsSystem::ms_bInstanceFlag = false;
-	std::shared_ptr<GLFWWindowsSystem> GLFWWindowsSystem::ms_pThis = nullptr;
+	bool GLFWWindowsSystem::ms_bInstanceFlag = false; // No instance to begin with
+	std::shared_ptr<GLFWWindowsSystem> GLFWWindowsSystem::ms_pThis = nullptr; // Not pointing at anything
 
 	std::shared_ptr<GLFWWindowsSystem> GLFWWindowsSystem::getInstance()
 	{
@@ -27,17 +27,18 @@ namespace Engine
 	void GLFWWindowsSystem::start(SystemSignal init, ...)
 	{
 		int success = glfwInit(); // Initialize GLFW
+		// If initializing glfw is unsuccessful, log an error and throw an exception
 		ENGINE_ASSERT(success, "Could not initialise GLFW");
 
-		m_bGLFWInitialized = true;
+		m_bGLFWInitialized = true; // glfw has been initialized
 	}
 
 	void GLFWWindowsSystem::stop(SystemSignal close, ...)
 	{
-		glfwTerminate();
-		m_bGLFWInitialized = false;
+		glfwTerminate(); // Terminate glfw
+		m_bGLFWInitialized = false; // glfw is not initialized
 
-		ms_bInstanceFlag = false;
-		ms_pThis = nullptr;
+		ms_bInstanceFlag = false; // No longer an instance
+		ms_pThis = nullptr; // Not pointing to anything
 	}
 }

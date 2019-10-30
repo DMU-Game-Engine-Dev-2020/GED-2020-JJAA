@@ -1,16 +1,28 @@
+/** \file shaderData.h
+\brief Has the data type enum as well as functions which get info about them
+*/
 #pragma once
 
 namespace Engine
 {
+	/**
+	\class ShaderDataType
+	\brief Types of data which will be used with shaders
+	*/
 	enum class ShaderDataType
 	{
 		None = 0, Int, Int2, Int3, Int4, Float, Float2, Float3, Float4, Mat3, Mat4, Bool, Sampler2D
 	};
 
 
+	//! Used to get the size in bytes of a data type
+	/*!
+	\param type The type of data being used
+	\return The size of the data type
+	*/
 	static unsigned int ShaderDataTypeSize(ShaderDataType type)
 	{
-		switch (type)
+		switch (type) // Which type is it
 		{
 		case ShaderDataType::Int:        return 4;
 		case ShaderDataType::Int2:       return 4 * 2;
@@ -28,9 +40,14 @@ namespace Engine
 		return 0;
 	}
 
+	//! Used to get the number of components in the data type
+	/*!
+	\param type The type of data being used
+	\return The number of components of the data type
+	*/
 	static unsigned int ShaderDataTypeComponentCount(ShaderDataType type)
 	{
-		switch (type)
+		switch (type) // Which type is it
 		{
 		case ShaderDataType::Int:        return 1;
 		case ShaderDataType::Int2:       return 2;

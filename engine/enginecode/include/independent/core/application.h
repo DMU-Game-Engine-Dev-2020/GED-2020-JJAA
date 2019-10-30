@@ -18,10 +18,8 @@ namespace Engine
 {
 	/**
 	\class Application
-	Fundemental class of the engine. A singleton which runs the game loop infinitely.
-	Provides ...
+	\brief Fundemental class of the engine. A singleton which runs the game loop infinitely.
 	*/
-
 	class Application
 	{
 	protected:
@@ -61,16 +59,60 @@ namespace Engine
 
 	public:
 		virtual ~Application(); //!< Deconstructor
-		inline static Application& getInstance() { return *ms_instance; } //!< Instance getter from singleton pattern
-		void onEvent(Event& e); //!< When an event happens
-		bool onClose(WindowCloseEvent& e); //!< Called if the event is a window close event
-		bool onResize(WindowResizeEvent& e); //!< Called if the event is a window resize event
-		bool onFocus(WindowFocusEvent& e); //!< Called if the window gets focus
-		bool onLostFocus(WindowLostFocusEvent& e); //!< Called if the window loses focus
-		bool onWindowMoved(WindowMovedEvent& e); //!< Called if the window is moved
-		bool onKeyPressed(KeyPressedEvent& e); //!< Called if a keyboard key is pressed
+
+		//! Instance getter from singleton pattern
+		/*!
+		\return A reference to the application instance
+		*/
+		inline static Application& getInstance() { return *ms_instance; } 
+		//! When an event happens
+		/*!
+		\param e A reference to the event
+		*/
+		void onEvent(Event& e); 
+		//! Called if the event is a window close event
+		/*!
+		\param e A reference to the event
+		\return A boolean representing if the event was successful or not
+		*/
+		bool onClose(WindowCloseEvent& e);
+		//! Called if the event is a window resize event
+		/*!
+		\param e A reference to the event
+		\return A boolean representing if the event was successful or not
+		*/
+		bool onResize(WindowResizeEvent& e); 
+		//! Called if the window gets focus
+		/*!
+		\param e A reference to the event
+		\return A boolean representing if the event was successful or not
+		*/
+		bool onFocus(WindowFocusEvent& e); 
+		//! Called if the window loses focus
+		/*!
+		\param e A reference to the event
+		\return A boolean representing if the event was successful or not
+		*/
+		bool onLostFocus(WindowLostFocusEvent& e); 
+		//! Called if the window is moved
+		/*!
+		\param e A reference to the event
+		\return A boolean representing if the event was successful or not
+		*/
+		bool onWindowMoved(WindowMovedEvent& e); 
+		//! Called if a keyboard key is pressed
+		/*!
+		\param e A reference to the event
+		\return A boolean representing if the event was successful or not
+		*/
+		bool onKeyPressed(KeyPressedEvent& e); 
 		void run(); //!< Main loop
-		inline Window& getWindow() { return *m_pWindow; } //!< Returns window
+
+		//! Used to get the window
+		/*!
+		\return A reference to the current window
+		*/
+		inline Window& getWindow() { return *m_pWindow; }
 	};
 
 	// To be defined in users code

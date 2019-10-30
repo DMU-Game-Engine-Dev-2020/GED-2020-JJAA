@@ -52,6 +52,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A base interface class for <a class="el" href="class_a_p_i.html" title="Enum for the API being used.">API</a> specific vertex buffer to use.  
+ <a href="class_engine_1_1_vertex_buffer.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="vertex_buffer_8h_source.html">vertexBuffer.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Engine::VertexBuffer:</div>
@@ -59,29 +62,32 @@ Inheritance diagram for Engine::VertexBuffer:</div>
  <div class="center">
   <img src="class_engine_1_1_vertex_buffer.png" usemap="#Engine::VertexBuffer_map" alt=""/>
   <map id="Engine::VertexBuffer_map" name="Engine::VertexBuffer_map">
-<area href="class_engine_1_1_open_g_l_vertex_buffer.html" alt="Engine::OpenGLVertexBuffer" shape="rect" coords="0,56,176,80"/>
+<area href="class_engine_1_1_open_g_l_vertex_buffer.html" title="Open GL specific VertexBuffer." alt="Engine::OpenGLVertexBuffer" shape="rect" coords="0,56,176,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a34d038629e1b48515140be4c0ec0472e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_vertex_buffer.html#a34d038629e1b48515140be4c0ec0472e">bind</a> ()=0</td></tr>
+<tr class="memdesc:a34d038629e1b48515140be4c0ec0472e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bind the vertex buffer object.  <a href="class_engine_1_1_vertex_buffer.html#a34d038629e1b48515140be4c0ec0472e">More...</a><br /></td></tr>
 <tr class="separator:a34d038629e1b48515140be4c0ec0472e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb8b6bed1a899835be80b71b383b6879"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_vertex_buffer.html#abb8b6bed1a899835be80b71b383b6879">unbind</a> ()=0</td></tr>
+<tr class="memdesc:abb8b6bed1a899835be80b71b383b6879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unind the vertex buffer object.  <a href="class_engine_1_1_vertex_buffer.html#abb8b6bed1a899835be80b71b383b6879">More...</a><br /></td></tr>
 <tr class="separator:abb8b6bed1a899835be80b71b383b6879"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae55d5e699892b39a50602211c853967c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_vertex_buffer.html#ae55d5e699892b39a50602211c853967c">edit</a> (float *vertices, unsigned int size, unsigned int offset)=0</td></tr>
-<tr class="separator:ae55d5e699892b39a50602211c853967c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29ac263f7188d3733a10ca47c9fd4cac"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="class_engine_1_1_buffer_layout.html">BufferLayout</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_vertex_buffer.html#a29ac263f7188d3733a10ca47c9fd4cac">getLayout</a> () const =0</td></tr>
+<tr class="memdesc:a29ac263f7188d3733a10ca47c9fd4cac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to get the layout of the object being drawn.  <a href="class_engine_1_1_vertex_buffer.html#a29ac263f7188d3733a10ca47c9fd4cac">More...</a><br /></td></tr>
 <tr class="separator:a29ac263f7188d3733a10ca47c9fd4cac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:abe51f5fc663b8e48f481785db9540718"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_vertex_buffer.html">VertexBuffer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_vertex_buffer.html#abe51f5fc663b8e48f481785db9540718">create</a> (float *vertices, unsigned int size, <a class="el" href="class_engine_1_1_buffer_layout.html">BufferLayout</a> &amp;layout)</td></tr>
+<tr class="memdesc:abe51f5fc663b8e48f481785db9540718"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a vertex buffer and return a pointer to it.  <a href="class_engine_1_1_vertex_buffer.html#abe51f5fc663b8e48f481785db9540718">More...</a><br /></td></tr>
 <tr class="separator:abe51f5fc663b8e48f481785db9540718"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="vertex_buffer_8h_source.html#l00007">7</a> of file <a class="el" href="vertex_buffer_8h_source.html">vertexBuffer.h</a>.</p>
+<div class="textblock"><p>A base interface class for <a class="el" href="class_a_p_i.html" title="Enum for the API being used.">API</a> specific vertex buffer to use. </p>
+
+<p class="definition">Definition at line <a class="el" href="vertex_buffer_8h_source.html#l00013">13</a> of file <a class="el" href="vertex_buffer_8h_source.html">vertexBuffer.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a34d038629e1b48515140be4c0ec0472e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a34d038629e1b48515140be4c0ec0472e">&#9670;&nbsp;</a></span>bind()</h2>
@@ -105,6 +111,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Bind the vertex buffer object. </p>
 
 <p>Implemented in <a class="el" href="class_engine_1_1_open_g_l_vertex_buffer.html#a25603acab24b1b2fa6343f690b562627">Engine::OpenGLVertexBuffer</a>.</p>
 
@@ -150,51 +158,10 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vertex_buffer_8cpp_source.html#l00010">10</a> of file <a class="el" href="vertex_buffer_8cpp_source.html">vertexBuffer.cpp</a>.</p>
+<p>Create a vertex buffer and return a pointer to it. </p>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the new vertex buffer instance </dd></dl>
 
-</div>
-</div>
-<a id="ae55d5e699892b39a50602211c853967c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae55d5e699892b39a50602211c853967c">&#9670;&nbsp;</a></span>edit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void Engine::VertexBuffer::edit </td>
-          <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>vertices</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>offset</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="class_engine_1_1_open_g_l_vertex_buffer.html#a9c774afde7a518d549215817b14eb445">Engine::OpenGLVertexBuffer</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vertex_buffer_8cpp_source.html#l00012">12</a> of file <a class="el" href="vertex_buffer_8cpp_source.html">vertexBuffer.cpp</a>.</p>
 
 </div>
 </div>
@@ -220,6 +187,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Used to get the layout of the object being drawn. </p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the buffer layout object </dd></dl>
 
 <p>Implemented in <a class="el" href="class_engine_1_1_open_g_l_vertex_buffer.html#abd73bbd39959230aac4dd0c37a28eea0">Engine::OpenGLVertexBuffer</a>.</p>
 
@@ -247,6 +217,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Unind the vertex buffer object. </p>
 
 <p>Implemented in <a class="el" href="class_engine_1_1_open_g_l_vertex_buffer.html#ae51e1ecc5d1dbe7401f8840b9dec2997">Engine::OpenGLVertexBuffer</a>.</p>
 

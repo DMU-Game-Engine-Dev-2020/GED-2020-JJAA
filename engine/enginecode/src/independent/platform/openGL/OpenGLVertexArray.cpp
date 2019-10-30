@@ -1,3 +1,5 @@
+/** \file OpenGLVertexArray.cpp
+*/
 #include "engine_pch.h"
 
 #include "platform/openGL/OpenGLVertexArray.h"
@@ -6,9 +8,14 @@
 
 namespace Engine
 {
+	//! Used to get the openGL type of the data type
+	/*!
+	\param type The type of data being used
+	\return The type of data for openGL
+	*/
 	static GLenum ShaderDataTypeToOpenGLType(ShaderDataType type)
 	{
-		switch (type)
+		switch (type) // Which type is it
 		{
 		case ShaderDataType::Int:        return GL_INT;
 		case ShaderDataType::Int2:       return GL_INT;
@@ -28,35 +35,45 @@ namespace Engine
 
 	OpenGLVertexArray::OpenGLVertexArray()
 	{
+		// Create the vertex array using the render ID as a name
 		glCreateVertexArrays(1, &m_iRendererID);
 	}
 
 	OpenGLVertexArray::~OpenGLVertexArray()
 	{
+		// Delete the vertex array
 		glDeleteVertexArrays(1, &m_iRendererID);
 	}
 
 	void OpenGLVertexArray::bind()
 	{
+		// Bind the vertex array
 		glBindVertexArray(m_iRendererID);
 	}
 
 	void OpenGLVertexArray::unbind()
 	{
+		// Unbind the vertex array
 		glBindVertexArray(0);
 	}
 
 	void OpenGLVertexArray::setVertexBuffer(const std::shared_ptr<VertexBuffer>& vertexBuffer)
 	{
+		// Bind the vertex array
 		glBindVertexArray(m_iRendererID);
-		vertexBuffer->bind();
+		vertexBuffer->bind(); // Bind the vertex buffer
 
+		// Get the vertex buffer layout
 		BufferLayout layout = vertexBuffer->getLayout();
 
+		// Used as an index for which attributes are being set
 		unsigned int index = 0;
+		// For each buffer element in the layout
 		for (const auto& element : layout)
 		{
+			// Enable the vertex attribute array specified by index
 			glEnableVertexAttribArray(index);
+			// Specify the location and data format of the vertex attributes
 			glVertexAttribPointer(
 				index,
 				ShaderDataTypeComponentCount(element.m_dataType),
@@ -64,17 +81,19 @@ namespace Engine
 				element.m_bNormalized ? GL_TRUE : GL_FALSE,
 				layout.getStride(),
 				(const void*)element.m_iOffset);
-			index++;
+			index++; // Increment the index
 		}
-
+		// Set the vertex buffer
 		m_pVertexBuffer = vertexBuffer;
 	}
 
 	void OpenGLVertexArray::setIndexBuffer(const std::shared_ptr<IndexBuffer>& indexBuffer)
 	{
+		// Bind the vertex array
 		glBindVertexArray(m_iRendererID);
-		indexBuffer->bind();
+		indexBuffer->bind(); // Bind the index buffer
 
+		// Set the index buffer
 		m_pIndexBuffer = indexBuffer;
 	}
 

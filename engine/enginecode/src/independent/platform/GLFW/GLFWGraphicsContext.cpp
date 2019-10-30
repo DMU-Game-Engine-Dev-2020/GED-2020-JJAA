@@ -6,13 +6,15 @@
 
 void OpenGL_GLFWGraphicsContext::init()
 {
-	
+	// Make the context of the window current
 	glfwMakeContextCurrent(m_pWindow);
+	// Load glad
 	int result = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+	// If loading glad is unsuccessful, log an error and throw an exception
 	ENGINE_ASSERT(result, "Could not initialize GLAD");
 }
 
 void OpenGL_GLFWGraphicsContext::swapBuffers()
 {
-	glfwSwapBuffers(m_pWindow);
+	glfwSwapBuffers(m_pWindow); // Swap the window buffers
 }

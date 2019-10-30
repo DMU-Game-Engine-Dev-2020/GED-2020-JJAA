@@ -31,16 +31,35 @@ namespace Engine
 
 		static bool ms_bWorking; //!< Will be false if multiple timers with the same tag are started
 	public:
-		static std::shared_ptr<Timer> getInstance(); //!< Create instance of object and return a pointer to it
+		//! Create instance of object and return a pointer to it
+		/*!
+		\return A pointer to the instance of the object
+		*/
+		static std::shared_ptr<Timer> getInstance();
 
 		void start(SystemSignal init, ...) override; //!< Start the timer
 		void stop(SystemSignal close, ...) override; //!< Stop the timer
 
 		static void newFrame(); //!< Calculate the time passed since the last frame
-		inline static float timestep() { return ms_frameDuration.count(); } //!< To return the current time between frames
 
-		static void startTimer(std::string tag); //!< Start the timer for a section of code
-		static float endTimer(std::string tag); //!< Stop the timer for the section of code
+		//! Used to return the timestep
+		/*!
+		\return The time taken to render the previous frame
+		*/
+		inline static float timestep() { return ms_frameDuration.count(); } 
+
+
+		//! Start the timer for a section of code
+		/*!
+		\param tag The tag used to access the correct time points in the map
+		*/
+		static void startTimer(std::string tag); 
+		//! Stop the timer for the section of code
+		/*!
+		\param tag The tag used to access the correct time points in the map
+		\return The time passed since starting the timer
+		*/
+		static float endTimer(std::string tag); 
 	};
 }
 

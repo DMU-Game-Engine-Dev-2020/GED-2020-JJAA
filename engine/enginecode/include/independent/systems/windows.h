@@ -8,7 +8,7 @@ namespace Engine
 {
 	/**
 	\class WindowsSystem
-	\brief 
+	\brief API agnostic windows system
 	*/
 	class WindowsSystem : public System
 	{

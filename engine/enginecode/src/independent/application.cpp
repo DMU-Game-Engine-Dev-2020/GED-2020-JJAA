@@ -1,7 +1,5 @@
 /** \file application.cpp
 */
-
-
 #include "engine_pch.h"
 
 #pragma region TempIncludes
