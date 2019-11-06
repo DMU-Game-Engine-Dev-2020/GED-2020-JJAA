@@ -24,6 +24,7 @@ namespace Engine
 		void parseSource(const std::string& vertexFilepath, const std::string& fragmentFilepath);
 		void extractBufferLayout(const std::string& line);
 		void identifyUniform(const std::string& line);
+		void storeUniformLocations();
 		void compileAndLink(const std::string& vert, const std::string& frag);
 		void dispatchUnifoermUpload(ShaderDataType type, GLuint location, void* data);
 	public:

@@ -10,11 +10,7 @@
 #include "windows/inputPoller.h"
 #include "core/codes.h"
 
-#include "rendering/indexBuffer.h"
-#include "rendering/vertexBuffer.h"
-#include "rendering/vertexArray.h"
-#include "rendering/texture.h"
-#include "rendering/shader.h"
+#include "systems/resourceManager.h"
 
 namespace Engine 
 {
@@ -27,20 +23,22 @@ namespace Engine
 	protected:
 		Application(); //!< Constructor
 	private:
-		static Application* ms_instance; //!< Singleton instance of the application
+		static Application* s_instance; //!< Singleton instance of the application
 
 		std::shared_ptr<Log> m_pLogger; //!< Pointer to the Log system object
 		std::shared_ptr<Timer> m_pTimer; //!< Pointer to the Timer system object
 		std::shared_ptr<WindowsSystem> m_pWindows; //!< Pointer to the Windows system
 
-		std::shared_ptr<IndexBuffer> m_pFCIndexBuffer; //!< Pointer to the index buffer for the flat colour cube
-		std::shared_ptr<IndexBuffer> m_pTPIndexBuffer; //!< Pointer to the index buffer for the textured phong cube
+		//std::shared_ptr<IndexBuffer> m_pFCIndexBuffer; //!< Pointer to the index buffer for the flat colour cube
+		//std::shared_ptr<IndexBuffer> m_pTPIndexBuffer; //!< Pointer to the index buffer for the textured phong cube
+		//
+		//std::shared_ptr<VertexBuffer> m_pFCVertexBuffer; //!< Pointer to the vertex buffer for the flat colour cube
+		//std::shared_ptr<VertexBuffer> m_pTPVertexBuffer; //!< Pointer to the vertex buffer for the textured phong cube
 
-		std::shared_ptr<VertexBuffer> m_pFCVertexBuffer; //!< Pointer to the vertex buffer for the flat colour cube
-		std::shared_ptr<VertexBuffer> m_pTPVertexBuffer; //!< Pointer to the vertex buffer for the textured phong cube
+		std::shared_ptr<ResourceManager> m_pResources;
 
-		std::shared_ptr<VertexArray> m_pFCVertexArray; //!< Pointer to the vertex array for the flat colour cube
-		std::shared_ptr<VertexArray> m_pTPVertexArray; //!< Pointer to the vertex array for the textured phong cube
+		std::shared_ptr<VertexArray> m_pFCVAO; //!< Pointer to the vertex array for the flat colour cube
+		std::shared_ptr<VertexArray> m_TPVAO; //!< Pointer to the vertex array for the textured phong cube
 
 		std::shared_ptr<Texture> m_pLetterCubeTexture;
 		std::shared_ptr<Texture> m_pNumberCubeTexture;
@@ -67,7 +65,7 @@ namespace Engine
 		/*!
 		\return A reference to the application instance
 		*/
-		inline static Application& getInstance() { return *ms_instance; } 
+		inline static Application& getInstance() { return *s_instance; } 
 		//! When an event happens
 		/*!
 		\param e A reference to the event

@@ -6,5 +6,5 @@
 namespace Engine
 {
 	// Set the render API to openGL
-	RenderAPI::API RenderAPI::ms_API = RenderAPI::API::OpenGL;
+	RenderAPI::API RenderAPI::s_API = RenderAPI::API::OpenGL;
 }

@@ -8,9 +8,6 @@
 #include <gl/GL.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-//#include <stb_image.h>
-//#define STB_IMAGE_IMPLEMENTATION
-
 #pragma endregion TempIncludes
 
 #include "core/application.h"
@@ -22,7 +19,7 @@
 
 namespace Engine 
 {
-	Application* Application::ms_instance = nullptr;
+	Application* Application::s_instance = nullptr;
 
 
 #pragma region TempGlobalVars
@@ -32,9 +29,9 @@ namespace Engine
 
 	Application::Application()
 	{
-		if (ms_instance == nullptr)
+		if (s_instance == nullptr)
 		{
-			ms_instance = this;
+			s_instance = this;
 		}
 
 		m_bRunning = true; // Application is running
@@ -108,13 +105,11 @@ namespace Engine
 			20, 21, 22,
 			22, 23, 20
 		};
-
-		m_pFCShader.reset(Shader::create("assets/shaders/flatColourVert.glsl", "assets/shaders/flatColourFrag.glsl"));
-		m_pFCVertexArray.reset(VertexArray::create());
-		m_pFCVertexBuffer.reset(VertexBuffer::create(FCvertices, sizeof(FCvertices), m_pFCShader->getBufferLayout()));
-		m_pFCIndexBuffer.reset(IndexBuffer::create(indices, sizeof(indices) / sizeof(unsigned int)));
-		m_pFCVertexArray->setVertexBuffer(m_pFCVertexBuffer);
-		m_pFCVertexArray->setIndexBuffer(m_pFCIndexBuffer);
+		
+		m_pFCShader = m_pResources->addShader("FCShader", "assets/shaders/flatColourVert.glsl", "assets/shaders/flatColourFrag.glsl");
+		m_pFCVAO = m_pResources->addVAO("flatColourCube");
+		m_pFCVAO->setVertexBuffer(m_pResources->addVBO("flatColourVBO", FCvertices, sizeof(FCvertices), m_pFCShader->getBufferLayout()));
+		m_pFCVAO->setIndexBuffer(m_pResources->addIndexBuffer("cubeIndices", indices, sizeof(indices) / sizeof(unsigned int)));
 
 		/////////////////////////////////////////////////////////
 		// Added textuer phong shader and cube //////////////////
@@ -147,16 +142,13 @@ namespace Engine
 			0.5f,  -0.5f, 0.5f,  1.f, 0.f, 0.f, 0.66f, 1.0f
 		};
 
-		m_pTPShader.reset(Shader::create("assets/shaders/texturedPhong.glsl"));
-		m_pTPVertexArray.reset(VertexArray::create());
-		m_pTPVertexBuffer.reset(VertexBuffer::create(TPvertices, sizeof(TPvertices), m_pTPShader->getBufferLayout()));
-		m_pTPIndexBuffer.reset(IndexBuffer::create(indices, sizeof(indices) / sizeof(unsigned int)));
-		m_pTPVertexArray->setVertexBuffer(m_pTPVertexBuffer);
-		m_pTPVertexArray->setIndexBuffer(m_pTPIndexBuffer);
+		m_pTPShader = m_pResources->addShader("assets/shaders/texturedPhong.glsl");
+		m_TPVAO = m_pResources->addVAO("texturedPhongCube");
+		m_TPVAO->setVertexBuffer(m_pResources->addVBO("texturedPhongVBO", TPvertices, sizeof(TPvertices), m_pTPShader->getBufferLayout()));
+		m_TPVAO->setIndexBuffer(m_pResources->addIndexBuffer("cubheIndices", indices, sizeof(indices) / sizeof(unsigned int)));
 
-		m_pLetterCubeTexture.reset(Texture::createFromFile("assets/textures/letterCube.png"));
-		m_pNumberCubeTexture.reset(Texture::createFromFile("assets/textures/numberCube.png"));
-
+		m_pLetterCubeTexture = m_pResources->addTexture("assets/textures/letterCube.png");
+		m_pNumberCubeTexture = m_pResources->addTexture("assets/textures/numberCube.png");
 
 		FCmodel = glm::translate(glm::mat4(1), glm::vec3(1.5, 0, 3));
 		TPmodel = glm::translate(glm::mat4(1), glm::vec3(-1.5, 0, 3));
@@ -332,13 +324,11 @@ namespace Engine
 
 			glm::mat4 fcMVP = projection * view * FCmodel;
 			m_pFCShader->bind();
-			m_pFCVertexArray->bind();
+			m_pFCVAO->bind();
 
-			//GLuint MVPLoc = glGetUniformLocation(m_pFCShader->id(), "u_MVP");
-			//glUniformMatrix4fv(MVPLoc, 1, GL_FALSE, &fcMVP[0][0]);
 			m_pFCShader->uploadData("u_MVP", (void*)&fcMVP[0][0]);
 
-			glDrawElements(GL_TRIANGLES, m_pFCVertexArray->getDrawCount(), GL_UNSIGNED_INT, nullptr);
+			glDrawElements(GL_TRIANGLES, m_pFCVAO->getDrawCount(), GL_UNSIGNED_INT, nullptr);
 
 			///////////////////////////////////////
 			// textured phong cube ////////////////
@@ -350,7 +340,7 @@ namespace Engine
 			else texSlot = m_pNumberCubeTexture->getSlot();
 
 			m_pTPShader->bind();
-			m_pTPVertexArray->bind();
+			m_TPVAO->bind();
 
 			m_pTPShader->uploadData("u_MVP", (void*)&tpMVP[0][0]);
 			m_pTPShader->uploadData("u_model", (void*)&TPmodel[0][0]);
@@ -363,32 +353,14 @@ namespace Engine
 			m_pTPShader->uploadData("u_lightPos", (void*)&lightPos[0]);
 			m_pTPShader->uploadData("u_viewPos", (void*)&viewPos[0]);
 			m_pTPShader->uploadData("u_texData", (void*)&texSlot);
-
-			//MVPLoc = glGetUniformLocation(m_pTPShader->id(), "u_MVP");
-			//glUniformMatrix4fv(MVPLoc, 1, GL_FALSE, &tpMVP[0][0]);
-			//
-			//GLuint modelLoc = glGetUniformLocation(m_pTPShader->id(), "u_model");
-			//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, &TPmodel[0][0]);
-			//
-			//GLuint lightColLoc = glGetUniformLocation(m_pTPShader->id(), "u_lightColour");
-			//glUniform3f(lightColLoc, 1.0f, 1.0f, 1.0f);
-			//
-			//GLuint lightPosLoc = glGetUniformLocation(m_pTPShader->id(), "u_lightPos");
-			//glUniform3f(lightPosLoc, 1.0f, 4.0f, -6.0f);
-			//
-			//GLuint viewPosLoc = glGetUniformLocation(m_pTPShader->id(), "u_viewPos");
-			//glUniform3f(viewPosLoc, 0.0f, 0.0f, -4.5f);
-			//
-			//GLuint texDataLoc = glGetUniformLocation(m_pTPShader->id(), "u_texData");
-			//glUniform1i(texDataLoc, texSlot);
 			
-			glDrawElements(GL_TRIANGLES, m_pTPVertexArray->getDrawCount(), GL_UNSIGNED_INT, nullptr);
+			glDrawElements(GL_TRIANGLES, m_TPVAO->getDrawCount(), GL_UNSIGNED_INT, nullptr);
 
 			// End temporary code
 #pragma endregion TempDrawCode
 
 
-			m_pWindow->onUpdate(1/60); // Update the window
+			m_pWindow->onUpdate(m_fTimestep); // Update the window
 		}
 
 		/*// Test the timer

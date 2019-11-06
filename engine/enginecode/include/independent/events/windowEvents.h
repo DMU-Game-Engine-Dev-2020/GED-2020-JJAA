@@ -176,15 +176,15 @@ namespace Engine
 	class WindowMovedEvent : public Event
 	{
 	private:
-		int m_fXPos; //!< The new x position
-		int m_fYPos; //!< The new y position
+		int m_iXPos; //!< The new x position
+		int m_iYPos; //!< The new y position
 	public:
 		//! Constructor, sets the x and y positions to the ones passed in
 		/*!
 		\param xPos The new x position of the window
 		\param yPos The new y position of the window
 		*/
-		WindowMovedEvent(int xPos, int yPos) : m_fXPos(xPos), m_fYPos(yPos) {}
+		WindowMovedEvent(int xPos, int yPos) : m_iXPos(xPos), m_iYPos(yPos) {}
 
 		//! Used to get the event type even if the event has not been created
 		/*!
@@ -206,11 +206,11 @@ namespace Engine
 		/*!
 		\return The x position of the window
 		*/
-		float getXPos() { return m_fXPos; }
+		int getXPos() { return m_iXPos; }
 		//! Used to get the y position of the window
 		/*!
 		\return The y position of the window
 		*/
-		float getYPos() { return m_fYPos; }
+		int getYPos() { return m_iYPos; }
 	};
 }

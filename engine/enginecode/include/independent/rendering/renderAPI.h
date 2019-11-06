@@ -26,8 +26,8 @@ namespace Engine
 		/*!
 		\return The API being used
 		*/
-		inline static API getAPI() { return ms_API; }
+		inline static API getAPI() { return s_API; }
 	private:
-		static API ms_API; //!< Which API is being used
+		static API s_API; //!< Which API is being used
 	};
 }

@@ -38,13 +38,7 @@ namespace Engine
 
 		parseSource(filepath);
 
-		for (const auto& it : m_uniformLayout)
-		{
-			const std::string name = it.first;
-			GLuint location = glGetUniformLocation(m_iShaderID, name.c_str());
-
-			m_uniformLayout.find(name)->second.second = (int)location;
-		}
+		storeUniformLocations();
 	}
 
 	OpenGLShader::OpenGLShader(const std::string& vertexFilepath, const std::string& fragmentFilepath)
@@ -54,13 +48,7 @@ namespace Engine
 
 		parseSource(vertexFilepath, fragmentFilepath);
 
-		for (const auto& it : m_uniformLayout)
-		{
-			const std::string name = it.first;
-			GLuint location = glGetUniformLocation(m_iShaderID, name.c_str());
-
-			m_uniformLayout.find(name)->second.second = (int)location;
-		}
+		storeUniformLocations();
 	}
 
 	OpenGLShader::~OpenGLShader()
@@ -104,6 +92,7 @@ namespace Engine
 
 	bool OpenGLShader::uploadData(const UniformLayout& uniforms)
 	{
+		m_uniformLayout = uniforms;
 		return true;
 	}
 
@@ -149,7 +138,7 @@ namespace Engine
 	void OpenGLShader::parseSource(const std::string& vertexFilepath, const std::string& fragmentFilepath)
 	{
 		std::fstream vertexHandle(vertexFilepath, std::ios::in);
-		enum { NONE = -1, VERTEX = 0, FRAGMENT } region;
+		enum { NONE = -1, VERTEX = 0, FRAGMENT };
 
 		if (!vertexHandle.is_open())
 			LOG_CRITICAL("Could not open shader file '{0}'", vertexFilepath);
@@ -243,6 +232,17 @@ namespace Engine
 			}
 		}
 		m_uniformLayout.insert(std::make_pair(name, std::make_pair(GLSLStrToSDT(type), 0)));
+	}
+
+	void OpenGLShader::storeUniformLocations()
+	{
+		for (const auto& it : m_uniformLayout)
+		{
+			const std::string name = it.first;
+			GLuint location = glGetUniformLocation(m_iShaderID, name.c_str());
+
+			m_uniformLayout.find(name)->second.second = (int)location;
+		}
 	}
 
 	void OpenGLShader::compileAndLink(const std::string& vert, const std::string& frag)
@@ -342,7 +342,7 @@ namespace Engine
 			break;
 		case ShaderDataType::Float:
 			valueFloat = *(float*)data;
-			glUniform1i(location, valueFloat);
+			glUniform1f(location, valueFloat);
 			break;
 		case ShaderDataType::Float2:
 			addrf = (const float*)data;

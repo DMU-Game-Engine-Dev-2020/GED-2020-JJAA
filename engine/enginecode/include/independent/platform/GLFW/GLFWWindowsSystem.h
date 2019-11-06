@@ -13,8 +13,8 @@ namespace Engine
 	class GLFWWindowsSystem : public WindowsSystem
 	{
 	private:
-		static bool ms_bInstanceFlag; //!< A boolean for if the system is running
-		static std::shared_ptr<GLFWWindowsSystem> ms_pThis; //!< Pointer to the system
+		static bool s_bInstanceFlag; //!< A boolean for if the system is running
+		static std::shared_ptr<GLFWWindowsSystem> s_pThis; //!< Pointer to the system
 
 		bool m_bGLFWInitialized; //!< A boolean for if glfw is initialized
 	public:
@@ -24,7 +24,7 @@ namespace Engine
 		*/
 		static std::shared_ptr<GLFWWindowsSystem> getInstance(); 
 
-		void start(SystemSignal init, ...) override; //!< Start the system
-		void stop(SystemSignal close, ...) override; //!< Stop the system
+		void start(SystemSignal init = SystemSignal::None, ...) override; //!< Start the system
+		void stop(SystemSignal close = SystemSignal::None, ...) override; //!< Stop the system
 	};
 }

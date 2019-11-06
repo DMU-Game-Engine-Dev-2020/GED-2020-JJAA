@@ -13,7 +13,7 @@ namespace Engine
 	class WindowsSystem : public System
 	{
 	public:
-		virtual void start(SystemSignal init, ...) override = 0; //!< Inherited from System, to be implemented somewhere else
-		virtual void stop(SystemSignal close, ...) override = 0; //!< Inherited from System, to be implemented somewhere else
+		virtual void start(SystemSignal init = SystemSignal::None, ...) override = 0; //!< Inherited from System, to be implemented somewhere else
+		virtual void stop(SystemSignal close = SystemSignal::None, ...) override = 0; //!< Inherited from System, to be implemented somewhere else
 	};
 }

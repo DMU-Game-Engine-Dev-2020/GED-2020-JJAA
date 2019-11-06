@@ -5,8 +5,6 @@
 #include "vertexBuffer.h"
 #include "indexBuffer.h"
 
-#include <memory>
-
 namespace Engine
 {
 	/**

@@ -4,7 +4,6 @@
 #pragma once
 
 #include <glm/glm.hpp>
-#include <memory>
 
 namespace Engine
 {

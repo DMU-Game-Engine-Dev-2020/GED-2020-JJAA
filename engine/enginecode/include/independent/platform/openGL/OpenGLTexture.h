@@ -16,8 +16,8 @@ namespace Engine
 		unsigned int m_iChannels;
 		unsigned int m_iTextureSlot;
 
-		static unsigned int ms_iTextureSlot;
-		static std::list<unsigned int> ms_deletedSlots;
+		static unsigned int s_iTextureSlot;
+		static std::list<unsigned int> s_deletedSlots;
 
 		void genTex();
 		void wrapTex();

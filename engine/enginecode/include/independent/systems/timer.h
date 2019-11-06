@@ -19,17 +19,17 @@ namespace Engine
 	class Timer : public System
 	{
 	private:
-		static bool ms_bInstanceFlag; //!< If the timer object exists
-		static std::shared_ptr<Timer> ms_pThis; //!< Pointer to Timer object
+		static bool s_bInstanceFlag; //!< If the timer object exists
+		static std::shared_ptr<Timer> s_pThis; //!< Pointer to Timer object
 
-		static std::chrono::high_resolution_clock::time_point ms_frameStart; //!< Time at the start of the frame
-		static std::chrono::high_resolution_clock::time_point ms_frameEnd; //!< Time at the end of the frame
-		static std::chrono::duration<float> ms_frameDuration; //!< Duration of the frame
+		static std::chrono::high_resolution_clock::time_point s_frameStart; //!< Time at the start of the frame
+		static std::chrono::high_resolution_clock::time_point s_frameEnd; //!< Time at the end of the frame
+		static std::chrono::duration<float> s_frameDuration; //!< Duration of the frame
 
-		static std::map<std::string, std::pair<std::chrono::high_resolution_clock::time_point, std::chrono::high_resolution_clock::time_point>> ms_sectionTimer; //!< Map containing time points and corresponding tag for timing sections of code
-		static std::chrono::duration<float> ms_sectionTimeDuration; //!< Used for calculating the time taken to run a section of code
+		static std::map<std::string, std::pair<std::chrono::high_resolution_clock::time_point, std::chrono::high_resolution_clock::time_point>> s_sectionTimer; //!< Map containing time points and corresponding tag for timing sections of code
+		static std::chrono::duration<float> s_sectionTimeDuration; //!< Used for calculating the time taken to run a section of code
 
-		static bool ms_bWorking; //!< Will be false if multiple timers with the same tag are started
+		static bool s_bWorking; //!< Will be false if multiple timers with the same tag are started
 	public:
 		//! Create instance of object and return a pointer to it
 		/*!
@@ -37,8 +37,8 @@ namespace Engine
 		*/
 		static std::shared_ptr<Timer> getInstance();
 
-		void start(SystemSignal init, ...) override; //!< Start the timer
-		void stop(SystemSignal close, ...) override; //!< Stop the timer
+		void start(SystemSignal init = SystemSignal::None, ...) override; //!< Start the timer
+		void stop(SystemSignal close = SystemSignal::None, ...) override; //!< Stop the timer
 
 		static void newFrame(); //!< Calculate the time passed since the last frame
 
@@ -46,7 +46,7 @@ namespace Engine
 		/*!
 		\return The time taken to render the previous frame
 		*/
-		inline static float timestep() { return ms_frameDuration.count(); } 
+		inline static float timestep() { return s_frameDuration.count(); } 
 
 
 		//! Start the timer for a section of code

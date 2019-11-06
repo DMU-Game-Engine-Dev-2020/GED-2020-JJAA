@@ -7,8 +7,8 @@
 
 namespace Engine
 {
-	unsigned int OpenGLTexture::ms_iTextureSlot = 0;
-	std::list<unsigned int> OpenGLTexture::ms_deletedSlots;
+	unsigned int OpenGLTexture::s_iTextureSlot = 0;
+	std::list<unsigned int> OpenGLTexture::s_deletedSlots;
 
 	OpenGLTexture::OpenGLTexture(const std::string& filepath)
 	{
@@ -40,22 +40,22 @@ namespace Engine
 	{
 		glDeleteTextures(1, &m_iTextureID);
 
-		ms_deletedSlots.push_front(m_iTextureSlot);
+		s_deletedSlots.push_front(m_iTextureSlot);
 	}
 
 	void OpenGLTexture::genTex()
 	{
 		glGenTextures(1, &m_iTextureID);
 
-		if (ms_deletedSlots.empty())
+		if (s_deletedSlots.empty())
 		{
-			m_iTextureSlot = ms_iTextureSlot;
-			ms_iTextureSlot++;
+			m_iTextureSlot = s_iTextureSlot;
+			s_iTextureSlot++;
 		}
 		else
 		{
-			m_iTextureSlot = ms_deletedSlots.front();
-			ms_deletedSlots.pop_front();
+			m_iTextureSlot = s_deletedSlots.front();
+			s_deletedSlots.pop_front();
 		}
 
 		glActiveTexture(GL_TEXTURE0 + m_iTextureSlot);
