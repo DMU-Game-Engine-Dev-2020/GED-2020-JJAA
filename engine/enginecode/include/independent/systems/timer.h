@@ -63,8 +63,15 @@ namespace Engine
 	};
 }
 
-// Macros for using the timer
-#define TIMER_NEWFRAME    Engine::Timer::newFrame();
-#define TIMER_TIMESTEP    Engine::Timer::timestep();
-#define TIMER_START(...)  Engine::Timer::startTimer(__VA_ARGS__)
+//! Macro to start a new timer for a new frame
+#define TIMER_NEWFRAME    Engine::Timer::newFrame()
+
+//! Macro to get the timestep
+#define TIMER_TIMESTEP    Engine::Timer::timestep()
+
+//! Macro to stop a timer and get the time
 #define TIMER_END(...)    Engine::Timer::endTimer(__VA_ARGS__)
+
+//! Macro to start a new timer
+#define TIMER_START(...)  Engine::Timer::startTimer(__VA_ARGS__)
+

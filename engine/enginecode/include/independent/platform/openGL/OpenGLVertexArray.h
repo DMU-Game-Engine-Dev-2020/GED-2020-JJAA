@@ -14,7 +14,6 @@ namespace Engine
 	{
 	private:
 		unsigned int m_iRendererID; //!< Name for vertex array creation and binding
-		//unsigned int m_iDrawCount; //!< The number of triangles to draw
 
 		std::shared_ptr<VertexBuffer> m_pVertexBuffer; //!< Pointer to a VertexBuffer class
 		std::shared_ptr<IndexBuffer> m_pIndexBuffer; //!< Pointer to an IndexBuffer class
@@ -40,17 +39,17 @@ namespace Engine
 		/*!
 		\return The pointer to the vertex buffer
 		*/
-		std::shared_ptr<VertexBuffer> getVertexBuffer() const override { return m_pVertexBuffer; } 
+		inline std::shared_ptr<VertexBuffer> getVertexBuffer() const override { return m_pVertexBuffer; } 
 		//! Used to get the pointer to the index buffer
 		/*!
 		\return The pointer to the index buffer
 		*/
-		std::shared_ptr<IndexBuffer> getIndexBuffer() const override { return m_pIndexBuffer; }
+		inline std::shared_ptr<IndexBuffer> getIndexBuffer() const override { return m_pIndexBuffer; }
 
 		//! Used to get the draw count
 		/*!
 		\return The draw count
 		*/
-		//inline unsigned int getDrawCount() const override { return m_iDrawCount; } 
+		inline unsigned int getDrawCount() const override { return m_pIndexBuffer->getCount(); } 
 	};
 }

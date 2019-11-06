@@ -13,6 +13,8 @@
 #include "rendering/indexBuffer.h"
 #include "rendering/vertexBuffer.h"
 #include "rendering/vertexArray.h"
+#include "rendering/texture.h"
+#include "rendering/shader.h"
 
 namespace Engine 
 {
@@ -40,6 +42,12 @@ namespace Engine
 		std::shared_ptr<VertexArray> m_pFCVertexArray; //!< Pointer to the vertex array for the flat colour cube
 		std::shared_ptr<VertexArray> m_pTPVertexArray; //!< Pointer to the vertex array for the textured phong cube
 
+		std::shared_ptr<Texture> m_pLetterCubeTexture;
+		std::shared_ptr<Texture> m_pNumberCubeTexture;
+
+		std::shared_ptr<Shader> m_pFCShader;
+		std::shared_ptr<Shader> m_pTPShader;
+
 		bool m_bRunning; //!< If the application is running
 		float m_fTotalTimeElapsed; //!< The total time the program has been active in seconds
 		float m_fTimestep; //!< Time in seconds for the last frame
@@ -48,11 +56,6 @@ namespace Engine
 
 #pragma region TempVars
 // Temp stuff
-		unsigned int m_FCprogram; // Flat colour shader ID
-		unsigned int m_TPprogram; // Textured Phong shader ID
-		unsigned int m_numberTexture; // Texture ID
-		unsigned int m_letterTexture; // Texture ID
-		unsigned int m_textureSlots[2]; // Slot where the textures are stored
 		bool m_goingUp = false; // Is the cude going up?
 		float m_timeSummed = 10.f; // How much timer has elasped?
 #pragma endregion TempVars

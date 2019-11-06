@@ -41,7 +41,11 @@ namespace Engine
 		*/
 		virtual std::shared_ptr<IndexBuffer> getIndexBuffer() const = 0;
 
-		//virtual unsigned int getDrawCount() const = 0;
+		//! Used to get the draw count
+		/*!
+		\return The draw count
+		*/
+		virtual unsigned int getDrawCount() const = 0;
 
 		//! Create a vertex array and return a pointer to it
 		/*!

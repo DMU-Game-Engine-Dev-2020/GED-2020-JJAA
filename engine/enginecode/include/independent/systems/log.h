@@ -38,9 +38,18 @@ namespace Engine
 	};
 }
 
-// Macros to shorten function calls when logging
-#define LOG_INFO(...)      Engine::Log::getLogger()->info(__VA_ARGS__)
-#define LOG_TRACE(...)     Engine::Log::getLogger()->trace(__VA_ARGS__)
+//! Macro function to log info
+#define LOG_INFO(...)      Engine::Log::getLogger()->info(__VA_ARGS__) 
+
+//! Macro function to log trace
+#define LOG_TRACE(...)     Engine::Log::getLogger()->trace(__VA_ARGS__) 
+
+//! Macro function to log a warning
 #define LOG_WARN(...)      Engine::Log::getLogger()->warn(__VA_ARGS__)
+
+//! Macro function to log an error
 #define LOG_ERROR(...)     Engine::Log::getLogger()->error(__VA_ARGS__)
+
+//! Macro function to log a critical error
 #define LOG_CRITICAL(...)  Engine::Log::getLogger()->critical(__VA_ARGS__)
+

@@ -55,6 +55,7 @@ namespace Engine
 		glfwSetWindowUserPointer(m_pNativeWindow, &m_callback); // Set the window user data
 		setVSync(true); // Turn vSync on
 
+#pragma region EventCallbacks
 		// Set callbacks for events
 		glfwSetWindowCloseCallback(m_pNativeWindow,
 			[](GLFWwindow* window)
@@ -162,6 +163,7 @@ namespace Engine
 			MouseScrolledEvent event((float)xOffset, (float)yOffset); // Create event type
 			callback(event); // Callback (call Application::onEvent)
 		});
+#pragma endregion EventCallbacks
 	}
 
 	void GLFWWindowImpl::close()
@@ -175,10 +177,10 @@ namespace Engine
 		glfwPollEvents(); // GLFW polls events (check current status)
 		m_context->swapBuffers(); // Swap buffers for GLFW graphics context
 
-		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		//glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+		//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		glClearColor(1, 0, 0, 1);
+		//glClearColor(1, 0, 0, 1);
 
 		int iWindowWidth; // The current width of the window in pixels
 		int iWindowHeight; // The current height of the window in pixels
@@ -217,7 +219,7 @@ namespace Engine
 
 		glEnable(GL_SCISSOR_TEST);
 
-		glClear(GL_COLOR_BUFFER_BIT);
+		//glClear(GL_COLOR_BUFFER_BIT);
 		glScissor(iViewportPositionX, iViewportPositionY, iViewportWidth, iViewportHeight);
 
 		glDisable(GL_SCISSOR_TEST);
