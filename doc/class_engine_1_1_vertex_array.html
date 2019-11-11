@@ -86,6 +86,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab9cc2dcb82c7775ce6e65371edd245cc"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; <a class="el" href="class_engine_1_1_index_buffer.html">IndexBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_vertex_array.html#ab9cc2dcb82c7775ce6e65371edd245cc">getIndexBuffer</a> () const =0</td></tr>
 <tr class="memdesc:ab9cc2dcb82c7775ce6e65371edd245cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to get the pointer to the index buffer.  <a href="class_engine_1_1_vertex_array.html#ab9cc2dcb82c7775ce6e65371edd245cc">More...</a><br /></td></tr>
 <tr class="separator:ab9cc2dcb82c7775ce6e65371edd245cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf620a89b58391dc33a751a17f48f03f"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_vertex_array.html#adf620a89b58391dc33a751a17f48f03f">getDrawCount</a> () const =0</td></tr>
+<tr class="memdesc:adf620a89b58391dc33a751a17f48f03f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to get the draw count.  <a href="class_engine_1_1_vertex_array.html#adf620a89b58391dc33a751a17f48f03f">More...</a><br /></td></tr>
+<tr class="separator:adf620a89b58391dc33a751a17f48f03f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -96,7 +99,7 @@ Static Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A base interface class for <a class="el" href="class_a_p_i.html" title="Enum for the API being used.">API</a> specific vertex array to use. </p>
 
-<p class="definition">Definition at line <a class="el" href="vertex_array_8h_source.html#l00016">16</a> of file <a class="el" href="vertex_array_8h_source.html">vertexArray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vertex_array_8h_source.html#l00014">14</a> of file <a class="el" href="vertex_array_8h_source.html">vertexArray.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a8c13e13f087943909e6b354bc80fa032"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8c13e13f087943909e6b354bc80fa032">&#9670;&nbsp;</a></span>bind()</h2>
@@ -154,6 +157,36 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the new vertex array instance </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="vertex_array_8cpp_source.html#l00012">12</a> of file <a class="el" href="vertex_array_8cpp_source.html">vertexArray.cpp</a>.</p>
+
+</div>
+</div>
+<a id="adf620a89b58391dc33a751a17f48f03f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf620a89b58391dc33a751a17f48f03f">&#9670;&nbsp;</a></span>getDrawCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual unsigned int Engine::VertexArray::getDrawCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Used to get the draw count. </p>
+<dl class="section return"><dt>Returns</dt><dd>The draw count </dd></dl>
+
+<p>Implemented in <a class="el" href="class_engine_1_1_open_g_l_vertex_array.html#a511158007c39df258568a8e9ad7ff81f">Engine::OpenGLVertexArray</a>.</p>
 
 </div>
 </div>

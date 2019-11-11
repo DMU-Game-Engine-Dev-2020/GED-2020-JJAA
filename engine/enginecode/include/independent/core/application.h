@@ -28,23 +28,16 @@ namespace Engine
 		std::shared_ptr<Log> m_pLogger; //!< Pointer to the Log system object
 		std::shared_ptr<Timer> m_pTimer; //!< Pointer to the Timer system object
 		std::shared_ptr<WindowsSystem> m_pWindows; //!< Pointer to the Windows system
-
-		//std::shared_ptr<IndexBuffer> m_pFCIndexBuffer; //!< Pointer to the index buffer for the flat colour cube
-		//std::shared_ptr<IndexBuffer> m_pTPIndexBuffer; //!< Pointer to the index buffer for the textured phong cube
-		//
-		//std::shared_ptr<VertexBuffer> m_pFCVertexBuffer; //!< Pointer to the vertex buffer for the flat colour cube
-		//std::shared_ptr<VertexBuffer> m_pTPVertexBuffer; //!< Pointer to the vertex buffer for the textured phong cube
-
-		std::shared_ptr<ResourceManager> m_pResources;
+		std::shared_ptr<ResourceManager> m_pResources; //!< Pointer to the resource manager system
 
 		std::shared_ptr<VertexArray> m_pFCVAO; //!< Pointer to the vertex array for the flat colour cube
 		std::shared_ptr<VertexArray> m_TPVAO; //!< Pointer to the vertex array for the textured phong cube
 
-		std::shared_ptr<Texture> m_pLetterCubeTexture;
-		std::shared_ptr<Texture> m_pNumberCubeTexture;
+		std::shared_ptr<Texture> m_pLetterCubeTexture; //!< Pointer to the letter cube texture
+		std::shared_ptr<Texture> m_pNumberCubeTexture; //!< Pointer to the number cube texture
 
-		std::shared_ptr<Shader> m_pFCShader;
-		std::shared_ptr<Shader> m_pTPShader;
+		std::shared_ptr<Shader> m_pFCShader; //!< Pointer to the shader for the flat colour cube
+		std::shared_ptr<Shader> m_pTPShader; //!< Pointer to the shader for the textured phong cube
 
 		bool m_bRunning; //!< If the application is running
 		float m_fTotalTimeElapsed; //!< The total time the program has been active in seconds
@@ -54,8 +47,8 @@ namespace Engine
 
 #pragma region TempVars
 // Temp stuff
-		bool m_goingUp = false; // Is the cude going up?
-		float m_timeSummed = 10.f; // How much timer has elasped?
+		bool m_goingUp = false; //!< If a cube is going up
+		float m_timeSummed = 10.f; //!< How much time has elasped?
 #pragma endregion TempVars
 
 	public:

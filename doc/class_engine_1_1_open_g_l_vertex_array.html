@@ -92,6 +92,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afebd7041266932d6cdacbcc543a675c2"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_engine_1_1_index_buffer.html">IndexBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_open_g_l_vertex_array.html#afebd7041266932d6cdacbcc543a675c2">getIndexBuffer</a> () const override</td></tr>
 <tr class="memdesc:afebd7041266932d6cdacbcc543a675c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to get the pointer to the index buffer.  <a href="class_engine_1_1_open_g_l_vertex_array.html#afebd7041266932d6cdacbcc543a675c2">More...</a><br /></td></tr>
 <tr class="separator:afebd7041266932d6cdacbcc543a675c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a511158007c39df258568a8e9ad7ff81f"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_open_g_l_vertex_array.html#a511158007c39df258568a8e9ad7ff81f">getDrawCount</a> () const override</td></tr>
+<tr class="memdesc:a511158007c39df258568a8e9ad7ff81f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to get the draw count.  <a href="class_engine_1_1_open_g_l_vertex_array.html#a511158007c39df258568a8e9ad7ff81f">More...</a><br /></td></tr>
+<tr class="separator:a511158007c39df258568a8e9ad7ff81f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -191,6 +194,38 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a511158007c39df258568a8e9ad7ff81f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a511158007c39df258568a8e9ad7ff81f">&#9670;&nbsp;</a></span>getDrawCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Engine::OpenGLVertexArray::getDrawCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Used to get the draw count. </p>
+<dl class="section return"><dt>Returns</dt><dd>The draw count </dd></dl>
+
+<p>Implements <a class="el" href="class_engine_1_1_vertex_array.html#adf620a89b58391dc33a751a17f48f03f">Engine::VertexArray</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_open_g_l_vertex_array_8h_source.html#l00053">53</a> of file <a class="el" href="_open_g_l_vertex_array_8h_source.html">OpenGLVertexArray.h</a>.</p>
+
+</div>
+</div>
 <a id="afebd7041266932d6cdacbcc543a675c2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afebd7041266932d6cdacbcc543a675c2">&#9670;&nbsp;</a></span>getIndexBuffer()</h2>
 
@@ -219,7 +254,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_engine_1_1_vertex_array.html#ab9cc2dcb82c7775ce6e65371edd245cc">Engine::VertexArray</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_open_g_l_vertex_array_8h_source.html#l00048">48</a> of file <a class="el" href="_open_g_l_vertex_array_8h_source.html">OpenGLVertexArray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_open_g_l_vertex_array_8h_source.html#l00047">47</a> of file <a class="el" href="_open_g_l_vertex_array_8h_source.html">OpenGLVertexArray.h</a>.</p>
 
 </div>
 </div>
@@ -251,7 +286,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_engine_1_1_vertex_array.html#aaadc79675ef4448bb4adbe78b7d7c3f3">Engine::VertexArray</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_open_g_l_vertex_array_8h_source.html#l00043">43</a> of file <a class="el" href="_open_g_l_vertex_array_8h_source.html">OpenGLVertexArray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_open_g_l_vertex_array_8h_source.html#l00042">42</a> of file <a class="el" href="_open_g_l_vertex_array_8h_source.html">OpenGLVertexArray.h</a>.</p>
 
 </div>
 </div>
@@ -411,7 +446,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Pointer to an <a class="el" href="class_engine_1_1_index_buffer.html" title="A base interface class for API specific index buffers to use.">IndexBuffer</a> class. </p>
 
-<p class="definition">Definition at line <a class="el" href="_open_g_l_vertex_array_8h_source.html#l00020">20</a> of file <a class="el" href="_open_g_l_vertex_array_8h_source.html">OpenGLVertexArray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_open_g_l_vertex_array_8h_source.html#l00019">19</a> of file <a class="el" href="_open_g_l_vertex_array_8h_source.html">OpenGLVertexArray.h</a>.</p>
 
 </div>
 </div>
@@ -437,7 +472,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Pointer to a <a class="el" href="class_engine_1_1_vertex_buffer.html" title="A base interface class for API specific vertex buffer to use.">VertexBuffer</a> class. </p>
 
-<p class="definition">Definition at line <a class="el" href="_open_g_l_vertex_array_8h_source.html#l00019">19</a> of file <a class="el" href="_open_g_l_vertex_array_8h_source.html">OpenGLVertexArray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_open_g_l_vertex_array_8h_source.html#l00018">18</a> of file <a class="el" href="_open_g_l_vertex_array_8h_source.html">OpenGLVertexArray.h</a>.</p>
 
 </div>
 </div>

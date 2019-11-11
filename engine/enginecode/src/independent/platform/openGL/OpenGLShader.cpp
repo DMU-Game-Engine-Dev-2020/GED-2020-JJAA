@@ -1,15 +1,23 @@
+/** \file OpenGLShader.cpp
+*/
 #include "engine_pch.h"
 
 #include "platform/openGL/OpenGLShader.h"
+#include "platform/openGL/OpenGLUniformObject.h"
 #include "systems/log.h"
+#include "systems/timer.h"
 
-//#include <glad/glad.h>
 #include <glm/glm.hpp>
 #include <fstream>
 #include <sstream>
 
 namespace Engine
 {
+	//! Used to get the ShaderDataType from the shader file string
+	/*!
+	\param glslSrc The string being checked
+	\return The shader data type
+	*/
 	static ShaderDataType GLSLStrToSDT(const std::string& glslSrc)
 	{
 		ShaderDataType               result = ShaderDataType::None;
@@ -33,32 +41,34 @@ namespace Engine
 
 	OpenGLShader::OpenGLShader(const std::string& filepath)
 	{
+		// Create the shaders
 		m_iVertShader = glCreateShader(GL_VERTEX_SHADER);
 		m_iFragShader = glCreateShader(GL_FRAGMENT_SHADER);
 
-		parseSource(filepath);
+		parseSource(filepath); // Parse the file
 
-		storeUniformLocations();
+		storeUniformLocations(); // Store the uniform locations
 	}
 
 	OpenGLShader::OpenGLShader(const std::string& vertexFilepath, const std::string& fragmentFilepath)
 	{
+		// Create the shaders
 		m_iVertShader = glCreateShader(GL_VERTEX_SHADER);
 		m_iFragShader = glCreateShader(GL_FRAGMENT_SHADER);
 
-		parseSource(vertexFilepath, fragmentFilepath);
+		parseSource(vertexFilepath, fragmentFilepath); // Parse the file
 
-		storeUniformLocations();
+		storeUniformLocations(); // Store the uniform locations
 	}
 
 	OpenGLShader::~OpenGLShader()
 	{
-		glDeleteProgram(m_iShaderID);
+		glDeleteProgram(m_iShaderID); // Free memory
 	}
 
 	void OpenGLShader::bind()
 	{
-		glUseProgram(m_iShaderID);
+		glUseProgram(m_iShaderID); 
 	}
 
 	void OpenGLShader::unbind()
@@ -68,161 +78,178 @@ namespace Engine
 
 	bool OpenGLShader::uploadData(const std::string& name, void* data)
 	{
-		std::pair<ShaderDataType, int> typeAndLocation;
+		UniformLayout::iterator it; // Make an iterator for the uniform layout
 
-		UniformLayout::iterator it; 
+		it = m_uniformLayout.find(name); // Find the name in the map
 
-		it = m_uniformLayout.find(name);
-
+		// If the name is not found
 		if (it == m_uniformLayout.end())
 		{
+			// Log an error
 			LOG_ERROR("No uniform variable with name: {0} found in shaders", name);
 		}
-		else
+		else // If the name is found
 		{
-			typeAndLocation = it->second;
+			// Upload the uniform with the data from the uniform layout map
+			dispatchUnifoermUpload(it->second.first, (GLuint)it->second.second, data);
 		}
 
-		GLuint location = (GLuint)typeAndLocation.second;
+		//Maybe
+		//m_uniformLayout2.find(name)->second->uniformUpload(data);
 
-		//GLuint loc = glGetUniformLocation(m_iShaderID, name.c_str());
-		dispatchUnifoermUpload(typeAndLocation.first, location, data);
 		return true;
 	}
 
 	bool OpenGLShader::uploadData(const UniformLayout& uniforms)
 	{
-		m_uniformLayout = uniforms;
+		m_uniformLayout = uniforms; // Set the uniform layout to the one passed in
 		return true;
 	}
 
 	void OpenGLShader::parseSource(const std::string& filepath)
 	{
 		std::fstream handle(filepath, std::ios::in);
-		enum { NONE = -1, VERTEX = 0, FRAGMENT } region;
+		enum { NONE = -1, VERTEX = 0, FRAGMENT } region; // For the region in the shader file
 
+		// If the file is not open
 		if (!handle.is_open()) 
-			LOG_CRITICAL("Could not open shader file '{0}'", filepath);
+			LOG_CRITICAL("Could not open shader file '{0}'", filepath); // Log a critical error
 
-		std::string line;
-		std::string src[2];
+		std::string line; // For the line being got
+		std::string src[2]; // One for vertex and one for fragment shader
 
+		// Get a line from the file, while there is a line to be got
 		while (getline(handle, line))
 		{
+			// If in the vertex region set the region and skip to the start of the loop again
 			if (line.find("#region Vertex") != std::string::npos) { region = VERTEX; continue; }
+			// If in the fragment region set the region and skip to the start of the loop again
 			if (line.find("#region Fragment") != std::string::npos) { region = FRAGMENT; continue; }
+			// If in the geometry region do nothing
 			if (line.find("#region Geometry") != std::string::npos) { region = NONE; continue; }
+			// If in the tessalation region do nothing
 			if (line.find("#region Tessalation") != std::string::npos) { region = NONE; continue; }
 
+			// If in the vertex region and 'in ' is in the line
 			if (region == VERTEX && line.find("in ") != std::string::npos)
 			{
-				extractBufferLayout(line);
+				extractBufferLayout(line); // Get the buffer layout
 			}
 
+			// If in a region
 			if (region != NONE)
 			{
+				// If 'uniform' is in the line
 				if (line.find("uniform") != std::string::npos)
 				{
-					identifyUniform(line);
+					identifyUniform(line); // Identify the uniform
 				}
-
+				// Add the line to the region string
 				src[region] += (line + "\n");
 			}
 		}
 		
-		handle.close();
+		handle.close(); // Close the file
 
-		compileAndLink(src[VERTEX], src[FRAGMENT]);
+		compileAndLink(src[VERTEX], src[FRAGMENT]); // Compile and link the shader
 	}
 
 	void OpenGLShader::parseSource(const std::string& vertexFilepath, const std::string& fragmentFilepath)
 	{
+		// Parsing the vertex shader file
 		std::fstream vertexHandle(vertexFilepath, std::ios::in);
-		enum { NONE = -1, VERTEX = 0, FRAGMENT };
+		enum { NONE = -1, VERTEX = 0, FRAGMENT }; // For the shader file being read
 
+		// If the file is not open
 		if (!vertexHandle.is_open())
-			LOG_CRITICAL("Could not open shader file '{0}'", vertexFilepath);
+			LOG_CRITICAL("Could not open shader file '{0}'", vertexFilepath); // Log a critical error
 
-		std::string line;
-		std::string src[2];
+		std::string line; // For the line being got
+		std::string src[2]; // One for vertex and one for fragment shader
 
+		// Get a line from the file, while there is a line to be got
 		while (getline(vertexHandle, line))
 		{
+			// If 'in ' is in the line
 			if (line.find("in ") != std::string::npos)
 			{
-				extractBufferLayout(line);
+				extractBufferLayout(line); // Get the buffer layout
 			}
+			// If 'uniform' is in the line
 			if (line.find("uniform") != std::string::npos)
 			{
-				identifyUniform(line);
+				identifyUniform(line); // Identify the uniform
 			}
+			// Add the line to the vertex string
 			src[VERTEX] += (line + "\n");
 		}
-
+		// Close the file
 		vertexHandle.close();
 
-
+		// Parsing the fragment shader file
 		std::fstream fragmentHandle(fragmentFilepath, std::ios::in);
 
+		// If the file is not open
 		if (!fragmentHandle.is_open())
-			LOG_CRITICAL("Could not open shader file '{0}'", fragmentFilepath);
+			LOG_CRITICAL("Could not open shader file '{0}'", fragmentFilepath); // Log a critical error
 
+		// Get a line from the file, while there is a line to be got
 		while (getline(fragmentHandle, line))
 		{
+			// If 'uniform' is in the line
 			if (line.find("uniform") != std::string::npos)
 			{
-				identifyUniform(line);
+				identifyUniform(line); // Identify the uniform
 			}
+			// Add the line to the fragment string
 			src[FRAGMENT] += (line + "\n");
 		}
-
+		// Close the file
 		fragmentHandle.close();
 
-		compileAndLink(src[VERTEX], src[FRAGMENT]);
+		compileAndLink(src[VERTEX], src[FRAGMENT]); // Compile and link the shader
 	}
 
 	void OpenGLShader::extractBufferLayout(const std::string& line)
 	{
-		std::string type;
+		std::string type; // The type
 
 		std::stringstream iss(line);
 		bool isType = false;
 
 		while (iss >> type)
 		{
+			// Get each word on the line, if the current word is 'in', set type to the next word and leave the loop
 			if (!isType)
 			{
 				if (type == "in")
-				{
 					isType = true;
-				}
 			}
 			else
 			{
 				break;
 			}
 		}
-
+		// Add the element to the buffer layout as a ShaderDataType
 		m_bufferLayout.addElement(GLSLStrToSDT(type));
 	}
 
 	void OpenGLShader::identifyUniform(const std::string& line)
 	{
-		std::string type;
-		std::string name;
+		std::string type; // The type
+		std::string name; // The name
 
 		std::stringstream iss(line);
-
 		bool isType = false;
 
 		while (iss >> type)
 		{
+			// Get each word from the line, if the current word is 'uniform', 
+			// set the next word to type and the one after to name
 			if (!isType)
 			{
 				if (type == "uniform")
-				{
 					isType = true;
-				}
 			}
 			else
 			{
@@ -231,18 +258,151 @@ namespace Engine
 				break;
 			}
 		}
+		// Add the name, type as a ShaderDataType, and 0 for the location (can't be found yet) to the uniform layout
 		m_uniformLayout.insert(std::make_pair(name, std::make_pair(GLSLStrToSDT(type), 0)));
+
+		//Maybe
+		//m_uniformLayout2.insert(std::make_pair(name, new OpenGLUniformObject(name, GLSLStrToSDT(type))));
 	}
 
 	void OpenGLShader::storeUniformLocations()
 	{
+		// For each thing in the uniform layout map
 		for (const auto& it : m_uniformLayout)
 		{
-			const std::string name = it.first;
-			GLuint location = glGetUniformLocation(m_iShaderID, name.c_str());
-
-			m_uniformLayout.find(name)->second.second = (int)location;
+			// Get the uniform location
+			GLuint location = glGetUniformLocation(m_iShaderID, it.first.c_str());
+			// Set the location to the one found
+			m_uniformLayout.find(it.first)->second.second = (int)location;
 		}
+
+		//Maybe
+		/*for (auto& it : m_uniformLayout2)
+		{
+			switch (it.second->getType())
+			{
+			case ShaderDataType::Int:
+				it.second->setLocationAndFunction(m_iShaderID,
+					[](GLuint location, void* data)
+				{
+					GLint valueInt;
+					valueInt = *(int*)data;
+					glUniform1i(location, valueInt);
+					return true;
+				});
+				break;
+			case ShaderDataType::Int2:
+				it.second->setLocationAndFunction(m_iShaderID,
+					[](GLuint location, void* data)
+				{
+					const int* addri;
+					addri = (const int*)data;
+					glUniform2iv(location, 1, addri);
+					return true;
+				});
+				break;
+			case ShaderDataType::Int3:
+				it.second->setLocationAndFunction(m_iShaderID,
+					[](GLuint location, void* data)
+				{
+					const int* addri;
+					addri = (const int*)data;
+					glUniform3iv(location, 1, addri);
+					return true;
+				});
+				break;
+			case ShaderDataType::Int4:
+				it.second->setLocationAndFunction(m_iShaderID,
+					[](GLuint location, void* data)
+				{
+					const int* addri;
+					addri = (const int*)data;
+					glUniform4iv(location, 1, addri);
+					return true;
+				});
+				break;
+			case ShaderDataType::Float:
+				it.second->setLocationAndFunction(m_iShaderID,
+					[](GLuint location, void* data)
+				{
+					GLfloat valueFloat;
+					valueFloat = *(float*)data;
+					glUniform1f(location, valueFloat);
+					return true;
+				});
+				break;
+			case ShaderDataType::Float2:
+				it.second->setLocationAndFunction(m_iShaderID,
+					[](GLuint location, void* data)
+				{
+					const float* addrf;
+					addrf = (const float*)data;
+					glUniform2fv(location, 1, addrf);
+					return true;
+				});
+				break;
+			case ShaderDataType::Float3:
+				it.second->setLocationAndFunction(m_iShaderID,
+					[](GLuint location, void* data)
+				{
+					const float* addrf;
+					addrf = (const float*)data;
+					glUniform3fv(location, 1, addrf);
+					return true;
+				});
+				break;
+			case ShaderDataType::Float4:
+				it.second->setLocationAndFunction(m_iShaderID,
+					[](GLuint location, void* data)
+				{
+					const float* addrf;
+					addrf = (const float*)data;
+					glUniform4fv(location, 1, addrf);
+					return true;
+				});
+				break;
+			case ShaderDataType::Mat3:
+				it.second->setLocationAndFunction(m_iShaderID,
+					[](GLuint location, void* data)
+				{
+					const float* addrf;
+					addrf = (const float*)data;
+					glUniformMatrix3fv(location, 1, GL_FALSE, addrf);
+					return true;
+				});
+				break;
+			case ShaderDataType::Mat4:
+				it.second->setLocationAndFunction(m_iShaderID,
+					[](GLuint location, void* data)
+				{
+					const float* addrf;
+					addrf = (const float*)data;
+					glUniformMatrix4fv(location, 1, GL_FALSE, addrf);
+					return true;
+				});
+				break;
+			case ShaderDataType::Bool:
+				it.second->setLocationAndFunction(m_iShaderID,
+					[](GLuint location, void* data)
+				{
+					GLint valueInt;
+					valueInt = *(bool*)data;
+					glUniform1i(location, valueInt);
+					return true;
+				});
+				break;
+			case ShaderDataType::Sampler2D:
+				it.second->setLocationAndFunction(m_iShaderID,
+					[](GLuint location, void* data)
+				{
+					GLint valueInt;
+					valueInt = *(int*)data;
+					glUniform1i(location, valueInt);
+					return true;
+				});
+				break;
+			}
+		}*/
 	}
 
 	void OpenGLShader::compileAndLink(const std::string& vert, const std::string& frag)

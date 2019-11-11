@@ -39,20 +39,22 @@ namespace Engine
 
 		// Create and get instances of the system objects
 		m_pLogger = Log::getInstance();
-		m_pLogger->start(SystemSignal::None);
+		m_pLogger->start();
 		m_pTimer = Timer::getInstance();
-		m_pTimer->start(SystemSignal::None);
+		m_pTimer->start();
 
 #ifdef NG_PLATFORM_WINDOWS // If the engine is running on a windows computer
 		m_pWindows = GLFWWindowsSystem::getInstance(); // Create an instance of the GLFW windows system
 #endif // NG_PLATFORM_WINDOWS
-		m_pWindows->start(SystemSignal::None); // Start the windows system
+		m_pWindows->start(); // Start the windows system
 		LOG_INFO("Windows system initialised");
 
 		// Create a window
 		m_pWindow = std::unique_ptr<Window>(Window::create());
 		// Set the windows event callback to call the onEvent function in Application
 		m_pWindow->setEventCallback(std::bind(&Application::onEvent, this, std::placeholders::_1));
+
+		m_pResources.reset(new ResourceManager);
 
 #pragma region TempSetup
 		//  Temporary set up code to be abstracted
@@ -164,14 +166,10 @@ namespace Engine
 	Application::~Application()
 	{
 		// Run the stop functions of the systems
-		m_pWindows->stop(SystemSignal::None);
-		m_pTimer->stop(SystemSignal::None);
-		m_pLogger->stop(SystemSignal::None);
-
-		// Set the pointers to the systems to null
-		m_pWindows = nullptr;
-		m_pTimer = nullptr;
-		m_pLogger = nullptr;
+		m_pResources->stop();
+		m_pWindows->stop();
+		m_pTimer->stop();
+		m_pLogger->stop();
 	}
 
 	void Application::onEvent(Event& e)

@@ -1,3 +1,6 @@
+/** \file assetIncludes.h
+\brief Include all of the rendering classes for the resource manager
+*/
 #pragma once
 
 #include "rendering/indexBuffer.h"

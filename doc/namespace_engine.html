@@ -41,6 +41,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
@@ -53,6 +54,9 @@ $(function() {
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_application.html">Application</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fundemental class of the engine. A singleton which runs the game loop infinitely.  <a href="class_engine_1_1_application.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_asset_manager.html">AssetManager</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Templated class to store assets in a map.  <a href="class_engine_1_1_asset_manager.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_buffer_element.html">BufferElement</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Element for the buffer, has a data type size and offset.  <a href="class_engine_1_1_buffer_element.html#details">More...</a><br /></td></tr>
@@ -114,6 +118,14 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_open_g_l_index_buffer.html">OpenGLIndexBuffer</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open GL specific <a class="el" href="class_engine_1_1_index_buffer.html" title="A base interface class for API specific index buffers to use.">IndexBuffer</a>.  <a href="class_engine_1_1_open_g_l_index_buffer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_open_g_l_shader.html">OpenGLShader</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">OpenGL specific shader.  <a href="class_engine_1_1_open_g_l_shader.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_open_g_l_texture.html">OpenGLTexture</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">OpenGL specific texture.  <a href="class_engine_1_1_open_g_l_texture.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_open_g_l_uniform_object.html">OpenGLUniformObject</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_open_g_l_vertex_array.html">OpenGLVertexArray</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open GL specific <a class="el" href="class_engine_1_1_vertex_array.html" title="A base interface class for API specific vertex array to use.">VertexArray</a>.  <a href="class_engine_1_1_open_g_l_vertex_array.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,11 +135,22 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_a_p_i.html">RenderAPI</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to tell the render classes which <a class="el" href="class_a_p_i.html" title="Enum for the API being used.">API</a> is being used.  <a href="class_engine_1_1_render_a_p_i.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html">ResourceManager</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manages all asset managers.  <a href="class_engine_1_1_resource_manager.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_shader.html">Shader</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A base interface class for <a class="el" href="class_a_p_i.html" title="Enum for the API being used.">API</a> specific shader classes to use.  <a href="class_engine_1_1_shader.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_system.html">System</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface class for all systems.  <a href="class_engine_1_1_system.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_texture.html">Texture</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A base interface class for <a class="el" href="class_a_p_i.html" title="Enum for the API being used.">API</a> specific texture classes to use.  <a href="class_engine_1_1_texture.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_timer.html">Timer</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A system class used for timing things.  <a href="class_engine_1_1_timer.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_uniform_object.html">UniformObject</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_vertex_array.html">VertexArray</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A base interface class for <a class="el" href="class_a_p_i.html" title="Enum for the API being used.">API</a> specific vertex array to use.  <a href="class_engine_1_1_vertex_array.html#details">More...</a><br /></td></tr>
@@ -159,6 +182,12 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_windows_system.html">WindowsSystem</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_a_p_i.html" title="Enum for the API being used.">API</a> agnostic windows system.  <a href="class_engine_1_1_windows_system.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:aaaa6d77edbfa336ca7360fdd193d04bf"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_engine.html#aaaa6d77edbfa336ca7360fdd193d04bf">UniformLayout</a> = std::map&lt; std::string, std::pair&lt; <a class="el" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7">ShaderDataType</a>, int &gt; &gt;</td></tr>
+<tr class="memdesc:aaaa6d77edbfa336ca7360fdd193d04bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">UniformLayout is a map with a string and a pair containing a data type and an int.  <a href="namespace_engine.html#aaaa6d77edbfa336ca7360fdd193d04bf">More...</a><br /></td></tr>
+<tr class="separator:aaaa6d77edbfa336ca7360fdd193d04bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -230,6 +259,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a96ab052942c57d35deee0546fac26d74"><td class="memItemLeft" align="right" valign="top">static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_engine.html#a96ab052942c57d35deee0546fac26d74">ShaderDataTypeComponentCount</a> (<a class="el" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7">ShaderDataType</a> type)</td></tr>
 <tr class="memdesc:a96ab052942c57d35deee0546fac26d74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to get the number of components in the data type.  <a href="namespace_engine.html#a96ab052942c57d35deee0546fac26d74">More...</a><br /></td></tr>
 <tr class="separator:a96ab052942c57d35deee0546fac26d74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4238cd2cc2bf0cb8686405e1ca5220fc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7">ShaderDataType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_engine.html#a4238cd2cc2bf0cb8686405e1ca5220fc">GLSLStrToSDT</a> (const std::string &amp;glslSrc)</td></tr>
+<tr class="memdesc:a4238cd2cc2bf0cb8686405e1ca5220fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to get the <a class="el" href="class_shader_data_type.html" title="Types of data which will be used with shaders.">ShaderDataType</a> from the shader file string.  <a href="namespace_engine.html#a4238cd2cc2bf0cb8686405e1ca5220fc">More...</a><br /></td></tr>
+<tr class="separator:a4238cd2cc2bf0cb8686405e1ca5220fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae0ecaccce240f0d60c94d6be1396c19"><td class="memItemLeft" align="right" valign="top">static GLenum&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_engine.html#aae0ecaccce240f0d60c94d6be1396c19">ShaderDataTypeToOpenGLType</a> (<a class="el" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7">ShaderDataType</a> type)</td></tr>
 <tr class="memdesc:aae0ecaccce240f0d60c94d6be1396c19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to get the openGL type of the data type.  <a href="namespace_engine.html#aae0ecaccce240f0d60c94d6be1396c19">More...</a><br /></td></tr>
 <tr class="separator:aae0ecaccce240f0d60c94d6be1396c19"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -241,6 +273,25 @@ Variables</h2></td></tr>
 <tr class="memitem:a39b47216ab246d984ef4cc591833aafd"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_engine.html#a39b47216ab246d984ef4cc591833aafd">TPmodel</a></td></tr>
 <tr class="separator:a39b47216ab246d984ef4cc591833aafd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="aaaa6d77edbfa336ca7360fdd193d04bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaa6d77edbfa336ca7360fdd193d04bf">&#9670;&nbsp;</a></span>UniformLayout</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespace_engine.html#aaaa6d77edbfa336ca7360fdd193d04bf">Engine::UniformLayout</a> = typedef std::map&lt;std::string, std::pair&lt;<a class="el" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7">ShaderDataType</a>, int&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>UniformLayout is a map with a string and a pair containing a data type and an int. </p>
+
+<p class="definition">Definition at line <a class="el" href="shader_8h_source.html#l00013">13</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a629eac9f8d060a1f7261a9b912e0fa77"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a629eac9f8d060a1f7261a9b912e0fa77">&#9670;&nbsp;</a></span>EventCategory</h2>
@@ -375,6 +426,43 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a4238cd2cc2bf0cb8686405e1ca5220fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4238cd2cc2bf0cb8686405e1ca5220fc">&#9670;&nbsp;</a></span>GLSLStrToSDT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7">ShaderDataType</a> Engine::GLSLStrToSDT </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>glslSrc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Used to get the <a class="el" href="class_shader_data_type.html" title="Types of data which will be used with shaders.">ShaderDataType</a> from the shader file string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">glslSrc</td><td>The string being checked </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The shader data type </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_open_g_l_shader_8cpp_source.html#l00021">21</a> of file <a class="el" href="_open_g_l_shader_8cpp_source.html">OpenGLShader.cpp</a>.</p>
+
+</div>
+</div>
 <a id="a96ab052942c57d35deee0546fac26d74"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a96ab052942c57d35deee0546fac26d74">&#9670;&nbsp;</a></span>ShaderDataTypeComponentCount()</h2>
 
@@ -518,7 +606,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="application_8cpp_source.html#l00029">29</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application_8cpp_source.html#l00026">26</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
 
 </div>
 </div>
@@ -534,7 +622,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="application_8cpp_source.html#l00029">29</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application_8cpp_source.html#l00026">26</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
 
 </div>
 </div>

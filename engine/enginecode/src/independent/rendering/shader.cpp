@@ -1,3 +1,5 @@
+/** \file shader.cpp
+*/
 #include "engine_pch.h"
 
 #include "rendering/renderAPI.h"
