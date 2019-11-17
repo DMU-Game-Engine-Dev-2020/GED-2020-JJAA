@@ -451,140 +451,154 @@ $(function() {
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160; </div>
 <div class="line"><a name="l00408"></a><span class="lineno"><a class="line" href="class_engine_1_1_open_g_l_shader.html#ae9f03c0485d33a531fc94fc885ee7f6b">  408</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_engine_1_1_open_g_l_shader.html#ae9f03c0485d33a531fc94fc885ee7f6b">OpenGLShader::compileAndLink</a>(<span class="keyword">const</span> std::string&amp; vert, <span class="keyword">const</span> std::string&amp; frag)</div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    {</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        <a class="code" href="class_engine_1_1_open_g_l_shader.html#a3566dd881880cb434ff239a512307616">m_pcVertSrc</a> = vert.c_str();</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        <a class="code" href="class_engine_1_1_open_g_l_shader.html#a3566dd881880cb434ff239a512307616">m_pcVertSrc</a> = vert.c_str(); <span class="comment">// Set the stored vertex shader to the string passed in </span></div>
 <div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160; </div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        glShaderSource(<a class="code" href="class_engine_1_1_open_g_l_shader.html#adb54fa98c4b18222362b77d5dd5b327e">m_iVertShader</a>, 1, &amp;<a class="code" href="class_engine_1_1_open_g_l_shader.html#a3566dd881880cb434ff239a512307616">m_pcVertSrc</a>, 0);</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;        glCompileShader(<a class="code" href="class_engine_1_1_open_g_l_shader.html#adb54fa98c4b18222362b77d5dd5b327e">m_iVertShader</a>);</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160; </div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;        GLint m_isCompiled = 0;</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;        glGetShaderiv(<a class="code" href="class_engine_1_1_open_g_l_shader.html#adb54fa98c4b18222362b77d5dd5b327e">m_iVertShader</a>, GL_COMPILE_STATUS, &amp;m_isCompiled);</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;        <span class="keywordflow">if</span> (m_isCompiled == GL_FALSE)</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        {</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;            GLint maxLength = 0;</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;            glGetShaderiv(<a class="code" href="class_engine_1_1_open_g_l_shader.html#adb54fa98c4b18222362b77d5dd5b327e">m_iVertShader</a>, GL_INFO_LOG_LENGTH, &amp;maxLength);</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160; </div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;            std::vector&lt;GLchar&gt; infoLog(maxLength);</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;            glGetShaderInfoLog(<a class="code" href="class_engine_1_1_open_g_l_shader.html#adb54fa98c4b18222362b77d5dd5b327e">m_iVertShader</a>, maxLength, &amp;maxLength, &amp;infoLog[0]);</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;            <a class="code" href="log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a>(<span class="stringliteral">&quot;Shader compile error: {0}&quot;</span>, std::string(infoLog.begin(), infoLog.end()));</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160; </div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;            glDeleteShader(<a class="code" href="class_engine_1_1_open_g_l_shader.html#adb54fa98c4b18222362b77d5dd5b327e">m_iVertShader</a>);</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;            <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        }</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160; </div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;        <a class="code" href="class_engine_1_1_open_g_l_shader.html#a77447910e8e9cf4d2e69ce34fc1ea44d">m_pcFragSrc</a> = frag.c_str();</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;        glShaderSource(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a4cb442bb4f7aed7bac6922ba078cd790">m_iFragShader</a>, 1, &amp;<a class="code" href="class_engine_1_1_open_g_l_shader.html#a77447910e8e9cf4d2e69ce34fc1ea44d">m_pcFragSrc</a>, 0);</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;        glCompileShader(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a4cb442bb4f7aed7bac6922ba078cd790">m_iFragShader</a>);</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160; </div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;        glGetShaderiv(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a4cb442bb4f7aed7bac6922ba078cd790">m_iFragShader</a>, GL_COMPILE_STATUS, &amp;m_isCompiled);</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;        <span class="keywordflow">if</span> (m_isCompiled == GL_FALSE)</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;        {</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;            GLint maxLength = 0;</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;            glGetShaderiv(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a4cb442bb4f7aed7bac6922ba078cd790">m_iFragShader</a>, GL_INFO_LOG_LENGTH, &amp;maxLength);</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160; </div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;            std::vector&lt;GLchar&gt; infoLog(maxLength);</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;            glGetShaderInfoLog(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a4cb442bb4f7aed7bac6922ba078cd790">m_iFragShader</a>, maxLength, &amp;maxLength, &amp;infoLog[0]);</div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;            <a class="code" href="log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a>(<span class="stringliteral">&quot;Shader compile error: {0}&quot;</span>, std::string(infoLog.begin(), infoLog.end()));</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160; </div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;            glDeleteShader(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a4cb442bb4f7aed7bac6922ba078cd790">m_iFragShader</a>);</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;            glDeleteShader(<a class="code" href="class_engine_1_1_open_g_l_shader.html#adb54fa98c4b18222362b77d5dd5b327e">m_iVertShader</a>);</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        <span class="comment">// Set the vertex shader source and compile it</span></div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;        glShaderSource(<a class="code" href="class_engine_1_1_open_g_l_shader.html#adb54fa98c4b18222362b77d5dd5b327e">m_iVertShader</a>, 1, &amp;<a class="code" href="class_engine_1_1_open_g_l_shader.html#a3566dd881880cb434ff239a512307616">m_pcVertSrc</a>, 0);</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;        glCompileShader(<a class="code" href="class_engine_1_1_open_g_l_shader.html#adb54fa98c4b18222362b77d5dd5b327e">m_iVertShader</a>);</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160; </div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;        GLint m_isCompiled = 0; <span class="comment">// To check if it compiled successfully</span></div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;        glGetShaderiv(<a class="code" href="class_engine_1_1_open_g_l_shader.html#adb54fa98c4b18222362b77d5dd5b327e">m_iVertShader</a>, GL_COMPILE_STATUS, &amp;m_isCompiled); <span class="comment">// Check if compiled</span></div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        <span class="comment">// If not compiled</span></div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        <span class="keywordflow">if</span> (m_isCompiled == GL_FALSE)</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        {</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;            GLint maxLength = 0; <span class="comment">// To get the log length</span></div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;            glGetShaderiv(<a class="code" href="class_engine_1_1_open_g_l_shader.html#adb54fa98c4b18222362b77d5dd5b327e">m_iVertShader</a>, GL_INFO_LOG_LENGTH, &amp;maxLength); <span class="comment">// Get the log length (number of chars)</span></div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160; </div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;            std::vector&lt;GLchar&gt; infoLog(maxLength); <span class="comment">// To store the log</span></div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;            glGetShaderInfoLog(<a class="code" href="class_engine_1_1_open_g_l_shader.html#adb54fa98c4b18222362b77d5dd5b327e">m_iVertShader</a>, maxLength, &amp;maxLength, &amp;infoLog[0]); <span class="comment">// Get the log</span></div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;            <span class="comment">// Output the log</span></div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;            <a class="code" href="log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a>(<span class="stringliteral">&quot;Shader compile error: {0}&quot;</span>, std::string(infoLog.begin(), infoLog.end()));</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160; </div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;            glDeleteShader(<a class="code" href="class_engine_1_1_open_g_l_shader.html#adb54fa98c4b18222362b77d5dd5b327e">m_iVertShader</a>); <span class="comment">// Delete the shader</span></div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;            <span class="keywordflow">return</span>; <span class="comment">// Leave the function</span></div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;        }</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160; </div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;        <a class="code" href="class_engine_1_1_open_g_l_shader.html#a77447910e8e9cf4d2e69ce34fc1ea44d">m_pcFragSrc</a> = frag.c_str(); <span class="comment">// Set the stored fragment shader to the string passed in </span></div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160; </div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;        <span class="comment">// Set the fragment shader source and compile it</span></div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;        glShaderSource(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a4cb442bb4f7aed7bac6922ba078cd790">m_iFragShader</a>, 1, &amp;<a class="code" href="class_engine_1_1_open_g_l_shader.html#a77447910e8e9cf4d2e69ce34fc1ea44d">m_pcFragSrc</a>, 0);</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;        glCompileShader(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a4cb442bb4f7aed7bac6922ba078cd790">m_iFragShader</a>);</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160; </div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;        glGetShaderiv(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a4cb442bb4f7aed7bac6922ba078cd790">m_iFragShader</a>, GL_COMPILE_STATUS, &amp;m_isCompiled); <span class="comment">// Check if compiled</span></div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;        <span class="comment">// If not compiled</span></div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;        <span class="keywordflow">if</span> (m_isCompiled == GL_FALSE)</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;        {</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;            <span class="comment">// To get the log length</span></div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;            GLint maxLength = 0;</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;            glGetShaderiv(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a4cb442bb4f7aed7bac6922ba078cd790">m_iFragShader</a>, GL_INFO_LOG_LENGTH, &amp;maxLength); <span class="comment">// Get the log length (number of chars)</span></div>
 <div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160; </div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;            <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;        }</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160; </div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160; </div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;        <a class="code" href="class_engine_1_1_open_g_l_shader.html#a383303fd14a683ec88e949de94a97692">m_iShaderID</a> = glCreateProgram();</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;        glAttachShader(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a383303fd14a683ec88e949de94a97692">m_iShaderID</a>, <a class="code" href="class_engine_1_1_open_g_l_shader.html#adb54fa98c4b18222362b77d5dd5b327e">m_iVertShader</a>);</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;        glAttachShader(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a383303fd14a683ec88e949de94a97692">m_iShaderID</a>, <a class="code" href="class_engine_1_1_open_g_l_shader.html#a4cb442bb4f7aed7bac6922ba078cd790">m_iFragShader</a>);</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;        glLinkProgram(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a383303fd14a683ec88e949de94a97692">m_iShaderID</a>);</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;            std::vector&lt;GLchar&gt; infoLog(maxLength); <span class="comment">// To store the log</span></div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;            glGetShaderInfoLog(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a4cb442bb4f7aed7bac6922ba078cd790">m_iFragShader</a>, maxLength, &amp;maxLength, &amp;infoLog[0]); <span class="comment">// Get the log</span></div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;            <span class="comment">// Output the log</span></div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;            <a class="code" href="log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a>(<span class="stringliteral">&quot;Shader compile error: {0}&quot;</span>, std::string(infoLog.begin(), infoLog.end()));</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160; </div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;            <span class="comment">// Delete the shaders</span></div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;            glDeleteShader(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a4cb442bb4f7aed7bac6922ba078cd790">m_iFragShader</a>);</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;            glDeleteShader(<a class="code" href="class_engine_1_1_open_g_l_shader.html#adb54fa98c4b18222362b77d5dd5b327e">m_iVertShader</a>);</div>
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160; </div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;        GLint m_isLinked = 0;</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;        glGetProgramiv(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a383303fd14a683ec88e949de94a97692">m_iShaderID</a>, GL_LINK_STATUS, (<span class="keywordtype">int</span>*)&amp;m_isLinked);</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;        <span class="keywordflow">if</span> (m_isLinked == GL_FALSE)</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        {</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;            GLint maxLength = 0;</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;            glGetProgramiv(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a383303fd14a683ec88e949de94a97692">m_iShaderID</a>, GL_INFO_LOG_LENGTH, &amp;maxLength);</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160; </div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;            std::vector&lt;GLchar&gt; infoLog(maxLength);</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;            glGetProgramInfoLog(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a383303fd14a683ec88e949de94a97692">m_iShaderID</a>, maxLength, &amp;maxLength, &amp;infoLog[0]);</div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;            <a class="code" href="log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a>(<span class="stringliteral">&quot;Shader linking error: {0}&quot;</span>, std::string(infoLog.begin(), infoLog.end()));</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160; </div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;            glDeleteProgram(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a383303fd14a683ec88e949de94a97692">m_iShaderID</a>);</div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;            glDeleteShader(<a class="code" href="class_engine_1_1_open_g_l_shader.html#adb54fa98c4b18222362b77d5dd5b327e">m_iVertShader</a>);</div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;            glDeleteShader(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a4cb442bb4f7aed7bac6922ba078cd790">m_iFragShader</a>);</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160; </div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;            <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;        }</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;            <span class="keywordflow">return</span>; <span class="comment">// Leave the function</span></div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;        }</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160; </div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        <span class="comment">// Create the program, attach the shaders and link the program</span></div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;        <a class="code" href="class_engine_1_1_open_g_l_shader.html#a383303fd14a683ec88e949de94a97692">m_iShaderID</a> = glCreateProgram();</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;        glAttachShader(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a383303fd14a683ec88e949de94a97692">m_iShaderID</a>, <a class="code" href="class_engine_1_1_open_g_l_shader.html#adb54fa98c4b18222362b77d5dd5b327e">m_iVertShader</a>);</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;        glAttachShader(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a383303fd14a683ec88e949de94a97692">m_iShaderID</a>, <a class="code" href="class_engine_1_1_open_g_l_shader.html#a4cb442bb4f7aed7bac6922ba078cd790">m_iFragShader</a>);</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;        glLinkProgram(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a383303fd14a683ec88e949de94a97692">m_iShaderID</a>);</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160; </div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;        GLint m_isLinked = 0; <span class="comment">// To check if it linked successfully</span></div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;        glGetProgramiv(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a383303fd14a683ec88e949de94a97692">m_iShaderID</a>, GL_LINK_STATUS, (<span class="keywordtype">int</span>*)&amp;m_isLinked); <span class="comment">// Check if it linked successfully</span></div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;        <span class="comment">// If it didn&#39;t link</span></div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;        <span class="keywordflow">if</span> (m_isLinked == GL_FALSE)</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;        {</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;            <span class="comment">// To get the log length</span></div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;            GLint maxLength = 0;</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;            glGetProgramiv(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a383303fd14a683ec88e949de94a97692">m_iShaderID</a>, GL_INFO_LOG_LENGTH, &amp;maxLength); <span class="comment">// Get the log length (number of chars)</span></div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160; </div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;        glDetachShader(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a383303fd14a683ec88e949de94a97692">m_iShaderID</a>, <a class="code" href="class_engine_1_1_open_g_l_shader.html#adb54fa98c4b18222362b77d5dd5b327e">m_iVertShader</a>);</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;        glDetachShader(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a383303fd14a683ec88e949de94a97692">m_iShaderID</a>, <a class="code" href="class_engine_1_1_open_g_l_shader.html#a4cb442bb4f7aed7bac6922ba078cd790">m_iFragShader</a>);</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;    }</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160; </div>
-<div class="line"><a name="l00478"></a><span class="lineno"><a class="line" href="class_engine_1_1_open_g_l_shader.html#a80f74945e9cbbd81910a121fee9e55ea">  478</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_engine_1_1_open_g_l_shader.html#a80f74945e9cbbd81910a121fee9e55ea">OpenGLShader::dispatchUnifoermUpload</a>(<a class="code" href="class_shader_data_type.html">ShaderDataType</a> type, GLuint location, <span class="keywordtype">void</span>* data)</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;    {</div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">float</span>* addrf;</div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span>* addri;</div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;        GLfloat valueFloat;</div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;        GLint valueInt;</div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160; </div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;        <span class="keywordflow">switch</span> (type)</div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;        {</div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a1686a6c336b71b36d77354cea19a8b52">ShaderDataType::Int</a>:</div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;            valueInt = *(<span class="keywordtype">int</span>*)data;</div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;            glUniform1i(location, valueInt);</div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a4c6bc90f2bbdf35523e29c414a57bad3">ShaderDataType::Int2</a>:</div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;            addri = (<span class="keyword">const</span> <span class="keywordtype">int</span>*)data;</div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;            glUniform2iv(location, 1, addri);</div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a56bf1b0e694b442bf4145a04b82ea943">ShaderDataType::Int3</a>:</div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;            addri = (<span class="keyword">const</span> <span class="keywordtype">int</span>*)data;</div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;            glUniform3iv(location, 1, addri);</div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a1a44f12c3427b3e11c171d09632bad8d">ShaderDataType::Int4</a>:</div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;            addri = (<span class="keyword">const</span> <span class="keywordtype">int</span>*)data;</div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;            glUniform4iv(location, 1, addri);</div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a22ae0e2b89e5e3d477f988cc36d3272b">ShaderDataType::Float</a>:</div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;            valueFloat = *(<span class="keywordtype">float</span>*)data;</div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;            glUniform1f(location, valueFloat);</div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a6694430a2b471b5d2de071f2ef1fdc57">ShaderDataType::Float2</a>:</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;            addrf = (<span class="keyword">const</span> <span class="keywordtype">float</span>*)data;</div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;            glUniform2fv(location, 1, addrf);</div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a8a8a1d211464d4bdee46db3c75bfa121">ShaderDataType::Float3</a>:</div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;            addrf = (<span class="keyword">const</span> <span class="keywordtype">float</span>*)data;</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;            glUniform3fv(location, 1, addrf);</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a33116adc6690289da9b82ea736864eeb">ShaderDataType::Float4</a>:</div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;            addrf = (<span class="keyword">const</span> <span class="keywordtype">float</span>*)data;</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;            glUniform4fv(location, 1, addrf);</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a2495a7d9c1fab19af6441abbfed823e1">ShaderDataType::Mat3</a>:</div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;            addrf = (<span class="keyword">const</span> <span class="keywordtype">float</span>*)data;</div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;            glUniformMatrix3fv(location, 1, GL_FALSE, addrf);</div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a80f7408b0a5b5d78c26adae9f6f420f9">ShaderDataType::Mat4</a>:</div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;            addrf = (<span class="keyword">const</span> <span class="keywordtype">float</span>*)data;</div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;            glUniformMatrix4fv(location, 1, GL_FALSE, addrf);</div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7ac26f15e86e3de4c398a8273272aba034">ShaderDataType::Bool</a>:</div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;            valueInt = *(<span class="keywordtype">bool</span>*)data;</div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;            glUniform1i(location, valueInt);</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a6f0987d6f82566fca538d8c3b8f07ee1">ShaderDataType::Sampler2D</a>:</div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;            valueInt = *(<span class="keywordtype">int</span>*)data;</div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;            glUniform1i(location, valueInt);</div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;        }</div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    }</div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;}</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;            std::vector&lt;GLchar&gt; infoLog(maxLength); <span class="comment">// To store the log</span></div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;            glGetProgramInfoLog(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a383303fd14a683ec88e949de94a97692">m_iShaderID</a>, maxLength, &amp;maxLength, &amp;infoLog[0]); <span class="comment">// Get the log</span></div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;            <span class="comment">// Output the log</span></div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;            <a class="code" href="log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a>(<span class="stringliteral">&quot;Shader linking error: {0}&quot;</span>, std::string(infoLog.begin(), infoLog.end()));</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160; </div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;            <span class="comment">// Delete the program and the shaders</span></div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;            glDeleteProgram(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a383303fd14a683ec88e949de94a97692">m_iShaderID</a>);</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;            glDeleteShader(<a class="code" href="class_engine_1_1_open_g_l_shader.html#adb54fa98c4b18222362b77d5dd5b327e">m_iVertShader</a>);</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;            glDeleteShader(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a4cb442bb4f7aed7bac6922ba078cd790">m_iFragShader</a>);</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160; </div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;            <span class="keywordflow">return</span>; <span class="comment">// Leave the function</span></div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;        }</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;        <span class="comment">// Detach the shaders</span></div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;        glDetachShader(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a383303fd14a683ec88e949de94a97692">m_iShaderID</a>, <a class="code" href="class_engine_1_1_open_g_l_shader.html#adb54fa98c4b18222362b77d5dd5b327e">m_iVertShader</a>);</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;        glDetachShader(<a class="code" href="class_engine_1_1_open_g_l_shader.html#a383303fd14a683ec88e949de94a97692">m_iShaderID</a>, <a class="code" href="class_engine_1_1_open_g_l_shader.html#a4cb442bb4f7aed7bac6922ba078cd790">m_iFragShader</a>);</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;    }</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160; </div>
+<div class="line"><a name="l00491"></a><span class="lineno"><a class="line" href="class_engine_1_1_open_g_l_shader.html#a80f74945e9cbbd81910a121fee9e55ea">  491</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_engine_1_1_open_g_l_shader.html#a80f74945e9cbbd81910a121fee9e55ea">OpenGLShader::dispatchUnifoermUpload</a>(<a class="code" href="class_shader_data_type.html">ShaderDataType</a> type, GLuint location, <span class="keywordtype">void</span>* data)</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;    {</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;        <span class="comment">// To cast the data to, different one is used depending on the shader data type</span></div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">float</span>* addrf;</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span>* addri;</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;        GLfloat valueFloat;</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;        GLint valueInt;</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160; </div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;        <span class="keywordflow">switch</span> (type) <span class="comment">// Which type is it</span></div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;        {</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a1686a6c336b71b36d77354cea19a8b52">ShaderDataType::Int</a>:</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;            valueInt = *(<span class="keywordtype">int</span>*)data; <span class="comment">// Cast the data</span></div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;            glUniform1i(location, valueInt); <span class="comment">// Upload the uniform data</span></div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a4c6bc90f2bbdf35523e29c414a57bad3">ShaderDataType::Int2</a>:</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;            addri = (<span class="keyword">const</span> <span class="keywordtype">int</span>*)data; <span class="comment">// Cast the data</span></div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;            glUniform2iv(location, 1, addri); <span class="comment">// Upload the uniform data</span></div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a56bf1b0e694b442bf4145a04b82ea943">ShaderDataType::Int3</a>:</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;            addri = (<span class="keyword">const</span> <span class="keywordtype">int</span>*)data; <span class="comment">// Cast the data</span></div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;            glUniform3iv(location, 1, addri); <span class="comment">// Upload the uniform data</span></div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a1a44f12c3427b3e11c171d09632bad8d">ShaderDataType::Int4</a>:</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;            addri = (<span class="keyword">const</span> <span class="keywordtype">int</span>*)data; <span class="comment">// Cast the data</span></div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;            glUniform4iv(location, 1, addri); <span class="comment">// Upload the uniform data</span></div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a22ae0e2b89e5e3d477f988cc36d3272b">ShaderDataType::Float</a>:</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;            valueFloat = *(<span class="keywordtype">float</span>*)data; <span class="comment">// Cast the data</span></div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;            glUniform1f(location, valueFloat); <span class="comment">// Upload the uniform data</span></div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a6694430a2b471b5d2de071f2ef1fdc57">ShaderDataType::Float2</a>:</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;            addrf = (<span class="keyword">const</span> <span class="keywordtype">float</span>*)data; <span class="comment">// Cast the data</span></div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;            glUniform2fv(location, 1, addrf); <span class="comment">// Upload the uniform data</span></div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a8a8a1d211464d4bdee46db3c75bfa121">ShaderDataType::Float3</a>:</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;            addrf = (<span class="keyword">const</span> <span class="keywordtype">float</span>*)data; <span class="comment">// Cast the data</span></div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;            glUniform3fv(location, 1, addrf); <span class="comment">// Upload the uniform data</span></div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a33116adc6690289da9b82ea736864eeb">ShaderDataType::Float4</a>:</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;            addrf = (<span class="keyword">const</span> <span class="keywordtype">float</span>*)data; <span class="comment">// Cast the data</span></div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;            glUniform4fv(location, 1, addrf); <span class="comment">// Upload the uniform data</span></div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a2495a7d9c1fab19af6441abbfed823e1">ShaderDataType::Mat3</a>:</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;            addrf = (<span class="keyword">const</span> <span class="keywordtype">float</span>*)data; <span class="comment">// Cast the data</span></div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;            glUniformMatrix3fv(location, 1, GL_FALSE, addrf); <span class="comment">// Upload the uniform data</span></div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a80f7408b0a5b5d78c26adae9f6f420f9">ShaderDataType::Mat4</a>:</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;            addrf = (<span class="keyword">const</span> <span class="keywordtype">float</span>*)data; <span class="comment">// Cast the data</span></div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;            glUniformMatrix4fv(location, 1, GL_FALSE, addrf); <span class="comment">// Upload the uniform data</span></div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7ac26f15e86e3de4c398a8273272aba034">ShaderDataType::Bool</a>:</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;            valueInt = *(<span class="keywordtype">bool</span>*)data; <span class="comment">// Cast the data</span></div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;            glUniform1i(location, valueInt); <span class="comment">// Upload the uniform data</span></div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a6f0987d6f82566fca538d8c3b8f07ee1">ShaderDataType::Sampler2D</a>:</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;            valueInt = *(<span class="keywordtype">int</span>*)data; <span class="comment">// Cast the data</span></div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;            glUniform1i(location, valueInt); <span class="comment">// Upload the uniform data</span></div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;        }</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;    }</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclass_engine_1_1_open_g_l_shader_html_aca3ea83f842a4eb412b6fe9daa806c5c"><div class="ttname"><a href="class_engine_1_1_open_g_l_shader.html#aca3ea83f842a4eb412b6fe9daa806c5c">Engine::OpenGLShader::m_uniformLayout</a></div><div class="ttdeci">UniformLayout m_uniformLayout</div><div class="ttdoc">The uniform layout.</div><div class="ttdef"><b>Definition:</b> <a href="_open_g_l_shader_8h_source.html#l00030">OpenGLShader.h:30</a></div></div>
 <div class="ttc" id="anamespace_engine_html_ab6f2674ce1800efd90047198d1cf45b7a6694430a2b471b5d2de071f2ef1fdc57"><div class="ttname"><a href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a6694430a2b471b5d2de071f2ef1fdc57">Engine::ShaderDataType::Float2</a></div></div>
 <div class="ttc" id="anamespace_engine_html_aaaa6d77edbfa336ca7360fdd193d04bf"><div class="ttname"><a href="namespace_engine.html#aaaa6d77edbfa336ca7360fdd193d04bf">Engine::UniformLayout</a></div><div class="ttdeci">std::map&lt; std::string, std::pair&lt; ShaderDataType, int &gt; &gt; UniformLayout</div><div class="ttdoc">UniformLayout is a map with a string and a pair containing a data type and an int.</div><div class="ttdef"><b>Definition:</b> <a href="shader_8h_source.html#l00013">shader.h:13</a></div></div>
 <div class="ttc" id="aclass_engine_1_1_open_g_l_shader_html_a383303fd14a683ec88e949de94a97692"><div class="ttname"><a href="class_engine_1_1_open_g_l_shader.html#a383303fd14a683ec88e949de94a97692">Engine::OpenGLShader::m_iShaderID</a></div><div class="ttdeci">unsigned int m_iShaderID</div><div class="ttdoc">The shader ID.</div><div class="ttdef"><b>Definition:</b> <a href="_open_g_l_shader_8h_source.html#l00018">OpenGLShader.h:18</a></div></div>
-<div class="ttc" id="aclass_engine_1_1_open_g_l_shader_html_a80f74945e9cbbd81910a121fee9e55ea"><div class="ttname"><a href="class_engine_1_1_open_g_l_shader.html#a80f74945e9cbbd81910a121fee9e55ea">Engine::OpenGLShader::dispatchUnifoermUpload</a></div><div class="ttdeci">void dispatchUnifoermUpload(ShaderDataType type, GLuint location, void *data)</div><div class="ttdoc">Function to upload uniform data.</div><div class="ttdef"><b>Definition:</b> <a href="_open_g_l_shader_8cpp_source.html#l00478">OpenGLShader.cpp:478</a></div></div>
+<div class="ttc" id="aclass_engine_1_1_open_g_l_shader_html_a80f74945e9cbbd81910a121fee9e55ea"><div class="ttname"><a href="class_engine_1_1_open_g_l_shader.html#a80f74945e9cbbd81910a121fee9e55ea">Engine::OpenGLShader::dispatchUnifoermUpload</a></div><div class="ttdeci">void dispatchUnifoermUpload(ShaderDataType type, GLuint location, void *data)</div><div class="ttdoc">Function to upload uniform data.</div><div class="ttdef"><b>Definition:</b> <a href="_open_g_l_shader_8cpp_source.html#l00491">OpenGLShader.cpp:491</a></div></div>
 <div class="ttc" id="anamespace_engine_html"><div class="ttname"><a href="namespace_engine.html">Engine</a></div><div class="ttdef"><b>Definition:</b> <a href="application_8h_source.html#l00015">application.h:15</a></div></div>
 <div class="ttc" id="anamespace_engine_html_ab6f2674ce1800efd90047198d1cf45b7a6f0987d6f82566fca538d8c3b8f07ee1"><div class="ttname"><a href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a6f0987d6f82566fca538d8c3b8f07ee1">Engine::ShaderDataType::Sampler2D</a></div></div>
 <div class="ttc" id="anamespace_engine_html_ab6f2674ce1800efd90047198d1cf45b7a56bf1b0e694b442bf4145a04b82ea943"><div class="ttname"><a href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7a56bf1b0e694b442bf4145a04b82ea943">Engine::ShaderDataType::Int3</a></div></div>

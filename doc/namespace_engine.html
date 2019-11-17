@@ -125,6 +125,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">OpenGL specific texture.  <a href="class_engine_1_1_open_g_l_texture.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_open_g_l_uniform_object.html">OpenGLUniformObject</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">OpenGL class for a shader uniform.  <a href="class_engine_1_1_open_g_l_uniform_object.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_open_g_l_vertex_array.html">OpenGLVertexArray</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open GL specific <a class="el" href="class_engine_1_1_vertex_array.html" title="A base interface class for API specific vertex array to use.">VertexArray</a>.  <a href="class_engine_1_1_open_g_l_vertex_array.html#details">More...</a><br /></td></tr>
@@ -151,6 +152,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A system class used for timing things.  <a href="class_engine_1_1_timer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_uniform_object.html">UniformObject</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_a_p_i.html" title="Enum for the API being used.">API</a> agnostic interface class for a shader uniform.  <a href="class_engine_1_1_uniform_object.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_vertex_array.html">VertexArray</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A base interface class for <a class="el" href="class_a_p_i.html" title="Enum for the API being used.">API</a> specific vertex array to use.  <a href="class_engine_1_1_vertex_array.html#details">More...</a><br /></td></tr>
@@ -188,6 +190,9 @@ Typedefs</h2></td></tr>
 <tr class="memitem:aaaa6d77edbfa336ca7360fdd193d04bf"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_engine.html#aaaa6d77edbfa336ca7360fdd193d04bf">UniformLayout</a> = std::map&lt; std::string, std::pair&lt; <a class="el" href="namespace_engine.html#ab6f2674ce1800efd90047198d1cf45b7">ShaderDataType</a>, int &gt; &gt;</td></tr>
 <tr class="memdesc:aaaa6d77edbfa336ca7360fdd193d04bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">UniformLayout is a map with a string and a pair containing a data type and an int.  <a href="namespace_engine.html#aaaa6d77edbfa336ca7360fdd193d04bf">More...</a><br /></td></tr>
 <tr class="separator:aaaa6d77edbfa336ca7360fdd193d04bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48db1f058def1777650a1bef67aad59f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_engine.html#a48db1f058def1777650a1bef67aad59f">UploadFunc</a> = std::function&lt; bool(int, void *)&gt;</td></tr>
+<tr class="memdesc:a48db1f058def1777650a1bef67aad59f"><td class="mdescLeft">&#160;</td><td class="mdescRight">UploadFunc is the function called to upload the uniform data.  <a href="namespace_engine.html#a48db1f058def1777650a1bef67aad59f">More...</a><br /></td></tr>
+<tr class="separator:a48db1f058def1777650a1bef67aad59f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -289,6 +294,24 @@ Variables</h2></td></tr>
 <p>UniformLayout is a map with a string and a pair containing a data type and an int. </p>
 
 <p class="definition">Definition at line <a class="el" href="shader_8h_source.html#l00013">13</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+
+</div>
+</div>
+<a id="a48db1f058def1777650a1bef67aad59f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48db1f058def1777650a1bef67aad59f">&#9670;&nbsp;</a></span>UploadFunc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespace_engine.html#a48db1f058def1777650a1bef67aad59f">Engine::UploadFunc</a> = typedef std::function&lt;bool(int, void*)&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>UploadFunc is the function called to upload the uniform data. </p>
+
+<p class="definition">Definition at line <a class="el" href="uniform_object_8h_source.html#l00013">13</a> of file <a class="el" href="uniform_object_8h_source.html">uniformObject.h</a>.</p>
 
 </div>
 </div>

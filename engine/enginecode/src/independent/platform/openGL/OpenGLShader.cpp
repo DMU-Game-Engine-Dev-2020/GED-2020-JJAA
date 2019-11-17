@@ -407,130 +407,144 @@ namespace Engine
 
 	void OpenGLShader::compileAndLink(const std::string& vert, const std::string& frag)
 	{
-		m_pcVertSrc = vert.c_str();
+		m_pcVertSrc = vert.c_str(); // Set the stored vertex shader to the string passed in 
 
+		// Set the vertex shader source and compile it
 		glShaderSource(m_iVertShader, 1, &m_pcVertSrc, 0);
 		glCompileShader(m_iVertShader);
 
-		GLint m_isCompiled = 0;
-		glGetShaderiv(m_iVertShader, GL_COMPILE_STATUS, &m_isCompiled);
+		GLint m_isCompiled = 0; // To check if it compiled successfully
+		glGetShaderiv(m_iVertShader, GL_COMPILE_STATUS, &m_isCompiled); // Check if compiled
+		// If not compiled
 		if (m_isCompiled == GL_FALSE)
 		{
-			GLint maxLength = 0;
-			glGetShaderiv(m_iVertShader, GL_INFO_LOG_LENGTH, &maxLength);
+			GLint maxLength = 0; // To get the log length
+			glGetShaderiv(m_iVertShader, GL_INFO_LOG_LENGTH, &maxLength); // Get the log length (number of chars)
 
-			std::vector<GLchar> infoLog(maxLength);
-			glGetShaderInfoLog(m_iVertShader, maxLength, &maxLength, &infoLog[0]);
+			std::vector<GLchar> infoLog(maxLength); // To store the log
+			glGetShaderInfoLog(m_iVertShader, maxLength, &maxLength, &infoLog[0]); // Get the log
+			// Output the log
 			LOG_ERROR("Shader compile error: {0}", std::string(infoLog.begin(), infoLog.end()));
 
-			glDeleteShader(m_iVertShader);
-			return;
+			glDeleteShader(m_iVertShader); // Delete the shader
+			return; // Leave the function
 		}
 
-		m_pcFragSrc = frag.c_str();
+		m_pcFragSrc = frag.c_str(); // Set the stored fragment shader to the string passed in 
+
+		// Set the fragment shader source and compile it
 		glShaderSource(m_iFragShader, 1, &m_pcFragSrc, 0);
 		glCompileShader(m_iFragShader);
 
-		glGetShaderiv(m_iFragShader, GL_COMPILE_STATUS, &m_isCompiled);
+		glGetShaderiv(m_iFragShader, GL_COMPILE_STATUS, &m_isCompiled); // Check if compiled
+		// If not compiled
 		if (m_isCompiled == GL_FALSE)
 		{
+			// To get the log length
 			GLint maxLength = 0;
-			glGetShaderiv(m_iFragShader, GL_INFO_LOG_LENGTH, &maxLength);
+			glGetShaderiv(m_iFragShader, GL_INFO_LOG_LENGTH, &maxLength); // Get the log length (number of chars)
 
-			std::vector<GLchar> infoLog(maxLength);
-			glGetShaderInfoLog(m_iFragShader, maxLength, &maxLength, &infoLog[0]);
+			std::vector<GLchar> infoLog(maxLength); // To store the log
+			glGetShaderInfoLog(m_iFragShader, maxLength, &maxLength, &infoLog[0]); // Get the log
+			// Output the log
 			LOG_ERROR("Shader compile error: {0}", std::string(infoLog.begin(), infoLog.end()));
 
+			// Delete the shaders
 			glDeleteShader(m_iFragShader);
 			glDeleteShader(m_iVertShader);
 
-			return;
+			return; // Leave the function
 		}
 
-
+		// Create the program, attach the shaders and link the program
 		m_iShaderID = glCreateProgram();
 		glAttachShader(m_iShaderID, m_iVertShader);
 		glAttachShader(m_iShaderID, m_iFragShader);
 		glLinkProgram(m_iShaderID);
 
-		GLint m_isLinked = 0;
-		glGetProgramiv(m_iShaderID, GL_LINK_STATUS, (int*)&m_isLinked);
+		GLint m_isLinked = 0; // To check if it linked successfully
+		glGetProgramiv(m_iShaderID, GL_LINK_STATUS, (int*)&m_isLinked); // Check if it linked successfully
+		// If it didn't link
 		if (m_isLinked == GL_FALSE)
 		{
+			// To get the log length
 			GLint maxLength = 0;
-			glGetProgramiv(m_iShaderID, GL_INFO_LOG_LENGTH, &maxLength);
+			glGetProgramiv(m_iShaderID, GL_INFO_LOG_LENGTH, &maxLength); // Get the log length (number of chars)
 
-			std::vector<GLchar> infoLog(maxLength);
-			glGetProgramInfoLog(m_iShaderID, maxLength, &maxLength, &infoLog[0]);
+			std::vector<GLchar> infoLog(maxLength); // To store the log
+			glGetProgramInfoLog(m_iShaderID, maxLength, &maxLength, &infoLog[0]); // Get the log
+			// Output the log
 			LOG_ERROR("Shader linking error: {0}", std::string(infoLog.begin(), infoLog.end()));
 
+			// Delete the program and the shaders
 			glDeleteProgram(m_iShaderID);
 			glDeleteShader(m_iVertShader);
 			glDeleteShader(m_iFragShader);
 
-			return;
+			return; // Leave the function
 		}
-
+		// Detach the shaders
 		glDetachShader(m_iShaderID, m_iVertShader);
 		glDetachShader(m_iShaderID, m_iFragShader);
 	}
 
 	void OpenGLShader::dispatchUnifoermUpload(ShaderDataType type, GLuint location, void* data)
 	{
+		// To cast the data to, different one is used depending on the shader data type
 		const float* addrf;
 		const int* addri;
 		GLfloat valueFloat;
 		GLint valueInt;
 
-		switch (type)
+		switch (type) // Which type is it
 		{
 		case ShaderDataType::Int:
-			valueInt = *(int*)data;
-			glUniform1i(location, valueInt);
+			valueInt = *(int*)data; // Cast the data
+			glUniform1i(location, valueInt); // Upload the uniform data
 			break;
 		case ShaderDataType::Int2:
-			addri = (const int*)data;
-			glUniform2iv(location, 1, addri);
+			addri = (const int*)data; // Cast the data
+			glUniform2iv(location, 1, addri); // Upload the uniform data
 			break;
 		case ShaderDataType::Int3:
-			addri = (const int*)data;
-			glUniform3iv(location, 1, addri);
+			addri = (const int*)data; // Cast the data
+			glUniform3iv(location, 1, addri); // Upload the uniform data
 			break;
 		case ShaderDataType::Int4:
-			addri = (const int*)data;
-			glUniform4iv(location, 1, addri);
+			addri = (const int*)data; // Cast the data
+			glUniform4iv(location, 1, addri); // Upload the uniform data
 			break;
 		case ShaderDataType::Float:
-			valueFloat = *(float*)data;
-			glUniform1f(location, valueFloat);
+			valueFloat = *(float*)data; // Cast the data
+			glUniform1f(location, valueFloat); // Upload the uniform data
 			break;
 		case ShaderDataType::Float2:
-			addrf = (const float*)data;
-			glUniform2fv(location, 1, addrf);
+			addrf = (const float*)data; // Cast the data
+			glUniform2fv(location, 1, addrf); // Upload the uniform data
 			break;
 		case ShaderDataType::Float3:
-			addrf = (const float*)data;
-			glUniform3fv(location, 1, addrf);
+			addrf = (const float*)data; // Cast the data
+			glUniform3fv(location, 1, addrf); // Upload the uniform data
 			break;
 		case ShaderDataType::Float4:
-			addrf = (const float*)data;
-			glUniform4fv(location, 1, addrf);
+			addrf = (const float*)data; // Cast the data
+			glUniform4fv(location, 1, addrf); // Upload the uniform data
 			break;
 		case ShaderDataType::Mat3:
-			addrf = (const float*)data;
-			glUniformMatrix3fv(location, 1, GL_FALSE, addrf);
+			addrf = (const float*)data; // Cast the data
+			glUniformMatrix3fv(location, 1, GL_FALSE, addrf); // Upload the uniform data
 			break;
 		case ShaderDataType::Mat4:
-			addrf = (const float*)data;
-			glUniformMatrix4fv(location, 1, GL_FALSE, addrf);
+			addrf = (const float*)data; // Cast the data
+			glUniformMatrix4fv(location, 1, GL_FALSE, addrf); // Upload the uniform data
 			break;
 		case ShaderDataType::Bool:
-			valueInt = *(bool*)data;
-			glUniform1i(location, valueInt);
+			valueInt = *(bool*)data; // Cast the data
+			glUniform1i(location, valueInt); // Upload the uniform data
 			break;
 		case ShaderDataType::Sampler2D:
-			valueInt = *(int*)data;
-			glUniform1i(location, valueInt);
+			valueInt = *(int*)data; // Cast the data
+			glUniform1i(location, valueInt); // Upload the uniform data
 			break;
 		}
 	}
