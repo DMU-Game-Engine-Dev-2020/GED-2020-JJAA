@@ -63,6 +63,8 @@ namespace Engine
 
 	OpenGLShader::~OpenGLShader()
 	{
+		m_uniformLayout.clear(); // Empty the uniform layout map
+
 		glDeleteProgram(m_iShaderID); // Free memory
 	}
 
@@ -78,24 +80,8 @@ namespace Engine
 
 	bool OpenGLShader::uploadData(const std::string& name, void* data)
 	{
-		UniformLayout::iterator it; // Make an iterator for the uniform layout
-
-		it = m_uniformLayout.find(name); // Find the name in the map
-
-		// If the name is not found
-		if (it == m_uniformLayout.end())
-		{
-			// Log an error
-			LOG_ERROR("No uniform variable with name: {0} found in shaders", name);
-		}
-		else // If the name is found
-		{
-			// Upload the uniform with the data from the uniform layout map
-			dispatchUnifoermUpload(it->second.first, (GLuint)it->second.second, data);
-		}
-
-		//Maybe
-		//m_uniformLayout2.find(name)->second->uniformUpload(data);
+		// Find the uniform object with the correspending name in the map and call the function to upload the data
+		m_uniformLayout.find(name)->second->uniformUpload(data);
 
 		return true;
 	}
@@ -258,151 +244,152 @@ namespace Engine
 				break;
 			}
 		}
-		// Add the name, type as a ShaderDataType, and 0 for the location (can't be found yet) to the uniform layout
-		m_uniformLayout.insert(std::make_pair(name, std::make_pair(GLSLStrToSDT(type), 0)));
-
-		//Maybe
-		//m_uniformLayout2.insert(std::make_pair(name, new OpenGLUniformObject(name, GLSLStrToSDT(type))));
+		// Add The name and a new uniform object with the name and type to the map
+		m_uniformLayout.insert(std::make_pair(name, new OpenGLUniformObject(name, GLSLStrToSDT(type))));
 	}
 
 	void OpenGLShader::storeUniformLocations()
 	{
 		// For each thing in the uniform layout map
-		for (const auto& it : m_uniformLayout)
+		for (auto& it : m_uniformLayout)
 		{
-			// Get the uniform location
-			GLuint location = glGetUniformLocation(m_iShaderID, it.first.c_str());
-			// Set the location to the one found
-			m_uniformLayout.find(it.first)->second.second = (int)location;
-		}
-
-		//Maybe
-		/*for (auto& it : m_uniformLayout2)
-		{
+			// Get the type of the uniform
 			switch (it.second->getType())
 			{
 			case ShaderDataType::Int:
+				// Save the location in the object and set the objects upload data function
 				it.second->setLocationAndFunction(m_iShaderID,
 					[](GLuint location, void* data)
 				{
 					GLint valueInt;
-					valueInt = *(int*)data;
-					glUniform1i(location, valueInt);
+					valueInt = *(GLint*)data; // Get the data from the void pointer
+					glUniform1i(location, valueInt); // Upload the data
 					return true;
 				});
 				break;
 			case ShaderDataType::Int2:
+				// Save the location in the object and set the objects upload data function
 				it.second->setLocationAndFunction(m_iShaderID,
 					[](GLuint location, void* data)
 				{
 					const int* addri;
-					addri = (const int*)data;
-					glUniform2iv(location, 1, addri);
+					addri = (const int*)data; // Get the data from the void pointer
+					glUniform2iv(location, 1, addri); // Upload the data
 					return true;
 				});
 				break;
 			case ShaderDataType::Int3:
+				// Save the location in the object and set the objects upload data function
 				it.second->setLocationAndFunction(m_iShaderID,
 					[](GLuint location, void* data)
 				{
 					const int* addri;
-					addri = (const int*)data;
-					glUniform3iv(location, 1, addri);
+					addri = (const int*)data; // Get the data from the void pointer
+					glUniform3iv(location, 1, addri); // Upload the data
 					return true;
 				});
 				break;
 			case ShaderDataType::Int4:
+				// Save the location in the object and set the objects upload data function
 				it.second->setLocationAndFunction(m_iShaderID,
 					[](GLuint location, void* data)
 				{
 					const int* addri;
-					addri = (const int*)data;
-					glUniform4iv(location, 1, addri);
+					addri = (const int*)data; // Get the data from the void pointer
+					glUniform4iv(location, 1, addri); // Upload the data
 					return true;
 				});
 				break;
 			case ShaderDataType::Float:
+				// Save the location in the object and set the objects upload data function
 				it.second->setLocationAndFunction(m_iShaderID,
 					[](GLuint location, void* data)
 				{
 					GLfloat valueFloat;
-					valueFloat = *(float*)data;
-					glUniform1f(location, valueFloat);
+					valueFloat = *(float*)data; // Get the data from the void pointer
+					glUniform1f(location, valueFloat); // Upload the data
 					return true;
 				});
 				break;
 			case ShaderDataType::Float2:
+				// Save the location in the object and set the objects upload data function
 				it.second->setLocationAndFunction(m_iShaderID,
 					[](GLuint location, void* data)
 				{
 					const float* addrf;
-					addrf = (const float*)data;
-					glUniform2fv(location, 1, addrf);
+					addrf = (const float*)data; // Get the data from the void pointer
+					glUniform2fv(location, 1, addrf); // Upload the data
 					return true;
 				});
 				break;
 			case ShaderDataType::Float3:
+				// Save the location in the object and set the objects upload data function
 				it.second->setLocationAndFunction(m_iShaderID,
 					[](GLuint location, void* data)
 				{
 					const float* addrf;
-					addrf = (const float*)data;
-					glUniform3fv(location, 1, addrf);
+					addrf = (const float*)data; // Get the data from the void pointer
+					glUniform3fv(location, 1, addrf); // Upload the data
 					return true;
 				});
 				break;
 			case ShaderDataType::Float4:
+				// Save the location in the object and set the objects upload data function
 				it.second->setLocationAndFunction(m_iShaderID,
 					[](GLuint location, void* data)
 				{
 					const float* addrf;
-					addrf = (const float*)data;
-					glUniform4fv(location, 1, addrf);
+					addrf = (const float*)data; // Get the data from the void pointer
+					glUniform4fv(location, 1, addrf); // Upload the data
 					return true;
 				});
 				break;
 			case ShaderDataType::Mat3:
+				// Save the location in the object and set the objects upload data function
 				it.second->setLocationAndFunction(m_iShaderID,
 					[](GLuint location, void* data)
 				{
 					const float* addrf;
-					addrf = (const float*)data;
-					glUniformMatrix3fv(location, 1, GL_FALSE, addrf);
+					addrf = (const float*)data; // Get the data from the void pointer
+					glUniformMatrix3fv(location, 1, GL_FALSE, addrf); // Upload the data
 					return true;
 				});
 				break;
 			case ShaderDataType::Mat4:
+				// Save the location in the object and set the objects upload data function
 				it.second->setLocationAndFunction(m_iShaderID,
 					[](GLuint location, void* data)
 				{
 					const float* addrf;
-					addrf = (const float*)data;
-					glUniformMatrix4fv(location, 1, GL_FALSE, addrf);
+					addrf = (const float*)data; // Get the data from the void pointer
+					glUniformMatrix4fv(location, 1, GL_FALSE, addrf); // Upload the data
 					return true;
 				});
 				break;
 			case ShaderDataType::Bool:
+				// Save the location in the object and set the objects upload data function
 				it.second->setLocationAndFunction(m_iShaderID,
 					[](GLuint location, void* data)
 				{
 					GLint valueInt;
-					valueInt = *(bool*)data;
-					glUniform1i(location, valueInt);
+					valueInt = *(bool*)data; // Get the data from the void pointer
+					glUniform1i(location, valueInt); // Upload the data
 					return true;
 				});
 				break;
 			case ShaderDataType::Sampler2D:
+				// Save the location in the object and set the objects upload data function
 				it.second->setLocationAndFunction(m_iShaderID,
 					[](GLuint location, void* data)
 				{
 					GLint valueInt;
-					valueInt = *(int*)data;
-					glUniform1i(location, valueInt);
+					valueInt = *(int*)data; // Get the data from the void pointer
+					glUniform1i(location, valueInt); // Upload the data
 					return true;
 				});
 				break;
 			}
-		}*/
+		}
 	}
 
 	void OpenGLShader::compileAndLink(const std::string& vert, const std::string& frag)
@@ -486,66 +473,5 @@ namespace Engine
 		// Detach the shaders
 		glDetachShader(m_iShaderID, m_iVertShader);
 		glDetachShader(m_iShaderID, m_iFragShader);
-	}
-
-	void OpenGLShader::dispatchUnifoermUpload(ShaderDataType type, GLuint location, void* data)
-	{
-		// To cast the data to, different one is used depending on the shader data type
-		const float* addrf;
-		const int* addri;
-		GLfloat valueFloat;
-		GLint valueInt;
-
-		switch (type) // Which type is it
-		{
-		case ShaderDataType::Int:
-			valueInt = *(int*)data; // Cast the data
-			glUniform1i(location, valueInt); // Upload the uniform data
-			break;
-		case ShaderDataType::Int2:
-			addri = (const int*)data; // Cast the data
-			glUniform2iv(location, 1, addri); // Upload the uniform data
-			break;
-		case ShaderDataType::Int3:
-			addri = (const int*)data; // Cast the data
-			glUniform3iv(location, 1, addri); // Upload the uniform data
-			break;
-		case ShaderDataType::Int4:
-			addri = (const int*)data; // Cast the data
-			glUniform4iv(location, 1, addri); // Upload the uniform data
-			break;
-		case ShaderDataType::Float:
-			valueFloat = *(float*)data; // Cast the data
-			glUniform1f(location, valueFloat); // Upload the uniform data
-			break;
-		case ShaderDataType::Float2:
-			addrf = (const float*)data; // Cast the data
-			glUniform2fv(location, 1, addrf); // Upload the uniform data
-			break;
-		case ShaderDataType::Float3:
-			addrf = (const float*)data; // Cast the data
-			glUniform3fv(location, 1, addrf); // Upload the uniform data
-			break;
-		case ShaderDataType::Float4:
-			addrf = (const float*)data; // Cast the data
-			glUniform4fv(location, 1, addrf); // Upload the uniform data
-			break;
-		case ShaderDataType::Mat3:
-			addrf = (const float*)data; // Cast the data
-			glUniformMatrix3fv(location, 1, GL_FALSE, addrf); // Upload the uniform data
-			break;
-		case ShaderDataType::Mat4:
-			addrf = (const float*)data; // Cast the data
-			glUniformMatrix4fv(location, 1, GL_FALSE, addrf); // Upload the uniform data
-			break;
-		case ShaderDataType::Bool:
-			valueInt = *(bool*)data; // Cast the data
-			glUniform1i(location, valueInt); // Upload the uniform data
-			break;
-		case ShaderDataType::Sampler2D:
-			valueInt = *(int*)data; // Cast the data
-			glUniform1i(location, valueInt); // Upload the uniform data
-			break;
-		}
 	}
 }

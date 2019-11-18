@@ -9,10 +9,8 @@
 
 namespace Engine
 {
-	//! UniformLayout is a map with a string and a pair containing a data type and an int
-	using UniformLayout = std::map<std::string, std::pair<ShaderDataType, int>>;
-	//Maybe
-	//using UniformLayout2 = std::map<std::string, UniformObject*>;
+	//! UniformLayout is a map with a string and a pointer to a uniform object
+	using UniformLayout = std::map<std::string, std::shared_ptr<UniformObject>>;
 	
 	/**
 	\class Shader

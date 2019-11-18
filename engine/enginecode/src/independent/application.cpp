@@ -2,20 +2,15 @@
 */
 #include "engine_pch.h"
 
-#pragma region TempIncludes
-// temp includes
-#include <glad/glad.h>
-#include <gl/GL.h>
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#pragma endregion TempIncludes
-
 #include "core/application.h"
 #include "core/core.h"
 
 #ifdef NG_PLATFORM_WINDOWS
 #include "platform/GLFW/GLFWWindowsSystem.h"
 #endif // NG_PLATFORM_WINDOWS
+
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 namespace Engine 
 {
@@ -56,15 +51,11 @@ namespace Engine
 
 		m_pResources.reset(new ResourceManager);
 
-#pragma region TempSetup
-		//  Temporary set up code to be abstracted
-		
-		// Enable standard depth detest (Z-buffer)
-		glEnable(GL_DEPTH_TEST);
-		glDepthFunc(GL_LESS);
-		// Enabling backface culling to ensure triangle vertices are correct ordered (CCW)
-		glEnable(GL_CULL_FACE);
-		glCullFace(GL_BACK);
+		m_pRenderer = std::shared_ptr<Renderer>(Renderer::createSimple3D());
+
+
+		m_pRenderer->actionCommand(RenderCommand::setDepthTestLessCommand(true));
+		m_pRenderer->actionCommand(RenderCommand::setBackfaceCullingCommand(true));
 
 		float FCvertices[6 * 24] = {
 			-0.5f, -0.5f, -0.5f, 0.8f, 0.2f, 0.2f, // red square
@@ -113,6 +104,8 @@ namespace Engine
 		m_pFCVAO->setVertexBuffer(m_pResources->addVBO("flatColourVBO", FCvertices, sizeof(FCvertices), m_pFCShader->getBufferLayout()));
 		m_pFCVAO->setIndexBuffer(m_pResources->addIndexBuffer("cubeIndices", indices, sizeof(indices) / sizeof(unsigned int)));
 
+		m_pFCMat.reset(Material::create(m_pFCShader, m_pFCVAO));
+
 		/////////////////////////////////////////////////////////
 		// Added textuer phong shader and cube //////////////////
 		/////////////////////////////////////////////////////////
@@ -145,19 +138,17 @@ namespace Engine
 		};
 
 		m_pTPShader = m_pResources->addShader("assets/shaders/texturedPhong.glsl");
-		m_TPVAO = m_pResources->addVAO("texturedPhongCube");
-		m_TPVAO->setVertexBuffer(m_pResources->addVBO("texturedPhongVBO", TPvertices, sizeof(TPvertices), m_pTPShader->getBufferLayout()));
-		m_TPVAO->setIndexBuffer(m_pResources->addIndexBuffer("cubheIndices", indices, sizeof(indices) / sizeof(unsigned int)));
+		m_pTPVAO = m_pResources->addVAO("texturedPhongCube");
+		m_pTPVAO->setVertexBuffer(m_pResources->addVBO("texturedPhongVBO", TPvertices, sizeof(TPvertices), m_pTPShader->getBufferLayout()));
+		m_pTPVAO->setIndexBuffer(m_pResources->addIndexBuffer("cubheIndices", indices, sizeof(indices) / sizeof(unsigned int)));
 
 		m_pLetterCubeTexture = m_pResources->addTexture("assets/textures/letterCube.png");
 		m_pNumberCubeTexture = m_pResources->addTexture("assets/textures/numberCube.png");
 
+		m_pTPMat.reset(Material::create(m_pTPShader, m_pTPVAO));
+
 		FCmodel = glm::translate(glm::mat4(1), glm::vec3(1.5, 0, 3));
 		TPmodel = glm::translate(glm::mat4(1), glm::vec3(-1.5, 0, 3));
-
-		// End temporary code
-
-#pragma endregion TempSetup
 
 
 		TIMER_NEWFRAME; // Tell the timer to start for a new frame
@@ -276,11 +267,8 @@ namespace Engine
 			m_fTotalTimeElapsed += m_fTimestep; // Add the time to run the previous frame to the total time elapsed
 
 
-#pragma region TempDrawCode
-// Temporary draw code to be abstracted
-
-			glClearColor(0.8f, 0.8f, 0.8f, 1);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			m_pRenderer->actionCommand(RenderCommand::setClearColourCommand(0.8f, 0.8f, 0.8f, 1));
+			m_pRenderer->actionCommand(RenderCommand::clearDepthColourBufferCommand());
 
 			glm::mat4 projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.0f); // Basic 4:3 camera
 
@@ -321,12 +309,9 @@ namespace Engine
 			///////////////////////////////////////
 
 			glm::mat4 fcMVP = projection * view * FCmodel;
-			m_pFCShader->bind();
-			m_pFCVAO->bind();
 
-			m_pFCShader->uploadData("u_MVP", (void*)&fcMVP[0][0]);
-
-			glDrawElements(GL_TRIANGLES, m_pFCVAO->getDrawCount(), GL_UNSIGNED_INT, nullptr);
+			m_pFCMat->setDataElement("u_MVP", (void*)&fcMVP[0][0]);
+			m_pRenderer->submit(m_pFCMat);
 
 			///////////////////////////////////////
 			// textured phong cube ////////////////
@@ -337,27 +322,21 @@ namespace Engine
 			if (m_goingUp) texSlot = m_pLetterCubeTexture->getSlot();
 			else texSlot = m_pNumberCubeTexture->getSlot();
 
-			m_pTPShader->bind();
-			m_TPVAO->bind();
-
-			m_pTPShader->uploadData("u_MVP", (void*)&tpMVP[0][0]);
-			m_pTPShader->uploadData("u_model", (void*)&TPmodel[0][0]);
-			
 			glm::vec3 lightColour = glm::vec3(1.0f, 1.0f, 1.0f);
 			glm::vec3 lightPos = glm::vec3(1.0f, 4.0f, -6.0f);
 			glm::vec3 viewPos = glm::vec3(0.0f, 0.0f, -4.5f);
 			
-			m_pTPShader->uploadData("u_lightColour", (void*)&lightColour[0]);
-			m_pTPShader->uploadData("u_lightPos", (void*)&lightPos[0]);
-			m_pTPShader->uploadData("u_viewPos", (void*)&viewPos[0]);
-			m_pTPShader->uploadData("u_texData", (void*)&texSlot);
+			m_pTPMat->setDataElement("u_MVP", (void*)&tpMVP[0][0]);
+			m_pTPMat->setDataElement("u_model", (void*)&TPmodel[0][0]);
+			   
+			m_pTPMat->setDataElement("u_lightColour", (void*)&lightColour[0]);
+			m_pTPMat->setDataElement("u_lightPos", (void*)&lightPos[0]);
+			m_pTPMat->setDataElement("u_viewPos", (void*)&viewPos[0]);
+			m_pTPMat->setDataElement("u_texData", (void*)&texSlot);
+
+			m_pRenderer->submit(m_pTPMat);
+
 			
-			glDrawElements(GL_TRIANGLES, m_TPVAO->getDrawCount(), GL_UNSIGNED_INT, nullptr);
-
-			// End temporary code
-#pragma endregion TempDrawCode
-
-
 			m_pWindow->onUpdate(m_fTimestep); // Update the window
 		}
 

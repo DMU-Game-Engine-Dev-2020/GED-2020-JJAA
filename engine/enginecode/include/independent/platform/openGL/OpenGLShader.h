@@ -25,8 +25,6 @@ namespace Engine
 
 		BufferLayout m_bufferLayout; //!< The buffer layout
 
-		//Maybe
-		//UniformLayout2 m_uniformLayout2;
 		UniformLayout m_uniformLayout; //!< The uniform layout
 
 		//! Function to parse a shader source file
@@ -58,14 +56,6 @@ namespace Engine
 		\param frag String with the fragment shader code
 		*/
 		void compileAndLink(const std::string& vert, const std::string& frag);
-
-		//! Function to upload uniform data
-		/*!
-		\param type The data type
-		\param location The location of the uniform
-		\param data Pointer to the data
-		*/
-		void dispatchUnifoermUpload(ShaderDataType type, GLuint location, void* data);
 	public:
 		//! Constructor
 		/*!

@@ -31,9 +31,9 @@ namespace Engine
 		//! Function to get the location of the uniform and set the function to set the data
 		/*!
 		\param shaderID The shader ID
-		\param func The function to upload the uniform data
+		\param func The function that uploads the uniform data
 		*/
-		void setLocationAndFunction(unsigned int shaderID, UploadFunc& func) override
+		void setLocationAndFunction(unsigned int shaderID, const UploadFunc& func) override
 		{
 			m_location = glGetUniformLocation(shaderID, m_sName.c_str()); // Get the location
 			m_uploadFunc = func; // Set the upload function

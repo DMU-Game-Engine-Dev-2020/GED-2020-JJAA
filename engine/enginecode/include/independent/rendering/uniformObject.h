@@ -22,9 +22,9 @@ namespace Engine
 		//! Function to get the uniform location and store the function called to upload the data
 		/*!
 		\param shaderID The shader ID
-		\param func The function to upload the uniform data
+		\param func The function that uploads the uniform data
 		*/
-		virtual void setLocationAndFunction(unsigned int shaderID, UploadFunc& func) = 0;
+		virtual void setLocationAndFunction(unsigned int shaderID, const UploadFunc& func) = 0;
 
 		//! Function to get the uniform type
 		/*!
