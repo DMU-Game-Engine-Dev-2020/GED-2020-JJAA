@@ -30,8 +30,8 @@ namespace Engine
 		m_data.insert(std::make_pair(dataName, data));
 	}
 
-	void OpenGLMaterial::setVertexData(float* vertices, unsigned int offset, unsigned int size)
+	/*void OpenGLMaterial::setVertexData(float* vertices, unsigned int offset, unsigned int size)
 	{
 
-	}
+	}*/
 }

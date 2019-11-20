@@ -8,3 +8,5 @@
 #include "rendering/vertexArray.h"
 #include "rendering/texture.h"
 #include "rendering/shader.h"
+#include "rendering/material.h"
+#include "rendering/uniformBuffer.h"

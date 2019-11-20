@@ -3,14 +3,17 @@
 #pragma once
 
 #include "bufferLayout.h"
-#include "rendering/uniformObject.h"
+#include "rendering/uniformElement.h"
+#include "rendering/uniformBufferLayout.h"
 
 #include <map>
 
 namespace Engine
 {
 	//! UniformLayout is a map with a string and a pointer to a uniform object
-	using UniformLayout = std::map<std::string, std::shared_ptr<UniformObject>>;
+	using UniformLayout = std::map<std::string, std::shared_ptr<UniformElement>>;
+
+	using UniformBuffers = std::map<std::string, std::pair<unsigned int, UniformBufferLayout>>;
 	
 	/**
 	\class Shader
@@ -50,6 +53,8 @@ namespace Engine
 		\return The uniform layout
 		*/
 		virtual UniformLayout getUniformLayout() const = 0;
+
+		virtual UniformBuffers getUniformBuffers() const = 0;
 
 		//! Function to create the shader from one file
 		/*!

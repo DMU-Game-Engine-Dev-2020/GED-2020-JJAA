@@ -25,7 +25,7 @@ namespace Engine
 		\param dataType The type of data it is
 		\param normalized If the data is normalized, set to false by default
 		*/
-		BufferElement(ShaderDataType dataType, bool normalized = false) : 
+		BufferElement(ShaderDataType dataType, bool normalized = false) :
 			m_dataType(dataType), m_iSize(ShaderDataTypeSize(dataType)), m_iOffset(0), m_bNormalized(normalized) {}
 	};
 }

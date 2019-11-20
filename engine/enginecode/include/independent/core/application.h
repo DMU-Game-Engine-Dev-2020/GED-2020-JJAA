@@ -11,7 +11,6 @@
 #include "core/codes.h"
 
 #include "rendering/renderer/renderer.h"
-#include "rendering/renderer/renderCommand.h"
 
 #include "systems/resourceManager.h"
 
@@ -33,19 +32,15 @@ namespace Engine
 		std::shared_ptr<WindowsSystem> m_pWindows; //!< Pointer to the Windows system
 		std::shared_ptr<ResourceManager> m_pResources; //!< Pointer to the resource manager system
 
-		std::shared_ptr<VertexArray> m_pFCVAO; //!< Pointer to the vertex array for the flat colour cube
-		std::shared_ptr<VertexArray> m_pTPVAO; //!< Pointer to the vertex array for the textured phong cube
-
 		std::shared_ptr<Texture> m_pLetterCubeTexture; //!< Pointer to the letter cube texture
 		std::shared_ptr<Texture> m_pNumberCubeTexture; //!< Pointer to the number cube texture
-
-		std::shared_ptr<Shader> m_pFCShader; //!< Pointer to the shader for the flat colour cube
-		std::shared_ptr<Shader> m_pTPShader; //!< Pointer to the shader for the textured phong cube
 
 		std::shared_ptr<Material> m_pFCMat;
 		std::shared_ptr<Material> m_pTPMat;
 
-		std::shared_ptr<Renderer> m_pRenderer;
+		std::list<std::shared_ptr<UniformBuffer>> m_uniformBuffers;
+
+		std::unique_ptr<Renderer> m_pRenderer;
 
 		bool m_bRunning; //!< If the application is running
 		float m_fTotalTimeElapsed; //!< The total time the program has been active in seconds

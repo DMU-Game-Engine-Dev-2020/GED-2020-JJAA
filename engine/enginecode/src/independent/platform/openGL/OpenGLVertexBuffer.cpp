@@ -8,7 +8,7 @@
 
 namespace Engine
 {
-	OpenGLVertexBuffer::OpenGLVertexBuffer(float * vertices, unsigned int size, BufferLayout& layout) : m_layout(layout)
+	OpenGLVertexBuffer::OpenGLVertexBuffer(float* vertices, unsigned int size, BufferLayout& layout) : m_layout(layout)
 	{
 		// Create the vertex buffer using the render ID as a name
 		glCreateBuffers(1, &m_iRendererID);

@@ -1,23 +1,23 @@
-/** \file OpenGLUniformObject.h
+/** \file OpenGLUniformElement.h
 */
 #pragma once
 
-#include "rendering/uniformObject.h"
+#include "rendering/uniformElement.h"
 
 #include <glad/glad.h>
 
 namespace Engine
 {
 	/**
-	\class OpenGLUniformObject
+	\class OpenGLUniformElement
 	\brief OpenGL class for a shader uniform
 	*/
-	class OpenGLUniformObject : public UniformObject
+	class OpenGLUniformElement : public UniformElement
 	{
 	private:
 		std::string m_sName; //!< The name of the uniform
 		ShaderDataType m_type; //!< The type of the uniform
-		GLuint m_location; //!< The location of the uniform
+		unsigned int m_location; //!< The location of the uniform
 
 		UploadFunc m_uploadFunc; //!< The function to call to upload the data
 	public:
@@ -26,7 +26,7 @@ namespace Engine
 		\param name The name of the uniform
 		\param type The type of the uniform
 		*/
-		OpenGLUniformObject(std::string& name, ShaderDataType type) : m_sName(name), m_type(type) {}
+		OpenGLUniformElement(std::string& name, ShaderDataType type) : m_sName(name), m_type(type) {}
 
 		//! Function to get the location of the uniform and set the function to set the data
 		/*!

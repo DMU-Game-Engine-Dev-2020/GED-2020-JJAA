@@ -36,6 +36,8 @@ namespace Engine
 		\return A pointer to the asset
 		*/
 		inline std::shared_ptr<G> get(const std::string& key);
+
+		inline std::list<std::shared_ptr<G>> getAll();
 		//! Function to clear the map
 		void clear();
 	};
@@ -73,7 +75,7 @@ namespace Engine
 	{
 		std::map<std::string, std::shared_ptr<G>>::iterator it; // Make an iterator for the map
 		it = m_container.find(key); // Find the key in the map
-
+		
 		// If the key is not in the map
 		if (it == m_container.end())
 		{
@@ -83,8 +85,24 @@ namespace Engine
 		}
 		else // If the key is in the map
 		{
-			return it; // Return the pointer
+			return it->second; // Return the pointer
 		}
+	}
+
+	template <class G>
+	std::list<std::shared_ptr<G>> AssetManager<G>::getAll()
+	{
+		std::list<std::shared_ptr<G>> toReturn;
+
+		if (m_container.empty())
+			LOG_CRITICAL("No uniform buffers");
+		else
+		{
+			for (auto& element : m_container)
+				toReturn.push_back(element.second);
+		}
+
+		return toReturn;
 	}
 
 	template<class G>

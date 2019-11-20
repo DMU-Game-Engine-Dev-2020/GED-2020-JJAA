@@ -20,6 +20,8 @@ namespace Engine
 		static AssetManager<Texture> s_textures; //!< Texture asset manager
 		static AssetManager<VertexArray> s_VAOs; //!< Vertex array asset manager
 		static AssetManager<VertexBuffer> s_VBOs; //!< Vertex buffer asset manager
+		static AssetManager<Material> s_materials;
+		static AssetManager<UniformBuffer> s_UBOs;
 
 		//! Function to get the name of a file from a file path
 		/*!
@@ -88,5 +90,12 @@ namespace Engine
 		\return A pointer to the buffer
 		*/
 		static std::shared_ptr<VertexBuffer> addVBO(const std::string& name, float* vertices, unsigned int size, BufferLayout& layout);
+
+		static std::shared_ptr<Material> addMaterial(const std::string& name, std::shared_ptr<Shader> shader, std::shared_ptr<VertexArray> VAO);
+		static std::shared_ptr<Material> addMaterial(const std::string& name, std::shared_ptr<Shader> shader, std::shared_ptr<VertexBuffer> VBO);
+
+		static std::shared_ptr<UniformBuffer> addUniformBuffer(const std::string& name, unsigned int size, UniformBufferLayout& layout, const std::string& shaderName);
+
+		static std::list<std::shared_ptr<UniformBuffer>> getUniformBuffers();
 	};
 }

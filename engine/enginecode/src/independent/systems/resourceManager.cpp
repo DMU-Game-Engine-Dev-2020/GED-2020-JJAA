@@ -12,6 +12,8 @@ namespace Engine
 	AssetManager<Texture> ResourceManager::s_textures;
 	AssetManager<VertexArray> ResourceManager::s_VAOs;
 	AssetManager<VertexBuffer> ResourceManager::s_VBOs;
+	AssetManager<Material> ResourceManager::s_materials;
+	AssetManager<UniformBuffer> ResourceManager::s_UBOs;
 
 	void ResourceManager::stop(SystemSignal close, ...)
 	{
@@ -21,6 +23,8 @@ namespace Engine
 		s_textures.clear();
 		s_VAOs.clear();
 		s_VBOs.clear();
+		s_materials.clear();
+		s_UBOs.clear();
 	}
 
 	std::shared_ptr<IndexBuffer> ResourceManager::addIndexBuffer(const std::string& name, unsigned int* indices, unsigned int count)
@@ -34,8 +38,18 @@ namespace Engine
 	std::shared_ptr<Shader> ResourceManager::addShader(const std::string& filepath)
 	{
 		std::shared_ptr<Shader> temp; // Make a temporary shared pointer
+		const std::string name = parseFilePath(filepath);
+
 		temp.reset(Shader::create(filepath)); // Create a shader on the temporary pointer
-		s_shaders.add(parseFilePath(filepath), temp); // Add the shader to the shader asset manager
+		s_shaders.add(name, temp); // Add the shader to the shader asset manager
+
+		UniformBuffers buffers = temp->getUniformBuffers();
+
+		for (auto& element : buffers)
+		{
+			addUniformBuffer(element.first, element.second.first, element.second.second, name);
+		}
+
 		return temp; // Return the temporary pointer
 	}
 
@@ -44,6 +58,14 @@ namespace Engine
 		std::shared_ptr<Shader> temp; // Make a temporary shared pointer
 		temp.reset(Shader::create(vertexFilepath, fragmentFilepath)); // Create a shader on the temporary pointer
 		s_shaders.add(name, temp); // Add the shader to the shader asset manager
+
+		UniformBuffers buffers = temp->getUniformBuffers();
+
+		for (auto& element : buffers)
+		{
+			addUniformBuffer(element.first, element.second.first, element.second.second, name);
+		}
+
 		return temp; // Return the temporary pointer
 	}
 
@@ -77,6 +99,44 @@ namespace Engine
 		temp.reset(VertexBuffer::create(vertices, size, layout)); // Create a vertex buffer on the temporary pointer
 		s_VBOs.add(name, temp); // Add the vertex buffer to the vertex buffer asset manager
 		return temp; // Return the temporary pointer
+	}
+
+	std::shared_ptr<Material> ResourceManager::addMaterial(const std::string& name, std::shared_ptr<Shader> shader, std::shared_ptr<VertexArray> VAO)
+	{
+		std::shared_ptr<Material> temp; // Make a temporary shared pointer
+		temp.reset(Material::create(shader, VAO)); // Create a material on the temporary pointer
+		s_materials.add(name, temp); // Add the material to the material asset manager
+		return temp; // Return the temporary pointer
+	}
+
+	std::shared_ptr<Material> ResourceManager::addMaterial(const std::string& name, std::shared_ptr<Shader> shader, std::shared_ptr<VertexBuffer> VBO)
+	{
+		std::shared_ptr<Material> temp; // Make a temporary shared pointer
+		temp.reset(Material::create(shader, VBO)); // Create a material on the temporary pointer
+		s_materials.add(name, temp); // Add the material to the material asset manager
+		return temp; // Return the temporary pointer
+	}
+
+	std::shared_ptr<UniformBuffer> ResourceManager::addUniformBuffer(const std::string& name, unsigned int size, UniformBufferLayout& layout, const std::string& shaderName)
+	{
+		std::shared_ptr<UniformBuffer> temp; // Make a temporary shared pointer
+
+		if (!s_UBOs.contains(name))
+		{
+			temp.reset(UniformBuffer::create(size, layout)); // Create a material on the temporary pointer
+			s_UBOs.add(name, temp); // Add the material to the material asset manager
+		}
+		else
+		{
+			temp = s_UBOs.get(name);
+		}
+		temp->attachShaderBlock(s_shaders.get(shaderName), name);
+		return temp;
+	}
+
+	std::list<std::shared_ptr<UniformBuffer>> ResourceManager::getUniformBuffers()
+	{
+		return s_UBOs.getAll();
 	}
 
 	std::string ResourceManager::parseFilePath(const std::string& str)

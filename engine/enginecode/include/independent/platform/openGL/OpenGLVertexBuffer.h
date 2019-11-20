@@ -34,6 +34,6 @@ namespace Engine
 		/*!
 		\return A reference to the buffer layout object
 		*/
-		const BufferLayout& getLayout() const override { return m_layout; }
+		inline const BufferLayout& getLayout() const override { return m_layout; }
 	};
 }

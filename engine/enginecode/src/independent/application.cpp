@@ -45,14 +45,12 @@ namespace Engine
 		LOG_INFO("Windows system initialised");
 
 		// Create a window
-		m_pWindow = std::unique_ptr<Window>(Window::create());
+		m_pWindow.reset(Window::create());
 		// Set the windows event callback to call the onEvent function in Application
 		m_pWindow->setEventCallback(std::bind(&Application::onEvent, this, std::placeholders::_1));
 
 		m_pResources.reset(new ResourceManager);
-
-		m_pRenderer = std::shared_ptr<Renderer>(Renderer::createSimple3D());
-
+		m_pRenderer.reset(Renderer::createBasic3D());
 
 		m_pRenderer->actionCommand(RenderCommand::setDepthTestLessCommand(true));
 		m_pRenderer->actionCommand(RenderCommand::setBackfaceCullingCommand(true));
@@ -98,13 +96,16 @@ namespace Engine
 			20, 21, 22,
 			22, 23, 20
 		};
-		
-		m_pFCShader = m_pResources->addShader("FCShader", "assets/shaders/flatColourVert.glsl", "assets/shaders/flatColourFrag.glsl");
-		m_pFCVAO = m_pResources->addVAO("flatColourCube");
-		m_pFCVAO->setVertexBuffer(m_pResources->addVBO("flatColourVBO", FCvertices, sizeof(FCvertices), m_pFCShader->getBufferLayout()));
-		m_pFCVAO->setIndexBuffer(m_pResources->addIndexBuffer("cubeIndices", indices, sizeof(indices) / sizeof(unsigned int)));
 
-		m_pFCMat.reset(Material::create(m_pFCShader, m_pFCVAO));
+		std::shared_ptr<Shader> tempSetupShader;
+		std::shared_ptr<VertexArray> tempSetupVAO;
+		
+		tempSetupShader = m_pResources->addShader("FCShader", "assets/shaders/flatColourVert.glsl", "assets/shaders/flatColourFrag.glsl");
+		tempSetupVAO = m_pResources->addVAO("flatColourCube");
+		tempSetupVAO->setVertexBuffer(m_pResources->addVBO("flatColourVBO", FCvertices, sizeof(FCvertices), tempSetupShader->getBufferLayout()));
+		tempSetupVAO->setIndexBuffer(m_pResources->addIndexBuffer("cubeIndices", indices, sizeof(indices) / sizeof(unsigned int)));
+
+		m_pFCMat = m_pResources->addMaterial("flatColourMat", tempSetupShader, tempSetupVAO);
 
 		/////////////////////////////////////////////////////////
 		// Added textuer phong shader and cube //////////////////
@@ -137,19 +138,20 @@ namespace Engine
 			0.5f,  -0.5f, 0.5f,  1.f, 0.f, 0.f, 0.66f, 1.0f
 		};
 
-		m_pTPShader = m_pResources->addShader("assets/shaders/texturedPhong.glsl");
-		m_pTPVAO = m_pResources->addVAO("texturedPhongCube");
-		m_pTPVAO->setVertexBuffer(m_pResources->addVBO("texturedPhongVBO", TPvertices, sizeof(TPvertices), m_pTPShader->getBufferLayout()));
-		m_pTPVAO->setIndexBuffer(m_pResources->addIndexBuffer("cubheIndices", indices, sizeof(indices) / sizeof(unsigned int)));
+		tempSetupShader = m_pResources->addShader("assets/shaders/texturedPhong2.glsl");
+		tempSetupVAO = m_pResources->addVAO("texturedPhongCube");
+		tempSetupVAO->setVertexBuffer(m_pResources->addVBO("texturedPhongVBO", TPvertices, sizeof(TPvertices), tempSetupShader->getBufferLayout()));
+		tempSetupVAO->setIndexBuffer(m_pResources->addIndexBuffer("cubheIndices", indices, sizeof(indices) / sizeof(unsigned int)));
 
 		m_pLetterCubeTexture = m_pResources->addTexture("assets/textures/letterCube.png");
 		m_pNumberCubeTexture = m_pResources->addTexture("assets/textures/numberCube.png");
 
-		m_pTPMat.reset(Material::create(m_pTPShader, m_pTPVAO));
+		m_pTPMat = m_pResources->addMaterial("texturedPhongMat", tempSetupShader, tempSetupVAO);
 
 		FCmodel = glm::translate(glm::mat4(1), glm::vec3(1.5, 0, 3));
 		TPmodel = glm::translate(glm::mat4(1), glm::vec3(-1.5, 0, 3));
 
+		m_uniformBuffers = m_pResources->getUniformBuffers();
 
 		TIMER_NEWFRAME; // Tell the timer to start for a new frame
 	}
@@ -270,6 +272,7 @@ namespace Engine
 			m_pRenderer->actionCommand(RenderCommand::setClearColourCommand(0.8f, 0.8f, 0.8f, 1));
 			m_pRenderer->actionCommand(RenderCommand::clearDepthColourBufferCommand());
 
+
 			glm::mat4 projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.0f); // Basic 4:3 camera
 
 			glm::mat4 view = glm::lookAt(
@@ -277,6 +280,24 @@ namespace Engine
 				glm::vec3(0.f, 0.f, 0.f), // and looks at the origin
 				glm::vec3(0.f, 1.f, 0.f)  // Standing straight  up
 			);
+
+			/////////////////////////////////////
+			// Set scene data ///////////////////
+			/////////////////////////////////////
+
+			SceneData sceneData;
+
+			std::vector<void*> tempData;
+			tempData.push_back((void*)&projection[0][0]);
+			tempData.push_back((void*)&view[0][0]);
+
+			sceneData.insert(std::make_pair(m_uniformBuffers.front(), tempData));
+
+			m_pRenderer->beginScene(sceneData);
+
+			/////////////////////////////////////
+			// Moving stuff /////////////////////
+			/////////////////////////////////////
 
 			// Code to make the cube move, you can ignore this more or less.
 			glm::mat4 FCtranslation, TPtranslation;
@@ -293,7 +314,8 @@ namespace Engine
 			}
 
 			m_timeSummed += m_fTimestep;
-			if (m_timeSummed > 20.0f) {
+			if (m_timeSummed > 20.0f) 
+			{
 				m_timeSummed = 0.f;
 				m_goingUp = !m_goingUp;
 			}
@@ -308,16 +330,13 @@ namespace Engine
 			// colour cube ////////////////////////
 			///////////////////////////////////////
 
-			glm::mat4 fcMVP = projection * view * FCmodel;
-
-			m_pFCMat->setDataElement("u_MVP", (void*)&fcMVP[0][0]);
+			m_pFCMat->setDataElement("u_model", (void*)&FCmodel[0][0]);
 			m_pRenderer->submit(m_pFCMat);
 
 			///////////////////////////////////////
 			// textured phong cube ////////////////
 			///////////////////////////////////////
 
-			glm::mat4 tpMVP = projection * view * TPmodel;
 			unsigned int texSlot;
 			if (m_goingUp) texSlot = m_pLetterCubeTexture->getSlot();
 			else texSlot = m_pNumberCubeTexture->getSlot();
@@ -326,14 +345,15 @@ namespace Engine
 			glm::vec3 lightPos = glm::vec3(1.0f, 4.0f, -6.0f);
 			glm::vec3 viewPos = glm::vec3(0.0f, 0.0f, -4.5f);
 			
-			m_pTPMat->setDataElement("u_MVP", (void*)&tpMVP[0][0]);
-			m_pTPMat->setDataElement("u_model", (void*)&TPmodel[0][0]);
-			   
-			m_pTPMat->setDataElement("u_lightColour", (void*)&lightColour[0]);
-			m_pTPMat->setDataElement("u_lightPos", (void*)&lightPos[0]);
-			m_pTPMat->setDataElement("u_viewPos", (void*)&viewPos[0]);
-			m_pTPMat->setDataElement("u_texData", (void*)&texSlot);
+			std::map<std::string, void*> tpDataElements;
+			tpDataElements.insert(std::make_pair("u_model", (void*)&TPmodel[0][0]));
 
+			tpDataElements.insert(std::make_pair("u_lightColour", (void*)&lightColour[0]));
+			tpDataElements.insert(std::make_pair("u_lightPos", (void*)&lightPos[0]));
+			tpDataElements.insert(std::make_pair("u_viewPos", (void*)&viewPos[0]));
+			tpDataElements.insert(std::make_pair("u_texData", (void*)&texSlot));
+
+			m_pTPMat->setDataBlock(tpDataElements);
 			m_pRenderer->submit(m_pTPMat);
 
 			

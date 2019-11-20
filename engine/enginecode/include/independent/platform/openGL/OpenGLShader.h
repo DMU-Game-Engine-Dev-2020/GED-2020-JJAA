@@ -4,7 +4,7 @@
 
 #include "rendering/shader.h"
 
-#include <glad/glad.h>
+#include "systems/resourceManager.h"
 
 namespace Engine
 {
@@ -24,8 +24,12 @@ namespace Engine
 		const char* m_pcFragSrc; //!< The fragment shader
 
 		BufferLayout m_bufferLayout; //!< The buffer layout
-
 		UniformLayout m_uniformLayout; //!< The uniform layout
+
+		UniformBuffers m_uniformBuffers;
+		std::string m_sUniformBufferName;
+
+		bool m_bMakingUniformBuffer;
 
 		//! Function to parse a shader source file
 		/*!
@@ -47,7 +51,7 @@ namespace Engine
 		/*!
 		\param line The line being checked for a uniform variable
 		*/
-		void identifyUniform(const std::string& line);
+		void identifyUniform(const std::string& line, bool block = false);
 		//! Function to cache the uniform locations
 		void storeUniformLocations();
 		//! Function to compile and link the shader
@@ -102,5 +106,7 @@ namespace Engine
 		\return The uniform layout
 		*/
 		inline UniformLayout getUniformLayout() const override { return m_uniformLayout; }
+
+		inline UniformBuffers getUniformBuffers() const override { return m_uniformBuffers; }
 	};
 }

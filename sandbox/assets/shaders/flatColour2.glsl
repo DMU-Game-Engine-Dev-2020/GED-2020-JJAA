@@ -1,3 +1,5 @@
+#region Vertex
+
 #version 440 core
 			
 layout(location = 0) in vec3 a_vertexPosition;
@@ -17,4 +19,17 @@ void main()
 {
 	fragmentColour = a_vertexColour;
 	gl_Position =  projection * view * u_model * vec4(a_vertexPosition, 1.0);
+}
+
+#region Fragment
+
+#version 440 core
+			
+layout(location = 0) out vec4 colour;
+
+in vec3 fragmentColour;
+
+void main()
+{
+	colour = vec4(fragmentColour, 1.0);
 }

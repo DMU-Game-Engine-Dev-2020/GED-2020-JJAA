@@ -1,4 +1,4 @@
-/** \file uniformObject.h
+/** \file uniformElement.h
 */
 #pragma once
 
@@ -13,10 +13,10 @@ namespace Engine
 	using UploadFunc = std::function<bool(int, void*)>;
 
 	/**
-	\class UniformObject
+	\class UniformElement
 	\brief API agnostic interface class for a shader uniform
 	*/
-	class UniformObject
+	class UniformElement
 	{
 	public:
 		//! Function to get the uniform location and store the function called to upload the data

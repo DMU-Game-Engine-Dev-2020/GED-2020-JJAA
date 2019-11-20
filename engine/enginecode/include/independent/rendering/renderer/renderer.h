@@ -4,11 +4,12 @@
 #include "rendering/material.h"
 #include "rendering/uniformBuffer.h"
 
-#include <unordered_map>
+#include <map>
 
 namespace Engine
 {
 	using SceneData = std::unordered_map<std::shared_ptr<UniformBuffer>, std::vector<void*>>;
+	using PerDrawData = std::map<std::string, void*>;
 
 	class Renderer
 	{

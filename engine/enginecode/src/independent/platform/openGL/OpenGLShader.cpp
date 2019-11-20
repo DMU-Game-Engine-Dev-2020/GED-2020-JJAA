@@ -3,11 +3,12 @@
 #include "engine_pch.h"
 
 #include "platform/openGL/OpenGLShader.h"
-#include "platform/openGL/OpenGLUniformObject.h"
+#include "platform/openGL/OpenGLUniformElement.h"
 #include "systems/log.h"
 #include "systems/timer.h"
 
 #include <glm/glm.hpp>
+#include <glad/glad.h>
 #include <fstream>
 #include <sstream>
 
@@ -45,6 +46,8 @@ namespace Engine
 		m_iVertShader = glCreateShader(GL_VERTEX_SHADER);
 		m_iFragShader = glCreateShader(GL_FRAGMENT_SHADER);
 
+		m_bMakingUniformBuffer = false;
+
 		parseSource(filepath); // Parse the file
 
 		storeUniformLocations(); // Store the uniform locations
@@ -55,6 +58,8 @@ namespace Engine
 		// Create the shaders
 		m_iVertShader = glCreateShader(GL_VERTEX_SHADER);
 		m_iFragShader = glCreateShader(GL_FRAGMENT_SHADER);
+
+		m_bMakingUniformBuffer = false;
 
 		parseSource(vertexFilepath, fragmentFilepath); // Parse the file
 
@@ -126,9 +131,14 @@ namespace Engine
 			if (region != NONE)
 			{
 				// If 'uniform' is in the line
-				if (line.find("uniform") != std::string::npos)
+				if (line.find("uniform") != std::string::npos || m_bMakingUniformBuffer)
 				{
-					identifyUniform(line); // Identify the uniform
+					if (line.find("layout") != std::string::npos || m_bMakingUniformBuffer) // Identify the uniform
+					{
+						identifyUniform(line, true);
+					}
+					else
+						identifyUniform(line);
 				}
 				// Add the line to the region string
 				src[region] += (line + "\n");
@@ -162,9 +172,14 @@ namespace Engine
 				extractBufferLayout(line); // Get the buffer layout
 			}
 			// If 'uniform' is in the line
-			if (line.find("uniform") != std::string::npos)
+			if (line.find("uniform") != std::string::npos || m_bMakingUniformBuffer)
 			{
-				identifyUniform(line); // Identify the uniform
+				if (line.find("layout") != std::string::npos || m_bMakingUniformBuffer) // Identify the uniform
+				{
+					identifyUniform(line, true);
+				}
+				else
+					identifyUniform(line);
 			}
 			// Add the line to the vertex string
 			src[VERTEX] += (line + "\n");
@@ -183,9 +198,14 @@ namespace Engine
 		while (getline(fragmentHandle, line))
 		{
 			// If 'uniform' is in the line
-			if (line.find("uniform") != std::string::npos)
+			if (line.find("uniform") != std::string::npos || m_bMakingUniformBuffer)
 			{
-				identifyUniform(line); // Identify the uniform
+				if (line.find("layout") != std::string::npos || m_bMakingUniformBuffer) // Identify the uniform
+				{
+					identifyUniform(line, true);
+				}
+				else
+					identifyUniform(line);
 			}
 			// Add the line to the fragment string
 			src[FRAGMENT] += (line + "\n");
@@ -201,18 +221,12 @@ namespace Engine
 		std::string type; // The type
 
 		std::stringstream iss(line);
-		bool isType = false;
 
 		while (iss >> type)
 		{
-			// Get each word on the line, if the current word is 'in', set type to the next word and leave the loop
-			if (!isType)
+			if (type == "in")
 			{
-				if (type == "in")
-					isType = true;
-			}
-			else
-			{
+				iss >> type;
 				break;
 			}
 		}
@@ -220,32 +234,72 @@ namespace Engine
 		m_bufferLayout.addElement(GLSLStrToSDT(type));
 	}
 
-	void OpenGLShader::identifyUniform(const std::string& line)
+	void OpenGLShader::identifyUniform(const std::string& line, bool block)
 	{
 		std::string type; // The type
 		std::string name; // The name
 
 		std::stringstream iss(line);
-		bool isType = false;
 
 		while (iss >> type)
 		{
 			// Get each word from the line, if the current word is 'uniform', 
 			// set the next word to type and the one after to name
-			if (!isType)
+			if (line.find("uniform") != std::string::npos)
 			{
 				if (type == "uniform")
-					isType = true;
+				{
+					if (!block)
+					{
+						iss >> type;
+						iss >> name;
+						name.erase(std::remove(name.begin(), name.end(), ';'), name.end());
+
+						// Add The name and a new uniform object with the name and type to the map
+						m_uniformLayout.insert(std::make_pair(name, new OpenGLUniformElement(name, GLSLStrToSDT(type))));
+
+						break;
+					}
+					else
+					{
+						if (!m_bMakingUniformBuffer)
+						{
+							iss >> name;
+							m_sUniformBufferName = name;
+							m_uniformBuffers.insert(std::make_pair(m_sUniformBufferName, std::make_pair(0, UniformBufferLayout())));
+							m_bMakingUniformBuffer = true;
+						}
+					}
+				}
 			}
-			else
+			else if (block)
 			{
-				iss >> name;
-				name.erase(std::remove(name.begin(), name.end(), ';'), name.end());
-				break;
+				if (type == "{")
+				{
+					break;
+				}
+				else if (type == "};")
+				{
+					m_bMakingUniformBuffer = false;
+
+					unsigned int size = 0;
+					for (auto& element : m_uniformBuffers.at(m_sUniformBufferName).second)
+					{
+						size += element.m_iSize;
+					}
+
+					m_uniformBuffers.at(m_sUniformBufferName).first = size;
+					break;
+				}
+				else
+				{
+					type.erase(std::remove(type.begin(), type.end(), '\t'), type.end());
+					
+					m_uniformBuffers.at(m_sUniformBufferName).second.addElement(GLSLStrToSDT(type));
+					break;
+				}
 			}
 		}
-		// Add The name and a new uniform object with the name and type to the map
-		m_uniformLayout.insert(std::make_pair(name, new OpenGLUniformObject(name, GLSLStrToSDT(type))));
 	}
 
 	void OpenGLShader::storeUniformLocations()

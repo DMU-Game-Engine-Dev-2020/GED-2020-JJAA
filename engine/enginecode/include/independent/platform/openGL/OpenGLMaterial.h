@@ -17,7 +17,7 @@ namespace Engine
 		void setGeometry(const std::variant<std::shared_ptr<VertexArray>, std::shared_ptr<VertexBuffer>>& geometry) override;
 		void setDataBlock(const std::map<std::string, void*>& data) override;
 		void setDataElement(const std::string& dataName, void* data) override;
-		void setVertexData(float* vertices, unsigned int offset, unsigned int size) override;
+		//void setVertexData(float* vertices, unsigned int offset, unsigned int size) override;
 
 		inline std::shared_ptr<Shader> getShader() override { return m_pShader; }
 		inline std::variant<std::shared_ptr<VertexArray>, std::shared_ptr<VertexBuffer>> getGeometry() override { return m_pGeometry; }
