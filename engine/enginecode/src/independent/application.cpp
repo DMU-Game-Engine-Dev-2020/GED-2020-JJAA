@@ -282,20 +282,6 @@ namespace Engine
 			);
 
 			/////////////////////////////////////
-			// Set scene data ///////////////////
-			/////////////////////////////////////
-
-			SceneData sceneData;
-
-			std::vector<void*> tempData;
-			tempData.push_back((void*)&projection[0][0]);
-			tempData.push_back((void*)&view[0][0]);
-
-			sceneData.insert(std::make_pair(m_uniformBuffers.front(), tempData));
-
-			m_pRenderer->beginScene(sceneData);
-
-			/////////////////////////////////////
 			// Moving stuff /////////////////////
 			/////////////////////////////////////
 
@@ -326,6 +312,35 @@ namespace Engine
 
 			// End of code to make the cube move.
 
+			/////////////////////////////////////
+			// Set scene data ///////////////////
+			/////////////////////////////////////
+
+			glm::vec3 lightColour = glm::vec3(1.0f, 1.0f, 1.0f);
+			glm::vec3 lightPos = glm::vec3(1.0f, 4.0f, -6.0f);
+			glm::vec3 viewPos = glm::vec3(0.0f, 0.0f, -4.5f);
+
+
+			SceneData sceneData;
+
+			std::vector<void*> tempData[2];
+			// Matrices data
+			tempData[0].push_back((void*)&projection[0][0]);
+			tempData[0].push_back((void*)&view[0][0]);
+			// Light data
+			tempData[1].push_back((void*)&lightColour[0]);
+			tempData[1].push_back((void*)&lightPos[0]);
+			tempData[1].push_back((void*)&viewPos[0]);
+
+			int i = 0;
+			for (std::list<std::shared_ptr<UniformBuffer>>::iterator it = m_uniformBuffers.begin(); it != m_uniformBuffers.end(); ++it)
+			{
+				sceneData.insert(std::make_pair(*it, tempData[i]));
+				i++;
+			}
+
+			m_pRenderer->beginScene(sceneData);
+
 			///////////////////////////////////////
 			// colour cube ////////////////////////
 			///////////////////////////////////////
@@ -341,22 +356,15 @@ namespace Engine
 			if (m_goingUp) texSlot = m_pLetterCubeTexture->getSlot();
 			else texSlot = m_pNumberCubeTexture->getSlot();
 
-			glm::vec3 lightColour = glm::vec3(1.0f, 1.0f, 1.0f);
-			glm::vec3 lightPos = glm::vec3(1.0f, 4.0f, -6.0f);
-			glm::vec3 viewPos = glm::vec3(0.0f, 0.0f, -4.5f);
 			
-			std::map<std::string, void*> tpDataElements;
-			tpDataElements.insert(std::make_pair("u_model", (void*)&TPmodel[0][0]));
+			//tpDataElements.insert(std::make_pair("u_lightColour", (void*)&lightColour[0]));
+			//tpDataElements.insert(std::make_pair("u_lightPos", (void*)&lightPos[0]));
+			//tpDataElements.insert(std::make_pair("u_viewPos", (void*)&viewPos[0]));
 
-			tpDataElements.insert(std::make_pair("u_lightColour", (void*)&lightColour[0]));
-			tpDataElements.insert(std::make_pair("u_lightPos", (void*)&lightPos[0]));
-			tpDataElements.insert(std::make_pair("u_viewPos", (void*)&viewPos[0]));
-			tpDataElements.insert(std::make_pair("u_texData", (void*)&texSlot));
-
-			m_pTPMat->setDataBlock(tpDataElements);
+			m_pTPMat->setDataElement("u_model", (void*)&TPmodel[0][0]);
+			m_pTPMat->setDataElement("u_texData", (void*)&texSlot);
 			m_pRenderer->submit(m_pTPMat);
 
-			
 			m_pWindow->onUpdate(m_fTimestep); // Update the window
 		}
 

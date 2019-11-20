@@ -37,9 +37,12 @@ in vec3 normal;
 in vec3 fragmentPos;
 in vec2 texCoord;
 
-uniform vec3 u_lightColour;
-uniform vec3 u_lightPos; 
-uniform vec3 u_viewPos; 
+layout (std140) uniform Light
+{
+	vec3 u_lightColour;
+	vec3 u_lightPos; 
+	vec3 u_viewPos;
+};
 
 uniform sampler2D u_texData;
 

@@ -33,15 +33,16 @@ namespace Engine
 			{
 				// Increase the offset to what it will be for the next element
 				offset += element.m_iSize;
+				// Increase the stride
+				m_iStride += element.m_iSize;
 			}
 			else // If size is not multiple of 64
 			{
 				// Round size up to the nearest multiple of 64 and increase the offset
 				offset += ((element.m_iSize + 64) - remainder);
+				// Increase the stride
+				m_iStride += ((element.m_iSize + 64) - remainder);
 			}
-
-			// Increase the stride
-			m_iStride += element.m_iSize;
 		}
 	}
 }

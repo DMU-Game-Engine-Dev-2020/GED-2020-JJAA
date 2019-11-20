@@ -99,7 +99,7 @@ namespace Engine
 		else
 		{
 			for (auto& element : m_container)
-				toReturn.push_back(element.second);
+				toReturn.push_front(element.second);
 		}
 
 		return toReturn;

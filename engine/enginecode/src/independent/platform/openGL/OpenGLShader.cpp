@@ -268,6 +268,7 @@ namespace Engine
 							m_sUniformBufferName = name;
 							m_uniformBuffers.insert(std::make_pair(m_sUniformBufferName, std::make_pair(0, UniformBufferLayout())));
 							m_bMakingUniformBuffer = true;
+							break;
 						}
 					}
 				}
@@ -294,7 +295,7 @@ namespace Engine
 				else
 				{
 					type.erase(std::remove(type.begin(), type.end(), '\t'), type.end());
-					
+
 					m_uniformBuffers.at(m_sUniformBufferName).second.addElement(GLSLStrToSDT(type));
 					break;
 				}
