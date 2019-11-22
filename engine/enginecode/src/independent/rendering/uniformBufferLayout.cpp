@@ -44,5 +44,7 @@ namespace Engine
 				m_iStride += ((element.m_iSize + 64) - remainder);
 			}
 		}
+
+		m_iSize = offset;
 	}
 }

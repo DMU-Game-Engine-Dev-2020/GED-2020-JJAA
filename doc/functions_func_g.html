@@ -48,6 +48,9 @@ $(function() {
 <li>get()
 : <a class="el" href="class_engine_1_1_asset_manager.html#a200428f0a8978d46e627d11a2c564a48">Engine::AssetManager&lt; G &gt;</a>
 </li>
+<li>getAll()
+: <a class="el" href="class_engine_1_1_asset_manager.html#ae86092a4f08400ea7ec9efc4d80edd0c">Engine::AssetManager&lt; G &gt;</a>
+</li>
 <li>getAPI()
 : <a class="el" href="class_engine_1_1_render_a_p_i.html#a26d10223697446899204fcbcebb721d0">Engine::RenderAPI</a>
 </li>
@@ -75,6 +78,10 @@ $(function() {
 : <a class="el" href="class_engine_1_1_index_buffer.html#a4b7e9f0a054b72f263153e2185472248">Engine::IndexBuffer</a>
 , <a class="el" href="class_engine_1_1_open_g_l_index_buffer.html#a50a477382a751eb58d54544abf757e16">Engine::OpenGLIndexBuffer</a>
 </li>
+<li>getData()
+: <a class="el" href="class_engine_1_1_material.html#a7b810430fb41d2d721f1f25fbba43a61">Engine::Material</a>
+, <a class="el" href="class_engine_1_1_open_g_l_material.html#a370cdee91ae6b18ada62433b6f0d606b">Engine::OpenGLMaterial</a>
+</li>
 <li>getDrawCount()
 : <a class="el" href="class_engine_1_1_open_g_l_vertex_array.html#a511158007c39df258568a8e9ad7ff81f">Engine::OpenGLVertexArray</a>
 , <a class="el" href="class_engine_1_1_vertex_array.html#adf620a89b58391dc33a751a17f48f03f">Engine::VertexArray</a>
@@ -93,6 +100,10 @@ $(function() {
 , <a class="el" href="class_engine_1_1_window_lost_focus_event.html#a41949a262dd8a7d238648b711ccc94da">Engine::WindowLostFocusEvent</a>
 , <a class="el" href="class_engine_1_1_window_moved_event.html#a2067ec4a9e38cfc487c072db5f1acdb8">Engine::WindowMovedEvent</a>
 , <a class="el" href="class_engine_1_1_window_resize_event.html#aea60e336781a151f21f99675847c75ec">Engine::WindowResizeEvent</a>
+</li>
+<li>getGeometry()
+: <a class="el" href="class_engine_1_1_material.html#a1747eb043852673ecbc61450c38773f3">Engine::Material</a>
+, <a class="el" href="class_engine_1_1_open_g_l_material.html#aaf84fddb7238f8fa2b3212553c376ae4">Engine::OpenGLMaterial</a>
 </li>
 <li>getHeight()
 : <a class="el" href="class_engine_1_1_g_l_f_w_window_impl.html#afc3412287fc12374b8500dcae94c78b5">Engine::GLFWWindowImpl</a>
@@ -115,7 +126,9 @@ $(function() {
 : <a class="el" href="class_engine_1_1_key_event.html#a4b013cdc635b08304291bace523e2f4d">Engine::KeyEvent</a>
 </li>
 <li>getLayout()
-: <a class="el" href="class_engine_1_1_open_g_l_vertex_buffer.html#abd73bbd39959230aac4dd0c37a28eea0">Engine::OpenGLVertexBuffer</a>
+: <a class="el" href="class_engine_1_1_open_g_l_uniform_buffer.html#ac31e81f388f15ab3dd35108a4b26db3b">Engine::OpenGLUniformBuffer</a>
+, <a class="el" href="class_engine_1_1_open_g_l_vertex_buffer.html#abd73bbd39959230aac4dd0c37a28eea0">Engine::OpenGLVertexBuffer</a>
+, <a class="el" href="class_engine_1_1_uniform_buffer.html#ae1499a15bc0f3c26d827665fefaa6a0e">Engine::UniformBuffer</a>
 , <a class="el" href="class_engine_1_1_vertex_buffer.html#a29ac263f7188d3733a10ca47c9fd4cac">Engine::VertexBuffer</a>
 </li>
 <li>getLogger()
@@ -152,6 +165,13 @@ $(function() {
 <li>getRepeated()
 : <a class="el" href="class_engine_1_1_key_pressed_event.html#a3bb6d839562e22fd919841cd4397a7b2">Engine::KeyPressedEvent</a>
 </li>
+<li>getShader()
+: <a class="el" href="class_engine_1_1_material.html#a2a65f045a820e25baa091b3f0b00bf1e">Engine::Material</a>
+, <a class="el" href="class_engine_1_1_open_g_l_material.html#a6a4bcb2ac3ec9718988f2bdba1824df7">Engine::OpenGLMaterial</a>
+</li>
+<li>getSize()
+: <a class="el" href="class_engine_1_1_uniform_buffer_layout.html#a4de20dd5710b382cb33748a5b45e9ac2">Engine::UniformBufferLayout</a>
+</li>
 <li>getSlot()
 : <a class="el" href="class_engine_1_1_open_g_l_texture.html#a4441d685f60adb9fe8d8133b92897489">Engine::OpenGLTexture</a>
 , <a class="el" href="class_engine_1_1_texture.html#af09f28545dbbac0c800f6b124d44225a">Engine::Texture</a>
@@ -172,10 +192,18 @@ $(function() {
 </li>
 <li>getStride()
 : <a class="el" href="class_engine_1_1_buffer_layout.html#ae6c7d36cf30e016fd7058c1bc24a2ecf">Engine::BufferLayout</a>
+, <a class="el" href="class_engine_1_1_uniform_buffer_layout.html#a0cf6d4762e0e7d11fc55facca4ed90c0">Engine::UniformBufferLayout</a>
 </li>
 <li>getType()
-: <a class="el" href="class_engine_1_1_open_g_l_uniform_object.html#a3dd6a7d571fa52c595ced0e06d0e1bda">Engine::OpenGLUniformObject</a>
-, <a class="el" href="class_engine_1_1_uniform_object.html#ae36bbcf21f31442384ec5d9fd57ede1d">Engine::UniformObject</a>
+: <a class="el" href="class_engine_1_1_open_g_l_uniform_element.html#a49e46a7a61c2b9684478fab50dec90f0">Engine::OpenGLUniformElement</a>
+, <a class="el" href="class_engine_1_1_uniform_element.html#a7a8898ae104ec1ad396b1013f9c04891">Engine::UniformElement</a>
+</li>
+<li>getUniformBufferLayouts()
+: <a class="el" href="class_engine_1_1_open_g_l_shader.html#a8b63f2e62dbdb74333bc977b742155c1">Engine::OpenGLShader</a>
+, <a class="el" href="class_engine_1_1_shader.html#af42f99f56a9648d10d454ef1a0791889">Engine::Shader</a>
+</li>
+<li>getUniformBuffers()
+: <a class="el" href="class_engine_1_1_resource_manager.html#a64e1070d5fd4b4787b6f4dc3529dac03">Engine::ResourceManager</a>
 </li>
 <li>getUniformLayout()
 : <a class="el" href="class_engine_1_1_open_g_l_shader.html#a5fc9af18726dc5a6529c8d4b245c2008">Engine::OpenGLShader</a>

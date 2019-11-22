@@ -133,7 +133,7 @@ namespace Engine
 				// If 'uniform' is in the line
 				if (line.find("uniform") != std::string::npos || m_bMakingUniformBuffer)
 				{
-					if (line.find("layout") != std::string::npos || m_bMakingUniformBuffer) // Identify the uniform
+					if (line.find("layout") != std::string::npos || m_bMakingUniformBuffer)
 					{
 						identifyUniform(line, true);
 					}
@@ -174,7 +174,7 @@ namespace Engine
 			// If 'uniform' is in the line
 			if (line.find("uniform") != std::string::npos || m_bMakingUniformBuffer)
 			{
-				if (line.find("layout") != std::string::npos || m_bMakingUniformBuffer) // Identify the uniform
+				if (line.find("layout") != std::string::npos || m_bMakingUniformBuffer)
 				{
 					identifyUniform(line, true);
 				}
@@ -200,7 +200,7 @@ namespace Engine
 			// If 'uniform' is in the line
 			if (line.find("uniform") != std::string::npos || m_bMakingUniformBuffer)
 			{
-				if (line.find("layout") != std::string::npos || m_bMakingUniformBuffer) // Identify the uniform
+				if (line.find("layout") != std::string::npos || m_bMakingUniformBuffer)
 				{
 					identifyUniform(line, true);
 				}
@@ -243,8 +243,6 @@ namespace Engine
 
 		while (iss >> type)
 		{
-			// Get each word from the line, if the current word is 'uniform', 
-			// set the next word to type and the one after to name
 			if (line.find("uniform") != std::string::npos)
 			{
 				if (type == "uniform")
@@ -266,7 +264,7 @@ namespace Engine
 						{
 							iss >> name;
 							m_sUniformBufferName = name;
-							m_uniformBuffers.insert(std::make_pair(m_sUniformBufferName, std::make_pair(0, UniformBufferLayout())));
+							m_uniformBufferLayouts.insert(std::make_pair(m_sUniformBufferName, UniformBufferLayout()));
 							m_bMakingUniformBuffer = true;
 							break;
 						}
@@ -282,21 +280,13 @@ namespace Engine
 				else if (type == "};")
 				{
 					m_bMakingUniformBuffer = false;
-
-					unsigned int size = 0;
-					for (auto& element : m_uniformBuffers.at(m_sUniformBufferName).second)
-					{
-						size += element.m_iSize;
-					}
-
-					m_uniformBuffers.at(m_sUniformBufferName).first = size;
 					break;
 				}
 				else
 				{
 					type.erase(std::remove(type.begin(), type.end(), '\t'), type.end());
 
-					m_uniformBuffers.at(m_sUniformBufferName).second.addElement(GLSLStrToSDT(type));
+					m_uniformBufferLayouts.at(m_sUniformBufferName).addElement(GLSLStrToSDT(type));
 					break;
 				}
 			}

@@ -36,7 +36,10 @@ namespace Engine
 		\return A pointer to the asset
 		*/
 		inline std::shared_ptr<G> get(const std::string& key);
-
+		//! Function to get all of the assets in the container
+		/*!
+		\return A list of pointers to all of the assets in the container
+		*/
 		inline std::list<std::shared_ptr<G>> getAll();
 		//! Function to clear the map
 		void clear();
@@ -92,17 +95,20 @@ namespace Engine
 	template <class G>
 	std::list<std::shared_ptr<G>> AssetManager<G>::getAll()
 	{
+		// Create a list to return
 		std::list<std::shared_ptr<G>> toReturn;
 
+		// If the container is empty
 		if (m_container.empty())
-			LOG_CRITICAL("No uniform buffers");
-		else
+			LOG_CRITICAL("No uniform buffers"); // Say it's empty
+		else // If the container is not empty
 		{
+			// For each element in the container
 			for (auto& element : m_container)
-				toReturn.push_front(element.second);
+				toReturn.push_front(element.second); // Add the pointer to the asset to the list
 		}
 
-		return toReturn;
+		return toReturn; // Return the list
 	}
 
 	template<class G>

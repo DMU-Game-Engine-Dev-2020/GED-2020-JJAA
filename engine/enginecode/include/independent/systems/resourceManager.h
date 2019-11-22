@@ -94,7 +94,7 @@ namespace Engine
 		static std::shared_ptr<Material> addMaterial(const std::string& name, std::shared_ptr<Shader> shader, std::shared_ptr<VertexArray> VAO);
 		static std::shared_ptr<Material> addMaterial(const std::string& name, std::shared_ptr<Shader> shader, std::shared_ptr<VertexBuffer> VBO);
 
-		static std::shared_ptr<UniformBuffer> addUniformBuffer(const std::string& name, unsigned int size, UniformBufferLayout& layout, const std::string& shaderName);
+		static std::shared_ptr<UniformBuffer> addUniformBuffer(const std::string& name, UniformBufferLayout& layout, const std::string& shaderName);
 
 		static std::list<std::shared_ptr<UniformBuffer>> getUniformBuffers();
 	};

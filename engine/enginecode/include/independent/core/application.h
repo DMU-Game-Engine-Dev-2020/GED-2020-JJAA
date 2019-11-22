@@ -35,12 +35,12 @@ namespace Engine
 		std::shared_ptr<Texture> m_pLetterCubeTexture; //!< Pointer to the letter cube texture
 		std::shared_ptr<Texture> m_pNumberCubeTexture; //!< Pointer to the number cube texture
 
-		std::shared_ptr<Material> m_pFCMat;
-		std::shared_ptr<Material> m_pTPMat;
+		std::shared_ptr<Material> m_pFCMat; //!< Pointer to the flat colour material
+		std::shared_ptr<Material> m_pTPMat; //!< Pointer to the textured phong material
 
-		std::list<std::shared_ptr<UniformBuffer>> m_uniformBuffers;
+		std::list<std::shared_ptr<UniformBuffer>> m_uniformBuffers; //!< List of pointers to all uniform buffers
 
-		std::unique_ptr<Renderer> m_pRenderer;
+		std::unique_ptr<Renderer> m_pRenderer; //!< Pointer to the renderer
 
 		bool m_bRunning; //!< If the application is running
 		float m_fTotalTimeElapsed; //!< The total time the program has been active in seconds

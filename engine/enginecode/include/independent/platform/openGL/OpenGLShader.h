@@ -26,7 +26,7 @@ namespace Engine
 		BufferLayout m_bufferLayout; //!< The buffer layout
 		UniformLayout m_uniformLayout; //!< The uniform layout
 
-		UniformBuffers m_uniformBuffers;
+		UniformBufferLayouts m_uniformBufferLayouts;
 		std::string m_sUniformBufferName;
 
 		bool m_bMakingUniformBuffer;
@@ -107,6 +107,6 @@ namespace Engine
 		*/
 		inline UniformLayout getUniformLayout() const override { return m_uniformLayout; }
 
-		inline UniformBuffers getUniformBuffers() const override { return m_uniformBuffers; }
+		inline UniformBufferLayouts getUniformBufferLayouts() const override { return m_uniformBufferLayouts; }
 	};
 }

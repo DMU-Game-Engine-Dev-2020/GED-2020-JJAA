@@ -52,7 +52,8 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="buffer_layout_8h_source.html">bufferLayout.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="uniform_object_8h_source.html">rendering/uniformObject.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="uniform_element_8h_source.html">rendering/uniformElement.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="uniform_buffer_layout_8h_source.html">rendering/uniformBufferLayout.h</a>&quot;</code><br />
 <code>#include &lt;map&gt;</code><br />
 </div>
 <p><a href="shader_8h_source.html">Go to the source code of this file.</a></p>
@@ -70,9 +71,11 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:aaaa6d77edbfa336ca7360fdd193d04bf"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_engine.html#aaaa6d77edbfa336ca7360fdd193d04bf">Engine::UniformLayout</a> = std::map&lt; std::string, std::pair&lt; <a class="el" href="class_shader_data_type.html">ShaderDataType</a>, int &gt; &gt;</td></tr>
-<tr class="memdesc:aaaa6d77edbfa336ca7360fdd193d04bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">UniformLayout is a map with a string and a pair containing a data type and an int.  <a href="namespace_engine.html#aaaa6d77edbfa336ca7360fdd193d04bf">More...</a><br /></td></tr>
-<tr class="separator:aaaa6d77edbfa336ca7360fdd193d04bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cc96092a44c79b86e73990b17331cc0"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_engine.html#a9cc96092a44c79b86e73990b17331cc0">Engine::UniformLayout</a> = std::map&lt; std::string, std::shared_ptr&lt; UniformElement &gt; &gt;</td></tr>
+<tr class="memdesc:a9cc96092a44c79b86e73990b17331cc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">UniformLayout is a map with a string and a pointer to a uniform object.  <a href="namespace_engine.html#a9cc96092a44c79b86e73990b17331cc0">More...</a><br /></td></tr>
+<tr class="separator:a9cc96092a44c79b86e73990b17331cc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80cd5891e5fbac1bec810e7676d99555"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_engine.html#a80cd5891e5fbac1bec810e7676d99555">Engine::UniformBufferLayouts</a> = std::map&lt; std::string, UniformBufferLayout &gt;</td></tr>
+<tr class="separator:a80cd5891e5fbac1bec810e7676d99555"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

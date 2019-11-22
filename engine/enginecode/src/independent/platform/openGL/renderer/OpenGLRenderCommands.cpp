@@ -1,3 +1,6 @@
+/** \file OpenGLRenderCommands.cpp
+\brief File with implementations for the open GL action commands
+*/
 #include "engine_pch.h"
 
 #include "platform/openGL/renderer/OpenGLRenderCommands.h"

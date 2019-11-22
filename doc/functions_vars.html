@@ -42,11 +42,24 @@ $(function() {
 &#160;
 
 <h3><a id="index_m"></a>- m -</h3><ul>
+<li>m_a
+: <a class="el" href="class_engine_1_1_open_g_l_set_clear_colour_command.html#a7c5104006120a8eda24cef0eaf12488c">Engine::OpenGLSetClearColourCommand</a>
+</li>
+<li>m_b
+: <a class="el" href="class_engine_1_1_open_g_l_set_clear_colour_command.html#a964b1097e3f3bf6c877497325e801a90">Engine::OpenGLSetClearColourCommand</a>
+</li>
+<li>m_bEnabled
+: <a class="el" href="class_engine_1_1_open_g_l_set_backface_culling_command.html#aab6fbb382aa1b65063365491b7701060">Engine::OpenGLSetBackfaceCullingCommand</a>
+, <a class="el" href="class_engine_1_1_open_g_l_set_depth_test_less_command.html#addf395553db129bd90d2d6eb4eafcdf6">Engine::OpenGLSetDepthTestLessCommand</a>
+</li>
 <li>m_bGLFWInitialized
 : <a class="el" href="class_engine_1_1_g_l_f_w_windows_system.html#a181085f70e0d88407d2321d58389f3a8">Engine::GLFWWindowsSystem</a>
 </li>
 <li>m_bHandled
 : <a class="el" href="class_engine_1_1_event.html#abac2dcc25f027d182ae8fcd96364f206">Engine::Event</a>
+</li>
+<li>m_bMakingUniformBuffer
+: <a class="el" href="class_engine_1_1_open_g_l_shader.html#ad0f43b3ee838256e18c6da009db49115">Engine::OpenGLShader</a>
 </li>
 <li>m_bNormalized
 : <a class="el" href="class_engine_1_1_buffer_element.html#a910a53d5bcf947d73c88f40a39138f35">Engine::BufferElement</a>
@@ -66,11 +79,15 @@ $(function() {
 <li>m_context
 : <a class="el" href="class_engine_1_1_window.html#aab162cb1a1572464283d8327413f1e08">Engine::Window</a>
 </li>
+<li>m_data
+: <a class="el" href="class_engine_1_1_open_g_l_material.html#a9936d3ec2f702b755bb38cd187ae297f">Engine::OpenGLMaterial</a>
+</li>
 <li>m_dataType
 : <a class="el" href="class_engine_1_1_buffer_element.html#a705d8dc6adbcf4111d153a08b888081e">Engine::BufferElement</a>
 </li>
 <li>m_elements
 : <a class="el" href="class_engine_1_1_buffer_layout.html#a965e1cca3f3238f2830b4edde5dc480a">Engine::BufferLayout</a>
+, <a class="el" href="class_engine_1_1_uniform_buffer_layout.html#ad68a32d9c89e89998c74849b0faa26ac">Engine::UniformBufferLayout</a>
 </li>
 <li>m_event
 : <a class="el" href="class_engine_1_1_event_dispatcher.html#a44fb6bbdb1061127eb21764aa81e9609">Engine::EventDispatcher</a>
@@ -104,11 +121,17 @@ $(function() {
 : <a class="el" href="class_engine_1_1_window_focus_event.html#acd700c7a13a4eb574fa87aafe2fcc62f">Engine::WindowFocusEvent</a>
 , <a class="el" href="class_engine_1_1_window_lost_focus_event.html#a1e139f65a3d0289dea428d7bb3bff3b7">Engine::WindowLostFocusEvent</a>
 </li>
+<li>m_g
+: <a class="el" href="class_engine_1_1_open_g_l_set_clear_colour_command.html#a49fe9307681bf9ce2f8f9eeccb023ae9">Engine::OpenGLSetClearColourCommand</a>
+</li>
 <li>m_goingUp
 : <a class="el" href="class_engine_1_1_application.html#a20157f02cd94eb7092283c578b027d72">Engine::Application</a>
 </li>
 <li>m_height
 : <a class="el" href="struct_engine_1_1_window_properties.html#a01a614a9f1e06bf22dbe4c17c0a0a6a5">Engine::WindowProperties</a>
+</li>
+<li>m_iBindingPoint
+: <a class="el" href="class_engine_1_1_open_g_l_uniform_buffer.html#aa463a8cd0e8e15c2f6f0b9ceb3e7cb0d">Engine::OpenGLUniformBuffer</a>
 </li>
 <li>m_iButton
 : <a class="el" href="class_engine_1_1_mouse_button_event.html#aaf940ee90aa58cbaa24a6d8b6f602b41">Engine::MouseButtonEvent</a>
@@ -118,6 +141,9 @@ $(function() {
 </li>
 <li>m_iCount
 : <a class="el" href="class_engine_1_1_open_g_l_index_buffer.html#a78ddd669fbfb6f66353e363951974d69">Engine::OpenGLIndexBuffer</a>
+</li>
+<li>m_id
+: <a class="el" href="class_engine_1_1_open_g_l_uniform_buffer.html#a8f4b9108740c9f99321d92895b08b07e">Engine::OpenGLUniformBuffer</a>
 </li>
 <li>m_iFragShader
 : <a class="el" href="class_engine_1_1_open_g_l_shader.html#a4cb442bb4f7aed7bac6922ba078cd790">Engine::OpenGLShader</a>
@@ -148,9 +174,11 @@ $(function() {
 </li>
 <li>m_iSize
 : <a class="el" href="class_engine_1_1_buffer_element.html#afe01102cf2fdfd7dd3b0b06e6e3c09e1">Engine::BufferElement</a>
+, <a class="el" href="class_engine_1_1_uniform_buffer_layout.html#a656ca53f2e9590455bba4d1ccab791a3">Engine::UniformBufferLayout</a>
 </li>
 <li>m_iStride
 : <a class="el" href="class_engine_1_1_buffer_layout.html#a7f1c1c7e008a19e3cd14cac5db1f0275">Engine::BufferLayout</a>
+, <a class="el" href="class_engine_1_1_uniform_buffer_layout.html#ab991a772530f99c71555c17ca9bac099">Engine::UniformBufferLayout</a>
 </li>
 <li>m_isVSync
 : <a class="el" href="struct_engine_1_1_window_properties.html#a8be8793d00a34fa5bfc84ab9dd8f4cab">Engine::WindowProperties</a>
@@ -175,10 +203,11 @@ $(function() {
 : <a class="el" href="class_engine_1_1_window_moved_event.html#afdd2fbc96aad1319d98047651b332f17">Engine::WindowMovedEvent</a>
 </li>
 <li>m_layout
-: <a class="el" href="class_engine_1_1_open_g_l_vertex_buffer.html#ad3408e637b74a75f924e7961d2a9d778">Engine::OpenGLVertexBuffer</a>
+: <a class="el" href="class_engine_1_1_open_g_l_uniform_buffer.html#a59af290bc5af330f60da677a8d5bb825">Engine::OpenGLUniformBuffer</a>
+, <a class="el" href="class_engine_1_1_open_g_l_vertex_buffer.html#ad3408e637b74a75f924e7961d2a9d778">Engine::OpenGLVertexBuffer</a>
 </li>
 <li>m_location
-: <a class="el" href="class_engine_1_1_open_g_l_uniform_object.html#ad7f930fbb8129cbc745cc91d456bcf67">Engine::OpenGLUniformObject</a>
+: <a class="el" href="class_engine_1_1_open_g_l_uniform_element.html#a12ea7058bd673dd3636c4d3f318461be">Engine::OpenGLUniformElement</a>
 </li>
 <li>m_pcFragSrc
 : <a class="el" href="class_engine_1_1_open_g_l_shader.html#a77447910e8e9cf4d2e69ce34fc1ea44d">Engine::OpenGLShader</a>
@@ -186,11 +215,11 @@ $(function() {
 <li>m_pcVertSrc
 : <a class="el" href="class_engine_1_1_open_g_l_shader.html#a3566dd881880cb434ff239a512307616">Engine::OpenGLShader</a>
 </li>
-<li>m_pFCShader
-: <a class="el" href="class_engine_1_1_application.html#a08f100b16c93c657af6c76d93a17770b">Engine::Application</a>
+<li>m_pFCMat
+: <a class="el" href="class_engine_1_1_application.html#a8bb71cd4c374866e8c68ca3b2c66ca37">Engine::Application</a>
 </li>
-<li>m_pFCVAO
-: <a class="el" href="class_engine_1_1_application.html#a0a953765e2f32ffbe01d9552a5a7533f">Engine::Application</a>
+<li>m_pGeometry
+: <a class="el" href="class_engine_1_1_open_g_l_material.html#abc239bc345df49a757cc8a8ca03c5b5f">Engine::OpenGLMaterial</a>
 </li>
 <li>m_pIndexBuffer
 : <a class="el" href="class_engine_1_1_open_g_l_vertex_array.html#a383b2c93afbc8db12615e59e898e4b59">Engine::OpenGLVertexArray</a>
@@ -210,17 +239,23 @@ $(function() {
 <li>m_pNumberCubeTexture
 : <a class="el" href="class_engine_1_1_application.html#a2905a0d1fe3f63cfdd0d31afe45415f8">Engine::Application</a>
 </li>
+<li>m_pRenderer
+: <a class="el" href="class_engine_1_1_application.html#a9e0d2ca0bbb12cd53dc19a3efb10fb68">Engine::Application</a>
+</li>
 <li>m_pResources
 : <a class="el" href="class_engine_1_1_application.html#afa0cce3c55a77b5d76d983e81510ed48">Engine::Application</a>
 </li>
 <li>m_properties
 : <a class="el" href="class_engine_1_1_g_l_f_w_window_impl.html#a3cd18c727b7590df60254f030b5c1c45">Engine::GLFWWindowImpl</a>
 </li>
+<li>m_pShader
+: <a class="el" href="class_engine_1_1_open_g_l_material.html#a1bb6cd4f16336abd1652e7e2c95cb8e1">Engine::OpenGLMaterial</a>
+</li>
 <li>m_pTimer
 : <a class="el" href="class_engine_1_1_application.html#a0203b18a2c689d8c85f9497ac5326f04">Engine::Application</a>
 </li>
-<li>m_pTPShader
-: <a class="el" href="class_engine_1_1_application.html#a2f68113439686dbad1b86ca561d62766">Engine::Application</a>
+<li>m_pTPMat
+: <a class="el" href="class_engine_1_1_application.html#ad06a993ed55c77298bba42b78f2cc8fa">Engine::Application</a>
 </li>
 <li>m_pVertexBuffer
 : <a class="el" href="class_engine_1_1_open_g_l_vertex_array.html#a2f81f376427882a4a2c4464239b484ad">Engine::OpenGLVertexArray</a>
@@ -232,8 +267,11 @@ $(function() {
 <li>m_pWindows
 : <a class="el" href="class_engine_1_1_application.html#a1a908f388f9fff0529322ec1b96ebaae">Engine::Application</a>
 </li>
+<li>m_r
+: <a class="el" href="class_engine_1_1_open_g_l_set_clear_colour_command.html#a210d8c8b358876fd51a2b52e399dfe73">Engine::OpenGLSetClearColourCommand</a>
+</li>
 <li>m_sName
-: <a class="el" href="class_engine_1_1_open_g_l_uniform_object.html#abf5924c0c7491b734f18836f461d68ed">Engine::OpenGLUniformObject</a>
+: <a class="el" href="class_engine_1_1_open_g_l_uniform_element.html#a877feb1c74c0b0c712205dad3b7027b9">Engine::OpenGLUniformElement</a>
 </li>
 <li>m_storedHeight
 : <a class="el" href="struct_engine_1_1_window_properties.html#a660e6361fb042cb343fed41964e8c399">Engine::WindowProperties</a>
@@ -247,23 +285,29 @@ $(function() {
 <li>m_storedYPos
 : <a class="el" href="struct_engine_1_1_window_properties.html#a8b56699803c31a5b21b0beb5ed63abd1">Engine::WindowProperties</a>
 </li>
+<li>m_sUniformBufferName
+: <a class="el" href="class_engine_1_1_open_g_l_shader.html#a689ad4b7a871ef3e07bd0d123e2d2836">Engine::OpenGLShader</a>
+</li>
 <li>m_timeSummed
 : <a class="el" href="class_engine_1_1_application.html#ac9febcf6cb403642ff016820386f12a9">Engine::Application</a>
 </li>
 <li>m_title
 : <a class="el" href="struct_engine_1_1_window_properties.html#aa27ba6c50e97deb268242550a7aed00f">Engine::WindowProperties</a>
 </li>
-<li>m_TPVAO
-: <a class="el" href="class_engine_1_1_application.html#a8b2f81fa2c0c7c8567bc93a34783e296">Engine::Application</a>
-</li>
 <li>m_type
-: <a class="el" href="class_engine_1_1_open_g_l_uniform_object.html#a8812245b9351250a67a4d9f029892001">Engine::OpenGLUniformObject</a>
+: <a class="el" href="class_engine_1_1_open_g_l_uniform_element.html#a045917000ae4dd032135414c6314581b">Engine::OpenGLUniformElement</a>
+</li>
+<li>m_uniformBufferLayouts
+: <a class="el" href="class_engine_1_1_open_g_l_shader.html#a67e74495450b6749ce17c811f5f1cf8e">Engine::OpenGLShader</a>
+</li>
+<li>m_uniformBuffers
+: <a class="el" href="class_engine_1_1_application.html#a5cd8a4bae88eef7a4f33b3a196c647a6">Engine::Application</a>
 </li>
 <li>m_uniformLayout
 : <a class="el" href="class_engine_1_1_open_g_l_shader.html#aca3ea83f842a4eb412b6fe9daa806c5c">Engine::OpenGLShader</a>
 </li>
 <li>m_uploadFunc
-: <a class="el" href="class_engine_1_1_open_g_l_uniform_object.html#a8fa2f35e1933bd735a82e8da467cf367">Engine::OpenGLUniformObject</a>
+: <a class="el" href="class_engine_1_1_open_g_l_uniform_element.html#ab123970f17c85d21ba4345e269d992be">Engine::OpenGLUniformElement</a>
 </li>
 <li>m_width
 : <a class="el" href="struct_engine_1_1_window_properties.html#ae127d04cab173562dc0457c367d0c9fb">Engine::WindowProperties</a>
@@ -274,6 +318,9 @@ $(function() {
 <h3><a id="index_s"></a>- s -</h3><ul>
 <li>s_API
 : <a class="el" href="class_engine_1_1_render_a_p_i.html#a3084181f75decfa977445aa7923d6287">Engine::RenderAPI</a>
+</li>
+<li>s_bindingPoint
+: <a class="el" href="class_engine_1_1_open_g_l_uniform_buffer.html#ac84743ae576567a01701d609ae2e8a67">Engine::OpenGLUniformBuffer</a>
 </li>
 <li>s_bInstanceFlag
 : <a class="el" href="class_engine_1_1_g_l_f_w_windows_system.html#afc2142677985b4df897944bc6009d84b">Engine::GLFWWindowsSystem</a>
@@ -304,6 +351,9 @@ $(function() {
 <li>s_iTextureSlot
 : <a class="el" href="class_engine_1_1_open_g_l_texture.html#aade0077a1e6ab8ad6fe33f123a289b4d">Engine::OpenGLTexture</a>
 </li>
+<li>s_materials
+: <a class="el" href="class_engine_1_1_resource_manager.html#aa49a7b5e52ef0cdd2e22be705e57e14c">Engine::ResourceManager</a>
+</li>
 <li>s_pInstance
 : <a class="el" href="class_engine_1_1_input_poller.html#ae738707e6bc0a9214eaf5d4512bb1def">Engine::InputPoller</a>
 </li>
@@ -326,6 +376,9 @@ $(function() {
 </li>
 <li>s_textures
 : <a class="el" href="class_engine_1_1_resource_manager.html#afc887a3badccedbf9d1589cfdb74069e">Engine::ResourceManager</a>
+</li>
+<li>s_UBOs
+: <a class="el" href="class_engine_1_1_resource_manager.html#aa9d89fb064e67f17560bc4bd4582e33b">Engine::ResourceManager</a>
 </li>
 <li>s_VAOs
 : <a class="el" href="class_engine_1_1_resource_manager.html#a9a18ea5d01c50509be720d20a6d8d469">Engine::ResourceManager</a>
