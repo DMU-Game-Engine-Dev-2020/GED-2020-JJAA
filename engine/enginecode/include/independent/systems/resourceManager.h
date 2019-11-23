@@ -20,8 +20,8 @@ namespace Engine
 		static AssetManager<Texture> s_textures; //!< Texture asset manager
 		static AssetManager<VertexArray> s_VAOs; //!< Vertex array asset manager
 		static AssetManager<VertexBuffer> s_VBOs; //!< Vertex buffer asset manager
-		static AssetManager<Material> s_materials;
-		static AssetManager<UniformBuffer> s_UBOs;
+		static AssetManager<Material> s_materials; //!< Material asset manager
+		static AssetManager<UniformBuffer> s_UBOs; //!< Uniform buffer asset manager
 
 		//! Function to get the name of a file from a file path
 		/*!
@@ -91,11 +91,36 @@ namespace Engine
 		*/
 		static std::shared_ptr<VertexBuffer> addVBO(const std::string& name, float* vertices, unsigned int size, BufferLayout& layout);
 
+		//! Function to add a material
+		/*!
+		\param name The name of the material
+		\param shader Pointer to the materials shader
+		\param VAO Pointer to a vertex array
+		\return A pointer to the material
+		*/
 		static std::shared_ptr<Material> addMaterial(const std::string& name, std::shared_ptr<Shader> shader, std::shared_ptr<VertexArray> VAO);
+		//! Function to add a material
+		/*!
+		\param name The name of the material
+		\param shader Pointer to the materials shader
+		\param VBO Pointer to a vertex buffer
+		\return A pointer to the material
+		*/
 		static std::shared_ptr<Material> addMaterial(const std::string& name, std::shared_ptr<Shader> shader, std::shared_ptr<VertexBuffer> VBO);
 
-		static std::shared_ptr<UniformBuffer> addUniformBuffer(const std::string& name, UniformBufferLayout& layout, const std::string& shaderName);
+		//! Function to add a uniform buffer
+		/*!
+		\param name The name of the buffer
+		\param layout Pointer to the buffer layout
+		\param shaderName The name of the shader the layout came from
+		\return A pointer to the buffer
+		*/
+		static std::shared_ptr<UniformBuffer> addUniformBuffer(const std::string& name, std::shared_ptr<UniformBufferLayout> layout, const std::string& shaderName);
 
+		//! Function to get a list of all of the uniform buffers
+		/*!
+		\return A list of pointers to all of the uniform buffers
+		*/
 		static std::list<std::shared_ptr<UniformBuffer>> getUniformBuffers();
 	};
 }

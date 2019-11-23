@@ -1,3 +1,5 @@
+/** \file renderer.cpp
+*/
 #include "engine_pch.h"
 
 #include "rendering/renderAPI.h"
@@ -8,7 +10,6 @@
 
 namespace Engine
 {
-
 	Renderer* Renderer::createSimple3D()
 	{
 		switch (RenderAPI::getAPI())

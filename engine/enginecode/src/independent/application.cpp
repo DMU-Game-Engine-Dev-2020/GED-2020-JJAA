@@ -9,6 +9,8 @@
 #include "platform/GLFW/GLFWWindowsSystem.h"
 #endif // NG_PLATFORM_WINDOWS
 
+#include <glad/glad.h>
+
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
@@ -49,9 +51,12 @@ namespace Engine
 		// Set the windows event callback to call the onEvent function in Application
 		m_pWindow->setEventCallback(std::bind(&Application::onEvent, this, std::placeholders::_1));
 
+		// Make a new resource manager
 		m_pResources.reset(new ResourceManager);
+		// Make a new basic renderer
 		m_pRenderer.reset(Renderer::createBasic3D());
 
+		// Set depth test and backface culling
 		m_pRenderer->actionCommand(RenderCommand::setDepthTestLessCommand(true));
 		m_pRenderer->actionCommand(RenderCommand::setBackfaceCullingCommand(true));
 
@@ -97,14 +102,18 @@ namespace Engine
 			22, 23, 20
 		};
 
+		// Temporary pointers to create shaders, vertex array objects and materials
 		std::shared_ptr<Shader> tempSetupShader;
 		std::shared_ptr<VertexArray> tempSetupVAO;
 		
-		tempSetupShader = m_pResources->addShader("FCShader", "assets/shaders/flatColourVert.glsl", "assets/shaders/flatColourFrag.glsl");
+		// Create flat colour shader from shader file
+		tempSetupShader = m_pResources->addShader("assets/shaders/flatColour2.glsl");
+		// Create a vertex array object
 		tempSetupVAO = m_pResources->addVAO("flatColourCube");
+		// Create a vertex buffer and an index buffer and give pointers to them to the vertex array object
 		tempSetupVAO->setVertexBuffer(m_pResources->addVBO("flatColourVBO", FCvertices, sizeof(FCvertices), tempSetupShader->getBufferLayout()));
 		tempSetupVAO->setIndexBuffer(m_pResources->addIndexBuffer("cubeIndices", indices, sizeof(indices) / sizeof(unsigned int)));
-
+		// Create the flat colour material
 		m_pFCMat = m_pResources->addMaterial("flatColourMat", tempSetupShader, tempSetupVAO);
 
 		/////////////////////////////////////////////////////////
@@ -137,20 +146,21 @@ namespace Engine
 			0.5f,  0.5f, 0.5f, 1.f, 0.f, 0.f,  0.66f, 0.5f,
 			0.5f,  -0.5f, 0.5f,  1.f, 0.f, 0.f, 0.66f, 1.0f
 		};
-
+		// Same as flat colour stuff
 		tempSetupShader = m_pResources->addShader("assets/shaders/texturedPhong2.glsl");
 		tempSetupVAO = m_pResources->addVAO("texturedPhongCube");
 		tempSetupVAO->setVertexBuffer(m_pResources->addVBO("texturedPhongVBO", TPvertices, sizeof(TPvertices), tempSetupShader->getBufferLayout()));
 		tempSetupVAO->setIndexBuffer(m_pResources->addIndexBuffer("cubheIndices", indices, sizeof(indices) / sizeof(unsigned int)));
+		// Create the textures phong material
+		m_pTPMat = m_pResources->addMaterial("texturedPhongMat", tempSetupShader, tempSetupVAO);
 
+		// Load textures
 		m_pLetterCubeTexture = m_pResources->addTexture("assets/textures/letterCube.png");
 		m_pNumberCubeTexture = m_pResources->addTexture("assets/textures/numberCube.png");
 
-		m_pTPMat = m_pResources->addMaterial("texturedPhongMat", tempSetupShader, tempSetupVAO);
-
 		FCmodel = glm::translate(glm::mat4(1), glm::vec3(1.5, 0, 3));
 		TPmodel = glm::translate(glm::mat4(1), glm::vec3(-1.5, 0, 3));
-
+		// Get a list of pointers to all of the unfirom buffers
 		m_uniformBuffers = m_pResources->getUniformBuffers();
 
 		TIMER_NEWFRAME; // Tell the timer to start for a new frame
@@ -268,7 +278,7 @@ namespace Engine
 
 			m_fTotalTimeElapsed += m_fTimestep; // Add the time to run the previous frame to the total time elapsed
 
-
+			// Clear colour
 			m_pRenderer->actionCommand(RenderCommand::setClearColourCommand(0.8f, 0.8f, 0.8f, 1));
 			m_pRenderer->actionCommand(RenderCommand::clearDepthColourBufferCommand());
 
@@ -316,37 +326,42 @@ namespace Engine
 			// Set scene data ///////////////////
 			/////////////////////////////////////
 
+			// Data for light uniform block
 			glm::vec3 lightColour = glm::vec3(1.0f, 1.0f, 1.0f);
 			glm::vec3 lightPos = glm::vec3(1.0f, 4.0f, -6.0f);
 			glm::vec3 viewPos = glm::vec3(0.0f, 0.0f, -4.5f);
 
-
+			// To give to the renderer to begin a scene
 			SceneData sceneData;
 
+			// Two vectors of data for Matrices uniform block and Light uniform block
 			std::vector<void*> tempData[2];
-			// Matrices data
+			// Add Matrices data to vector
 			tempData[0].push_back((void*)&projection[0][0]);
 			tempData[0].push_back((void*)&view[0][0]);
-			// Light data
+			// Add Light data to vector
 			tempData[1].push_back((void*)&lightColour[0]);
 			tempData[1].push_back((void*)&lightPos[0]);
 			tempData[1].push_back((void*)&viewPos[0]);
 
 			int i = 0;
+			// For each uniform buffer
 			for (std::list<std::shared_ptr<UniformBuffer>>::iterator it = m_uniformBuffers.begin(); it != m_uniformBuffers.end(); ++it)
 			{
+				// Add uniform buffer and vector of data to sceneData
 				sceneData.insert(std::make_pair(*it, tempData[i]));
 				i++;
 			}
-
+			// Begin the scene
 			m_pRenderer->beginScene(sceneData);
-
+			
 			///////////////////////////////////////
 			// colour cube ////////////////////////
 			///////////////////////////////////////
 
+			// Set the flat colour cube model uniform
 			m_pFCMat->setDataElement("u_model", (void*)&FCmodel[0][0]);
-			m_pRenderer->submit(m_pFCMat);
+			m_pRenderer->submit(m_pFCMat); // Submit to the renderer to draw the cube
 
 			///////////////////////////////////////
 			// textured phong cube ////////////////
@@ -356,14 +371,10 @@ namespace Engine
 			if (m_goingUp) texSlot = m_pLetterCubeTexture->getSlot();
 			else texSlot = m_pNumberCubeTexture->getSlot();
 
-			
-			//tpDataElements.insert(std::make_pair("u_lightColour", (void*)&lightColour[0]));
-			//tpDataElements.insert(std::make_pair("u_lightPos", (void*)&lightPos[0]));
-			//tpDataElements.insert(std::make_pair("u_viewPos", (void*)&viewPos[0]));
-
+			// Set the textured phong cube model and texture uniform
 			m_pTPMat->setDataElement("u_model", (void*)&TPmodel[0][0]);
 			m_pTPMat->setDataElement("u_texData", (void*)&texSlot);
-			m_pRenderer->submit(m_pTPMat);
+			m_pRenderer->submit(m_pTPMat); // Submit to the renderer to draw the cube
 
 			m_pWindow->onUpdate(m_fTimestep); // Update the window
 		}

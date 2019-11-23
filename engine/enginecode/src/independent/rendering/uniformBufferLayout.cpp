@@ -1,3 +1,5 @@
+/** \file uniformBufferLayout.cpp
+*/
 #include "engine_pch.h"
 
 #include "rendering/uniformBufferLayout.h"
@@ -27,6 +29,7 @@ namespace Engine
 		{
 			// Set the offset of the element 
 			element.m_iOffset = offset;
+
 			// Get the remainder when the size is divided by 64
 			int remainder = element.m_iSize % 64;
 			if (remainder == 0) // If size is multiple of 64
@@ -45,6 +48,6 @@ namespace Engine
 			}
 		}
 
-		m_iSize = offset;
+		m_iSize = offset; // Make the size the total offset
 	}
 }

@@ -130,15 +130,17 @@ namespace Engine
 			// If in a region
 			if (region != NONE)
 			{
-				// If 'uniform' is in the line
+				// If 'uniform' is in the line or making a uniform buffer layout
 				if (line.find("uniform") != std::string::npos || m_bMakingUniformBuffer)
 				{
+					// If 'layout' is in the line or making a uniform buffer layout
 					if (line.find("layout") != std::string::npos || m_bMakingUniformBuffer)
 					{
+						// Call the identifUniform function passing in true
 						identifyUniform(line, true);
 					}
 					else
-						identifyUniform(line);
+						identifyUniform(line); // Call the identifUniform function, will have defaule false
 				}
 				// Add the line to the region string
 				src[region] += (line + "\n");
@@ -171,15 +173,17 @@ namespace Engine
 			{
 				extractBufferLayout(line); // Get the buffer layout
 			}
-			// If 'uniform' is in the line
+			// If 'uniform' is in the line or making a uniform buffer layout
 			if (line.find("uniform") != std::string::npos || m_bMakingUniformBuffer)
 			{
+				// If 'layout' is in the line or making a uniform buffer layout
 				if (line.find("layout") != std::string::npos || m_bMakingUniformBuffer)
 				{
+					// Call the identifUniform function passing in true
 					identifyUniform(line, true);
 				}
 				else
-					identifyUniform(line);
+					identifyUniform(line); // Call the identifUniform function, will have defaule false
 			}
 			// Add the line to the vertex string
 			src[VERTEX] += (line + "\n");
@@ -197,15 +201,17 @@ namespace Engine
 		// Get a line from the file, while there is a line to be got
 		while (getline(fragmentHandle, line))
 		{
-			// If 'uniform' is in the line
+			// If 'uniform' is in the line or making a uniform buffer layout
 			if (line.find("uniform") != std::string::npos || m_bMakingUniformBuffer)
 			{
+				// If 'layout' is in the line or making a uniform buffer layout
 				if (line.find("layout") != std::string::npos || m_bMakingUniformBuffer)
 				{
+					// Call the identifUniform function passing in true
 					identifyUniform(line, true);
 				}
 				else
-					identifyUniform(line);
+					identifyUniform(line); // Call the identifUniform function, will have defaule false
 			}
 			// Add the line to the fragment string
 			src[FRAGMENT] += (line + "\n");
@@ -222,12 +228,15 @@ namespace Engine
 
 		std::stringstream iss(line);
 
+		// Go through the line
 		while (iss >> type)
 		{
+			// If type is currently 'in'
 			if (type == "in")
 			{
+				// The next word is the type of the uniform so set type to the next word
 				iss >> type;
-				break;
+				break; // Leave the loop
 			}
 		}
 		// Add the element to the buffer layout as a ShaderDataType
@@ -241,53 +250,67 @@ namespace Engine
 
 		std::stringstream iss(line);
 
+		// Go through the line
 		while (iss >> type)
 		{
+			// If 'uniform' is in the line
 			if (line.find("uniform") != std::string::npos)
 			{
+				// If type is currently 'uniform'
 				if (type == "uniform")
 				{
+					// If not in a uniform block
 					if (!block)
 					{
+						// The next word is the type of the uniform so set type to the next word
 						iss >> type;
+						// The next word is the name of the uniform so set name to the next word
 						iss >> name;
+						// Remove the ; from the name
 						name.erase(std::remove(name.begin(), name.end(), ';'), name.end());
 
 						// Add The name and a new uniform object with the name and type to the map
 						m_uniformLayout.insert(std::make_pair(name, new OpenGLUniformElement(name, GLSLStrToSDT(type))));
 
-						break;
+						break; // Leave the while loop
 					}
-					else
+					else // If in a uniform block
 					{
+						// If m_bMakingUniformBuffer is false
 						if (!m_bMakingUniformBuffer)
 						{
+							// The next word is the name of the uniform block so set name to the next word
 							iss >> name;
-							m_sUniformBufferName = name;
-							m_uniformBufferLayouts.insert(std::make_pair(m_sUniformBufferName, UniformBufferLayout()));
-							m_bMakingUniformBuffer = true;
-							break;
+							m_sUniformBufferName = name; // Set the stored name to name as the name of the current uniform block
+							// Add a uniform buffer layout to the map with its name
+							m_uniformBufferLayouts.insert(std::make_pair(m_sUniformBufferName, new UniformBufferLayout()));
+							m_bMakingUniformBuffer = true; // Is now making a uniform buffer
+							break; // Leave the while loop
 						}
 					}
 				}
 			}
-			else if (block)
+			else if (block) // If in a uniform block
 			{
-				if (type == "{")
+				if (type == "{") // If line starts with a {
 				{
-					break;
+					break; // Leave the while loop
 				}
-				else if (type == "};")
+				else if (type == "};") // If line starts with };
 				{
+					// Finished making the uniform buffer
 					m_bMakingUniformBuffer = false;
-					break;
+					break; // Leave the while loop
 				}
-				else
+				else // If line starts with anything else
 				{
-					type.erase(std::remove(type.begin(), type.end(), '\t'), type.end());
+					// If the line starts with a tab
+					if (type.find("\t") != std::string::npos)
+						type.erase(std::remove(type.begin(), type.end(), '\t'), type.end()); // Remove the '\t' from the type
 
-					m_uniformBufferLayouts.at(m_sUniformBufferName).addElement(GLSLStrToSDT(type));
-					break;
+					// Add the uniform element to the layout with the name of the block currently being parsed
+					m_uniformBufferLayouts.at(m_sUniformBufferName)->addElement(GLSLStrToSDT(type));
+					break; // Leave the while loop
 				}
 			}
 		}

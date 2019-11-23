@@ -12,8 +12,8 @@ namespace Engine
 {
 	//! UniformLayout is a map with a string and a pointer to a uniform object
 	using UniformLayout = std::map<std::string, std::shared_ptr<UniformElement>>;
-
-	using UniformBufferLayouts = std::map<std::string, UniformBufferLayout>;
+	//! UniformBufferLayouts is a map with a string and a UniformBufferLayout
+	using UniformBufferLayouts = std::map<std::string, std::shared_ptr<UniformBufferLayout>>;
 	
 	/**
 	\class Shader
@@ -53,7 +53,10 @@ namespace Engine
 		\return The uniform layout
 		*/
 		virtual UniformLayout getUniformLayout() const = 0;
-
+		//! Function to get the uniform buffer layouts
+		/*!
+		\return The uniform buffer layouts
+		*/
 		virtual UniformBufferLayouts getUniformBufferLayouts() const = 0;
 
 		//! Function to create the shader from one file

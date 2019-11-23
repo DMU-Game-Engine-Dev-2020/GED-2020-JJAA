@@ -52,6 +52,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Base class for any render commands.  
+ <a href="class_engine_1_1_render_command.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="render_command_8h_source.html">renderCommand.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Engine::RenderCommand:</div>
@@ -69,22 +72,28 @@ Inheritance diagram for Engine::RenderCommand:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3658c27f2c4b60c802ebfd9515255c6f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#a3658c27f2c4b60c802ebfd9515255c6f">action</a> ()=0</td></tr>
+<tr class="memdesc:a3658c27f2c4b60c802ebfd9515255c6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Action the command.  <a href="class_engine_1_1_render_command.html#a3658c27f2c4b60c802ebfd9515255c6f">More...</a><br /></td></tr>
 <tr class="separator:a3658c27f2c4b60c802ebfd9515255c6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a7c401bffed985eb6d2039669a5126b7c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#a7c401bffed985eb6d2039669a5126b7c">clearDepthColourBufferCommand</a> ()</td></tr>
+<tr class="memdesc:a7c401bffed985eb6d2039669a5126b7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to clear the colour buffer and the depth buffer.  <a href="class_engine_1_1_render_command.html#a7c401bffed985eb6d2039669a5126b7c">More...</a><br /></td></tr>
 <tr class="separator:a7c401bffed985eb6d2039669a5126b7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a758dfce3b9d50ab17d49f420fe1cdee6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#a758dfce3b9d50ab17d49f420fe1cdee6">setClearColourCommand</a> (float r, float g, float b, float a)</td></tr>
+<tr class="memdesc:a758dfce3b9d50ab17d49f420fe1cdee6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to set the colour of the window.  <a href="class_engine_1_1_render_command.html#a758dfce3b9d50ab17d49f420fe1cdee6">More...</a><br /></td></tr>
 <tr class="separator:a758dfce3b9d50ab17d49f420fe1cdee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa2a6f11b4a789ca7ba929a87346e62b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#afa2a6f11b4a789ca7ba929a87346e62b">setDepthTestLessCommand</a> (bool enabled)</td></tr>
+<tr class="memdesc:afa2a6f11b4a789ca7ba929a87346e62b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to set the depth test value to less.  <a href="class_engine_1_1_render_command.html#afa2a6f11b4a789ca7ba929a87346e62b">More...</a><br /></td></tr>
 <tr class="separator:afa2a6f11b4a789ca7ba929a87346e62b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5000d6319edc398a4548c2a50f3d6e6b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#a5000d6319edc398a4548c2a50f3d6e6b">setBackfaceCullingCommand</a> (bool enabled)</td></tr>
+<tr class="memdesc:a5000d6319edc398a4548c2a50f3d6e6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to turn backface culling on or off.  <a href="class_engine_1_1_render_command.html#a5000d6319edc398a4548c2a50f3d6e6b">More...</a><br /></td></tr>
 <tr class="separator:a5000d6319edc398a4548c2a50f3d6e6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="render_command_8h_source.html#l00005">5</a> of file <a class="el" href="render_command_8h_source.html">renderCommand.h</a>.</p>
+<div class="textblock"><p>Base class for any render commands. </p>
+
+<p class="definition">Definition at line <a class="el" href="render_command_8h_source.html#l00011">11</a> of file <a class="el" href="render_command_8h_source.html">renderCommand.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a3658c27f2c4b60c802ebfd9515255c6f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3658c27f2c4b60c802ebfd9515255c6f">&#9670;&nbsp;</a></span>action()</h2>
@@ -108,6 +117,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Action the command. </p>
 
 <p>Implemented in <a class="el" href="class_engine_1_1_open_g_l_set_backface_culling_command.html#add930c659e2c6c5eff0ef2260832ed74">Engine::OpenGLSetBackfaceCullingCommand</a>, <a class="el" href="class_engine_1_1_open_g_l_set_depth_test_less_command.html#a0ddaf5133cdfdcb07282c98a58d472d4">Engine::OpenGLSetDepthTestLessCommand</a>, <a class="el" href="class_engine_1_1_open_g_l_set_clear_colour_command.html#a75ba9aafe67538979aa2e20066d1637a">Engine::OpenGLSetClearColourCommand</a>, and <a class="el" href="class_engine_1_1_open_g_l_clear_depth_colour_buffer_command.html#afc70893db9239ca651b47d66c24f640a">Engine::OpenGLClearDepthColourBufferCommand</a>.</p>
 
@@ -136,7 +147,10 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="render_command_8cpp_source.html#l00010">10</a> of file <a class="el" href="render_command_8cpp_source.html">renderCommand.cpp</a>.</p>
+<p>Function to create a command to clear the colour buffer and the depth buffer. </p>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the command </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="render_command_8cpp_source.html#l00012">12</a> of file <a class="el" href="render_command_8cpp_source.html">renderCommand.cpp</a>.</p>
 
 </div>
 </div>
@@ -164,7 +178,16 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="render_command_8cpp_source.html#l00064">64</a> of file <a class="el" href="render_command_8cpp_source.html">renderCommand.cpp</a>.</p>
+<p>Function to create a command to turn backface culling on or off. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enabled</td><td>If turning on or off </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the command </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="render_command_8cpp_source.html#l00066">66</a> of file <a class="el" href="render_command_8cpp_source.html">renderCommand.cpp</a>.</p>
 
 </div>
 </div>
@@ -214,7 +237,19 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="render_command_8cpp_source.html#l00028">28</a> of file <a class="el" href="render_command_8cpp_source.html">renderCommand.cpp</a>.</p>
+<p>Function to create a command to set the colour of the window. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>New value for the red channel </td></tr>
+    <tr><td class="paramname">g</td><td>New value for the green channel </td></tr>
+    <tr><td class="paramname">b</td><td>New value for the blue channel </td></tr>
+    <tr><td class="paramname">a</td><td>New value for the alpha channel </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the command </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="render_command_8cpp_source.html#l00030">30</a> of file <a class="el" href="render_command_8cpp_source.html">renderCommand.cpp</a>.</p>
 
 </div>
 </div>
@@ -242,7 +277,16 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="render_command_8cpp_source.html#l00046">46</a> of file <a class="el" href="render_command_8cpp_source.html">renderCommand.cpp</a>.</p>
+<p>Function to create a command to set the depth test value to less. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enabled</td><td>If turning on or off </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the command </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="render_command_8cpp_source.html#l00048">48</a> of file <a class="el" href="render_command_8cpp_source.html">renderCommand.cpp</a>.</p>
 
 </div>
 </div>

@@ -8,7 +8,7 @@ namespace Engine
 {
 	/**
 	\class OpenGLBasicRenderer
-	\brief Open GL specific rendering class which separates the scene data from the draw data
+	\brief Open GL specific rendering class which draws everything while separating the scene data from the draw data
 	*/
 	class OpenGLBasicRenderer : public Renderer
 	{

@@ -26,10 +26,10 @@ namespace Engine
 		BufferLayout m_bufferLayout; //!< The buffer layout
 		UniformLayout m_uniformLayout; //!< The uniform layout
 
-		UniformBufferLayouts m_uniformBufferLayouts;
-		std::string m_sUniformBufferName;
+		UniformBufferLayouts m_uniformBufferLayouts; //!< The uniform buffer layouts
+		std::string m_sUniformBufferName; //!< The name of the current uniform buffer being parsed from the shader file
 
-		bool m_bMakingUniformBuffer;
+		bool m_bMakingUniformBuffer; //!< If parsing a uniform buffer layout
 
 		//! Function to parse a shader source file
 		/*!
@@ -106,7 +106,10 @@ namespace Engine
 		\return The uniform layout
 		*/
 		inline UniformLayout getUniformLayout() const override { return m_uniformLayout; }
-
+		//! Function to get the uniform buffer layouts
+		/*!
+		\return The uniform buffer layouts
+		*/
 		inline UniformBufferLayouts getUniformBufferLayouts() const override { return m_uniformBufferLayouts; }
 	};
 }

@@ -11,36 +11,44 @@ namespace Engine
 {
 	void OpenGLClearDepthColourBufferCommand::action()
 	{
+		// Clear the colour and depth buffers
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
 
 	void OpenGLSetClearColourCommand::action()
 	{
+		// Clear the window to display a colour
 		glClearColor(m_r, m_g, m_b, m_a);
 	}
 
 	void OpenGLSetDepthTestLessCommand::action()
 	{
+		// If it is being enabled
 		if (m_bEnabled)
 		{
+			// Enable depth test
 			glEnable(GL_DEPTH_TEST);
-			glDepthFunc(GL_LESS);
+			glDepthFunc(GL_LESS); // Set to less
 		}
-		else
+		else // If it is being disabled
 		{
+			// Disable depth test
 			glDisable(GL_DEPTH_TEST);
 		}
 	}
 
 	void OpenGLSetBackfaceCullingCommand::action()
 	{
+		// If it is being enabled
 		if (m_bEnabled)
 		{
+			// Enable face culling
 			glEnable(GL_CULL_FACE);
-			glCullFace(GL_BACK);
+			glCullFace(GL_BACK); // Set to back face culling
 		}
-		else
+		else // If it is being disabled
 		{
+			// Disable face culling
 			glDisable(GL_CULL_FACE);
 		}
 	}

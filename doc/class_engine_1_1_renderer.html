@@ -52,6 +52,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Base class for any renderer.  
+ <a href="class_engine_1_1_renderer.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="renderer_8h_source.html">renderer.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Engine::Renderer:</div>
@@ -59,34 +62,42 @@ Inheritance diagram for Engine::Renderer:</div>
  <div class="center">
   <img src="class_engine_1_1_renderer.png" usemap="#Engine::Renderer_map" alt=""/>
   <map id="Engine::Renderer_map" name="Engine::Renderer_map">
-<area href="class_engine_1_1_open_g_l_basic_renderer.html" title="Open GL specific rendering class which separates the scene data from the draw data." alt="Engine::OpenGLBasicRenderer" shape="rect" coords="0,56,228,80"/>
-<area href="class_engine_1_1_open_g_l_super_simple_renderer.html" alt="Engine::OpenGLSuperSimpleRenderer" shape="rect" coords="238,56,466,80"/>
+<area href="class_engine_1_1_open_g_l_basic_renderer.html" title="Open GL specific rendering class which draws everything while separating the scene data from the draw..." alt="Engine::OpenGLBasicRenderer" shape="rect" coords="0,56,228,80"/>
+<area href="class_engine_1_1_open_g_l_super_simple_renderer.html" title="Open GL specific rendering class which draws everything." alt="Engine::OpenGLSuperSimpleRenderer" shape="rect" coords="238,56,466,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a08b134cdb60c14ab8712b6aac7b74825"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_renderer.html#a08b134cdb60c14ab8712b6aac7b74825">actionCommand</a> (<a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *command)=0</td></tr>
+<tr class="memdesc:a08b134cdb60c14ab8712b6aac7b74825"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to perform a render command.  <a href="class_engine_1_1_renderer.html#a08b134cdb60c14ab8712b6aac7b74825">More...</a><br /></td></tr>
 <tr class="separator:a08b134cdb60c14ab8712b6aac7b74825"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01506d67e6825ecc1e8918011caddcb7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_renderer.html#a01506d67e6825ecc1e8918011caddcb7">beginScene</a> (const <a class="el" href="namespace_engine.html#aca9416107541cb949ca38b0df5c32c4a">SceneData</a> &amp;sceneData)=0</td></tr>
+<tr class="memdesc:a01506d67e6825ecc1e8918011caddcb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to prepare a scene for submission.  <a href="class_engine_1_1_renderer.html#a01506d67e6825ecc1e8918011caddcb7">More...</a><br /></td></tr>
 <tr class="separator:a01506d67e6825ecc1e8918011caddcb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c1955ca3e67b6712917aa9f9be17fb8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_renderer.html#a6c1955ca3e67b6712917aa9f9be17fb8">endScene</a> ()=0</td></tr>
+<tr class="memdesc:a6c1955ca3e67b6712917aa9f9be17fb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">End a scene.  <a href="class_engine_1_1_renderer.html#a6c1955ca3e67b6712917aa9f9be17fb8">More...</a><br /></td></tr>
 <tr class="separator:a6c1955ca3e67b6712917aa9f9be17fb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab73ef5bc37d52fbeeed38ab950cf74a6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_renderer.html#ab73ef5bc37d52fbeeed38ab950cf74a6">submit</a> (const std::shared_ptr&lt; <a class="el" href="class_engine_1_1_material.html">Material</a> &gt; &amp;material)=0</td></tr>
+<tr class="memdesc:ab73ef5bc37d52fbeeed38ab950cf74a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to submit a material for drawing.  <a href="class_engine_1_1_renderer.html#ab73ef5bc37d52fbeeed38ab950cf74a6">More...</a><br /></td></tr>
 <tr class="separator:ab73ef5bc37d52fbeeed38ab950cf74a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac64e2e87d33c3b7db7659de67c186e65"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_renderer.html#ac64e2e87d33c3b7db7659de67c186e65">flush</a> ()=0</td></tr>
+<tr class="memdesc:ac64e2e87d33c3b7db7659de67c186e65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw everything.  <a href="class_engine_1_1_renderer.html#ac64e2e87d33c3b7db7659de67c186e65">More...</a><br /></td></tr>
 <tr class="separator:ac64e2e87d33c3b7db7659de67c186e65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:acbec09e027dec8247ed8c7f089dc254b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_renderer.html">Renderer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_renderer.html#acbec09e027dec8247ed8c7f089dc254b">createSimple3D</a> ()</td></tr>
+<tr class="memdesc:acbec09e027dec8247ed8c7f089dc254b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a super simple renderer.  <a href="class_engine_1_1_renderer.html#acbec09e027dec8247ed8c7f089dc254b">More...</a><br /></td></tr>
 <tr class="separator:acbec09e027dec8247ed8c7f089dc254b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2807548e2dac3623d757de6377b7cd26"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_renderer.html">Renderer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_renderer.html#a2807548e2dac3623d757de6377b7cd26">createBasic3D</a> ()</td></tr>
+<tr class="memdesc:a2807548e2dac3623d757de6377b7cd26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a basic renderer.  <a href="class_engine_1_1_renderer.html#a2807548e2dac3623d757de6377b7cd26">More...</a><br /></td></tr>
 <tr class="separator:a2807548e2dac3623d757de6377b7cd26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="renderer_8h_source.html#l00014">14</a> of file <a class="el" href="renderer_8h_source.html">renderer.h</a>.</p>
+<div class="textblock"><p>Base class for any renderer. </p>
+
+<p class="definition">Definition at line <a class="el" href="renderer_8h_source.html#l00022">22</a> of file <a class="el" href="renderer_8h_source.html">renderer.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a08b134cdb60c14ab8712b6aac7b74825"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a08b134cdb60c14ab8712b6aac7b74825">&#9670;&nbsp;</a></span>actionCommand()</h2>
@@ -111,6 +122,14 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Function to perform a render command. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>A pointer to the command class which will do something </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="class_engine_1_1_open_g_l_basic_renderer.html#ad0001447e7f8a847182dc5ecc129dc90">Engine::OpenGLBasicRenderer</a>, and <a class="el" href="class_engine_1_1_open_g_l_super_simple_renderer.html#aa4600d8ec1d94a922755878402e0b453">Engine::OpenGLSuperSimpleRenderer</a>.</p>
 
@@ -140,6 +159,14 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Function to prepare a scene for submission. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sceneData</td><td>A map of pointers to uniform buffers and the data to be set </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="class_engine_1_1_open_g_l_basic_renderer.html#af764eb85e0ee4e0c04c7afc2863b7ce1">Engine::OpenGLBasicRenderer</a>, and <a class="el" href="class_engine_1_1_open_g_l_super_simple_renderer.html#a1514ec09d2bf78fe67d56e11aecbd333">Engine::OpenGLSuperSimpleRenderer</a>.</p>
 
 </div>
@@ -167,7 +194,10 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00029">29</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p>Function to create a basic renderer. </p>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the renderer </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00030">30</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -194,7 +224,10 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00012">12</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p>Function to create a super simple renderer. </p>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the renderer </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00013">13</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -220,6 +253,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>End a scene. </p>
 
 <p>Implemented in <a class="el" href="class_engine_1_1_open_g_l_basic_renderer.html#a8c8a4555834fc3efe1eb4f3ad55a3090">Engine::OpenGLBasicRenderer</a>, and <a class="el" href="class_engine_1_1_open_g_l_super_simple_renderer.html#ae0a3c66408776b0009d76c663ba0a874">Engine::OpenGLSuperSimpleRenderer</a>.</p>
 
@@ -248,6 +283,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Draw everything. </p>
+
 <p>Implemented in <a class="el" href="class_engine_1_1_open_g_l_basic_renderer.html#a4326e447ab027f0f1ddec942fa303884">Engine::OpenGLBasicRenderer</a>, and <a class="el" href="class_engine_1_1_open_g_l_super_simple_renderer.html#ae806582a6c285732dca0449ddc13edfb">Engine::OpenGLSuperSimpleRenderer</a>.</p>
 
 </div>
@@ -275,6 +312,14 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Function to submit a material for drawing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">material</td><td>A pointer to the material being drawn </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="class_engine_1_1_open_g_l_basic_renderer.html#afe05c88755442423153737b164522528">Engine::OpenGLBasicRenderer</a>, and <a class="el" href="class_engine_1_1_open_g_l_super_simple_renderer.html#a1f5e6fa7750589be38c449eb612e735c">Engine::OpenGLSuperSimpleRenderer</a>.</p>
 
