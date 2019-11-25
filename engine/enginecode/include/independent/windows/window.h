@@ -113,6 +113,10 @@ namespace Engine
 		*/
 		virtual bool isVSync() const = 0;
 
+		virtual int getViewportWidth() const = 0;
+
+		virtual int getViewportHeight() const = 0;
+
 		//! Create a window and return a pointer to it
 		/*!
 		\param properties The properties given to the window, set to default values if none are provided

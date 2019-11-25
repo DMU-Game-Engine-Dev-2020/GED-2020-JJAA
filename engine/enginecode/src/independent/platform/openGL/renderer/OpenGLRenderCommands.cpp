@@ -52,4 +52,23 @@ namespace Engine
 			glDisable(GL_CULL_FACE);
 		}
 	}
+
+	void OpenGLClearColourBufferCommand::action()
+	{
+		glClear(GL_COLOR_BUFFER_BIT);
+	}
+
+	void OpenGLSetOneMinusAlphaBlendingCommand::action()
+	{
+		// If it is being enabled
+		if (m_bEnabled)
+		{
+			glEnable(GL_BLEND);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		}
+		else // If it is being disabled
+		{
+			glDisable(GL_BLEND);
+		}
+	}
 }

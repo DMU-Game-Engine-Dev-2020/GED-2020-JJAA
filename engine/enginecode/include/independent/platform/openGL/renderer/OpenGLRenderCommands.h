@@ -75,4 +75,27 @@ namespace Engine
 		OpenGLSetBackfaceCullingCommand(bool enabled) : m_bEnabled(enabled) {}
 		void action() override; //!< Action the command
 	};
+
+
+	class OpenGLClearColourBufferCommand : public RenderCommand
+	{
+	public:
+		//! Constructor
+		OpenGLClearColourBufferCommand() {}
+		void action() override; //!< Action the command
+	};
+
+
+	class OpenGLSetOneMinusAlphaBlendingCommand : public RenderCommand
+	{
+	private:
+		bool m_bEnabled; //!< If turning on or off
+	public:
+		//! Constructor
+		/*!
+		\param enabled If turning on or off
+		*/
+		OpenGLSetOneMinusAlphaBlendingCommand(bool enabled) : m_bEnabled(enabled) {}
+		void action() override; //!< Action the command
+	};
 }

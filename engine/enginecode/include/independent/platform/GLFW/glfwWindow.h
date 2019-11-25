@@ -18,6 +18,9 @@ namespace Engine
 		GLFWwindow* m_pNativeWindow; //!< Pointer to GLFWwindow (the window being created)
 		GLFWmonitor* m_pMonitor; //!< Pointer to GLFWmonitor (used to get the screen size)
 
+		int m_iViewportWidth; // The new width of the viewport
+		int m_iViewportHeight; // The new height of the viewport
+
 		//! Initialize the window, called from the constructor when making a new window
 		/*!
 		\param properties The properties to give the new window
@@ -85,5 +88,9 @@ namespace Engine
 		\return A bool for if vSync is on
 		*/
 		inline bool isVSync() const override { return m_properties.m_isVSync; }
+
+		inline int getViewportWidth() const override { return m_iViewportWidth; }
+
+		inline int getViewportHeight() const override { return m_iViewportHeight; }
 	};
 }

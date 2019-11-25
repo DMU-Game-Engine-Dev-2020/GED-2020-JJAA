@@ -39,5 +39,9 @@ namespace Engine
 		\return A pointer to the command
 		*/
 		static RenderCommand* setBackfaceCullingCommand(bool enabled);
+
+		static RenderCommand* clearColourBufferCommand();
+
+		static RenderCommand* setOneMinusAlphaBlendingCommand(bool enabled);
 	};
 }

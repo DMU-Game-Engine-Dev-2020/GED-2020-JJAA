@@ -14,6 +14,8 @@
 
 #include "systems/resourceManager.h"
 
+#include "rendering/character.h"
+
 namespace Engine 
 {
 	/**
@@ -32,22 +34,26 @@ namespace Engine
 		std::shared_ptr<WindowsSystem> m_pWindows; //!< Pointer to the Windows system
 		std::shared_ptr<ResourceManager> m_pResources; //!< Pointer to the resource manager system
 
-		std::shared_ptr<Texture> m_pLetterCubeTexture; //!< Pointer to the letter cube texture
-		std::shared_ptr<Texture> m_pNumberCubeTexture; //!< Pointer to the number cube texture
+		//std::shared_ptr<Texture> m_pLetterCubeTexture; //!< Pointer to the letter cube texture
+		//std::shared_ptr<Texture> m_pNumberCubeTexture; //!< Pointer to the number cube texture
 
-		std::shared_ptr<Material> m_pFCMat; //!< Pointer to the flat colour material
-		std::shared_ptr<Material> m_pTPMat; //!< Pointer to the textured phong material
+		//std::shared_ptr<Material> m_pFCMat; //!< Pointer to the flat colour material
+		//std::shared_ptr<Material> m_pTPMat; //!< Pointer to the textured phong material
 
-		std::shared_ptr<UniformBuffer> m_matricesUBO;
-		std::shared_ptr<UniformBuffer> m_lightUBO;
+		//std::shared_ptr<UniformBuffer> m_matricesUBO;
+		//std::shared_ptr<UniformBuffer> m_lightUBO;
 
-		std::unique_ptr<Renderer> m_pRenderer; //!< Pointer to the renderer
+		//std::unique_ptr<Renderer> m_pRenderer; //!< Pointer to the renderer
 
 		bool m_bRunning; //!< If the application is running
 		float m_fTotalTimeElapsed; //!< The total time the program has been active in seconds
 		float m_fTimestep; //!< Time in seconds for the last frame
 
 		std::unique_ptr<Window> m_pWindow; //!< Unique pointer to the window
+
+		std::shared_ptr<Texture> m_pGlyphTexture;
+		std::shared_ptr<Material> m_pTextMat;
+		std::unique_ptr<Renderer> m_pTextRenderer;
 
 #pragma region TempVars
 // Temp stuff

@@ -185,9 +185,6 @@ namespace Engine
 		int iWindowWidth; // The current width of the window in pixels
 		int iWindowHeight; // The current height of the window in pixels
 
-		int iViewportWidth; // The new width of the viewport
-		int iViewportHeight; // The new height of the viewport
-
 		int iViewportPositionX = 0; // The new x position of the viewport
 		int iViewportPositionY = 0; // The new y position of the viewport
 
@@ -195,32 +192,32 @@ namespace Engine
 		glfwGetFramebufferSize(m_pNativeWindow, &iWindowWidth, &iWindowHeight);
 
 		// Set the viewport to the current window size
-		iViewportWidth = iWindowWidth;
-		iViewportHeight = iWindowHeight;
+		m_iViewportWidth = iWindowWidth;
+		m_iViewportHeight = iWindowHeight;
 
 		// If window is wider than the aspect ratio allows
 		if (iWindowWidth > iWindowHeight * m_properties.m_fAspect) // Pillar box
 		{
 			// Calculate viewport width using current window height
-			iViewportWidth = iWindowHeight * m_properties.m_fAspect;
+			m_iViewportWidth = iWindowHeight * m_properties.m_fAspect;
 			// Set x position so that the viewport is in the middle of the window
-			iViewportPositionX = (iWindowWidth - iViewportWidth) / 2;
+			iViewportPositionX = (iWindowWidth - m_iViewportWidth) / 2;
 		}
 		// If window is taller than the aspect ratio allows
 		else if (iWindowHeight > iWindowWidth / m_properties.m_fAspect) // Letter box
 		{
 			// Calculate viewport height using current window width
-			iViewportHeight = iWindowWidth / m_properties.m_fAspect;
+			m_iViewportHeight = iWindowWidth / m_properties.m_fAspect;
 			// Set y position so that the viewport is in the middle of the window
-			iViewportPositionY = (iWindowHeight - iViewportHeight) / 2;
+			iViewportPositionY = (iWindowHeight - m_iViewportHeight) / 2;
 		}
 
-		glViewport(iViewportPositionX, iViewportPositionY, iViewportWidth, iViewportHeight);
+		glViewport(iViewportPositionX, iViewportPositionY, m_iViewportWidth, m_iViewportHeight);
 
 		glEnable(GL_SCISSOR_TEST);
 
 		//glClear(GL_COLOR_BUFFER_BIT);
-		glScissor(iViewportPositionX, iViewportPositionY, iViewportWidth, iViewportHeight);
+		glScissor(iViewportPositionX, iViewportPositionY, m_iViewportWidth, m_iViewportHeight);
 
 		glDisable(GL_SCISSOR_TEST);
 	}
