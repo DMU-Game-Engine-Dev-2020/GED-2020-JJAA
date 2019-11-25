@@ -53,7 +53,7 @@ namespace Engine
 			for (auto& element : buffers)
 			{
 				// Add a new uniform buffer
-				addUniformBuffer(element.first, element.second, name);
+				addUBO(element.first, element.second, name);
 			}
 		}
 
@@ -76,7 +76,7 @@ namespace Engine
 			for (auto& element : buffers)
 			{
 				// Add a new uniform buffer
-				addUniformBuffer(element.first, element.second, name);
+				addUBO(element.first, element.second, name);
 			}
 		}
 
@@ -131,7 +131,7 @@ namespace Engine
 		return temp; // Return the temporary pointer
 	}
 
-	std::shared_ptr<UniformBuffer> ResourceManager::addUniformBuffer(const std::string& name, std::shared_ptr<UniformBufferLayout> layout, const std::string& shaderName)
+	std::shared_ptr<UniformBuffer> ResourceManager::addUBO(const std::string& name, std::shared_ptr<UniformBufferLayout> layout, const std::string& shaderName)
 	{
 		std::shared_ptr<UniformBuffer> temp; // Make a temporary shared pointer
 
@@ -150,9 +150,28 @@ namespace Engine
 		return temp; // Return the temporary pointer
 	}
 
-	std::list<std::shared_ptr<UniformBuffer>> ResourceManager::getUniformBuffers()
+	std::shared_ptr<UniformBuffer> ResourceManager::addUBO(const std::string& name, unsigned int rangeStart, unsigned int rangeEnd, std::shared_ptr<UniformBufferLayout> layout, const std::string& shaderName)
 	{
-		return s_UBOs.getAll(); // Get all of the uniform buffers in the asset manager
+		std::shared_ptr<UniformBuffer> temp; // Make a temporary shared pointer
+
+		// If the uniform buffer doesn't already exist
+		if (!s_UBOs.contains(name))
+		{
+			// Create a new buffer on the temporary pointer
+			temp.reset(UniformBuffer::create(layout->getSize(), rangeStart, rangeEnd, *layout));
+			s_UBOs.add(name, temp); // Add the buffer to the uniform buffer asset manager
+		}
+		else // If the uniform buffer already exists
+		{
+			temp = s_UBOs.get(name); // Set the temporary pointer to the uniform buffer
+		}
+		temp->attachShaderBlock(s_shaders.get(shaderName), name); // Attach the shader block to the buffer
+		return temp; // Return the temporary pointer
+	}
+
+	std::shared_ptr<UniformBuffer> ResourceManager::getUBO(const std::string& name)
+	{
+		return s_UBOs.get(name);
 	}
 
 	std::string ResourceManager::parseFilePath(const std::string& str)

@@ -29,9 +29,11 @@ namespace Engine
 		{
 			// Set the offset of the element 
 			element.m_iOffset = offset;
+			// Set the total size of the layout to the offset + the size of the current element
+			m_iSize = offset + element.m_iSize;
 
 			// Get the remainder when the size is divided by 64
-			int remainder = element.m_iSize % 64;
+			int remainder = element.m_iSize % 16;
 			if (remainder == 0) // If size is multiple of 64
 			{
 				// Increase the offset to what it will be for the next element
@@ -42,12 +44,10 @@ namespace Engine
 			else // If size is not multiple of 64
 			{
 				// Round size up to the nearest multiple of 64 and increase the offset
-				offset += ((element.m_iSize + 64) - remainder);
+				offset += ((element.m_iSize + 16) - remainder);
 				// Increase the stride
-				m_iStride += ((element.m_iSize + 64) - remainder);
+				m_iStride += ((element.m_iSize + 16) - remainder);
 			}
 		}
-
-		m_iSize = offset; // Make the size the total offset
 	}
 }

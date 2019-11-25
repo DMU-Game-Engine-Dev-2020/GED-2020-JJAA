@@ -9,8 +9,6 @@
 #include "platform/GLFW/GLFWWindowsSystem.h"
 #endif // NG_PLATFORM_WINDOWS
 
-#include <glad/glad.h>
-
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
@@ -160,8 +158,9 @@ namespace Engine
 
 		FCmodel = glm::translate(glm::mat4(1), glm::vec3(1.5, 0, 3));
 		TPmodel = glm::translate(glm::mat4(1), glm::vec3(-1.5, 0, 3));
-		// Get a list of pointers to all of the unfirom buffers
-		m_uniformBuffers = m_pResources->getUniformBuffers();
+
+		m_matricesUBO = m_pResources->getUBO("Matrices");
+		m_lightUBO = m_pResources->getUBO("Light");
 
 		TIMER_NEWFRAME; // Tell the timer to start for a new frame
 	}
@@ -327,9 +326,9 @@ namespace Engine
 			/////////////////////////////////////
 
 			// Data for light uniform block
-			glm::vec3 lightColour = glm::vec3(1.0f, 1.0f, 1.0f);
-			glm::vec3 lightPos = glm::vec3(1.0f, 4.0f, -6.0f);
-			glm::vec3 viewPos = glm::vec3(0.0f, 0.0f, -4.5f);
+			glm::vec4 lightColour = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+			glm::vec4 lightPos = glm::vec4(1.0f, 4.0f, -6.0f, 1.0f);
+			glm::vec4 viewPos = glm::vec4(0.0f, 0.0f, -4.5f, 1.0f);
 
 			// To give to the renderer to begin a scene
 			SceneData sceneData;
@@ -339,19 +338,16 @@ namespace Engine
 			// Add Matrices data to vector
 			tempData[0].push_back((void*)&projection[0][0]);
 			tempData[0].push_back((void*)&view[0][0]);
+			
+			sceneData.insert(std::make_pair(m_matricesUBO, tempData[0]));
+
 			// Add Light data to vector
 			tempData[1].push_back((void*)&lightColour[0]);
 			tempData[1].push_back((void*)&lightPos[0]);
 			tempData[1].push_back((void*)&viewPos[0]);
 
-			int i = 0;
-			// For each uniform buffer
-			for (std::list<std::shared_ptr<UniformBuffer>>::iterator it = m_uniformBuffers.begin(); it != m_uniformBuffers.end(); ++it)
-			{
-				// Add uniform buffer and vector of data to sceneData
-				sceneData.insert(std::make_pair(*it, tempData[i]));
-				i++;
-			}
+			sceneData.insert(std::make_pair(m_lightUBO, tempData[1]));
+			
 			// Begin the scene
 			m_pRenderer->beginScene(sceneData);
 			

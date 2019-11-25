@@ -38,7 +38,8 @@ namespace Engine
 		std::shared_ptr<Material> m_pFCMat; //!< Pointer to the flat colour material
 		std::shared_ptr<Material> m_pTPMat; //!< Pointer to the textured phong material
 
-		std::list<std::shared_ptr<UniformBuffer>> m_uniformBuffers; //!< List of pointers to all uniform buffers
+		std::shared_ptr<UniformBuffer> m_matricesUBO;
+		std::shared_ptr<UniformBuffer> m_lightUBO;
 
 		std::unique_ptr<Renderer> m_pRenderer; //!< Pointer to the renderer
 

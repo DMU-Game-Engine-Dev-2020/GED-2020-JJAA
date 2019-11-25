@@ -115,12 +115,14 @@ namespace Engine
 		\param shaderName The name of the shader the layout came from
 		\return A pointer to the buffer
 		*/
-		static std::shared_ptr<UniformBuffer> addUniformBuffer(const std::string& name, std::shared_ptr<UniformBufferLayout> layout, const std::string& shaderName);
+		static std::shared_ptr<UniformBuffer> addUBO(const std::string& name, std::shared_ptr<UniformBufferLayout> layout, const std::string& shaderName);
 
-		//! Function to get a list of all of the uniform buffers
+		static std::shared_ptr<UniformBuffer> addUBO(const std::string& name, unsigned int rangeStart, unsigned int rangeEnd, std::shared_ptr<UniformBufferLayout> layout, const std::string& shaderName);
+
+		//! Function to get a uniform buffer
 		/*!
-		\return A list of pointers to all of the uniform buffers
+		\return A pointer to a uniform buffer
 		*/
-		static std::list<std::shared_ptr<UniformBuffer>> getUniformBuffers();
+		static std::shared_ptr<UniformBuffer> getUBO(const std::string& name);
 	};
 }
