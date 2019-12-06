@@ -7,14 +7,13 @@ layout(location = 1) in vec2 a_texCoord;
 
 out vec2 texCoord;
 
-uniform mat4 u_view;
-uniform mat4 u_projection;
+uniform mat4 u_viewProjection;
 uniform mat4 u_model;
 
 void main()
 {
 	texCoord = a_texCoord;
-	gl_Position = u_projection * u_view * u_model * vec4(a_vertexPosition, 0, 1);
+	gl_Position = u_viewProjection * u_model * vec4(a_vertexPosition, 0, 1);
 }
 
 #region Fragment

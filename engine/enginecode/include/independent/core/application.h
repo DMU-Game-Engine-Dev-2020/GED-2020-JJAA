@@ -16,6 +16,11 @@
 
 #include "rendering/text/character.h"
 
+
+#include "cameras/cameraController.h"
+#include "cameras/freeOrthoCameraController2D.h"
+#include "cameras/FPSCameraControllerEuler.h"
+
 namespace Engine 
 {
 	/**
@@ -55,6 +60,11 @@ namespace Engine
 		std::shared_ptr<Material> m_pTextMat;
 
 		std::unique_ptr<Renderer> m_pTextRenderer;
+
+
+		std::shared_ptr<FreeOrthoCameraController2D> m_2DCam;
+		std::shared_ptr<FPSCameraControllerEuler> m_FPSCam;
+		bool m_bCam = false;
 
 #pragma region TempVars
 // Temp stuff
@@ -111,6 +121,7 @@ namespace Engine
 		\return A boolean representing if the event was successful or not
 		*/
 		bool onKeyPressed(KeyPressedEvent& e); 
+
 		void run(); //!< Main loop
 
 		//! Used to get the window

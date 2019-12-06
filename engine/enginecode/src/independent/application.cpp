@@ -168,13 +168,6 @@ namespace Engine
 
 		m_pTextRenderer.reset(Renderer::createText());
 
-		std::unordered_map<std::string, unsigned int> map;
-		map.insert(std::make_pair("assets/fonts/arial_narrow_7.ttf", 64));
-
-		m_pResources->populateCharacters(map);
-
-		m_pGlyphTexture = m_pResources->getFontTexture();
-
 		FT_Library ft;
 		FT_Face face;
 		std::string filepath("assets/fonts/arial_narrow_7.ttf");
@@ -222,6 +215,13 @@ namespace Engine
 		tempSetupVAO->setIndexBuffer(m_pResources->addIndexBuffer("textIndices", textIndices, 4));
 	
 		m_pTextMat = m_pResources->addMaterial("textMat", tempSetupShader, tempSetupVAO);
+
+
+		m_2DCam.reset(new FreeOrthoCameraController2D());
+		m_2DCam->init(0.f, 0.f, 800.f, 600.f);
+
+		m_FPSCam.reset(new FPSCameraControllerEuler());
+		m_FPSCam->init();
 
 		TIMER_NEWFRAME; // Tell the timer to start for a new frame
 	}
@@ -313,11 +313,7 @@ namespace Engine
 		// If the enter key is pressed
 		if (e.getKeyCode() == ENGINE_KEY_ENTER)
 		{
-			// Use the input poller to get the mouse position
-			float mouseX = InputPoller::getMouseX();
-			float mouseY = InputPoller::getMouseY();
-
-			LOG_TRACE("Mouse at: {0}, {1}", mouseX, mouseY); // Log the mouse position
+			m_bCam = !m_bCam;
 			return true; // Leave the function
 		}
 		return false;
@@ -344,13 +340,18 @@ namespace Engine
 			m_pRenderer->actionCommand(RenderCommand::clearDepthColourBufferCommand());
 
 
-			glm::mat4 projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.0f); // Basic 4:3 camera
+			//glm::mat4 projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.0f); // Basic 4:3 camera
+			//
+			//glm::mat4 view = glm::lookAt(
+			//	glm::vec3(0.0f, 0.0f, -4.5f), // Camera is at (0.0,0.0,-4.5), in World Space
+			//	glm::vec3(0.f, 0.f, 0.f), // and looks at the origin
+			//	glm::vec3(0.f, 1.f, 0.f)  // Standing straight  up
+			//);
 
-			glm::mat4 view = glm::lookAt(
-				glm::vec3(0.0f, 0.0f, -4.5f), // Camera is at (0.0,0.0,-4.5), in World Space
-				glm::vec3(0.f, 0.f, 0.f), // and looks at the origin
-				glm::vec3(0.f, 1.f, 0.f)  // Standing straight  up
-			);
+			if (m_bCam)
+				m_FPSCam->onUpdate(m_fTimestep);
+			else
+				m_2DCam->onUpdate(m_fTimestep);
 
 			/////////////////////////////////////
 			// Moving stuff /////////////////////
@@ -398,8 +399,8 @@ namespace Engine
 			// Two vectors of data for Matrices uniform block and Light uniform block
 			std::vector<void*> tempData[2];
 			// Add Matrices data to vector
-			tempData[0].push_back((void*)&projection[0][0]);
-			tempData[0].push_back((void*)&view[0][0]);
+			tempData[0].push_back((void*)&m_FPSCam->getCamera()->getProjection()[0][0]);
+			tempData[0].push_back((void*)&m_FPSCam->getCamera()->getView()[0][0]);
 			
 			sceneData.insert(std::make_pair(m_matricesUBO, tempData[0]));
 			
@@ -441,13 +442,12 @@ namespace Engine
 			m_pTextRenderer->actionCommand(RenderCommand::setOneMinusAlphaBlendingCommand(true));
 
 			glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(100, 200, 0));
-			glm::mat4 textView(1.0f);
-			glm::mat4 textProjection = glm::ortho(0.0f, (float)m_pWindow->getViewportWidth(), (float)m_pWindow->getViewportHeight(), 0.0f);
+			//glm::mat4 textView(1.0f);
+			//glm::mat4 textProjection = glm::ortho(0.0f, (float)m_pWindow->getViewportWidth(), (float)m_pWindow->getViewportHeight(), 0.0f);
 			texSlot = m_pGlyphTexture->getSlot();
 			glm::vec3 colour(1.0f, 0.3f, 0.6f);
 			m_pTextMat->setDataElement("u_model", (void*)&model[0][0]);
-			m_pTextMat->setDataElement("u_view", (void*)&textView[0][0]);
-			m_pTextMat->setDataElement("u_projection", (void*)&textProjection[0][0]);
+			m_pTextMat->setDataElement("u_viewProjection", (void*)&m_2DCam->getCamera()->getViewProjection()[0][0]);
 			m_pTextMat->setDataElement("u_texData", (void*)&texSlot);
 			m_pTextMat->setDataElement("u_fontColour", (void*)&colour[0]);
 			
