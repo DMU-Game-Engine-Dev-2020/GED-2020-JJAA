@@ -177,10 +177,10 @@ namespace Engine
 		glfwPollEvents(); // GLFW polls events (check current status)
 		m_context->swapBuffers(); // Swap buffers for GLFW graphics context
 
-		//glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+		//glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		//glClearColor(1, 0, 0, 1);
+		glClearColor(1, 0, 0, 1);
 
 		int iWindowWidth; // The current width of the window in pixels
 		int iWindowHeight; // The current height of the window in pixels

@@ -23,6 +23,11 @@ namespace Engine
 		static AssetManager<Material> s_materials; //!< Material asset manager
 		static AssetManager<UniformBuffer> s_UBOs; //!< Uniform buffer asset manager
 
+		static std::map<std::string, std::vector<Character>> s_characters;
+		static const int s_ASCIIStart = 32;
+		static const int s_ASCIIEnd = 126;
+		static std::shared_ptr<Texture> s_fontTexture;
+
 		//! Function to get the name of a file from a file path
 		/*!
 		\param str The file path
@@ -123,6 +128,14 @@ namespace Engine
 		/*!
 		\return A pointer to a uniform buffer
 		*/
-		static std::shared_ptr<UniformBuffer> getUBO(const std::string& name);
+		inline static std::shared_ptr<UniformBuffer> getUBO(const std::string& name) { return s_UBOs.get(name); }
+		////////////  CHANGE
+		inline static std::shared_ptr<Shader> getShader(const std::string& name) { return s_shaders.get(name); }
+
+		static void populateCharacters(std::unordered_map<std::string, unsigned int> fontsAndSizes);
+
+		static std::shared_ptr<Character> getCharacter(std::string font, unsigned int ASCIICode);
+
+		inline static std::shared_ptr<Texture> getFontTexture() { return s_fontTexture; }
 	};
 }

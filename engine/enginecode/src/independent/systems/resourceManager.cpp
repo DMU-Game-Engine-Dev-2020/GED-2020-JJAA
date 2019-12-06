@@ -4,6 +4,9 @@
 
 #include "systems/resourceManager.h"
 
+#include <ft2build.h>
+#include FT_FREETYPE_H
+
 namespace Engine
 {
 	// Initialize the static asset managers
@@ -14,6 +17,9 @@ namespace Engine
 	AssetManager<VertexBuffer> ResourceManager::s_VBOs;
 	AssetManager<Material> ResourceManager::s_materials;
 	AssetManager<UniformBuffer> ResourceManager::s_UBOs;
+
+	std::map<std::string, std::vector<Character>> ResourceManager::s_characters;
+	std::shared_ptr<Texture> ResourceManager::s_fontTexture;
 
 	void ResourceManager::stop(SystemSignal close, ...)
 	{
@@ -169,9 +175,103 @@ namespace Engine
 		return temp; // Return the temporary pointer
 	}
 
-	std::shared_ptr<UniformBuffer> ResourceManager::getUBO(const std::string& name)
+	void ResourceManager::populateCharacters(std::unordered_map<std::string, unsigned int> fontsAndSizes)
 	{
-		return s_UBOs.get(name);
+		FT_Library ft;
+		FT_Face face;
+
+		if (FT_Init_FreeType(&ft))
+			LOG_CRITICAL("Could not start FreeType");
+
+		unsigned char* texMemory;
+		int memH = 1024;
+		int memW = 1024;
+		int usedX = 0;
+		int usedY = 0;
+
+		texMemory = (unsigned char*)malloc(memW * memH);
+		memset(texMemory, 0, memW * memH);
+
+		std::map<std::pair<std::string, unsigned int>, std::pair<unsigned int, unsigned int>> maxSize;
+
+		for (auto& element : fontsAndSizes)
+		{
+			if (FT_New_Face(ft, element.first.c_str(), 0, &face))
+				LOG_CRITICAL("FreeType coudn't loat font: {0}", element.first);
+
+			if (FT_Set_Pixel_Sizes(face, 0, element.second))
+				LOG_CRITICAL("FreeType couldn't set font face size of {0}", element.second);
+
+			maxSize.insert(std::make_pair(element, std::make_pair(0, 0)));
+
+			for (int i = s_ASCIIStart; i <= s_ASCIIEnd; i++)
+			{
+				if (FT_Load_Char(face, i, FT_LOAD_RENDER))
+					LOG_CRITICAL("Could not load the character {0}", i);
+
+				maxSize[element].first = std::max(maxSize[element].first, face->glyph->bitmap.width);
+				maxSize[element].second = std::max(maxSize[element].second, face->glyph->bitmap.rows);
+			}
+		}
+
+		for (auto& element : fontsAndSizes)
+		{
+			if (FT_New_Face(ft, element.first.c_str(), 0, &face))
+				LOG_CRITICAL("FreeType coudn't loat font: {0}", element.first);
+
+			if (FT_Set_Pixel_Sizes(face, 0, element.second))
+				LOG_CRITICAL("FreeType couldn't set font face size of {0}", element.second);
+
+			std::vector<Character> characters;
+
+			for (int i = s_ASCIIStart; i <= s_ASCIIEnd; i++)
+			{
+				if (FT_Load_Char(face, i, FT_LOAD_RENDER))
+					LOG_CRITICAL("Could not load the character {0}", i);
+
+				if (usedX + maxSize[element].first > memW)
+				{
+					usedY += maxSize[element].second;
+					usedX = 0;
+				}
+				
+				characters.push_back(Character(
+					glm::vec2(face->glyph->bitmap.width, face->glyph->bitmap.rows),
+					glm::vec2(face->glyph->bitmap_left, face->glyph->bitmap_top),
+					face->glyph->advance.x,
+					glm::vec2(usedX, usedY),
+					glm::vec2(usedX + maxSize[element].first, usedY + maxSize[element].second)
+				));
+
+				memset(texMemory, (int)face->glyph->bitmap.buffer, maxSize[element].first * maxSize[element].second);
+
+				usedX += maxSize[element].first;
+			}
+
+			s_characters.insert(std::make_pair(parseFilePath(element.first), characters));
+		}
+
+		s_fontTexture.reset(Texture::createFromRawData(memW, memH, 1, texMemory));
+
+		free(texMemory);
+	}
+
+	std::shared_ptr<Character> ResourceManager::getCharacter(std::string font, unsigned int ASCIICode)
+	{
+		std::map<std::string, std::vector<Character>>::iterator it; // Make an iterator for the map
+		it = s_characters.find(parseFilePath(font)); // Find the key in the map
+
+		// If the key is not in the map
+		if (it == s_characters.end())
+		{
+			// Log an error, cannot find key in the map
+			LOG_ERROR("Font: '{0}' can't be found", parseFilePath(font));
+			return nullptr; // Return a null pointer
+		}
+		else // If the key is in the map
+		{
+			return std::make_shared<Character>(it->second[ASCIICode - s_ASCIIStart]); // Return the pointer
+		}
 	}
 
 	std::string ResourceManager::parseFilePath(const std::string& str)

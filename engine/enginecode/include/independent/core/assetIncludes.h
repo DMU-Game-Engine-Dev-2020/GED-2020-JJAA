@@ -10,3 +10,4 @@
 #include "rendering/shader.h"
 #include "rendering/material.h"
 #include "rendering/uniformBuffer.h"
+#include "rendering/text/character.h"

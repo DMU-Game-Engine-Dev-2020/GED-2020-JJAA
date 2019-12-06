@@ -55,11 +55,11 @@ namespace Engine
 		// Make a new resource manager
 		m_pResources.reset(new ResourceManager);
 		// Make a new basic renderer
-		//m_pRenderer.reset(Renderer::createBasic3D());
-
+		m_pRenderer.reset(Renderer::createBasic3D());
+		
 		// Set depth test and backface culling
-		//m_pRenderer->actionCommand(RenderCommand::setDepthTestLessCommand(true));
-		//m_pRenderer->actionCommand(RenderCommand::setBackfaceCullingCommand(true));
+		m_pRenderer->actionCommand(RenderCommand::setDepthTestLessCommand(true));
+		m_pRenderer->actionCommand(RenderCommand::setBackfaceCullingCommand(true));
 
 		float FCvertices[6 * 24] = {
 			-0.5f, -0.5f, -0.5f, 0.8f, 0.2f, 0.2f, // red square
@@ -108,14 +108,14 @@ namespace Engine
 		std::shared_ptr<VertexArray> tempSetupVAO;
 		
 		// Create flat colour shader from shader file
-		//tempSetupShader = m_pResources->addShader("assets/shaders/flatColour2.glsl");
-		//// Create a vertex array object
-		//tempSetupVAO = m_pResources->addVAO("flatColourCube");
-		//// Create a vertex buffer and an index buffer and give pointers to them to the vertex array object
-		//tempSetupVAO->setVertexBuffer(m_pResources->addVBO("flatColourVBO", FCvertices, sizeof(FCvertices), tempSetupShader->getBufferLayout()));
-		//tempSetupVAO->setIndexBuffer(m_pResources->addIndexBuffer("cubeIndices", indices, sizeof(indices) / sizeof(unsigned int)));
-		//// Create the flat colour material
-		//m_pFCMat = m_pResources->addMaterial("flatColourMat", tempSetupShader, tempSetupVAO);
+		tempSetupShader = m_pResources->addShader("assets/shaders/flatColour2.glsl");
+		// Create a vertex array object
+		tempSetupVAO = m_pResources->addVAO("flatColourCube");
+		// Create a vertex buffer and an index buffer and give pointers to them to the vertex array object
+		tempSetupVAO->setVertexBuffer(m_pResources->addVBO("flatColourVBO", FCvertices, sizeof(FCvertices), tempSetupShader->getBufferLayout()));
+		tempSetupVAO->setIndexBuffer(m_pResources->addIndexBuffer("FCCubeIndices", indices, sizeof(indices) / sizeof(unsigned int)));
+		// Create the flat colour material
+		m_pFCMat = m_pResources->addMaterial("flatColourMat", tempSetupShader, tempSetupVAO);
 
 		/////////////////////////////////////////////////////////
 		// Added textuer phong shader and cube //////////////////
@@ -148,50 +148,57 @@ namespace Engine
 			0.5f,  -0.5f, 0.5f,  1.f, 0.f, 0.f, 0.66f, 1.0f
 		};
 		// Same as flat colour stuff
-		//tempSetupShader = m_pResources->addShader("assets/shaders/texturedPhong2.glsl");
-		//tempSetupVAO = m_pResources->addVAO("texturedPhongCube");
-		//tempSetupVAO->setVertexBuffer(m_pResources->addVBO("texturedPhongVBO", TPvertices, sizeof(TPvertices), tempSetupShader->getBufferLayout()));
-		//tempSetupVAO->setIndexBuffer(m_pResources->addIndexBuffer("cubeIndices", indices, sizeof(indices) / sizeof(unsigned int)));
-		//// Create the textures phong material
-		//m_pTPMat = m_pResources->addMaterial("texturedPhongMat", tempSetupShader, tempSetupVAO);
-		//
-		//// Load textures
-		//m_pLetterCubeTexture = m_pResources->addTexture("assets/textures/letterCube.png");
-		//m_pNumberCubeTexture = m_pResources->addTexture("assets/textures/numberCube.png");
-		//
-		//FCmodel = glm::translate(glm::mat4(1), glm::vec3(1.5, 0, 3));
-		//TPmodel = glm::translate(glm::mat4(1), glm::vec3(-1.5, 0, 3));
-		//
-		//m_matricesUBO = m_pResources->getUBO("Matrices");
-		//m_lightUBO = m_pResources->getUBO("Light");
+		tempSetupShader = m_pResources->addShader("assets/shaders/texturedPhong2.glsl");
+		tempSetupVAO = m_pResources->addVAO("texturedPhongCube");
+		tempSetupVAO->setVertexBuffer(m_pResources->addVBO("texturedPhongVBO", TPvertices, sizeof(TPvertices), tempSetupShader->getBufferLayout()));
+		tempSetupVAO->setIndexBuffer(m_pResources->addIndexBuffer("TPCubeIndices", indices, sizeof(indices) / sizeof(unsigned int)));
+		// Create the textures phong material
+		m_pTPMat = m_pResources->addMaterial("texturedPhongMat", tempSetupShader, tempSetupVAO);
+		
+		// Load textures
+		m_pLetterCubeTexture = m_pResources->addTexture("assets/textures/letterCube.png");
+		m_pNumberCubeTexture = m_pResources->addTexture("assets/textures/numberCube.png");
+		
+		FCmodel = glm::translate(glm::mat4(1), glm::vec3(1.5, 0, 3));
+		TPmodel = glm::translate(glm::mat4(1), glm::vec3(-1.5, 0, 3));
+		
+		m_matricesUBO = m_pResources->getUBO("Matrices");
+		m_lightUBO = m_pResources->getUBO("Light");
 
 
 		m_pTextRenderer.reset(Renderer::createText());
 
+		std::unordered_map<std::string, unsigned int> map;
+		map.insert(std::make_pair("assets/fonts/arial_narrow_7.ttf", 64));
+
+		m_pResources->populateCharacters(map);
+
+		m_pGlyphTexture = m_pResources->getFontTexture();
 
 		FT_Library ft;
 		FT_Face face;
 		std::string filepath("assets/fonts/arial_narrow_7.ttf");
 		int iCharSize = 128;
-
+		
 		if (FT_Init_FreeType(&ft))
 			LOG_CRITICAL("Could not start FreeType");
-
+		
 		if (FT_New_Face(ft, filepath.c_str(), 0, &face))
 			LOG_CRITICAL("FreeType coudn't loat font: {0}", filepath);
-
+		
 		if (FT_Set_Pixel_Sizes(face, 0, iCharSize))
 			LOG_CRITICAL("FreeType couldn't set font face size of {0}", iCharSize);
-
+		
 		if (FT_Load_Char(face, 'G', FT_LOAD_RENDER))
 			LOG_CRITICAL("Could not load the character {0}", 'G');
-
+		
 		m_pGlyphTexture.reset(Texture::createFromRawData(
 			face->glyph->bitmap.width,
 			face->glyph->bitmap.rows,
 			1,
-			face->glyph->bitmap.buffer));
-
+			face->glyph->bitmap.buffer)
+		);
+		
 		Character ch(
 			glm::vec2(face->glyph->bitmap.width, face->glyph->bitmap.rows),
 			glm::vec2(face->glyph->bitmap_left, face->glyph->bitmap_top),
@@ -201,19 +208,19 @@ namespace Engine
 		);
 
 		float textVertices[4 * 4] = {
-			0, 0, ch.getStartUV().x, ch.getStartUV().y,
-			ch.getSize().x, 0, ch.getEndUV().x, ch.getStartUV().y,
-			ch.getSize().x, ch.getSize().y, ch.getEndUV().x, ch.getEndUV().y,
-			0, ch.getSize().y, ch.getStartUV().x, ch.getEndUV().y
+			0,              0,              ch.getStartUV().x, ch.getStartUV().y,
+			ch.getSize().x, 0,              ch.getEndUV().x,   ch.getStartUV().y,
+			ch.getSize().x, ch.getSize().y, ch.getEndUV().x,   ch.getEndUV().y,
+			0,              ch.getSize().y, ch.getStartUV().x, ch.getEndUV().y
 		};
-
+		
 		unsigned int textIndices[4] = { 0, 1, 2, 3 };
-
+		
 		tempSetupShader = m_pResources->addShader("assets/shaders/text1.glsl");
 		tempSetupVAO = m_pResources->addVAO("text");
-		tempSetupVAO->setVertexBuffer(m_pResources->addVBO("text", textVertices, sizeof(textVertices), tempSetupShader->getBufferLayout()));
-		tempSetupVAO->setIndexBuffer(m_pResources->addIndexBuffer("text", textIndices, 4));
-
+		tempSetupVAO->setVertexBuffer(m_pResources->addVBO("textVBO", textVertices, sizeof(textVertices), tempSetupShader->getBufferLayout()));
+		tempSetupVAO->setIndexBuffer(m_pResources->addIndexBuffer("textIndices", textIndices, 4));
+	
 		m_pTextMat = m_pResources->addMaterial("textMat", tempSetupShader, tempSetupVAO);
 
 		TIMER_NEWFRAME; // Tell the timer to start for a new frame
@@ -332,8 +339,9 @@ namespace Engine
 			m_fTotalTimeElapsed += m_fTimestep; // Add the time to run the previous frame to the total time elapsed
 
 			// Clear colour
-			//m_pRenderer->actionCommand(RenderCommand::setClearColourCommand(0.8f, 0.8f, 0.8f, 1));
-			//m_pRenderer->actionCommand(RenderCommand::clearDepthColourBufferCommand());
+			m_pRenderer->actionCommand(RenderCommand::setBackfaceCullingCommand(true));
+			m_pRenderer->actionCommand(RenderCommand::setClearColourCommand(0.8f, 0.8f, 0.8f, 1));
+			m_pRenderer->actionCommand(RenderCommand::clearDepthColourBufferCommand());
 
 
 			glm::mat4 projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.0f); // Basic 4:3 camera
@@ -385,63 +393,67 @@ namespace Engine
 			glm::vec4 viewPos = glm::vec4(0.0f, 0.0f, -4.5f, 1.0f);
 
 			// To give to the renderer to begin a scene
-			//SceneData sceneData;
-			//
-			//// Two vectors of data for Matrices uniform block and Light uniform block
-			//std::vector<void*> tempData[2];
-			//// Add Matrices data to vector
-			//tempData[0].push_back((void*)&projection[0][0]);
-			//tempData[0].push_back((void*)&view[0][0]);
-			//
-			//sceneData.insert(std::make_pair(m_matricesUBO, tempData[0]));
-			//
-			//// Add Light data to vector
-			//tempData[1].push_back((void*)&lightColour[0]);
-			//tempData[1].push_back((void*)&lightPos[0]);
-			//tempData[1].push_back((void*)&viewPos[0]);
-			//
-			//sceneData.insert(std::make_pair(m_lightUBO, tempData[1]));
-			//
-			//// Begin the scene
-			//m_pRenderer->beginScene(sceneData);
+			SceneData sceneData;
+			
+			// Two vectors of data for Matrices uniform block and Light uniform block
+			std::vector<void*> tempData[2];
+			// Add Matrices data to vector
+			tempData[0].push_back((void*)&projection[0][0]);
+			tempData[0].push_back((void*)&view[0][0]);
+			
+			sceneData.insert(std::make_pair(m_matricesUBO, tempData[0]));
+			
+			// Add Light data to vector
+			tempData[1].push_back((void*)&lightColour[0]);
+			tempData[1].push_back((void*)&lightPos[0]);
+			tempData[1].push_back((void*)&viewPos[0]);
+			
+			sceneData.insert(std::make_pair(m_lightUBO, tempData[1]));
+			
+			// Begin the scene
+			m_pRenderer->beginScene(sceneData);
 			
 			///////////////////////////////////////
 			// colour cube ////////////////////////
 			///////////////////////////////////////
 
 			// Set the flat colour cube model uniform
-			//m_pFCMat->setDataElement("u_model", (void*)&FCmodel[0][0]);
-			//m_pRenderer->submit(m_pFCMat); // Submit to the renderer to draw the cube
+			m_pFCMat->setDataElement("u_model", (void*)&FCmodel[0][0]);
+			m_pRenderer->submit(m_pFCMat); // Submit to the renderer to draw the cube
 
 			///////////////////////////////////////
 			// textured phong cube ////////////////
 			///////////////////////////////////////
 
-			//unsigned int texSlot;
-			//if (m_goingUp) texSlot = m_pLetterCubeTexture->getSlot();
-			//else texSlot = m_pNumberCubeTexture->getSlot();
-			//
-			//// Set the textured phong cube model and texture uniform
-			//m_pTPMat->setDataElement("u_model", (void*)&TPmodel[0][0]);
-			//m_pTPMat->setDataElement("u_texData", (void*)&texSlot);
-			//m_pRenderer->submit(m_pTPMat); // Submit to the renderer to draw the cube
+			unsigned int texSlot;
+			if (m_goingUp) texSlot = m_pLetterCubeTexture->getSlot();
+			else texSlot = m_pNumberCubeTexture->getSlot();
+			
+			// Set the textured phong cube model and texture uniform
+			m_pTPMat->setDataElement("u_model", (void*)&TPmodel[0][0]);
+			m_pTPMat->setDataElement("u_texData", (void*)&texSlot);
+			m_pRenderer->submit(m_pTPMat); // Submit to the renderer to draw the cube
+			
+			m_pRenderer->actionCommand(RenderCommand::setBackfaceCullingCommand(false));
 
-			m_pTextRenderer->actionCommand(RenderCommand::setClearColourCommand(0.8f, 0.8f, 0.8f, 1));
-			m_pTextRenderer->actionCommand(RenderCommand::clearColourBufferCommand());
+			//m_pTextRenderer->actionCommand(RenderCommand::setClearColourCommand(0.8f, 0.8f, 0.8f, 1));
+			//m_pTextRenderer->actionCommand(RenderCommand::clearColourBufferCommand());
 			m_pTextRenderer->actionCommand(RenderCommand::setOneMinusAlphaBlendingCommand(true));
 
 			glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(100, 200, 0));
 			glm::mat4 textView(1.0f);
 			glm::mat4 textProjection = glm::ortho(0.0f, (float)m_pWindow->getViewportWidth(), (float)m_pWindow->getViewportHeight(), 0.0f);
-			unsigned int texSlot = m_pGlyphTexture->getSlot();
+			texSlot = m_pGlyphTexture->getSlot();
 			glm::vec3 colour(1.0f, 0.3f, 0.6f);
 			m_pTextMat->setDataElement("u_model", (void*)&model[0][0]);
 			m_pTextMat->setDataElement("u_view", (void*)&textView[0][0]);
 			m_pTextMat->setDataElement("u_projection", (void*)&textProjection[0][0]);
 			m_pTextMat->setDataElement("u_texData", (void*)&texSlot);
 			m_pTextMat->setDataElement("u_fontColour", (void*)&colour[0]);
-
+			
 			m_pTextRenderer->submit(m_pTextMat);
+
+			m_pTextRenderer->actionCommand(RenderCommand::setOneMinusAlphaBlendingCommand(false));
 
 
 			m_pWindow->onUpdate(m_fTimestep); // Update the window
