@@ -48,11 +48,13 @@ namespace Engine
 		s_pThis = nullptr; // Set the pointer to itself to null
 	}
 
-	void Timer::newFrame()
+	float Timer::newFrame()
 	{
 		s_frameEnd = std::chrono::high_resolution_clock::now(); // Get the time for the end of the frame
 		s_frameDuration = s_frameEnd - s_frameStart; // Calculate the time taken for the frame
 		s_frameStart = std::chrono::high_resolution_clock::now(); // Get the time for the start of the next frame
+
+		return s_frameDuration.count();
 	}
 
 	void Timer::startTimer(std::string tag)

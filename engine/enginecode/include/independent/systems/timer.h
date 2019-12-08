@@ -40,7 +40,7 @@ namespace Engine
 		void start(SystemSignal init = SystemSignal::None, ...) override; //!< Start the timer
 		void stop(SystemSignal close = SystemSignal::None, ...) override; //!< Stop the timer
 
-		static void newFrame(); //!< Calculate the time passed since the last frame
+		static float newFrame(); //!< Calculate the time passed since the last frame
 
 		//! Used to return the timestep
 		/*!

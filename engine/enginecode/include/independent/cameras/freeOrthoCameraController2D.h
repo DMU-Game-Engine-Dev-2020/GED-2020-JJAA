@@ -17,7 +17,7 @@ namespace Engine
 		FreeOrthoCameraController2D();
 
 		void init(float left, float top, float width, float height) override;
-		std::shared_ptr<Camera> getCamera() override { return m_camera; }
+		inline std::shared_ptr<Camera> getCamera() override { return m_camera; }
 		void onUpdate(float timestep) override;
 		void onEvent(Event& e) override {}
 		bool onResize(WindowResizeEvent& e) override { return true; }

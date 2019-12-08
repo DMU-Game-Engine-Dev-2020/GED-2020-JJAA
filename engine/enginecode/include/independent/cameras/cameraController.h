@@ -3,7 +3,6 @@
 #include "camera.h"
 #include "events/event.h"
 #include "events/windowEvents.h"
-#include "events/mouseEvents.h"
 
 namespace Engine
 {

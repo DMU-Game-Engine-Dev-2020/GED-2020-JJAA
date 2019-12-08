@@ -2,8 +2,6 @@
 
 #include "camera.h"
 
-#include <glm/gtc/quaternion.hpp>
-
 namespace Engine
 {
 	class PerspectiveEulerCamera3D : public Camera
