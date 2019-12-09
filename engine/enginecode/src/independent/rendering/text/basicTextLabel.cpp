@@ -1,10 +1,10 @@
 #include "engine_pch.h"
 
-#include "rendering/text/textLabelImpl.h"
+#include "rendering/text/basicTextLabel.h"
 
 namespace Engine
 {
-	TextLabelImpl::TextLabelImpl(const std::string& fontName, unsigned int charSize, const std::string& text, 
+	BasicTextLabel::BasicTextLabel(const std::string& fontName, unsigned int charSize, const std::string& text, 
 		const glm::vec2& position, float orientation, float scale, const glm::vec3& colour)
 	{
 		m_font = fontName;
@@ -36,37 +36,37 @@ namespace Engine
 		m_material = ResourceManager::addMaterial(text, tempSetupShader, tempSetupVAO);*/
 	}
 
-	bool TextLabelImpl::setFont(const std::string& fontName)
+	bool BasicTextLabel::setFont(const std::string& fontName)
 	{
 		return false;
 	}
 
-	bool TextLabelImpl::setCharSize(unsigned int charSize)
+	bool BasicTextLabel::setCharSize(unsigned int charSize)
 	{
 		return false;
 	}
 
-	void TextLabelImpl::setText(const std::string& text)
+	void BasicTextLabel::setText(const std::string& text)
 	{
 
 	}
 
-	void TextLabelImpl::setPosition(const glm::vec2& position)
+	void BasicTextLabel::setPosition(const glm::vec2& position)
 	{
 
 	}
 
-	void TextLabelImpl::setOrientation(float angle)
+	void BasicTextLabel::setOrientation(float angle)
 	{
 
 	}
 
-	void TextLabelImpl::setScale(float scale)
+	void BasicTextLabel::setScale(float scale)
 	{
 
 	}
 
-	void TextLabelImpl::setColour(const glm::vec3& colour)
+	void BasicTextLabel::setColour(const glm::vec3& colour)
 	{
 
 	}

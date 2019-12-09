@@ -3,6 +3,8 @@
 #include "cameraController.h"
 #include "perspectiveEulerCamera3D.h"
 
+#include "events/mouseEvents.h"
+
 namespace Engine
 {
 	class FPSCameraControllerEuler : public CameraController
@@ -18,7 +20,7 @@ namespace Engine
 		float m_fYaw;
 		float m_fPitch;
 		float m_fTranslationSpeed = 5.f;
-		float m_fRotationSpeed = 2.f;
+		float m_fRotationSpeed = 4.f;
 		glm::vec2 m_lastMousePosition;
 		
 		void updateView();
@@ -28,7 +30,8 @@ namespace Engine
 		void init(float fov, float aspectRatio, float nearClip, float farClip) override;
 		inline std::shared_ptr<Camera> getCamera() override { return m_camera; }
 		void onUpdate(float timestep) override;
-		void onEvent(Event& e) override {}
+		void onEvent(Event& e) override;
 		bool onResize(WindowResizeEvent& e) override { return true; }
+		bool onMouseButtonPressed(MouseButtonPressedEvent& e);
 	};
 }

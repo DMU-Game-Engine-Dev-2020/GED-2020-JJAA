@@ -33,9 +33,9 @@ namespace Engine
 		void setShader(const std::shared_ptr<Shader>& shader) override;
 		//! Function to set the geometry
 		/*!
-		\param geometry Either a pointer to a vertex array object or a vertex buffer depending on the rendering API
+		\param geometry Void pointer for a vertex array object for opengl
 		*/
-		void setGeometry(const std::variant<std::shared_ptr<VertexArray>, std::shared_ptr<VertexBuffer>>& geometry) override;
+		void setGeometry(const void* geometry) override;
 		//! Function to set a block of uniform data
 		/*!
 		\param data A map of names of uniforms and void pointers to the data being uploaded
@@ -47,6 +47,7 @@ namespace Engine
 		\param data A void pointer to the data
 		*/
 		void setDataElement(const std::string& dataName, void* data) override;
+
 		//void setVertexData(float* vertices, unsigned int offset, unsigned int size) override;
 
 		//! Function to get the shader
@@ -56,9 +57,9 @@ namespace Engine
 		inline std::shared_ptr<Shader> getShader() override { return m_pShader; }
 		//! Function to get the geometry
 		/*!
-		\return Either a pointer to a vertex array object or a vertex buffer depending on the rendering API
+		\return Void pointer for a vertex array object for opengl
 		*/
-		inline std::variant<std::shared_ptr<VertexArray>, std::shared_ptr<VertexBuffer>> getGeometry() override { return m_pGeometry; }
+		inline void* getGeometry() override { return (void*)&m_pGeometry; }
 		//! Function to get the uniform data
 		/*!
 		\return The data being uploaded

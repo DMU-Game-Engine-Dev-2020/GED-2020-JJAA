@@ -19,10 +19,10 @@ namespace Engine
 		m_pShader = shader;
 	}
 
-	void OpenGLMaterial::setGeometry(const std::variant<std::shared_ptr<VertexArray>, std::shared_ptr<VertexBuffer>>& geometry)
+	void OpenGLMaterial::setGeometry(const void* geometry)
 	{
 		// Set the vertex array object to the one passed in
-		m_pGeometry = std::get<std::shared_ptr<VertexArray>>(geometry);
+		m_pGeometry = *(std::shared_ptr<VertexArray>*)geometry;
 	}
 
 	void OpenGLMaterial::setDataBlock(const std::map<std::string, void*>& data)

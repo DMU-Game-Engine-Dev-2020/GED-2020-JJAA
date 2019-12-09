@@ -13,8 +13,8 @@
 //#include <glm/glm.hpp>
 //#include <glm/gtc/matrix_transform.hpp>
 //
-//#include <ft2build.h>
-//#include FT_FREETYPE_H
+#include <ft2build.h>
+#include FT_FREETYPE_H
 
 namespace Engine 
 {
@@ -171,60 +171,96 @@ namespace Engine
 		//m_lightUBO = m_pResources->getUBO("Light");
 		//
 		//
-		//m_pTextRenderer.reset(Renderer::createText());
-		//
-		//FT_Library ft;
-		//FT_Face face;
-		//std::string filepath("assets/fonts/arial_narrow_7.ttf");
-		//int iCharSize = 128;
-		//
-		//if (FT_Init_FreeType(&ft))
-		//	LOG_CRITICAL("Could not start FreeType");
-		//
-		//if (FT_New_Face(ft, filepath.c_str(), 0, &face))
-		//	LOG_CRITICAL("FreeType coudn't loat font: {0}", filepath);
-		//
-		//if (FT_Set_Pixel_Sizes(face, 0, iCharSize))
-		//	LOG_CRITICAL("FreeType couldn't set font face size of {0}", iCharSize);
-		//
-		//if (FT_Load_Char(face, 'G', FT_LOAD_RENDER))
-		//	LOG_CRITICAL("Could not load the character {0}", 'G');
-		//
-		//m_pGlyphTexture.reset(Texture::createFromRawData(
-		//	face->glyph->bitmap.width,
-		//	face->glyph->bitmap.rows,
-		//	1,
-		//	face->glyph->bitmap.buffer)
-		//);
-		//
-		//Character ch(
-		//	glm::vec2(face->glyph->bitmap.width, face->glyph->bitmap.rows),
-		//	glm::vec2(face->glyph->bitmap_left, face->glyph->bitmap_top),
-		//	face->glyph->advance.x,
-		//	glm::vec2(0.0f),
-		//	glm::vec2(1.0f)
-		//);
-		//
-		//float textVertices[4 * 4] = {
-		//	0,              0,              ch.getStartUV().x, ch.getStartUV().y,
-		//	ch.getSize().x, 0,              ch.getEndUV().x,   ch.getStartUV().y,
-		//	ch.getSize().x, ch.getSize().y, ch.getEndUV().x,   ch.getEndUV().y,
-		//	0,              ch.getSize().y, ch.getStartUV().x, ch.getEndUV().y
-		//};
-		//
-		//unsigned int textIndices[4] = { 0, 1, 2, 3 };
-		//
-		//tempSetupShader = m_pResources->addShader("assets/shaders/text1.glsl");
-		//tempSetupVAO = m_pResources->addVAO("text");
-		//tempSetupVAO->setVertexBuffer(m_pResources->addVBO("textVBO", textVertices, sizeof(textVertices), tempSetupShader->getBufferLayout()));
-		//tempSetupVAO->setIndexBuffer(m_pResources->addIndexBuffer("textIndices", textIndices, 4));
-		//
-		//m_pTextMat = m_pResources->addMaterial("textMat", tempSetupShader, tempSetupVAO);
-		//
-		//
-		//m_2DCam.reset(new FreeOrthoCameraController2D());
-		//m_2DCam->init(0.f, 0.f, 800.f, 600.f);
-		//
+		m_pTextRenderer.reset(Renderer::createText());
+		
+		FT_Library ft;
+		FT_Face face;
+		std::string filepath("assets/fonts/arial_narrow_7.ttf");
+		int iCharSize = 128;
+		
+		if (FT_Init_FreeType(&ft))
+			LOG_CRITICAL("Could not start FreeType");
+		
+		if (FT_New_Face(ft, filepath.c_str(), 0, &face))
+			LOG_CRITICAL("FreeType coudn't load font: {0}", filepath);
+		
+		if (FT_Set_Pixel_Sizes(face, 0, iCharSize))
+			LOG_CRITICAL("FreeType couldn't set font face size of {0}", iCharSize);
+		
+		if (FT_Load_Char(face, 'G', FT_LOAD_RENDER))
+			LOG_CRITICAL("Could not load the character {0}", 'G');
+		
+		m_pGlyphTexture.reset(Texture::createFromRawData(
+			face->glyph->bitmap.width,
+			face->glyph->bitmap.rows,
+			1,
+			face->glyph->bitmap.buffer)
+		);
+		
+		Character ch(
+			glm::vec2(face->glyph->bitmap.width, face->glyph->bitmap.rows),
+			glm::vec2(face->glyph->bitmap_left, face->glyph->bitmap_top),
+			face->glyph->advance.x,
+			glm::vec2(0.0f),
+			glm::vec2(1.0f)
+		);
+
+		float textVertices[4 * 4] = {
+			0,              0,              ch.getStartUV().x, ch.getStartUV().y,
+			ch.getSize().x, 0,              ch.getEndUV().x,   ch.getStartUV().y,
+			ch.getSize().x, ch.getSize().y, ch.getEndUV().x,   ch.getEndUV().y,
+			0,              ch.getSize().y, ch.getStartUV().x, ch.getEndUV().y
+		};
+
+
+
+		if (FT_Load_Char(face, 'F', FT_LOAD_RENDER))
+			LOG_CRITICAL("Could not load the character {0}", 'F');
+
+		m_pGlyphTexture2.reset(Texture::createFromRawData(
+			face->glyph->bitmap.width,
+			face->glyph->bitmap.rows,
+			1,
+			face->glyph->bitmap.buffer)
+		);
+
+		Character ch2(
+			glm::vec2(face->glyph->bitmap.width, face->glyph->bitmap.rows),
+			glm::vec2(face->glyph->bitmap_left, face->glyph->bitmap_top),
+			face->glyph->advance.x,
+			glm::vec2(0.0f),
+			glm::vec2(1.0f)
+		);
+
+		float textVertices2[4 * 4] = {
+			0,              0,              ch2.getStartUV().x, ch2.getStartUV().y,
+			ch2.getSize().x, 0,              ch2.getEndUV().x,   ch2.getStartUV().y,
+			ch2.getSize().x, ch2.getSize().y, ch2.getEndUV().x,   ch2.getEndUV().y,
+			0,              ch2.getSize().y, ch2.getStartUV().x, ch2.getEndUV().y
+		};
+		
+		unsigned int textIndices[4] = { 0, 1, 2, 3 };
+		
+		std::shared_ptr<Shader> tempSetupShader = m_pResources->addShader("assets/shaders/text2.glsl");
+		std::shared_ptr<VertexArray> tempSetupVAO = m_pResources->addVAO("text");
+		tempSetupVAO->setVertexBuffer(m_pResources->addVBO("textVBO", textVertices, sizeof(textVertices), tempSetupShader->getBufferLayout()));
+		tempSetupVAO->setIndexBuffer(m_pResources->addIndexBuffer("textIndices", textIndices, 4));
+		
+		m_pTextMat = m_pResources->addMaterial("textMat", tempSetupShader, tempSetupVAO);
+
+		tempSetupShader = m_pResources->addShader("assets/shaders/text3.glsl");
+		tempSetupVAO = m_pResources->addVAO("text2");
+		tempSetupVAO->setVertexBuffer(m_pResources->addVBO("textVBO2", textVertices2, sizeof(textVertices2), tempSetupShader->getBufferLayout()));
+		tempSetupVAO->setIndexBuffer(m_pResources->addIndexBuffer("textIndices2", textIndices, 4));
+
+		m_pTextMat2 = m_pResources->addMaterial("textMat2", tempSetupShader, tempSetupVAO);
+
+		m_pTextUBO = m_pResources->getUBO("TextMatrices");
+		
+		
+		m_2DCam.reset(new FreeOrthoCameraController2D());
+		m_2DCam->init(0.f, 0.f, 800.f, 600.f);
+		
 		//m_FPSCam.reset(new FPSCameraControllerEuler());
 		//m_FPSCam->init(45.f, 4.f / 3.f, 0.1f, 100.f);
 
@@ -342,6 +378,46 @@ namespace Engine
 #endif
 			for (auto it = m_pLayerStack->begin(); it != m_pLayerStack->end(); it++)
 				(*it)->onUpdate(m_fTimestep);
+
+
+			m_2DCam->onUpdate(m_fTimestep);
+
+			
+			SceneData sceneData;
+			std::vector<void*> tempData;
+			// Add Matrices data to vector
+			tempData.push_back((void*)&m_2DCam->getCamera()->getProjection()[0][0]);
+			tempData.push_back((void*)&m_2DCam->getCamera()->getView()[0][0]);
+
+			sceneData.insert(std::make_pair(m_pTextUBO, tempData));
+
+			m_pTextRenderer->beginScene(sceneData);
+
+			glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(100, 200, 0));
+			unsigned int texSlot = m_pGlyphTexture->getSlot();
+			glm::vec3 colour(1.0f, 0.3f, 0.6f);
+			m_pTextMat->setDataElement("u_model", (void*)&model[0][0]);
+			m_pTextMat->setDataElement("u_texData", (void*)&texSlot);
+			m_pTextMat->setDataElement("u_fontColour", (void*)&colour[0]);
+
+
+			
+
+			//m_pTextRenderer->actionCommand(RenderCommand::clearColourBufferCommand());
+			m_pTextRenderer->actionCommand(RenderCommand::setOneMinusAlphaBlendingCommand(true));
+
+			m_pTextRenderer->submit(m_pTextMat);
+
+			model = glm::translate(glm::mat4(1.0f), glm::vec3(300, 200, 0));
+			texSlot = m_pGlyphTexture2->getSlot();
+			m_pTextMat2->setDataElement("u_model", (void*)&model[0][0]);
+			m_pTextMat2->setDataElement("u_texData", (void*)&texSlot);
+			m_pTextMat2->setDataElement("u_fontColour", (void*)&colour[0]);
+			m_pTextRenderer->submit(m_pTextMat2);
+
+			m_pTextRenderer->actionCommand(RenderCommand::setOneMinusAlphaBlendingCommand(false));
+
+
 
 			m_pWindow->onUpdate(m_fTimestep);
 		}
@@ -462,26 +538,24 @@ namespace Engine
 		//	
 		//	m_pRenderer->actionCommand(RenderCommand::setBackfaceCullingCommand(false));
 		//
-		//	//m_pTextRenderer->actionCommand(RenderCommand::setClearColourCommand(0.8f, 0.8f, 0.8f, 1));
-		//	//m_pTextRenderer->actionCommand(RenderCommand::clearColourBufferCommand());
-		//	m_pTextRenderer->actionCommand(RenderCommand::setOneMinusAlphaBlendingCommand(true));
+		//m_pTextRenderer->actionCommand(RenderCommand::setClearColourCommand(0.8f, 0.8f, 0.8f, 1));
+		//m_pTextRenderer->actionCommand(RenderCommand::clearColourBufferCommand());
+		//m_pTextRenderer->actionCommand(RenderCommand::setOneMinusAlphaBlendingCommand(true));
 		//
-		//	glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(100, 200, 0));
-		//	//glm::mat4 textView(1.0f);
-		//	//glm::mat4 textProjection = glm::ortho(0.0f, (float)m_pWindow->getViewportWidth(), (float)m_pWindow->getViewportHeight(), 0.0f);
-		//	texSlot = m_pGlyphTexture->getSlot();
-		//	glm::vec3 colour(1.0f, 0.3f, 0.6f);
-		//	m_pTextMat->setDataElement("u_model", (void*)&model[0][0]);
-		//	m_pTextMat->setDataElement("u_viewProjection", (void*)&m_2DCam->getCamera()->getViewProjection()[0][0]);
-		//	m_pTextMat->setDataElement("u_texData", (void*)&texSlot);
-		//	m_pTextMat->setDataElement("u_fontColour", (void*)&colour[0]);
-		//	
-		//	m_pTextRenderer->submit(m_pTextMat);
+		//glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(100, 200, 0));
+		//unsigned int texSlot = m_pGlyphTexture->getSlot();
+		//glm::vec3 colour(1.0f, 0.3f, 0.6f);
+		//m_pTextMat->setDataElement("u_model", (void*)&model[0][0]);
+		//m_pTextMat->setDataElement("u_viewProjection", (void*)&m_2DCam->getCamera()->getViewProjection()[0][0]);
+		//m_pTextMat->setDataElement("u_texData", (void*)&texSlot);
+		//m_pTextMat->setDataElement("u_fontColour", (void*)&colour[0]);
 		//
-		//	m_pTextRenderer->actionCommand(RenderCommand::setOneMinusAlphaBlendingCommand(false));
+		//m_pTextRenderer->submit(m_pTextMat);
+		//
+		//m_pTextRenderer->actionCommand(RenderCommand::setOneMinusAlphaBlendingCommand(false));
 		//
 		//
-		//	m_pWindow->onUpdate(m_fTimestep); // Update the window
+		//m_pWindow->onUpdate(m_fTimestep); // Update the window
 		//}
 
 		/*// Test the timer

@@ -1,7 +1,7 @@
 #include "engine_pch.h"
 
 #include "rendering/text/textLabel.h"
-#include "rendering/text/textLabelImpl.h"
+#include "rendering/text/basicTextLabel.h"
 #include "systems/log.h"
 
 namespace Engine
@@ -10,6 +10,6 @@ namespace Engine
 		const glm::vec2& position, float orientation, float scale, const glm::vec3& colour)
 	{
 		// Create and return a pointer to a text label
-		return new TextLabelImpl(fontName, charSize, text, position, orientation, scale, colour);
+		return new BasicTextLabel(fontName, charSize, text, position, orientation, scale, colour);
 	}
 }

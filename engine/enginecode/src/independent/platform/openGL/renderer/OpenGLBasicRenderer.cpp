@@ -41,7 +41,7 @@ namespace Engine
 		shader->bind(); // Bind the shader
 
 		// Get the geometry from the material
-		auto geometry = std::get<std::shared_ptr<VertexArray>>(material->getGeometry());
+		auto geometry = *(std::shared_ptr<VertexArray>*)material->getGeometry();
 		geometry->bind(); // Bind the geometry
 
 		auto perDrawData = material->getData(); // Get the data to be uploaded

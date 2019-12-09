@@ -4,7 +4,7 @@
 
 namespace Engine
 {
-	class TextLabelImpl : public TextLabel
+	class BasicTextLabel : public TextLabel
 	{
 	private:
 		std::string m_font;
@@ -18,7 +18,7 @@ namespace Engine
 		glm::vec4 m_model;
 		std::shared_ptr<Material> m_material;
 	public:
-		TextLabelImpl(const std::string& fontName, unsigned int charSize, const std::string& text,
+		BasicTextLabel(const std::string& fontName, unsigned int charSize, const std::string& text,
 			const glm::vec2& position, float orientation, float scale, const glm::vec3& colour);
 
 		bool setFont(const std::string& fontName) override;

@@ -27,6 +27,13 @@ void main()
 			
 layout(location = 0) out vec4 colour;
 
+layout (std140) uniform Light
+{
+	vec3 u_lightColour;
+	vec3 u_lightPos; 
+	vec3 u_viewPos;
+};
+
 in vec3 fragmentColour;
 
 void main()

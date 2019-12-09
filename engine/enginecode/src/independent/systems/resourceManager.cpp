@@ -192,7 +192,7 @@ namespace Engine
 		texMemory = (unsigned char*)malloc(memW * memH);
 		memset(texMemory, 0, memW * memH);
 
-		std::map<std::pair<std::string, unsigned int>, std::pair<unsigned int, unsigned int>> maxSize;
+		std::map<std::string, std::pair<unsigned int, unsigned int>> maxSize;
 
 		for (auto& element : fontsAndSizes)
 		{
@@ -202,18 +202,19 @@ namespace Engine
 			if (FT_Set_Pixel_Sizes(face, 0, element.second))
 				LOG_CRITICAL("FreeType couldn't set font face size of {0}", element.second);
 
-			maxSize.insert(std::make_pair(element, std::make_pair(0, 0)));
+			maxSize.insert(std::make_pair(element.first, std::make_pair(0, 0)));
 
 			for (int i = s_ASCIIStart; i <= s_ASCIIEnd; i++)
 			{
 				if (FT_Load_Char(face, i, FT_LOAD_RENDER))
 					LOG_CRITICAL("Could not load the character {0}", i);
 
-				maxSize[element].first = std::max(maxSize[element].first, face->glyph->bitmap.width);
-				maxSize[element].second = std::max(maxSize[element].second, face->glyph->bitmap.rows);
+				maxSize[element.first].first = std::max(maxSize[element.first].first, face->glyph->bitmap.width);
+				maxSize[element.first].second = std::max(maxSize[element.first].second, face->glyph->bitmap.rows);
 			}
 		}
 
+		std::string thing;
 		for (auto& element : fontsAndSizes)
 		{
 			if (FT_New_Face(ft, element.first.c_str(), 0, &face))
@@ -229,29 +230,38 @@ namespace Engine
 				if (FT_Load_Char(face, i, FT_LOAD_RENDER))
 					LOG_CRITICAL("Could not load the character {0}", i);
 
-				if (usedX + maxSize[element].first > memW)
+				if (usedX + maxSize[element.first].first > memW)
 				{
-					usedY += maxSize[element].second;
+					usedY += maxSize[element.first].second;
 					usedX = 0;
 				}
 				
 				characters.push_back(Character(
 					glm::vec2(face->glyph->bitmap.width, face->glyph->bitmap.rows),
 					glm::vec2(face->glyph->bitmap_left, face->glyph->bitmap_top),
-					face->glyph->advance.x,
-					glm::vec2(usedX, usedY),
-					glm::vec2(usedX + maxSize[element].first, usedY + maxSize[element].second)
+					face->glyph->advance.x
 				));
 
-				memset(texMemory, (int)face->glyph->bitmap.buffer, maxSize[element].first * maxSize[element].second);
+				memset(texMemory, (int)face->glyph->bitmap.buffer, maxSize[element.first].first * maxSize[element.first].second);
 
-				usedX += maxSize[element].first;
+				usedX += maxSize[element.first].first;
 			}
 
 			s_characters.insert(std::make_pair(parseFilePath(element.first), characters));
+			thing = element.first;
 		}
 
-		s_fontTexture.reset(Texture::createFromRawData(memW, memH, 1, texMemory));
+		usedY += maxSize[thing].second;
+
+		for (auto element : s_characters)
+		{
+			for (auto it = element.second.begin(); it != element.second.end(); it++)
+			{
+				it->setUVs(glm::vec2(it->getSize().x / usedX, it->getSize().y / usedY), glm::vec2(it->getSize().x / usedX, it->getSize().y / usedY));
+			}
+		}
+
+		s_fontTexture.reset(Texture::createFromRawData(usedX, usedY, 1, texMemory));
 
 		free(texMemory);
 	}

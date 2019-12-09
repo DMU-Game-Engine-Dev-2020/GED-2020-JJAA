@@ -6,8 +6,6 @@
 #include "vertexArray.h"
 #include "vertexBuffer.h"
 
-#include <variant>
-
 namespace Engine
 {
 	/**
@@ -24,9 +22,9 @@ namespace Engine
 		virtual void setShader(const std::shared_ptr<Shader>& shader) = 0;
 		//! Function to set the geometry
 		/*!
-		\param geometry Either a pointer to a vertex array object or a vertex buffer depending on the rendering API
+		\param geometry Void pointer will either be to a vertex array object or a vertex buffer depending on the rendering API
 		*/
-		virtual void setGeometry(const std::variant<std::shared_ptr<VertexArray>, std::shared_ptr<VertexBuffer>>& geometry) = 0;
+		virtual void setGeometry(const void* geometry) = 0;
 		//! Function to set a block of uniform data
 		/*!
 		\param data A map of names of uniforms and void pointers to the data being uploaded
@@ -47,9 +45,9 @@ namespace Engine
 		virtual std::shared_ptr<Shader> getShader() = 0;
 		//! Function to get the geometry
 		/*!
-		\return Either a pointer to a vertex array object or a vertex buffer depending on the rendering API
+		\return Void pointer will either be to a vertex array object or a vertex buffer depending on the rendering API
 		*/
-		virtual std::variant<std::shared_ptr<VertexArray>, std::shared_ptr<VertexBuffer>> getGeometry() = 0;
+		virtual void* getGeometry() = 0;
 		//! Function to get the uniform data
 		/*!
 		\return The data being uploaded

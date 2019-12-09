@@ -212,12 +212,14 @@ void GameLayer::onUpdate(float timestep)
 
 void GameLayer::onEvent(Engine::Event& event)
 {
-
+	m_pCamera->onEvent(event);
 }
+
 
 engineApp::engineApp()
 {
 	m_pLayerStack->push(std::make_shared<GameLayer>(GameLayer("Game Layer")));
+	//m_pLayerStack->push(std::make_shared<UILayer>(UILayer("UI Layer")));
 }
 
 engineApp::~engineApp()

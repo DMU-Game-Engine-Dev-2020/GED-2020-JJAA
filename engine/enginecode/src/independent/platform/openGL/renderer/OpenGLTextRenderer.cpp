@@ -12,13 +12,33 @@ namespace Engine
 		delete command; // Delete the command
 	}
 
+	void OpenGLTextRenderer::beginScene(const SceneData& sceneData)
+	{
+		// For each pair in the sceneData map
+		for (auto uboPair : sceneData)
+		{
+			//unsigned int offset = 0;
+			//unsigned int size;
+			int i = 0; // To iterate through the vector of data
+
+			UniformBufferLayout layout = uboPair.first->getLayout(); // Get the layout from the uniform buffer
+			// For each element in the layout
+			for (auto bufferElement : layout)
+			{
+				// Call the unifomr buffer function to set the data with the offset, the size and the data
+				uboPair.first->setData(bufferElement.m_iOffset, bufferElement.m_iSize, uboPair.second[i]);
+				i++; // To set the next data
+			}
+		}
+	}
+
 	void OpenGLTextRenderer::submit(const std::shared_ptr<Material>& material)
 	{
 		auto shader = material->getShader();
 		shader->bind(); // Bind the shader
 
 		// Get the geometry from the material
-		auto geometry = std::get<std::shared_ptr<VertexArray>>(material->getGeometry());
+		auto geometry = *(std::shared_ptr<VertexArray>*)material->getGeometry();
 		geometry->bind(); // Bind the geometry
 
 		auto perDrawData = material->getData(); // Get the data to be uploaded

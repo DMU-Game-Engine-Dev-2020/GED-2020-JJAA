@@ -21,7 +21,7 @@
 //
 //
 //#include "cameras/cameraController.h"
-//#include "cameras/freeOrthoCameraController2D.h"
+#include "cameras/freeOrthoCameraController2D.h"
 //#include "cameras/FPSCameraControllerEuler.h"
 
 namespace Engine 
@@ -60,13 +60,18 @@ namespace Engine
 		
 		std::unique_ptr<Window> m_pWindow; //!< Unique pointer to the window
 		
-		//std::shared_ptr<Texture> m_pGlyphTexture;
-		//std::shared_ptr<Material> m_pTextMat;
+		std::shared_ptr<Texture> m_pGlyphTexture;
+		std::shared_ptr<Material> m_pTextMat;
+
+		std::shared_ptr<Texture> m_pGlyphTexture2;
+		std::shared_ptr<Material> m_pTextMat2;
+
+		std::shared_ptr<UniformBuffer> m_pTextUBO;
+
+		std::unique_ptr<Renderer> m_pTextRenderer;
 		//
-		//std::unique_ptr<Renderer> m_pTextRenderer;
 		//
-		//
-		//std::shared_ptr<FreeOrthoCameraController2D> m_2DCam;
+		std::shared_ptr<FreeOrthoCameraController2D> m_2DCam;
 		//std::shared_ptr<FPSCameraControllerEuler> m_FPSCam;
 		//bool m_bCam = false;
 

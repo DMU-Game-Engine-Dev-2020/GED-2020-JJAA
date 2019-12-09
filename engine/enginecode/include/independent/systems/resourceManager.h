@@ -129,7 +129,7 @@ namespace Engine
 		\return A pointer to a uniform buffer
 		*/
 		inline static std::shared_ptr<UniformBuffer> getUBO(const std::string& name) { return s_UBOs.get(name); }
-		////////////  CHANGE
+		///////// CHANGE TO CHECK IF EXISTS
 		inline static std::shared_ptr<Shader> getShader(const std::string& name) { return s_shaders.get(name); }
 
 		static void populateCharacters(std::unordered_map<std::string, unsigned int> fontsAndSizes);

@@ -208,5 +208,5 @@
 //
 //void GameLayer::onEvent(Engine::Event& event)
 //{
-//
+//	m_pCamera->onEvent(event);
 //}

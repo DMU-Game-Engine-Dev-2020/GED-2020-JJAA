@@ -8,7 +8,7 @@ namespace Engine
 {
 	FPSCameraControllerEuler::FPSCameraControllerEuler()
 	{
-		m_lastMousePosition = InputPoller::getMousePosition();
+		
 	}
 
 	void FPSCameraControllerEuler::init(float fov, float aspectRatio, float nearClip, float farClip)
@@ -23,29 +23,54 @@ namespace Engine
 
 	void FPSCameraControllerEuler::onUpdate(float timestep)
 	{
+		glm::vec3 pos = m_position;
+
 		if (InputPoller::isKeyPressed(ENGINE_KEY_W))
-			m_position += m_forward * m_fTranslationSpeed * timestep;
+			pos += m_forward * m_fTranslationSpeed * timestep;
 		if (InputPoller::isKeyPressed(ENGINE_KEY_S))
-			m_position -= m_forward * m_fTranslationSpeed * timestep;
+			pos -= m_forward * m_fTranslationSpeed * timestep;
 		if (InputPoller::isKeyPressed(ENGINE_KEY_A))
-			m_position -= m_right * m_fTranslationSpeed * timestep;
+			pos -= m_right * m_fTranslationSpeed * timestep;
 		if (InputPoller::isKeyPressed(ENGINE_KEY_D))
-			m_position += m_right * m_fTranslationSpeed * timestep;
+			pos += m_right * m_fTranslationSpeed * timestep;
 
-		glm::vec2 currentMousePosition = InputPoller::getMousePosition();
-		glm::vec2 mouseDelta = currentMousePosition - m_lastMousePosition;
+		pos.y = m_position.y;
+		m_position = pos;
 
-		m_fYaw -= mouseDelta.x * m_fRotationSpeed * timestep;
-		m_fPitch -= mouseDelta.y * m_fRotationSpeed * timestep;
+		if (InputPoller::isMouseButtonPressed(ENGINE_MOUSE_BUTTON_1))
+		{
+			glm::vec2 currentMousePosition = InputPoller::getMousePosition();
+			glm::vec2 mouseDelta = currentMousePosition - m_lastMousePosition;
 
-		if (m_fPitch > 89.f)
-			m_fPitch = 89.f;
-		if (m_fPitch < -89.f)
-			m_fPitch = -89.f;
+			m_fYaw -= mouseDelta.x * m_fRotationSpeed * timestep;
+			m_fPitch -= mouseDelta.y * m_fRotationSpeed * timestep;
 
-		m_lastMousePosition = currentMousePosition;
+			if (m_fPitch > 89.f)
+				m_fPitch = 89.f;
+			if (m_fPitch < -89.f)
+				m_fPitch = -89.f;
+
+			m_lastMousePosition = currentMousePosition;
+		}
 
 		updateView();
+	}
+
+	void FPSCameraControllerEuler::onEvent(Event& event)
+	{
+		Engine::EventDispatcher dispatcher(event);
+		dispatcher.dispatch<MouseButtonPressedEvent>(std::bind(&FPSCameraControllerEuler::onMouseButtonPressed, this, std::placeholders::_1));
+	}
+
+	bool FPSCameraControllerEuler::onMouseButtonPressed(MouseButtonPressedEvent& e)
+	{
+		if (InputPoller::isMouseButtonPressed(ENGINE_MOUSE_BUTTON_1))
+		{
+			m_lastMousePosition = InputPoller::getMousePosition();
+			return true;
+		}
+		else
+			return false;
 	}
 
 	void FPSCameraControllerEuler::updateView()
