@@ -253,29 +253,35 @@ namespace Engine
 
 		usedY += maxSize[thing].second;
 
-		for (auto element : s_characters)
-		{
-			for (auto it = element.second.begin(); it != element.second.end(); it++)
-			{
-				it->setUVs(glm::vec2(it->getSize().x / usedX, it->getSize().y / usedY), glm::vec2(it->getSize().x / usedX, it->getSize().y / usedY));
-			}
-		}
+		memW = usedX;
+		memH = usedY;
 
-		s_fontTexture.reset(Texture::createFromRawData(usedX, usedY, 1, texMemory));
+		unsigned char* texMemory2;
+		texMemory2 = (unsigned char*)malloc(memW * memH);
+		memset(texMemory2, 0, memW * memH);
+		memcpy(texMemory2, texMemory, sizeof(texMemory2));
+
+		for (auto element : s_characters)
+			for (auto it = element.second.begin(); it != element.second.end(); it++)
+				it->setUVs(glm::vec2((float)it->getSize().x / (float)memW, (float)it->getSize().y / (float)memH), 
+					glm::vec2((float)it->getSize().x / (float)memW, (float)it->getSize().y / (float)memH));
+
+		s_fontTexture.reset(Texture::createFromRawData(memW, memH, 1, texMemory2));
 
 		free(texMemory);
+		free(texMemory2);
 	}
 
 	std::shared_ptr<Character> ResourceManager::getCharacter(std::string font, unsigned int ASCIICode)
 	{
 		std::map<std::string, std::vector<Character>>::iterator it; // Make an iterator for the map
-		it = s_characters.find(parseFilePath(font)); // Find the key in the map
+		it = s_characters.find(font); // Find the key in the map
 
 		// If the key is not in the map
 		if (it == s_characters.end())
 		{
 			// Log an error, cannot find key in the map
-			LOG_ERROR("Font: '{0}' can't be found", parseFilePath(font));
+			LOG_ERROR("Font: '{0}' can't be found", font);
 			return nullptr; // Return a null pointer
 		}
 		else // If the key is in the map
@@ -286,19 +292,18 @@ namespace Engine
 
 	std::string ResourceManager::parseFilePath(const std::string& str)
 	{
-		char sep = '/'; // Character that separates the file name from the rest of the file path
-
-		int i = str.rfind(sep, str.length()); // Find the position in the string of the last occurence of sep
-		if (i != std::string::npos) // If Sep is found
+		int i = str.rfind('/', str.length()); // Find the position in the string of the last occurence of '/'
+		int j = str.rfind('.', str.length()); // Find the position in the string of the last occurence of '.'
+		if (i != std::string::npos && j != std::string::npos) // If '/' and '.' are found
 		{
-			// Return a string with everything after the last sep in str
-			return(str.substr(i + 1, str.length() - i));
+			// Return a string with the name of the file
+			return str.substr(i + 1, (str.length() - i) - (str.length() - (j - 1)));
 		}
-		else // If sep wasn't found
+		else // If '/' and '.' were not found
 		{
 			// Log an error
 			LOG_ERROR("Problem finding name of file: {0}, using full filepath", str);
-			return(str); // Return the full filepath
+			return str; // Return the full filepath
 		}
 	}
 }

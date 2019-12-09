@@ -24,7 +24,7 @@ namespace Engine
 		virtual float getOrientation() const = 0;
 		virtual float getScale() const = 0;
 		virtual glm::vec3 getColour() const = 0;
-		virtual glm::vec4 getModel() const = 0;
+		virtual glm::mat4 getModel() const = 0;
 		virtual std::shared_ptr<Material> getMaterial() const = 0;
 
 		static TextLabel* create(const std::string& fontName, unsigned int charSize, const std::string& text,

@@ -13,6 +13,9 @@ namespace Engine
 		std::shared_ptr<ResourceManager> m_pResources;
 		std::shared_ptr<Renderer> m_pRenderer;
 		std::shared_ptr<CameraController> m_pCamera;
+		std::shared_ptr<UniformBuffer> m_pUBO;
+
+		SceneData m_sceneData;
 	public:
 		Layer(const std::string& layer) : m_name(layer) {}
 

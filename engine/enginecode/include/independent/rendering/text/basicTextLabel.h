@@ -15,7 +15,7 @@ namespace Engine
 		float m_fScale;
 		glm::vec3 m_colour;
 
-		glm::vec4 m_model;
+		glm::mat4 m_model;
 		std::shared_ptr<Material> m_material;
 	public:
 		BasicTextLabel(const std::string& fontName, unsigned int charSize, const std::string& text,
@@ -36,7 +36,7 @@ namespace Engine
 		inline float getOrientation() const override { return m_fAngle; }
 		inline float getScale() const override { return m_fScale; }
 		inline glm::vec3 getColour() const override { return m_colour; }
-		inline glm::vec4 getModel() const override { return m_model; }
+		inline glm::mat4 getModel() const override { return m_model; }
 		inline std::shared_ptr<Material> getMaterial() const override { return m_material; }
 	};
 }

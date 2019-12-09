@@ -29,5 +29,7 @@
 #include "cameras/FPSCameraControllerEuler.h"
 #include "cameras/freeOrthoCameraController2D.h"
 
-// entry point
-#include "include/independent/core/entrypoint.h"
+#include "components/CGO.h"
+#include "components/materialComponent.h"
+#include "components/positionComponent.h"
+#include "components/velocityComponent.h"
