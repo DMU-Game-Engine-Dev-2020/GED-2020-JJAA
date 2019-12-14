@@ -11,7 +11,7 @@
 #include "windows/window.h"
 
 //#include "rendering/text/basicTextLabel.h"
-
+//
 //#include "windows/inputPoller.h"
 //
 //
@@ -23,7 +23,7 @@
 //
 //
 //#include "cameras/cameraController.h"
-#include "cameras/freeOrthoCameraController2D.h"
+//#include "cameras/freeOrthoCameraController2D.h"
 //#include "cameras/FPSCameraControllerEuler.h"
 
 namespace Engine 

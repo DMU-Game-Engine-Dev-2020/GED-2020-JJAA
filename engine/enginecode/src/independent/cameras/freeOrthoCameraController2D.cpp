@@ -6,11 +6,6 @@
 
 namespace Engine
 {
-	FreeOrthoCameraController2D::FreeOrthoCameraController2D()
-	{
-
-	}
-
 	void FreeOrthoCameraController2D::init(float left, float top, float width, float height)
 	{
 		m_camera.reset(new OrthographicCamera2D(left, left + width, top + height, top));

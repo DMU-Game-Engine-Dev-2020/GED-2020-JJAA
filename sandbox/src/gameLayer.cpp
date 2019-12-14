@@ -67,11 +67,14 @@ GameLayer::GameLayer(const std::string& name) : Layer(name)
 		glm::vec3(1.5f, 0.f, 3.f), glm::vec3(0.f), glm::vec3(1.f))));
 	m_velocities.push_back(std::make_shared<Engine::VelocityComponent>(Engine::VelocityComponent(
 		glm::vec3(0.f), glm::vec3(0.f, 20.f, 0.f))));
+	m_oscilate.push_back(std::make_shared<Engine::OscilateComponent>(Engine::OscilateComponent(
+		Engine::OscilateComponent::DOWN, 10.f)));
 
 	m_gameObjects.push_back(std::make_shared<Engine::GameObject>());
 	m_gameObjects.back()->addComponent(m_materials.back());
 	m_gameObjects.back()->addComponent(m_positions.back());
 	m_gameObjects.back()->addComponent(m_velocities.back());
+	m_gameObjects.back()->addComponent(m_oscilate.back());
 
 	//////////////////////////////////////////////////////////
 	// Added textured phong shader and cube //////////////////
@@ -116,23 +119,23 @@ GameLayer::GameLayer(const std::string& name) : Layer(name)
 		glm::vec3(-1.5f, 0.f, 3.f), glm::vec3(0.f), glm::vec3(1.f))));
 	m_velocities.push_back(std::make_shared<Engine::VelocityComponent>(Engine::VelocityComponent(
 		glm::vec3(0.f), glm::vec3(0.f, -20.f, 0.f))));
+	m_textures.push_back(std::make_shared<Engine::TextureComponent>(Engine::TextureComponent(
+		m_pResources->addTexture("assets/textures/letterCube.png"),
+		m_pResources->addTexture("assets/textures/numberCube.png"))));
+	m_oscilate.push_back(std::make_shared<Engine::OscilateComponent>(Engine::OscilateComponent(
+		Engine::OscilateComponent::UP, 10.f)));
 
 	m_gameObjects.push_back(std::make_shared<Engine::GameObject>());
 	m_gameObjects.back()->addComponent(m_materials.back());
 	m_gameObjects.back()->addComponent(m_positions.back());
 	m_gameObjects.back()->addComponent(m_velocities.back());
+	m_gameObjects.back()->addComponent(m_textures.back());
+	m_gameObjects.back()->addComponent(m_oscilate.back());
 
-	// Load textures
-	m_pLetterTex = m_pResources->addTexture("assets/textures/letterCube.png");
-	m_pNumberTex = m_pResources->addTexture("assets/textures/numberCube.png");
-
-	//m_FCmodel = glm::translate(glm::mat4(1), glm::vec3(1.5, 0, 3));
-	//m_TPmodel = glm::translate(glm::mat4(1), glm::vec3(-1.5, 0, 3));
-
-	m_pUBOMatrices = m_pResources->getUBO("Matrices");
-	m_pUBOLights = m_pResources->getUBO("Light");
+	m_UBOs.push_back(m_pResources->getUBO("Matrices"));
+	m_UBOs.push_back(m_pResources->getUBO("Light"));
 	
-	m_pCamera.reset(new Engine::FPSCameraControllerEuler());
+	m_pCamera.reset(new Engine::FPSCameraControllerEuler);
 	m_pCamera->init(45.f, 4.f / 3.f, 0.1f, 100.f);
 }
 
@@ -154,34 +157,6 @@ void GameLayer::onUpdate(float timestep)
 		CGO->onUpdate(timestep);
 
 	/////////////////////////////////////
-	// Moving stuff /////////////////////
-	/////////////////////////////////////
-	//
-	// Code to make the cube move, you can ignore this more or less.
-	//glm::mat4 FCtranslation, TPtranslation;
-	//
-	//if (m_bGoingUp)
-	//{
-	//	FCtranslation = glm::translate(m_FCmodel, glm::vec3(0.0f, 0.2f * timestep, 0.0f));
-	//	TPtranslation = glm::translate(m_TPmodel, glm::vec3(0.0f, -0.2f * timestep, 0.0f));
-	//}
-	//else
-	//{
-	//	FCtranslation = glm::translate(m_FCmodel, glm::vec3(0.0f, -0.2f * timestep, 0.0f));
-	//	TPtranslation = glm::translate(m_TPmodel, glm::vec3(0.0f, 0.2f * timestep, 0.0f));
-	//}
-	//
-	//m_fTimeSummed += timestep;
-	//if (m_fTimeSummed > 20.0f)
-	//{
-	//	m_fTimeSummed = 0.f;
-	//	m_bGoingUp = !m_bGoingUp;
-	//}
-	//
-	//m_FCmodel = glm::rotate(FCtranslation, glm::radians(20.f) * timestep, glm::vec3(0.f, 1.f, 0.f)); // Spin the cube at 20 degrees per second
-	//m_TPmodel = glm::rotate(TPtranslation, glm::radians(-20.f) * timestep, glm::vec3(0.f, 1.f, 0.f)); // Spin the cube at 20 degrees per second
-
-	/////////////////////////////////////
 	// Set scene data ///////////////////
 	/////////////////////////////////////
 	
@@ -196,30 +171,18 @@ void GameLayer::onUpdate(float timestep)
 	tempData[0].push_back((void*)&m_pCamera->getCamera()->getProjection()[0][0]);
 	tempData[0].push_back((void*)&m_pCamera->getCamera()->getView()[0][0]);
 	
-	m_sceneData.insert(std::make_pair(m_pUBOMatrices, tempData[0]));
-	
 	// Add Light data to vector
 	tempData[1].push_back((void*)&m_lightColour[0]);
 	tempData[1].push_back((void*)&m_lightPosition[0]);
 	tempData[1].push_back((void*)&m_viewPosition[0]);
-	
-	m_sceneData.insert(std::make_pair(m_pUBOLights, tempData[1]));
 
-	
-	// Set the flat colour cube model uniform
-	//m_pFCcube->setDataElement("u_model", (void*)&m_FCmodel[0][0]);
-	//
-	//if (m_bGoingUp) 
-	//	m_iTexSlot = m_pLetterTex->getSlot();
-	//else 
-	//	m_iTexSlot = m_pNumberTex->getSlot();
-	
-	m_iTexSlot = m_pLetterTex->getSlot();
+	int i = 0;
+	for (auto& it : m_UBOs)
+	{
+		m_sceneData.insert(std::make_pair(it, tempData[i]));
+		i++;
+	}
 
-	// Set the textured phong cube model and texture uniform
-	//m_pTPcube->setDataElement("u_model", (void*)&m_TPmodel[0][0]);
-	m_materials[1]->getMaterial()->setDataElement("u_texData", (void*)&m_iTexSlot);
-	
 	m_pRenderer->actionCommand(Engine::RenderCommand::setClearColourCommand(0, 0, 0, 1));
 	m_pRenderer->actionCommand(Engine::RenderCommand::setDepthTestLessCommand(true));
 	m_pRenderer->actionCommand(Engine::RenderCommand::setBackfaceCullingCommand(true));

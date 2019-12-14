@@ -13,8 +13,6 @@
 //#include <glm/glm.hpp>
 //#include <glm/gtc/matrix_transform.hpp>
 //
-#include <ft2build.h>
-#include FT_FREETYPE_H
 
 namespace Engine 
 {
@@ -56,7 +54,7 @@ namespace Engine
 		// Make a new resource manager
 		m_pResources.reset(new ResourceManager);
 
-		m_pLayerStack.reset(new Layerstack());
+		m_pLayerStack.reset(new Layerstack);
 		m_pLayerStack->start();
 
 		//// Make a new basic renderer
@@ -322,12 +320,6 @@ namespace Engine
 		{
 			LOG_TRACE("Window closing"); // Log what's happening
 			m_bRunning = false; // Stop the application from running
-			return true; // Leave the function
-		}
-		// If the enter key is pressed
-		if (e.getKeyCode() == ENGINE_KEY_ENTER)
-		{
-			//m_bCam = !m_bCam;
 			return true; // Leave the function
 		}
 		return false;

@@ -266,7 +266,7 @@ namespace Engine
 				it->setUVs(glm::vec2((float)it->getSize().x / (float)memW, (float)it->getSize().y / (float)memH), 
 					glm::vec2((float)it->getSize().x / (float)memW, (float)it->getSize().y / (float)memH));
 
-		s_fontTexture.reset(Texture::createFromRawData(memW, memH, 1, texMemory2));
+		s_fontTexture.reset(Texture::createFromRawData(memW, memH, 1, texMemory));
 
 		free(texMemory);
 		free(texMemory2);

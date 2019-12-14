@@ -14,7 +14,7 @@ namespace Engine
 		float m_fTranslationSpeed = 100.f;
 		float m_fRotationSpeed = 10.f;
 	public:
-		FreeOrthoCameraController2D();
+		FreeOrthoCameraController2D() {}
 
 		void init(float left, float top, float width, float height) override;
 		inline std::shared_ptr<Camera> getCamera() override { return m_camera; }

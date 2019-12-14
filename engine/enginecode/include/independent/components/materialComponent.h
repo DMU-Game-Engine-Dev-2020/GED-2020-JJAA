@@ -9,14 +9,6 @@ namespace Engine
 	{
 	private:
 		std::shared_ptr<Material> m_pMaterial;
-
-		void sendMessage(const ComponentMessage& msg) override
-		{
-			for (auto it = m_pOwner->begin(); it != m_pOwner->end(); it++)
-			{
-				(*it)->receiveMessage(msg);
-			}
-		}
 	public:
 		MaterialComponent(const std::shared_ptr<Material>& material) : m_pMaterial(material) {}
 

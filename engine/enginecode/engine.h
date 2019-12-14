@@ -33,3 +33,5 @@
 #include "components/materialComponent.h"
 #include "components/positionComponent.h"
 #include "components/velocityComponent.h"
+#include "components/oscilateComponent.h"
+#include "components/textureComponent.h"

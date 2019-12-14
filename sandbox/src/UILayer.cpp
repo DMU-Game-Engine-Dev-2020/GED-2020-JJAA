@@ -13,9 +13,9 @@ UILayer::UILayer(const std::string& name) : Layer(name)
 
 	m_pMat = m_pLabel->getMaterial();
 
-	m_pUBO = m_pResources->getUBO("TextMatrices");
+	m_UBOs.push_back(m_pResources->getUBO("TextMatrices"));
 
-	m_pCamera.reset(new Engine::FreeOrthoCameraController2D());
+	m_pCamera.reset(new Engine::FreeOrthoCameraController2D);
 	m_pCamera->init(0.f, 0.f, 800.f, 600.f);
 }
 
@@ -39,7 +39,7 @@ void UILayer::onUpdate(float timestep)
 	tempData.push_back((void*)&m_pCamera->getCamera()->getProjection()[0][0]);
 	tempData.push_back((void*)&m_pCamera->getCamera()->getView()[0][0]);
 
-	m_sceneData.insert(std::make_pair(m_pUBO, tempData));
+	m_sceneData.insert(std::make_pair(m_UBOs.back(), tempData));
 
 	m_pRenderer->beginScene(m_sceneData);
 
