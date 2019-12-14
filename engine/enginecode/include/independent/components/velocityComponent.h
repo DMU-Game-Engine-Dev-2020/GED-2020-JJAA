@@ -27,11 +27,11 @@ namespace Engine
 			switch (msg.m_msgType)
 			{
 			case ComponentMessageType::VelocitySetLinear:
-				glm::vec3 linear = std::any_cast<glm::vec3>(msg.m_msgData);
+				glm::vec3 linear = *(glm::vec3*)msg.m_msgData;
 				m_linear = linear;
 				return;
 			case ComponentMessageType::VelocitySetAngular:
-				glm::vec3 angular = std::any_cast<glm::vec3>(msg.m_msgData);
+				glm::vec3 angular = *(glm::vec3*)msg.m_msgData;
 				m_angular = angular;
 				return;
 			}
@@ -40,7 +40,7 @@ namespace Engine
 		void onUpdate(float timestep) override
 		{
 			std::pair<glm::vec3, glm::vec3> data(m_linear * timestep, m_angular * timestep);
-			sendMessage(ComponentMessage(ComponentMessageType::PositionIntegrate, std::any(data)));
+			sendMessage(ComponentMessage(ComponentMessageType::PositionIntegrate, (void*)&data));
 		}
 	};
 }

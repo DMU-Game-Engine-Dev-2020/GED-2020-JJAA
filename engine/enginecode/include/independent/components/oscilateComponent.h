@@ -23,13 +23,15 @@ namespace Engine
 			
 			if (m_state == DOWN)
 			{
-				sendMessage(ComponentMessage(ComponentMessageType::VelocitySetLinear, std::any(glm::vec3(0.f, -0.2f, 0.f))));
+				glm::vec3 data(0.f, -0.2f, 0.f);
+				sendMessage(ComponentMessage(ComponentMessageType::VelocitySetLinear, (void*)&data));
 			}
 			else if (m_state == UP)
 			{
-				sendMessage(ComponentMessage(ComponentMessageType::VelocitySetLinear, std::any(glm::vec3(0.f, 0.2f, 0.f))));
+				glm::vec3 data(0.f, 0.2f, 0.f);
+				sendMessage(ComponentMessage(ComponentMessageType::VelocitySetLinear, (void*)&data));
 			}
-			sendMessage(ComponentMessage(ComponentMessageType::TextureSet, std::any(m_state)));
+			sendMessage(ComponentMessage(ComponentMessageType::TextureSet, (void*)&m_state));
 		}
 
 		void onUpdate(float timestep) override
@@ -41,14 +43,16 @@ namespace Engine
 				if (m_state == DOWN)
 				{
 					m_state = UP;
-					sendMessage(ComponentMessage(ComponentMessageType::VelocitySetLinear, std::any(glm::vec3(0.f, 0.2f, 0.f))));
+					glm::vec3 data(0.f, 0.2f, 0.f);
+					sendMessage(ComponentMessage(ComponentMessageType::VelocitySetLinear, (void*)&data));
 				}
 				else if (m_state == UP)
 				{
 					m_state = DOWN;
-					sendMessage(ComponentMessage(ComponentMessageType::VelocitySetLinear, std::any(glm::vec3(0.f, -0.2f, 0.f))));
+					glm::vec3 data(0.f, -0.2f, 0.f);
+					sendMessage(ComponentMessage(ComponentMessageType::VelocitySetLinear, (void*)&data));
 				}
-				sendMessage(ComponentMessage(ComponentMessageType::TextureSet, std::any(m_state)));
+				sendMessage(ComponentMessage(ComponentMessageType::TextureSet, (void*)&m_state));
 
 				m_fTimeAccumulated = 0;
 			}

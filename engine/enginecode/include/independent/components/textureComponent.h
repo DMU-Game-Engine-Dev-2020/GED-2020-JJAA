@@ -23,7 +23,7 @@ namespace Engine
 			switch (msg.m_msgType)
 			{
 			case ComponentMessageType::TextureSet:
-				OscilateComponent::state recData = std::any_cast<OscilateComponent::state>(msg.m_msgData);
+				OscilateComponent::state recData = *(OscilateComponent::state*)msg.m_msgData;
 
 				if (recData == OscilateComponent::state::DOWN)
 					m_iTexSlot = m_letterTex->getSlot();
@@ -31,7 +31,7 @@ namespace Engine
 					m_iTexSlot = m_numberTex->getSlot();
 
 				std::pair<std::string, void*> sendData("u_texData", (void*)&m_iTexSlot);
-				ComponentMessage msg(ComponentMessageType::UniformSet, sendData);
+				ComponentMessage msg(ComponentMessageType::UniformSet, (void*)&sendData);
 				sendMessage(msg);
 				return;
 			}
@@ -40,7 +40,7 @@ namespace Engine
 		void onUpdate(float timestep) override
 		{
 			std::pair<std::string, void*> data("u_texData", (void*)&m_iTexSlot);
-			ComponentMessage msg(ComponentMessageType::UniformSet, data);
+			ComponentMessage msg(ComponentMessageType::UniformSet, (void*)&data);
 			sendMessage(msg);
 		}
 	};

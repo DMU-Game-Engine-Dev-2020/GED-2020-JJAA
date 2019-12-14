@@ -2,8 +2,6 @@
 
 #include "events/event.h"
 
-#include <any>
-
 namespace Engine
 {
 	enum class ComponentMessageType
@@ -19,10 +17,10 @@ namespace Engine
 	class ComponentMessage
 	{
 	public:
-		ComponentMessage(ComponentMessageType type, std::any data) : m_msgType(type), m_msgData(data) {}
+		ComponentMessage(ComponentMessageType type, void* data) : m_msgType(type), m_msgData(data) {}
 
 		ComponentMessageType m_msgType;
-		std::any m_msgData;
+		void* m_msgData;
 	};
 
 	class GameObject;

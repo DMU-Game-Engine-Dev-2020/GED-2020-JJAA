@@ -51,12 +51,12 @@ namespace Engine
 			switch (msg.m_msgType)
 			{
 			case ComponentMessageType::PositionSet:
-				glm::vec3 pos = std::any_cast<glm::vec3>(msg.m_msgData);
+				glm::vec3 pos = *(glm::vec3*)msg.m_msgData;
 				m_transVec = pos;
 				calculateModel();
 				return;
 			case ComponentMessageType::PositionIntegrate:
-				std::pair<glm::vec3, glm::vec3> vel = std::any_cast<std::pair<glm::vec3, glm::vec3>>(msg.m_msgData);
+				std::pair<glm::vec3, glm::vec3> vel = *(std::pair<glm::vec3, glm::vec3>*)msg.m_msgData;
 
 				m_transVec += vel.first;
 				m_rotVec.x += glm::radians(vel.second.x);
@@ -70,7 +70,7 @@ namespace Engine
 		void onUpdate(float timestep) override
 		{
 			std::pair<std::string, void*> data("u_model", (void*)&m_model[0][0]);
-			ComponentMessage msg(ComponentMessageType::UniformSet, data);
+			ComponentMessage msg(ComponentMessageType::UniformSet, (void*)&data);
 			sendMessage(msg);
 		}
 
@@ -78,7 +78,7 @@ namespace Engine
 		{
 			m_pOwner = owner;
 			std::pair<std::string, void*> data("u_model", (void*)&m_model[0][0]);
-			ComponentMessage msg(ComponentMessageType::UniformSet, data);
+			ComponentMessage msg(ComponentMessageType::UniformSet, (void*)&data);
 			sendMessage(msg);
 		}
 	};

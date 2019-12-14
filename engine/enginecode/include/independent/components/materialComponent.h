@@ -19,7 +19,7 @@ namespace Engine
 			switch (msg.m_msgType)
 			{
 			case ComponentMessageType::UniformSet:
-				std::pair<std::string, void*> data = std::any_cast<std::pair<std::string, void*>>(msg.m_msgData);
+				std::pair<std::string, void*> data = *(std::pair<std::string, void*>*)msg.m_msgData;
 				m_pMaterial->setDataElement(data.first, data.second);
 				return;
 			}
