@@ -15,7 +15,11 @@ namespace Engine
 
 		void push(std::shared_ptr<Layer> layer) { m_layers.push_back(layer); }
 		void pop() { m_layers.pop_back(); }
+
 		inline std::vector<std::shared_ptr<Layer>>::iterator begin() { return m_layers.begin(); }
 		inline std::vector<std::shared_ptr<Layer>>::iterator end() { return m_layers.end(); }
+
+		inline std::vector<std::shared_ptr<Layer>>::reverse_iterator rbegin() { return m_layers.rbegin(); }
+		inline std::vector<std::shared_ptr<Layer>>::reverse_iterator rend() { return m_layers.rend(); }
 	};
 }

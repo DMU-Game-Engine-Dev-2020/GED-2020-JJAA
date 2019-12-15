@@ -1,3 +1,5 @@
+/** \file freeOrthoCameraController2D.cpp
+*/
 #include "engine_pch.h"
 
 #include "cameras/freeOrthoCameraController2D.h"
@@ -8,13 +10,15 @@ namespace Engine
 {
 	void FreeOrthoCameraController2D::init(float left, float top, float width, float height)
 	{
+		// Create a new camera
 		m_camera.reset(new OrthographicCamera2D(left, left + width, top + height, top));
-		m_position = glm::vec2(left, top);
-		m_camera->setPosition(m_position);
+		m_position = glm::vec2(left, top); // Set the position using values passed in
+		m_camera->setPosition(m_position); // Give the position to the camera
 	}
 
 	void FreeOrthoCameraController2D::onUpdate(float timestep)
 	{
+		// If W, A, S or D is pressed, move the camera in the direction
 		if (InputPoller::isKeyPressed(ENGINE_KEY_W))
 		{
 			m_position.x += -sin(glm::radians(m_fRotation) * m_fTranslationSpeed * timestep);
@@ -36,6 +40,7 @@ namespace Engine
 			m_position.y -= sin(glm::radians(m_fRotation) * m_fTranslationSpeed * timestep);
 		}
 
+		// If Q or E is pressed, rotate the camera
 		if (InputPoller::isKeyPressed(ENGINE_KEY_Q))
 		{
 			m_fRotation -= m_fRotationSpeed * timestep;
@@ -44,7 +49,6 @@ namespace Engine
 			else if (m_fRotation <= -180.f)
 				m_fRotation += 360.f;
 		}
-
 		if (InputPoller::isKeyPressed(ENGINE_KEY_E))
 		{
 			m_fRotation += m_fRotationSpeed * timestep;
@@ -53,7 +57,7 @@ namespace Engine
 			else if (m_fRotation <= -180.f)
 				m_fRotation += 360.f;
 		}
-
+		// Set the camera position and rotation
 		m_camera->setPositionAndRotation(m_position, m_fRotation);
 	}
 }

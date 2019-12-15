@@ -113,12 +113,22 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a7cfcf32dcefedd4803da4a49d5fb239e"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_engine_1_1_material.html">Material</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#a7cfcf32dcefedd4803da4a49d5fb239e">addMaterial</a> (const std::string &amp;name, std::shared_ptr&lt; <a class="el" href="class_engine_1_1_shader.html">Shader</a> &gt; shader, std::shared_ptr&lt; <a class="el" href="class_engine_1_1_vertex_buffer.html">VertexBuffer</a> &gt; VBO)</td></tr>
 <tr class="memdesc:a7cfcf32dcefedd4803da4a49d5fb239e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to add a material.  <a href="class_engine_1_1_resource_manager.html#a7cfcf32dcefedd4803da4a49d5fb239e">More...</a><br /></td></tr>
 <tr class="separator:a7cfcf32dcefedd4803da4a49d5fb239e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfa69247edf0492f47b91168847d7f50"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_engine_1_1_uniform_buffer.html">UniformBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#acfa69247edf0492f47b91168847d7f50">addUniformBuffer</a> (const std::string &amp;name, std::shared_ptr&lt; <a class="el" href="class_engine_1_1_uniform_buffer_layout.html">UniformBufferLayout</a> &gt; layout, const std::string &amp;shaderName)</td></tr>
-<tr class="memdesc:acfa69247edf0492f47b91168847d7f50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to add a uniform buffer.  <a href="class_engine_1_1_resource_manager.html#acfa69247edf0492f47b91168847d7f50">More...</a><br /></td></tr>
-<tr class="separator:acfa69247edf0492f47b91168847d7f50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64e1070d5fd4b4787b6f4dc3529dac03"><td class="memItemLeft" align="right" valign="top">static std::list&lt; std::shared_ptr&lt; <a class="el" href="class_engine_1_1_uniform_buffer.html">UniformBuffer</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#a64e1070d5fd4b4787b6f4dc3529dac03">getUniformBuffers</a> ()</td></tr>
-<tr class="memdesc:a64e1070d5fd4b4787b6f4dc3529dac03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get a list of all of the uniform buffers.  <a href="class_engine_1_1_resource_manager.html#a64e1070d5fd4b4787b6f4dc3529dac03">More...</a><br /></td></tr>
-<tr class="separator:a64e1070d5fd4b4787b6f4dc3529dac03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a553d27374e07e4c8fdfbdc070b61276e"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_engine_1_1_uniform_buffer.html">UniformBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#a553d27374e07e4c8fdfbdc070b61276e">addUBO</a> (const std::string &amp;name, std::shared_ptr&lt; <a class="el" href="class_engine_1_1_uniform_buffer_layout.html">UniformBufferLayout</a> &gt; layout, const std::string &amp;shaderName)</td></tr>
+<tr class="memdesc:a553d27374e07e4c8fdfbdc070b61276e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to add a uniform buffer.  <a href="class_engine_1_1_resource_manager.html#a553d27374e07e4c8fdfbdc070b61276e">More...</a><br /></td></tr>
+<tr class="separator:a553d27374e07e4c8fdfbdc070b61276e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e6ac55d9bcd7512b8c69eb963026f86"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_engine_1_1_uniform_buffer.html">UniformBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#a2e6ac55d9bcd7512b8c69eb963026f86">addUBO</a> (const std::string &amp;name, unsigned int rangeStart, unsigned int rangeEnd, std::shared_ptr&lt; <a class="el" href="class_engine_1_1_uniform_buffer_layout.html">UniformBufferLayout</a> &gt; layout, const std::string &amp;shaderName)</td></tr>
+<tr class="separator:a2e6ac55d9bcd7512b8c69eb963026f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aceffb4902f21cc8a6c29397cca0c9f78"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_engine_1_1_uniform_buffer.html">UniformBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#aceffb4902f21cc8a6c29397cca0c9f78">getUBO</a> (const std::string &amp;name)</td></tr>
+<tr class="memdesc:aceffb4902f21cc8a6c29397cca0c9f78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get a uniform buffer.  <a href="class_engine_1_1_resource_manager.html#aceffb4902f21cc8a6c29397cca0c9f78">More...</a><br /></td></tr>
+<tr class="separator:aceffb4902f21cc8a6c29397cca0c9f78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab223d20db3b3aa20ad57c59c0fc6f5b8"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_engine_1_1_shader.html">Shader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#ab223d20db3b3aa20ad57c59c0fc6f5b8">getShader</a> (const std::string &amp;name)</td></tr>
+<tr class="separator:ab223d20db3b3aa20ad57c59c0fc6f5b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a902d93a43116c252ec93d9dd20accd9d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#a902d93a43116c252ec93d9dd20accd9d">populateCharacters</a> (std::unordered_map&lt; std::string, unsigned int &gt; fontsAndSizes)</td></tr>
+<tr class="separator:a902d93a43116c252ec93d9dd20accd9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35e6e42e13ba5ffb6d94af62e8314f5b"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_engine_1_1_character.html">Character</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#a35e6e42e13ba5ffb6d94af62e8314f5b">getCharacter</a> (std::string font, unsigned int ASCIICode)</td></tr>
+<tr class="separator:a35e6e42e13ba5ffb6d94af62e8314f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0251dc346033958368ebc2cf9eb58d9b"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_engine_1_1_texture.html">Texture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#a0251dc346033958368ebc2cf9eb58d9b">getFontTexture</a> ()</td></tr>
+<tr class="separator:a0251dc346033958368ebc2cf9eb58d9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
@@ -149,6 +159,14 @@ Static Private Attributes</h2></td></tr>
 <tr class="memitem:aa9d89fb064e67f17560bc4bd4582e33b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_asset_manager.html">AssetManager</a>&lt; <a class="el" href="class_engine_1_1_uniform_buffer.html">UniformBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#aa9d89fb064e67f17560bc4bd4582e33b">s_UBOs</a></td></tr>
 <tr class="memdesc:aa9d89fb064e67f17560bc4bd4582e33b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uniform buffer asset manager.  <a href="class_engine_1_1_resource_manager.html#aa9d89fb064e67f17560bc4bd4582e33b">More...</a><br /></td></tr>
 <tr class="separator:aa9d89fb064e67f17560bc4bd4582e33b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1043c5c810c29a4ed43c99c21097d48e"><td class="memItemLeft" align="right" valign="top">static std::map&lt; std::string, std::vector&lt; <a class="el" href="class_engine_1_1_character.html">Character</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#a1043c5c810c29a4ed43c99c21097d48e">s_characters</a></td></tr>
+<tr class="separator:a1043c5c810c29a4ed43c99c21097d48e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accf3588711fba8c114c07b6ca78590a7"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#accf3588711fba8c114c07b6ca78590a7">s_ASCIIStart</a> = 32</td></tr>
+<tr class="separator:accf3588711fba8c114c07b6ca78590a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42febd16e59d6e6d7a58ef8dfce5e25f"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#a42febd16e59d6e6d7a58ef8dfce5e25f">s_ASCIIEnd</a> = 126</td></tr>
+<tr class="separator:a42febd16e59d6e6d7a58ef8dfce5e25f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a79f994b0f0c4d5441d123248f348ca"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_engine_1_1_texture.html">Texture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#a0a79f994b0f0c4d5441d123248f348ca">s_fontTexture</a></td></tr>
+<tr class="separator:a0a79f994b0f0c4d5441d123248f348ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Manages all asset managers. </p>
@@ -180,7 +198,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="resource_manager_8h_source.html#l00033">33</a> of file <a class="el" href="resource_manager_8h_source.html">resourceManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="resource_manager_8h_source.html#l00038">38</a> of file <a class="el" href="resource_manager_8h_source.html">resourceManager.h</a>.</p>
 
 </div>
 </div>
@@ -236,7 +254,7 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the buffer </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00030">30</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00036">36</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -291,7 +309,7 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the material </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00118">118</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00124">124</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -346,7 +364,7 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the material </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00126">126</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00132">132</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -383,7 +401,7 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the shader </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00038">38</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00044">44</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -438,7 +456,7 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the shader </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00063">63</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00069">69</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -475,7 +493,7 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the texture </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00086">86</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00092">92</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -544,12 +562,12 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the texture </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00094">94</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00100">100</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
 
 </div>
 </div>
-<a id="acfa69247edf0492f47b91168847d7f50"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfa69247edf0492f47b91168847d7f50">&#9670;&nbsp;</a></span>addUniformBuffer()</h2>
+<a id="a553d27374e07e4c8fdfbdc070b61276e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a553d27374e07e4c8fdfbdc070b61276e">&#9670;&nbsp;</a></span>addUBO() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -558,7 +576,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_engine_1_1_uniform_buffer.html">UniformBuffer</a> &gt; Engine::ResourceManager::addUniformBuffer </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_engine_1_1_uniform_buffer.html">UniformBuffer</a> &gt; Engine::ResourceManager::addUBO </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>name</em>, </td>
@@ -599,7 +617,63 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the buffer </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00134">134</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00140">140</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a2e6ac55d9bcd7512b8c69eb963026f86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e6ac55d9bcd7512b8c69eb963026f86">&#9670;&nbsp;</a></span>addUBO() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_engine_1_1_uniform_buffer.html">UniformBuffer</a> &gt; Engine::ResourceManager::addUBO </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>rangeStart</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>rangeEnd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_engine_1_1_uniform_buffer_layout.html">UniformBufferLayout</a> &gt;&#160;</td>
+          <td class="paramname"><em>layout</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>shaderName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00159">159</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -636,7 +710,7 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the array </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00102">102</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00108">108</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -698,12 +772,12 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the buffer </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00110">110</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00116">116</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a64e1070d5fd4b4787b6f4dc3529dac03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64e1070d5fd4b4787b6f4dc3529dac03">&#9670;&nbsp;</a></span>getUniformBuffers()</h2>
+<a id="a35e6e42e13ba5ffb6d94af62e8314f5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35e6e42e13ba5ffb6d94af62e8314f5b">&#9670;&nbsp;</a></span>getCharacter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -712,10 +786,21 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::list&lt; std::shared_ptr&lt; <a class="el" href="class_engine_1_1_uniform_buffer.html">UniformBuffer</a> &gt; &gt; Engine::ResourceManager::getUniformBuffers </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_engine_1_1_character.html">Character</a> &gt; Engine::ResourceManager::getCharacter </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>font</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>ASCIICode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -725,10 +810,93 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Function to get a list of all of the uniform buffers. </p>
-<dl class="section return"><dt>Returns</dt><dd>A list of pointers to all of the uniform buffers </dd></dl>
+<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00275">275</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00153">153</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
+</div>
+</div>
+<a id="a0251dc346033958368ebc2cf9eb58d9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0251dc346033958368ebc2cf9eb58d9b">&#9670;&nbsp;</a></span>getFontTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::shared_ptr&lt;<a class="el" href="class_engine_1_1_texture.html">Texture</a>&gt; Engine::ResourceManager::getFontTexture </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="resource_manager_8h_source.html#l00139">139</a> of file <a class="el" href="resource_manager_8h_source.html">resourceManager.h</a>.</p>
+
+</div>
+</div>
+<a id="ab223d20db3b3aa20ad57c59c0fc6f5b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab223d20db3b3aa20ad57c59c0fc6f5b8">&#9670;&nbsp;</a></span>getShader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::shared_ptr&lt;<a class="el" href="class_engine_1_1_shader.html">Shader</a>&gt; Engine::ResourceManager::getShader </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="resource_manager_8h_source.html#l00133">133</a> of file <a class="el" href="resource_manager_8h_source.html">resourceManager.h</a>.</p>
+
+</div>
+</div>
+<a id="aceffb4902f21cc8a6c29397cca0c9f78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aceffb4902f21cc8a6c29397cca0c9f78">&#9670;&nbsp;</a></span>getUBO()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::shared_ptr&lt;<a class="el" href="class_engine_1_1_uniform_buffer.html">UniformBuffer</a>&gt; Engine::ResourceManager::getUBO </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function to get a uniform buffer. </p>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to a uniform buffer </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="resource_manager_8h_source.html#l00131">131</a> of file <a class="el" href="resource_manager_8h_source.html">resourceManager.h</a>.</p>
 
 </div>
 </div>
@@ -765,7 +933,35 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The name of the file </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00158">158</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00293">293</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a902d93a43116c252ec93d9dd20accd9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a902d93a43116c252ec93d9dd20accd9d">&#9670;&nbsp;</a></span>populateCharacters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::ResourceManager::populateCharacters </td>
+          <td>(</td>
+          <td class="paramtype">std::unordered_map&lt; std::string, unsigned int &gt;&#160;</td>
+          <td class="paramname"><em>fontsAndSizes</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00178">178</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -807,7 +1003,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="class_engine_1_1_system.html#a7020561bd617d4237e7e5841f56216c8">Engine::System</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="resource_manager_8h_source.html#l00036">36</a> of file <a class="el" href="resource_manager_8h_source.html">resourceManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="resource_manager_8h_source.html#l00041">41</a> of file <a class="el" href="resource_manager_8h_source.html">resourceManager.h</a>.</p>
 
 </div>
 </div>
@@ -849,11 +1045,107 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="class_engine_1_1_system.html#a42c92dca4ba99d16bc5f117460d712a1">Engine::System</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00018">18</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00024">24</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a42febd16e59d6e6d7a58ef8dfce5e25f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42febd16e59d6e6d7a58ef8dfce5e25f">&#9670;&nbsp;</a></span>s_ASCIIEnd</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int Engine::ResourceManager::s_ASCIIEnd = 126</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="resource_manager_8h_source.html#l00028">28</a> of file <a class="el" href="resource_manager_8h_source.html">resourceManager.h</a>.</p>
+
+</div>
+</div>
+<a id="accf3588711fba8c114c07b6ca78590a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accf3588711fba8c114c07b6ca78590a7">&#9670;&nbsp;</a></span>s_ASCIIStart</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int Engine::ResourceManager::s_ASCIIStart = 32</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="resource_manager_8h_source.html#l00027">27</a> of file <a class="el" href="resource_manager_8h_source.html">resourceManager.h</a>.</p>
+
+</div>
+</div>
+<a id="a1043c5c810c29a4ed43c99c21097d48e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1043c5c810c29a4ed43c99c21097d48e">&#9670;&nbsp;</a></span>s_characters</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; std::string, std::vector&lt; <a class="el" href="class_engine_1_1_character.html">Character</a> &gt; &gt; Engine::ResourceManager::s_characters</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="resource_manager_8h_source.html#l00026">26</a> of file <a class="el" href="resource_manager_8h_source.html">resourceManager.h</a>.</p>
+
+</div>
+</div>
+<a id="a0a79f994b0f0c4d5441d123248f348ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a79f994b0f0c4d5441d123248f348ca">&#9670;&nbsp;</a></span>s_fontTexture</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_engine_1_1_texture.html">Texture</a> &gt; Engine::ResourceManager::s_fontTexture</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="resource_manager_8h_source.html#l00029">29</a> of file <a class="el" href="resource_manager_8h_source.html">resourceManager.h</a>.</p>
+
+</div>
+</div>
 <a id="a8fc12e7b537d2a046b0d4986db3821d6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8fc12e7b537d2a046b0d4986db3821d6">&#9670;&nbsp;</a></span>s_indexBuffers</h2>
 

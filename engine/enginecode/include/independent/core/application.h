@@ -10,22 +10,6 @@
 
 #include "windows/window.h"
 
-//#include "rendering/text/basicTextLabel.h"
-//
-//#include "windows/inputPoller.h"
-//
-//
-//#include "rendering/renderer/renderer.h"
-//
-//
-//
-//#include "rendering/text/character.h"
-//
-//
-//#include "cameras/cameraController.h"
-//#include "cameras/freeOrthoCameraController2D.h"
-//#include "cameras/FPSCameraControllerEuler.h"
-
 namespace Engine 
 {
 	/**
@@ -45,33 +29,11 @@ namespace Engine
 	private:
 		static Application* s_instance; //!< Singleton instance of the application
 
-		//std::shared_ptr<Texture> m_pLetterCubeTexture; //!< Pointer to the letter cube texture
-		//std::shared_ptr<Texture> m_pNumberCubeTexture; //!< Pointer to the number cube texture
-		//
-		//std::shared_ptr<Material> m_pFCMat; //!< Pointer to the flat colour material
-		//std::shared_ptr<Material> m_pTPMat; //!< Pointer to the textured phong material
-		//
-		//std::shared_ptr<UniformBuffer> m_matricesUBO;
-		//std::shared_ptr<UniformBuffer> m_lightUBO;
-		//
-		//std::unique_ptr<Renderer> m_pRenderer; //!< Pointer to the renderer
-		
 		bool m_bRunning; //!< If the application is running
 		float m_fTotalTimeElapsed; //!< The total time the program has been active in seconds
 		float m_fTimestep; //!< Time in seconds for the last frame
 		
 		std::unique_ptr<Window> m_pWindow; //!< Unique pointer to the window
-		
-		//std::shared_ptr<FreeOrthoCameraController2D> m_2DCam;
-		//std::shared_ptr<FPSCameraControllerEuler> m_FPSCam;
-		//bool m_bCam = false;
-
-#pragma region TempVars
-// Temp stuff
-		//bool m_goingUp = false; //!< If a cube is going up
-		//float m_timeSummed = 10.f; //!< How much time has elasped?
-#pragma endregion TempVars
-
 	public:
 		virtual ~Application(); //!< Deconstructor
 
@@ -97,25 +59,6 @@ namespace Engine
 		\return A boolean representing if the event was successful or not
 		*/
 		bool onResize(WindowResizeEvent& e); 
-
-		////! Called if the window gets focus
-		///*!
-		//\param e A reference to the event
-		//\return A boolean representing if the event was successful or not
-		//*/
-		//bool onFocus(WindowFocusEvent& e); 
-		////! Called if the window loses focus
-		///*!
-		//\param e A reference to the event
-		//\return A boolean representing if the event was successful or not
-		//*/
-		//bool onLostFocus(WindowLostFocusEvent& e); 
-		////! Called if the window is moved
-		///*!
-		//\param e A reference to the event
-		//\return A boolean representing if the event was successful or not
-		//*/
-		//bool onWindowMoved(WindowMovedEvent& e); 
 
 		//! Called if a keyboard key is pressed
 		/*!
