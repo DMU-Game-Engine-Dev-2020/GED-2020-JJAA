@@ -1,66 +1,46 @@
+/** \file oscilateComponent.h
+*/
 #pragma once
 
 #include "controllerComponent.h"
 
-#include <glm/glm.hpp>
-
 namespace Engine
 {
+	/**
+	\class OscilateComponent
+	\brief Component to make a gameobject move up and down
+	*/
 	class OscilateComponent : public ControllerComponent
 	{
 	public:
+		//! Enum for whether the object is moving up or down or not moving
 		enum state { DOWN = -1, STOPPED = 0, UP = 1 };
 	private:
-		state m_state = UP;
-		float m_fTimeAccumulated;
+		state m_state = UP; //!< The current state of the object
+		float m_fTimeAccumulated; //!< The time passed
 	public:
+		//! Constructor
+		/*!
+		\param initialState The state it starts in
+		\param timeAccumulated The time to start on
+		*/
 		OscilateComponent(OscilateComponent::state initialState, float timeAccumulated) : 
 			m_state(initialState), m_fTimeAccumulated(timeAccumulated) {}
 
-		void onAttach(GameObject* owner) override
-		{
-			m_pOwner = owner;
-			
-			if (m_state == DOWN)
-			{
-				glm::vec3 data(0.f, -0.2f, 0.f);
-				sendMessage(ComponentMessage(ComponentMessageType::VelocitySetLinear, (void*)&data));
-			}
-			else if (m_state == UP)
-			{
-				glm::vec3 data(0.f, 0.2f, 0.f);
-				sendMessage(ComponentMessage(ComponentMessageType::VelocitySetLinear, (void*)&data));
-			}
-			sendMessage(ComponentMessage(ComponentMessageType::TextureSet, (void*)&m_state));
-		}
-
-		void onUpdate(float timestep) override
-		{
-			m_fTimeAccumulated += timestep;
-
-			if (m_fTimeAccumulated >= 20.f)
-			{
-				if (m_state == DOWN)
-				{
-					m_state = UP;
-					glm::vec3 data(0.f, 0.2f, 0.f);
-					sendMessage(ComponentMessage(ComponentMessageType::VelocitySetLinear, (void*)&data));
-				}
-				else if (m_state == UP)
-				{
-					m_state = DOWN;
-					glm::vec3 data(0.f, -0.2f, 0.f);
-					sendMessage(ComponentMessage(ComponentMessageType::VelocitySetLinear, (void*)&data));
-				}
-				sendMessage(ComponentMessage(ComponentMessageType::TextureSet, (void*)&m_state));
-
-				m_fTimeAccumulated = 0;
-			}
-		}
-
-		void receiveMessage(const ComponentMessage& msg) override
-		{
-
-		}
+		//! Function called when the component is attached to a gameobject
+		/*!
+		\param owner Pointer to the gameobject the component is being attached to
+		*/
+		void onAttach(GameObject* owner) override;
+		//! Function to update the component every frame
+		/*!
+		\param timestep The time since the previous frame
+		*/
+		void onUpdate(float timestep) override;
+		//! Function to receive a message from another component on the gameobject
+		/*!
+		\param msg The message being received
+		*/
+		void receiveMessage(const ComponentMessage& msg) override {}
 	};
 }

@@ -53,6 +53,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="class_engine_1_1_component.html" title="Base class for all components to be put on a gameobject.">Component</a> to give a gameobject velocity.  
+ <a href="class_engine_1_1_velocity_component.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="velocity_component_8h_source.html">velocityComponent.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Engine::VelocityComponent:</div>
@@ -60,47 +63,58 @@ Inheritance diagram for Engine::VelocityComponent:</div>
  <div class="center">
   <img src="class_engine_1_1_velocity_component.png" usemap="#Engine::VelocityComponent_map" alt=""/>
   <map id="Engine::VelocityComponent_map" name="Engine::VelocityComponent_map">
-<area href="class_engine_1_1_component.html" alt="Engine::Component" shape="rect" coords="0,0,166,24"/>
+<area href="class_engine_1_1_component.html" title="Base class for all components to be put on a gameobject." alt="Engine::Component" shape="rect" coords="0,0,166,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a53a551d0d4dfac238cd5d98122d53c2d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_velocity_component.html#a53a551d0d4dfac238cd5d98122d53c2d">VelocityComponent</a> (glm::vec3 linear, glm::vec3 angular)</td></tr>
+<tr class="memdesc:a53a551d0d4dfac238cd5d98122d53c2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="class_engine_1_1_velocity_component.html#a53a551d0d4dfac238cd5d98122d53c2d">More...</a><br /></td></tr>
 <tr class="separator:a53a551d0d4dfac238cd5d98122d53c2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aded212e35fd0912d502bf0d714e73861"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_velocity_component.html#aded212e35fd0912d502bf0d714e73861">receiveMessage</a> (const <a class="el" href="class_engine_1_1_component_message.html">ComponentMessage</a> &amp;msg) override</td></tr>
-<tr class="separator:aded212e35fd0912d502bf0d714e73861"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34bb7db93791e6abbed91847dc722e74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_velocity_component.html#a34bb7db93791e6abbed91847dc722e74">onUpdate</a> (float timestep) override</td></tr>
+<tr class="memdesc:a34bb7db93791e6abbed91847dc722e74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to update the component every frame.  <a href="class_engine_1_1_velocity_component.html#a34bb7db93791e6abbed91847dc722e74">More...</a><br /></td></tr>
 <tr class="separator:a34bb7db93791e6abbed91847dc722e74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aded212e35fd0912d502bf0d714e73861"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_velocity_component.html#aded212e35fd0912d502bf0d714e73861">receiveMessage</a> (const <a class="el" href="class_engine_1_1_component_message.html">ComponentMessage</a> &amp;msg) override</td></tr>
+<tr class="memdesc:aded212e35fd0912d502bf0d714e73861"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to receive a message from another component on the gameobject.  <a href="class_engine_1_1_velocity_component.html#aded212e35fd0912d502bf0d714e73861">More...</a><br /></td></tr>
+<tr class="separator:aded212e35fd0912d502bf0d714e73861"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_engine_1_1_component"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_engine_1_1_component')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_engine_1_1_component.html">Engine::Component</a></td></tr>
 <tr class="memitem:a65426ef991ca092058d365cff80f5bb4 inherit pub_methods_class_engine_1_1_component"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_component.html#a65426ef991ca092058d365cff80f5bb4">onAttach</a> (<a class="el" href="class_engine_1_1_game_object.html">GameObject</a> *owner)</td></tr>
+<tr class="memdesc:a65426ef991ca092058d365cff80f5bb4 inherit pub_methods_class_engine_1_1_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function called when the component is attached to a gameobject.  <a href="class_engine_1_1_component.html#a65426ef991ca092058d365cff80f5bb4">More...</a><br /></td></tr>
 <tr class="separator:a65426ef991ca092058d365cff80f5bb4 inherit pub_methods_class_engine_1_1_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4790fd5e80d058c2db7314b91587cedf inherit pub_methods_class_engine_1_1_component"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_component.html#a4790fd5e80d058c2db7314b91587cedf">onDetach</a> ()</td></tr>
+<tr class="memdesc:a4790fd5e80d058c2db7314b91587cedf inherit pub_methods_class_engine_1_1_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function called when the component is detached from a gameobject.  <a href="class_engine_1_1_component.html#a4790fd5e80d058c2db7314b91587cedf">More...</a><br /></td></tr>
 <tr class="separator:a4790fd5e80d058c2db7314b91587cedf inherit pub_methods_class_engine_1_1_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa235f9b05864c178696b957fade68d20 inherit pub_methods_class_engine_1_1_component"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_component.html#aa235f9b05864c178696b957fade68d20">onEvent</a> (<a class="el" href="class_engine_1_1_event.html">Event</a> &amp;e)</td></tr>
+<tr class="memdesc:aa235f9b05864c178696b957fade68d20 inherit pub_methods_class_engine_1_1_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to handle events.  <a href="class_engine_1_1_component.html#aa235f9b05864c178696b957fade68d20">More...</a><br /></td></tr>
 <tr class="separator:aa235f9b05864c178696b957fade68d20 inherit pub_methods_class_engine_1_1_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a75f0a049eeac8a89318ba003668babdd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_velocity_component.html#a75f0a049eeac8a89318ba003668babdd">sendMessage</a> (const <a class="el" href="class_engine_1_1_component_message.html">ComponentMessage</a> &amp;msg) override</td></tr>
+<tr class="memdesc:a75f0a049eeac8a89318ba003668babdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to send a message to another component on the gameobject.  <a href="class_engine_1_1_velocity_component.html#a75f0a049eeac8a89318ba003668babdd">More...</a><br /></td></tr>
 <tr class="separator:a75f0a049eeac8a89318ba003668babdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:af38d80934e5f4b45ba1e3e1f65397bb2"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_velocity_component.html#af38d80934e5f4b45ba1e3e1f65397bb2">m_linear</a></td></tr>
+<tr class="memdesc:af38d80934e5f4b45ba1e3e1f65397bb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linear velocity.  <a href="class_engine_1_1_velocity_component.html#af38d80934e5f4b45ba1e3e1f65397bb2">More...</a><br /></td></tr>
 <tr class="separator:af38d80934e5f4b45ba1e3e1f65397bb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bafcfdaa66fa00d83f2f85b9420a896"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_velocity_component.html#a4bafcfdaa66fa00d83f2f85b9420a896">m_angular</a></td></tr>
+<tr class="memdesc:a4bafcfdaa66fa00d83f2f85b9420a896"><td class="mdescLeft">&#160;</td><td class="mdescRight">Angular velocity.  <a href="class_engine_1_1_velocity_component.html#a4bafcfdaa66fa00d83f2f85b9420a896">More...</a><br /></td></tr>
 <tr class="separator:a4bafcfdaa66fa00d83f2f85b9420a896"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_engine_1_1_component"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_engine_1_1_component')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_engine_1_1_component.html">Engine::Component</a></td></tr>
 <tr class="memitem:a3446964e0c83a0af3c1370da0c563dba inherit pro_attribs_class_engine_1_1_component"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_engine_1_1_game_object.html">GameObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_component.html#a3446964e0c83a0af3c1370da0c563dba">m_pOwner</a> = nullptr</td></tr>
+<tr class="memdesc:a3446964e0c83a0af3c1370da0c563dba inherit pro_attribs_class_engine_1_1_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the gameobject it is on.  <a href="class_engine_1_1_component.html#a3446964e0c83a0af3c1370da0c563dba">More...</a><br /></td></tr>
 <tr class="separator:a3446964e0c83a0af3c1370da0c563dba inherit pro_attribs_class_engine_1_1_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="velocity_component_8h_source.html#l00009">9</a> of file <a class="el" href="velocity_component_8h_source.html">velocityComponent.h</a>.</p>
+<div class="textblock"><p><a class="el" href="class_engine_1_1_component.html" title="Base class for all components to be put on a gameobject.">Component</a> to give a gameobject velocity. </p>
+
+<p class="definition">Definition at line <a class="el" href="velocity_component_8h_source.html#l00015">15</a> of file <a class="el" href="velocity_component_8h_source.html">velocityComponent.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a53a551d0d4dfac238cd5d98122d53c2d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a53a551d0d4dfac238cd5d98122d53c2d">&#9670;&nbsp;</a></span>VelocityComponent()</h2>
@@ -136,7 +150,16 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="velocity_component_8h_source.html#l00023">23</a> of file <a class="el" href="velocity_component_8h_source.html">velocityComponent.h</a>.</p>
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">linear</td><td>Starting linear velocity </td></tr>
+    <tr><td class="paramname">angular</td><td>Starting angular velocity </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="velocity_component_8h_source.html#l00032">32</a> of file <a class="el" href="velocity_component_8h_source.html">velocityComponent.h</a>.</p>
 
 </div>
 </div>
@@ -160,14 +183,22 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p>Function to update the component every frame. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timestep</td><td>The time since the previous frame </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Reimplemented from <a class="el" href="class_engine_1_1_component.html#addbf4c39ae043652de01a214129ff3fe">Engine::Component</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="velocity_component_8h_source.html#l00040">40</a> of file <a class="el" href="velocity_component_8h_source.html">velocityComponent.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="velocity_component_8cpp_source.html#l00009">9</a> of file <a class="el" href="velocity_component_8cpp_source.html">velocityComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -190,14 +221,22 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p>Function to receive a message from another component on the gameobject. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>The message being received </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implements <a class="el" href="class_engine_1_1_component.html#ae1a04e092fe4d1193d476d941b4a6288">Engine::Component</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="velocity_component_8h_source.html#l00025">25</a> of file <a class="el" href="velocity_component_8h_source.html">velocityComponent.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="velocity_component_8cpp_source.html#l00016">16</a> of file <a class="el" href="velocity_component_8cpp_source.html">velocityComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -220,14 +259,22 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p>Function to send a message to another component on the gameobject. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>The message being sent </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Reimplemented from <a class="el" href="class_engine_1_1_component.html#a6eaffbec797496837a42cccadf383c93">Engine::Component</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="velocity_component_8h_source.html#l00015">15</a> of file <a class="el" href="velocity_component_8h_source.html">velocityComponent.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="velocity_component_8cpp_source.html#l00032">32</a> of file <a class="el" href="velocity_component_8cpp_source.html">velocityComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -252,7 +299,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="velocity_component_8h_source.html#l00013">13</a> of file <a class="el" href="velocity_component_8h_source.html">velocityComponent.h</a>.</p>
+<p>Angular velocity. </p>
+
+<p class="definition">Definition at line <a class="el" href="velocity_component_8h_source.html#l00019">19</a> of file <a class="el" href="velocity_component_8h_source.html">velocityComponent.h</a>.</p>
 
 </div>
 </div>
@@ -276,12 +325,15 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="velocity_component_8h_source.html#l00012">12</a> of file <a class="el" href="velocity_component_8h_source.html">velocityComponent.h</a>.</p>
+<p>Linear velocity. </p>
+
+<p class="definition">Definition at line <a class="el" href="velocity_component_8h_source.html#l00018">18</a> of file <a class="el" href="velocity_component_8h_source.html">velocityComponent.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>engine/enginecode/include/independent/components/<a class="el" href="velocity_component_8h_source.html">velocityComponent.h</a></li>
+<li>engine/enginecode/src/independent/components/<a class="el" href="velocity_component_8cpp_source.html">velocityComponent.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

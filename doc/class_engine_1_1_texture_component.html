@@ -45,12 +45,16 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_engine_1_1_texture_component-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Engine::TextureComponent Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="class_engine_1_1_component.html" title="Base class for all components to be put on a gameobject.">Component</a> to give a gameobject a texture.  
+ <a href="class_engine_1_1_texture_component.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="texture_component_8h_source.html">textureComponent.h</a>&gt;</code></p>
 <div class="dynheader">
@@ -59,50 +63,61 @@ Inheritance diagram for Engine::TextureComponent:</div>
  <div class="center">
   <img src="class_engine_1_1_texture_component.png" usemap="#Engine::TextureComponent_map" alt=""/>
   <map id="Engine::TextureComponent_map" name="Engine::TextureComponent_map">
-<area href="class_engine_1_1_component.html" alt="Engine::Component" shape="rect" coords="0,0,162,24"/>
+<area href="class_engine_1_1_component.html" title="Base class for all components to be put on a gameobject." alt="Engine::Component" shape="rect" coords="0,0,162,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a295ea0517273beec153fdb2c5179521b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_texture_component.html#a295ea0517273beec153fdb2c5179521b">TextureComponent</a> (std::shared_ptr&lt; <a class="el" href="class_engine_1_1_texture.html">Texture</a> &gt; letter, std::shared_ptr&lt; <a class="el" href="class_engine_1_1_texture.html">Texture</a> &gt; number)</td></tr>
-<tr class="separator:a295ea0517273beec153fdb2c5179521b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc2044163e0ae47a7060dd8a8127afae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_texture_component.html#acc2044163e0ae47a7060dd8a8127afae">receiveMessage</a> (const <a class="el" href="class_engine_1_1_component_message.html">ComponentMessage</a> &amp;msg) override</td></tr>
-<tr class="separator:acc2044163e0ae47a7060dd8a8127afae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac186e3b688a1c4147a146b4b8997b80c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_texture_component.html#ac186e3b688a1c4147a146b4b8997b80c">TextureComponent</a> (std::shared_ptr&lt; <a class="el" href="class_engine_1_1_texture.html">Texture</a> &gt; tex)</td></tr>
+<tr class="memdesc:ac186e3b688a1c4147a146b4b8997b80c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="class_engine_1_1_texture_component.html#ac186e3b688a1c4147a146b4b8997b80c">More...</a><br /></td></tr>
+<tr class="separator:ac186e3b688a1c4147a146b4b8997b80c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc1a227bf4279f9441d21418d2be9cf0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_texture_component.html#abc1a227bf4279f9441d21418d2be9cf0">onAttach</a> (<a class="el" href="class_engine_1_1_game_object.html">GameObject</a> *owner) override</td></tr>
+<tr class="memdesc:abc1a227bf4279f9441d21418d2be9cf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function called when the component is attached to a gameobject.  <a href="class_engine_1_1_texture_component.html#abc1a227bf4279f9441d21418d2be9cf0">More...</a><br /></td></tr>
+<tr class="separator:abc1a227bf4279f9441d21418d2be9cf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9420af85118f07cf843f893625970df3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_texture_component.html#a9420af85118f07cf843f893625970df3">onUpdate</a> (float timestep) override</td></tr>
+<tr class="memdesc:a9420af85118f07cf843f893625970df3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to update the component every frame.  <a href="class_engine_1_1_texture_component.html#a9420af85118f07cf843f893625970df3">More...</a><br /></td></tr>
 <tr class="separator:a9420af85118f07cf843f893625970df3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc2044163e0ae47a7060dd8a8127afae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_texture_component.html#acc2044163e0ae47a7060dd8a8127afae">receiveMessage</a> (const <a class="el" href="class_engine_1_1_component_message.html">ComponentMessage</a> &amp;msg) override</td></tr>
+<tr class="memdesc:acc2044163e0ae47a7060dd8a8127afae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to receive a message from another component on the gameobject.  <a href="class_engine_1_1_texture_component.html#acc2044163e0ae47a7060dd8a8127afae">More...</a><br /></td></tr>
+<tr class="separator:acc2044163e0ae47a7060dd8a8127afae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_engine_1_1_component"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_engine_1_1_component')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_engine_1_1_component.html">Engine::Component</a></td></tr>
-<tr class="memitem:a65426ef991ca092058d365cff80f5bb4 inherit pub_methods_class_engine_1_1_component"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_component.html#a65426ef991ca092058d365cff80f5bb4">onAttach</a> (<a class="el" href="class_engine_1_1_game_object.html">GameObject</a> *owner)</td></tr>
-<tr class="separator:a65426ef991ca092058d365cff80f5bb4 inherit pub_methods_class_engine_1_1_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4790fd5e80d058c2db7314b91587cedf inherit pub_methods_class_engine_1_1_component"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_component.html#a4790fd5e80d058c2db7314b91587cedf">onDetach</a> ()</td></tr>
+<tr class="memdesc:a4790fd5e80d058c2db7314b91587cedf inherit pub_methods_class_engine_1_1_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function called when the component is detached from a gameobject.  <a href="class_engine_1_1_component.html#a4790fd5e80d058c2db7314b91587cedf">More...</a><br /></td></tr>
 <tr class="separator:a4790fd5e80d058c2db7314b91587cedf inherit pub_methods_class_engine_1_1_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa235f9b05864c178696b957fade68d20 inherit pub_methods_class_engine_1_1_component"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_component.html#aa235f9b05864c178696b957fade68d20">onEvent</a> (<a class="el" href="class_engine_1_1_event.html">Event</a> &amp;e)</td></tr>
+<tr class="memdesc:aa235f9b05864c178696b957fade68d20 inherit pub_methods_class_engine_1_1_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to handle events.  <a href="class_engine_1_1_component.html#aa235f9b05864c178696b957fade68d20">More...</a><br /></td></tr>
 <tr class="separator:aa235f9b05864c178696b957fade68d20 inherit pub_methods_class_engine_1_1_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a3bff7abfa96e84fe1f237027e63f7be3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_texture_component.html#a3bff7abfa96e84fe1f237027e63f7be3">sendMessage</a> (const <a class="el" href="class_engine_1_1_component_message.html">ComponentMessage</a> &amp;msg) override</td></tr>
+<tr class="memdesc:a3bff7abfa96e84fe1f237027e63f7be3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to send a message to another component on the gameobject.  <a href="class_engine_1_1_texture_component.html#a3bff7abfa96e84fe1f237027e63f7be3">More...</a><br /></td></tr>
+<tr class="separator:a3bff7abfa96e84fe1f237027e63f7be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:aedcebb8b58b252a283a5132866d26794"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_engine_1_1_texture.html">Texture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_texture_component.html#aedcebb8b58b252a283a5132866d26794">m_numberTex</a></td></tr>
-<tr class="separator:aedcebb8b58b252a283a5132866d26794"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ed46b09244123b5601663c093974f5b"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_engine_1_1_texture.html">Texture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_texture_component.html#a9ed46b09244123b5601663c093974f5b">m_letterTex</a></td></tr>
-<tr class="separator:a9ed46b09244123b5601663c093974f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af928d72a048a6c4c43032ae8a29cd5d7"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_engine_1_1_texture.html">Texture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_texture_component.html#af928d72a048a6c4c43032ae8a29cd5d7">m_tex</a></td></tr>
+<tr class="memdesc:af928d72a048a6c4c43032ae8a29cd5d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the texture.  <a href="class_engine_1_1_texture_component.html#af928d72a048a6c4c43032ae8a29cd5d7">More...</a><br /></td></tr>
+<tr class="separator:af928d72a048a6c4c43032ae8a29cd5d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b97526fe6cb0a7918d99527c92078ee"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_texture_component.html#a6b97526fe6cb0a7918d99527c92078ee">m_iTexSlot</a></td></tr>
+<tr class="memdesc:a6b97526fe6cb0a7918d99527c92078ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">The texture slot.  <a href="class_engine_1_1_texture_component.html#a6b97526fe6cb0a7918d99527c92078ee">More...</a><br /></td></tr>
 <tr class="separator:a6b97526fe6cb0a7918d99527c92078ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_methods_class_engine_1_1_component"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_engine_1_1_component')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_engine_1_1_component.html">Engine::Component</a></td></tr>
-<tr class="memitem:a6eaffbec797496837a42cccadf383c93 inherit pro_methods_class_engine_1_1_component"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_component.html#a6eaffbec797496837a42cccadf383c93">sendMessage</a> (const <a class="el" href="class_engine_1_1_component_message.html">ComponentMessage</a> &amp;msg)</td></tr>
-<tr class="separator:a6eaffbec797496837a42cccadf383c93 inherit pro_methods_class_engine_1_1_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_engine_1_1_component"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_engine_1_1_component')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_engine_1_1_component.html">Engine::Component</a></td></tr>
 <tr class="memitem:a3446964e0c83a0af3c1370da0c563dba inherit pro_attribs_class_engine_1_1_component"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_engine_1_1_game_object.html">GameObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_component.html#a3446964e0c83a0af3c1370da0c563dba">m_pOwner</a> = nullptr</td></tr>
+<tr class="memdesc:a3446964e0c83a0af3c1370da0c563dba inherit pro_attribs_class_engine_1_1_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the gameobject it is on.  <a href="class_engine_1_1_component.html#a3446964e0c83a0af3c1370da0c563dba">More...</a><br /></td></tr>
 <tr class="separator:a3446964e0c83a0af3c1370da0c563dba inherit pro_attribs_class_engine_1_1_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="texture_component_8h_source.html#l00010">10</a> of file <a class="el" href="texture_component_8h_source.html">textureComponent.h</a>.</p>
+<div class="textblock"><p><a class="el" href="class_engine_1_1_component.html" title="Base class for all components to be put on a gameobject.">Component</a> to give a gameobject a texture. </p>
+
+<p class="definition">Definition at line <a class="el" href="texture_component_8h_source.html#l00015">15</a> of file <a class="el" href="texture_component_8h_source.html">textureComponent.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a295ea0517273beec153fdb2c5179521b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a295ea0517273beec153fdb2c5179521b">&#9670;&nbsp;</a></span>TextureComponent()</h2>
+<a id="ac186e3b688a1c4147a146b4b8997b80c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac186e3b688a1c4147a146b4b8997b80c">&#9670;&nbsp;</a></span>TextureComponent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -114,18 +129,8 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">Engine::TextureComponent::TextureComponent </td>
           <td>(</td>
           <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_engine_1_1_texture.html">Texture</a> &gt;&#160;</td>
-          <td class="paramname"><em>letter</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>tex</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_engine_1_1_texture.html">Texture</a> &gt;&#160;</td>
-          <td class="paramname"><em>number</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -135,11 +140,57 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="texture_component_8h_source.html#l00018">18</a> of file <a class="el" href="texture_component_8h_source.html">textureComponent.h</a>.</p>
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tex</td><td>Pointer to the texture </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="texture_component_8h_source.html#l00032">32</a> of file <a class="el" href="texture_component_8h_source.html">textureComponent.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="abc1a227bf4279f9441d21418d2be9cf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc1a227bf4279f9441d21418d2be9cf0">&#9670;&nbsp;</a></span>onAttach()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::TextureComponent::onAttach </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_engine_1_1_game_object.html">GameObject</a> *&#160;</td>
+          <td class="paramname"><em>owner</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function called when the component is attached to a gameobject. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">owner</td><td>Pointer to the gameobject the component is being attached to </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented from <a class="el" href="class_engine_1_1_component.html#a65426ef991ca092058d365cff80f5bb4">Engine::Component</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="texture_component_8cpp_source.html#l00009">9</a> of file <a class="el" href="texture_component_8cpp_source.html">textureComponent.cpp</a>.</p>
+
+</div>
+</div>
 <a id="a9420af85118f07cf843f893625970df3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9420af85118f07cf843f893625970df3">&#9670;&nbsp;</a></span>onUpdate()</h2>
 
@@ -159,14 +210,22 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p>Function to update the component every frame. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timestep</td><td>The time since the previous frame </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Reimplemented from <a class="el" href="class_engine_1_1_component.html#addbf4c39ae043652de01a214129ff3fe">Engine::Component</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="texture_component_8h_source.html#l00040">40</a> of file <a class="el" href="texture_component_8h_source.html">textureComponent.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="texture_component_8cpp_source.html#l00021">21</a> of file <a class="el" href="texture_component_8cpp_source.html">textureComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -194,9 +253,55 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Function to receive a message from another component on the gameobject. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>The message being received </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implements <a class="el" href="class_engine_1_1_component.html#ae1a04e092fe4d1193d476d941b4a6288">Engine::Component</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="texture_component_8h_source.html#l00021">21</a> of file <a class="el" href="texture_component_8h_source.html">textureComponent.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="texture_component_8h_source.html#l00048">48</a> of file <a class="el" href="texture_component_8h_source.html">textureComponent.h</a>.</p>
+
+</div>
+</div>
+<a id="a3bff7abfa96e84fe1f237027e63f7be3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bff7abfa96e84fe1f237027e63f7be3">&#9670;&nbsp;</a></span>sendMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::TextureComponent::sendMessage </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_engine_1_1_component_message.html">ComponentMessage</a> &amp;&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function to send a message to another component on the gameobject. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>The message being sent </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented from <a class="el" href="class_engine_1_1_component.html#a6eaffbec797496837a42cccadf383c93">Engine::Component</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="texture_component_8cpp_source.html#l00029">29</a> of file <a class="el" href="texture_component_8cpp_source.html">textureComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -221,12 +326,14 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="texture_component_8h_source.html#l00016">16</a> of file <a class="el" href="texture_component_8h_source.html">textureComponent.h</a>.</p>
+<p>The texture slot. </p>
+
+<p class="definition">Definition at line <a class="el" href="texture_component_8h_source.html#l00020">20</a> of file <a class="el" href="texture_component_8h_source.html">textureComponent.h</a>.</p>
 
 </div>
 </div>
-<a id="a9ed46b09244123b5601663c093974f5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ed46b09244123b5601663c093974f5b">&#9670;&nbsp;</a></span>m_letterTex</h2>
+<a id="af928d72a048a6c4c43032ae8a29cd5d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af928d72a048a6c4c43032ae8a29cd5d7">&#9670;&nbsp;</a></span>m_tex</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -235,7 +342,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_engine_1_1_texture.html">Texture</a>&gt; Engine::TextureComponent::m_letterTex</td>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_engine_1_1_texture.html">Texture</a>&gt; Engine::TextureComponent::m_tex</td>
         </tr>
       </table>
   </td>
@@ -245,36 +352,15 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="texture_component_8h_source.html#l00014">14</a> of file <a class="el" href="texture_component_8h_source.html">textureComponent.h</a>.</p>
+<p>Pointer to the texture. </p>
+
+<p class="definition">Definition at line <a class="el" href="texture_component_8h_source.html#l00018">18</a> of file <a class="el" href="texture_component_8h_source.html">textureComponent.h</a>.</p>
 
 </div>
 </div>
-<a id="aedcebb8b58b252a283a5132866d26794"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aedcebb8b58b252a283a5132866d26794">&#9670;&nbsp;</a></span>m_numberTex</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_engine_1_1_texture.html">Texture</a>&gt; Engine::TextureComponent::m_numberTex</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="texture_component_8h_source.html#l00013">13</a> of file <a class="el" href="texture_component_8h_source.html">textureComponent.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>engine/enginecode/include/independent/components/<a class="el" href="texture_component_8h_source.html">textureComponent.h</a></li>
+<li>engine/enginecode/src/independent/components/<a class="el" href="texture_component_8cpp_source.html">textureComponent.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

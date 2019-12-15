@@ -53,6 +53,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Base class for all components to be put on a gameobject.  
+ <a href="class_engine_1_1_component.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_c_g_o_8h_source.html">CGO.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Engine::Component:</div>
@@ -60,41 +63,50 @@ Inheritance diagram for Engine::Component:</div>
  <div class="center">
   <img src="class_engine_1_1_component.png" usemap="#Engine::Component_map" alt=""/>
   <map id="Engine::Component_map" name="Engine::Component_map">
-<area href="class_engine_1_1_controller_component.html" alt="Engine::ControllerComponent" shape="rect" coords="0,56,176,80"/>
-<area href="class_engine_1_1_material_component.html" alt="Engine::MaterialComponent" shape="rect" coords="186,56,362,80"/>
-<area href="class_engine_1_1_position_component.html" alt="Engine::PositionComponent" shape="rect" coords="372,56,548,80"/>
-<area href="class_engine_1_1_texture_component.html" alt="Engine::TextureComponent" shape="rect" coords="558,56,734,80"/>
-<area href="class_engine_1_1_velocity_component.html" alt="Engine::VelocityComponent" shape="rect" coords="744,56,920,80"/>
-<area href="class_engine_1_1_oscilate_component.html" alt="Engine::OscilateComponent" shape="rect" coords="0,112,176,136"/>
+<area href="class_engine_1_1_controller_component.html" title="Component that allows control of the object, using components inheriting from this." alt="Engine::ControllerComponent" shape="rect" coords="104,56,303,80"/>
+<area href="class_engine_1_1_material_component.html" title="Component to give a gameobject a material." alt="Engine::MaterialComponent" shape="rect" coords="313,56,512,80"/>
+<area href="class_engine_1_1_position_component.html" title="Component to give a gameobject a position." alt="Engine::PositionComponent" shape="rect" coords="522,56,721,80"/>
+<area href="class_engine_1_1_texture_component.html" title="Component to give a gameobject a texture." alt="Engine::TextureComponent" shape="rect" coords="731,56,930,80"/>
+<area href="class_engine_1_1_velocity_component.html" title="Component to give a gameobject velocity." alt="Engine::VelocityComponent" shape="rect" coords="940,56,1139,80"/>
+<area href="class_engine_1_1_oscilate_component.html" title="Component to make a gameobject move up and down." alt="Engine::OscilateComponent" shape="rect" coords="0,112,199,136"/>
+<area href="class_engine_1_1_texture_switch_component.html" title="Component to make a gameobject change between two textures." alt="Engine::TextureSwitchComponent" shape="rect" coords="209,112,408,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a65426ef991ca092058d365cff80f5bb4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_component.html#a65426ef991ca092058d365cff80f5bb4">onAttach</a> (<a class="el" href="class_engine_1_1_game_object.html">GameObject</a> *owner)</td></tr>
+<tr class="memdesc:a65426ef991ca092058d365cff80f5bb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function called when the component is attached to a gameobject.  <a href="class_engine_1_1_component.html#a65426ef991ca092058d365cff80f5bb4">More...</a><br /></td></tr>
 <tr class="separator:a65426ef991ca092058d365cff80f5bb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4790fd5e80d058c2db7314b91587cedf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_component.html#a4790fd5e80d058c2db7314b91587cedf">onDetach</a> ()</td></tr>
+<tr class="memdesc:a4790fd5e80d058c2db7314b91587cedf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function called when the component is detached from a gameobject.  <a href="class_engine_1_1_component.html#a4790fd5e80d058c2db7314b91587cedf">More...</a><br /></td></tr>
 <tr class="separator:a4790fd5e80d058c2db7314b91587cedf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addbf4c39ae043652de01a214129ff3fe"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_component.html#addbf4c39ae043652de01a214129ff3fe">onUpdate</a> (float timestep)</td></tr>
+<tr class="memdesc:addbf4c39ae043652de01a214129ff3fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to update the component every frame.  <a href="class_engine_1_1_component.html#addbf4c39ae043652de01a214129ff3fe">More...</a><br /></td></tr>
 <tr class="separator:addbf4c39ae043652de01a214129ff3fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa235f9b05864c178696b957fade68d20"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_component.html#aa235f9b05864c178696b957fade68d20">onEvent</a> (<a class="el" href="class_engine_1_1_event.html">Event</a> &amp;e)</td></tr>
+<tr class="memdesc:aa235f9b05864c178696b957fade68d20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to handle events.  <a href="class_engine_1_1_component.html#aa235f9b05864c178696b957fade68d20">More...</a><br /></td></tr>
 <tr class="separator:aa235f9b05864c178696b957fade68d20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1a04e092fe4d1193d476d941b4a6288"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_component.html#ae1a04e092fe4d1193d476d941b4a6288">receiveMessage</a> (const <a class="el" href="class_engine_1_1_component_message.html">ComponentMessage</a> &amp;msg)=0</td></tr>
+<tr class="memdesc:ae1a04e092fe4d1193d476d941b4a6288"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to receive a message from another component on the gameobject.  <a href="class_engine_1_1_component.html#ae1a04e092fe4d1193d476d941b4a6288">More...</a><br /></td></tr>
 <tr class="separator:ae1a04e092fe4d1193d476d941b4a6288"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a6eaffbec797496837a42cccadf383c93"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_component.html#a6eaffbec797496837a42cccadf383c93">sendMessage</a> (const <a class="el" href="class_engine_1_1_component_message.html">ComponentMessage</a> &amp;msg)</td></tr>
+<tr class="memdesc:a6eaffbec797496837a42cccadf383c93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to send a message to another component on the gameobject.  <a href="class_engine_1_1_component.html#a6eaffbec797496837a42cccadf383c93">More...</a><br /></td></tr>
 <tr class="separator:a6eaffbec797496837a42cccadf383c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a3446964e0c83a0af3c1370da0c563dba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_engine_1_1_game_object.html">GameObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_component.html#a3446964e0c83a0af3c1370da0c563dba">m_pOwner</a> = nullptr</td></tr>
+<tr class="memdesc:a3446964e0c83a0af3c1370da0c563dba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the gameobject it is on.  <a href="class_engine_1_1_component.html#a3446964e0c83a0af3c1370da0c563dba">More...</a><br /></td></tr>
 <tr class="separator:a3446964e0c83a0af3c1370da0c563dba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_c_g_o_8h_source.html#l00028">28</a> of file <a class="el" href="_c_g_o_8h_source.html">CGO.h</a>.</p>
+<div class="textblock"><p>Base class for all components to be put on a gameobject. </p>
+
+<p class="definition">Definition at line <a class="el" href="_c_g_o_8h_source.html#l00048">48</a> of file <a class="el" href="_c_g_o_8h_source.html">CGO.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a65426ef991ca092058d365cff80f5bb4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a65426ef991ca092058d365cff80f5bb4">&#9670;&nbsp;</a></span>onAttach()</h2>
@@ -120,9 +132,17 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="class_engine_1_1_position_component.html#a6e655f2fa421a7e7058654f3b3d4ddb1">Engine::PositionComponent</a>, and <a class="el" href="class_engine_1_1_oscilate_component.html#a595961476ad3595425292b976e03dbeb">Engine::OscilateComponent</a>.</p>
+<p>Function called when the component is attached to a gameobject. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">owner</td><td>Pointer to the gameobject the component is being attached to </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="_c_g_o_8h_source.html#l00035">35</a> of file <a class="el" href="_c_g_o_8h_source.html">CGO.h</a>.</p>
+<p>Reimplemented in <a class="el" href="class_engine_1_1_position_component.html#a6e655f2fa421a7e7058654f3b3d4ddb1">Engine::PositionComponent</a>, <a class="el" href="class_engine_1_1_texture_component.html#abc1a227bf4279f9441d21418d2be9cf0">Engine::TextureComponent</a>, <a class="el" href="class_engine_1_1_oscilate_component.html#a595961476ad3595425292b976e03dbeb">Engine::OscilateComponent</a>, and <a class="el" href="class_engine_1_1_texture_switch_component.html#a0ed89236a2866e5656927cc86d7360d9">Engine::TextureSwitchComponent</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_c_g_o_8h_source.html#l00063">63</a> of file <a class="el" href="_c_g_o_8h_source.html">CGO.h</a>.</p>
 
 </div>
 </div>
@@ -149,7 +169,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_g_o_8h_source.html#l00036">36</a> of file <a class="el" href="_c_g_o_8h_source.html">CGO.h</a>.</p>
+<p>Function called when the component is detached from a gameobject. </p>
+
+<p class="definition">Definition at line <a class="el" href="_c_g_o_8h_source.html#l00065">65</a> of file <a class="el" href="_c_g_o_8h_source.html">CGO.h</a>.</p>
 
 </div>
 </div>
@@ -177,7 +199,15 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_g_o_8h_source.html#l00038">38</a> of file <a class="el" href="_c_g_o_8h_source.html">CGO.h</a>.</p>
+<p>Function to handle events. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td>The event </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_c_g_o_8h_source.html#l00075">75</a> of file <a class="el" href="_c_g_o_8h_source.html">CGO.h</a>.</p>
 
 </div>
 </div>
@@ -205,9 +235,17 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="class_engine_1_1_position_component.html#a551158a53dbfc998def4482c030731cc">Engine::PositionComponent</a>, <a class="el" href="class_engine_1_1_texture_component.html#a9420af85118f07cf843f893625970df3">Engine::TextureComponent</a>, <a class="el" href="class_engine_1_1_velocity_component.html#a34bb7db93791e6abbed91847dc722e74">Engine::VelocityComponent</a>, and <a class="el" href="class_engine_1_1_oscilate_component.html#aaf92f6d602c7107946507292e6101ea4">Engine::OscilateComponent</a>.</p>
+<p>Function to update the component every frame. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timestep</td><td>The time since the previous frame </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="_c_g_o_8h_source.html#l00037">37</a> of file <a class="el" href="_c_g_o_8h_source.html">CGO.h</a>.</p>
+<p>Reimplemented in <a class="el" href="class_engine_1_1_position_component.html#a551158a53dbfc998def4482c030731cc">Engine::PositionComponent</a>, <a class="el" href="class_engine_1_1_texture_component.html#a9420af85118f07cf843f893625970df3">Engine::TextureComponent</a>, <a class="el" href="class_engine_1_1_oscilate_component.html#aaf92f6d602c7107946507292e6101ea4">Engine::OscilateComponent</a>, <a class="el" href="class_engine_1_1_texture_switch_component.html#a81b16a14ef4dc594842aa7a04e6efc99">Engine::TextureSwitchComponent</a>, and <a class="el" href="class_engine_1_1_velocity_component.html#a34bb7db93791e6abbed91847dc722e74">Engine::VelocityComponent</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_c_g_o_8h_source.html#l00070">70</a> of file <a class="el" href="_c_g_o_8h_source.html">CGO.h</a>.</p>
 
 </div>
 </div>
@@ -235,7 +273,15 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_engine_1_1_oscilate_component.html#a6441f800e9e1f6f0e3f56f3881ed910a">Engine::OscilateComponent</a>, <a class="el" href="class_engine_1_1_position_component.html#a966dc23d55f4b7ebbca7c935aa708083">Engine::PositionComponent</a>, <a class="el" href="class_engine_1_1_velocity_component.html#aded212e35fd0912d502bf0d714e73861">Engine::VelocityComponent</a>, <a class="el" href="class_engine_1_1_texture_component.html#acc2044163e0ae47a7060dd8a8127afae">Engine::TextureComponent</a>, and <a class="el" href="class_engine_1_1_material_component.html#a522c8f6b476120092dae22115dccf614">Engine::MaterialComponent</a>.</p>
+<p>Function to receive a message from another component on the gameobject. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>The message being received </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_engine_1_1_position_component.html#a966dc23d55f4b7ebbca7c935aa708083">Engine::PositionComponent</a>, <a class="el" href="class_engine_1_1_texture_component.html#acc2044163e0ae47a7060dd8a8127afae">Engine::TextureComponent</a>, <a class="el" href="class_engine_1_1_oscilate_component.html#a6441f800e9e1f6f0e3f56f3881ed910a">Engine::OscilateComponent</a>, <a class="el" href="class_engine_1_1_texture_switch_component.html#ad27517abfe3139c18ce8f3c122fd4895">Engine::TextureSwitchComponent</a>, <a class="el" href="class_engine_1_1_velocity_component.html#aded212e35fd0912d502bf0d714e73861">Engine::VelocityComponent</a>, and <a class="el" href="class_engine_1_1_material_component.html#a522c8f6b476120092dae22115dccf614">Engine::MaterialComponent</a>.</p>
 
 </div>
 </div>
@@ -263,9 +309,17 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="class_engine_1_1_position_component.html#a792654b763b938cbeb8ac4c24338a780">Engine::PositionComponent</a>, <a class="el" href="class_engine_1_1_velocity_component.html#a75f0a049eeac8a89318ba003668babdd">Engine::VelocityComponent</a>, and <a class="el" href="class_engine_1_1_controller_component.html#a5302f4627d514d02d40f24affee1cb02">Engine::ControllerComponent</a>.</p>
+<p>Function to send a message to another component on the gameobject. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>The message being sent </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="_c_g_o_8h_source.html#l00033">33</a> of file <a class="el" href="_c_g_o_8h_source.html">CGO.h</a>.</p>
+<p>Reimplemented in <a class="el" href="class_engine_1_1_position_component.html#a792654b763b938cbeb8ac4c24338a780">Engine::PositionComponent</a>, <a class="el" href="class_engine_1_1_texture_component.html#a3bff7abfa96e84fe1f237027e63f7be3">Engine::TextureComponent</a>, <a class="el" href="class_engine_1_1_velocity_component.html#a75f0a049eeac8a89318ba003668babdd">Engine::VelocityComponent</a>, and <a class="el" href="class_engine_1_1_controller_component.html#a5302f4627d514d02d40f24affee1cb02">Engine::ControllerComponent</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_c_g_o_8h_source.html#l00057">57</a> of file <a class="el" href="_c_g_o_8h_source.html">CGO.h</a>.</p>
 
 </div>
 </div>
@@ -290,7 +344,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_g_o_8h_source.html#l00031">31</a> of file <a class="el" href="_c_g_o_8h_source.html">CGO.h</a>.</p>
+<p>Pointer to the gameobject it is on. </p>
+
+<p class="definition">Definition at line <a class="el" href="_c_g_o_8h_source.html#l00051">51</a> of file <a class="el" href="_c_g_o_8h_source.html">CGO.h</a>.</p>
 
 </div>
 </div>

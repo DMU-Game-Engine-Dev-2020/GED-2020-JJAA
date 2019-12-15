@@ -1,3 +1,5 @@
+/** \file velocityComponent.h
+*/
 #pragma once
 
 #include "CGO.h"
@@ -6,41 +8,37 @@
 
 namespace Engine
 {
+	/**
+	\class VelocityComponent
+	\brief Component to give a gameobject velocity
+	*/
 	class VelocityComponent : public Component
 	{
 	private:
-		glm::vec3 m_linear;
-		glm::vec3 m_angular;
+		glm::vec3 m_linear; //!< Linear velocity
+		glm::vec3 m_angular; //!< Angular velocity
 
-		void sendMessage(const ComponentMessage& msg) override
-		{
-			for (auto it = m_pOwner->begin(); it != m_pOwner->end(); it++)
-			{
-				(*it)->receiveMessage(msg);
-			}
-		}
+		//! Function to send a message to another component on the gameobject
+		/*!
+		\param msg The message being sent
+		*/
+		void sendMessage(const ComponentMessage& msg) override;
 	public:
+		//! Constructor
+		/*!
+		\param linear Starting linear velocity
+		\param angular Starting angular velocity
+		*/
 		VelocityComponent(glm::vec3 linear, glm::vec3 angular) : m_linear(linear), m_angular(angular) {}
-
-		void receiveMessage(const ComponentMessage& msg) override
-		{
-			switch (msg.m_msgType)
-			{
-			case ComponentMessageType::VelocitySetLinear:
-				glm::vec3 linear = *(glm::vec3*)msg.m_msgData;
-				m_linear = linear;
-				return;
-			case ComponentMessageType::VelocitySetAngular:
-				glm::vec3 angular = *(glm::vec3*)msg.m_msgData;
-				m_angular = angular;
-				return;
-			}
-		}
-
-		void onUpdate(float timestep) override
-		{
-			std::pair<glm::vec3, glm::vec3> data(m_linear * timestep, m_angular * timestep);
-			sendMessage(ComponentMessage(ComponentMessageType::PositionIntegrate, (void*)&data));
-		}
+		//! Function to update the component every frame
+		/*!
+		\param timestep The time since the previous frame
+		*/
+		void onUpdate(float timestep) override;
+		//! Function to receive a message from another component on the gameobject
+		/*!
+		\param msg The message being received
+		*/
+		void receiveMessage(const ComponentMessage& msg) override;
 	};
 }

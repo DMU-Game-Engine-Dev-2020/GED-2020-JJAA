@@ -1,47 +1,50 @@
+/** \file textureComponent.h
+*/
 #pragma once
 
 #include "CGO.h"
-#include "oscilateComponent.h"
 
 #include "rendering/texture.h"
 
 namespace Engine
 {
+	/**
+	\class TextureComponent
+	\brief Component to give a gameobject a texture
+	*/
 	class TextureComponent : public Component
 	{
 	private:
-		std::shared_ptr<Texture> m_numberTex;
-		std::shared_ptr<Texture> m_letterTex;
+		std::shared_ptr<Texture> m_tex; //!< Pointer to the texture
 
-		unsigned int m_iTexSlot;
+		unsigned int m_iTexSlot; //!< The texture slot
+
+		//! Function to send a message to another component on the gameobject
+		/*!
+		\param msg The message being sent
+		*/
+		void sendMessage(const ComponentMessage& msg) override;
 	public:
-		TextureComponent(std::shared_ptr<Texture> letter, std::shared_ptr<Texture> number) : 
-			m_numberTex(number), m_letterTex(letter) {}
+		//! Constructor
+		/*!
+		\param tex Pointer to the texture
+		*/
+		TextureComponent(std::shared_ptr<Texture> tex) : m_tex(tex) {}
 
-		void receiveMessage(const ComponentMessage& msg) override
-		{
-			switch (msg.m_msgType)
-			{
-			case ComponentMessageType::TextureSet:
-				OscilateComponent::state recData = *(OscilateComponent::state*)msg.m_msgData;
-
-				if (recData == OscilateComponent::state::DOWN)
-					m_iTexSlot = m_letterTex->getSlot();
-				else if (recData == OscilateComponent::state::UP)
-					m_iTexSlot = m_numberTex->getSlot();
-
-				std::pair<std::string, void*> sendData("u_texData", (void*)&m_iTexSlot);
-				ComponentMessage msg(ComponentMessageType::UniformSet, (void*)&sendData);
-				sendMessage(msg);
-				return;
-			}
-		}
-
-		void onUpdate(float timestep) override
-		{
-			std::pair<std::string, void*> data("u_texData", (void*)&m_iTexSlot);
-			ComponentMessage msg(ComponentMessageType::UniformSet, (void*)&data);
-			sendMessage(msg);
-		}
+		//! Function called when the component is attached to a gameobject
+		/*!
+		\param owner Pointer to the gameobject the component is being attached to
+		*/
+		void onAttach(GameObject* owner) override;
+		//! Function to update the component every frame
+		/*!
+		\param timestep The time since the previous frame
+		*/
+		void onUpdate(float timestep) override;
+		//! Function to receive a message from another component on the gameobject
+		/*!
+		\param msg The message being received
+		*/
+		void receiveMessage(const ComponentMessage& msg) override {}
 	};
 }

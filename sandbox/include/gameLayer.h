@@ -8,7 +8,8 @@ private:
 	std::vector<std::shared_ptr<Engine::PositionComponent>> m_positions;
 	std::vector<std::shared_ptr<Engine::VelocityComponent>> m_velocities;
 	std::vector<std::shared_ptr<Engine::OscilateComponent>> m_oscilate;
-	std::vector<std::shared_ptr<Engine::TextureComponent>> m_textures;
+	//std::vector<std::shared_ptr<Engine::TextureComponent>> m_textures;
+	std::vector<std::shared_ptr<Engine::TextureSwitchComponent>> m_textureSwitch;
 
 	glm::vec3 m_lightColour;
 	glm::vec3 m_lightPosition;

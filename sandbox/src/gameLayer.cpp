@@ -114,14 +114,16 @@ GameLayer::GameLayer(const std::string& name) : Layer(name)
 	// Create the textures phong material
 	std::shared_ptr<Engine::Material> TPcubeMat = m_pResources->addMaterial("texturedPhongMat", tempSetupShader, tempSetupVAO);
 
+	std::shared_ptr<Engine::Texture> numberTex = m_pResources->addTexture("assets/textures/numberCube.png");
+	std::shared_ptr<Engine::Texture> letterTex = m_pResources->addTexture("assets/textures/letterCube.png");
+
 	m_materials.push_back(std::make_shared<Engine::MaterialComponent>(Engine::MaterialComponent(TPcubeMat)));
 	m_positions.push_back(std::make_shared<Engine::PositionComponent>(Engine::PositionComponent(
 		glm::vec3(-1.5f, 0.f, 3.f), glm::vec3(0.f), glm::vec3(1.f))));
 	m_velocities.push_back(std::make_shared<Engine::VelocityComponent>(Engine::VelocityComponent(
 		glm::vec3(0.f), glm::vec3(0.f, -20.f, 0.f))));
-	m_textures.push_back(std::make_shared<Engine::TextureComponent>(Engine::TextureComponent(
-		m_pResources->addTexture("assets/textures/letterCube.png"),
-		m_pResources->addTexture("assets/textures/numberCube.png"))));
+	m_textureSwitch.push_back(std::make_shared<Engine::TextureSwitchComponent>(Engine::TextureSwitchComponent(
+		numberTex, letterTex)));
 	m_oscilate.push_back(std::make_shared<Engine::OscilateComponent>(Engine::OscilateComponent(
 		Engine::OscilateComponent::UP, 10.f)));
 
@@ -129,7 +131,7 @@ GameLayer::GameLayer(const std::string& name) : Layer(name)
 	m_gameObjects.back()->addComponent(m_materials.back());
 	m_gameObjects.back()->addComponent(m_positions.back());
 	m_gameObjects.back()->addComponent(m_velocities.back());
-	m_gameObjects.back()->addComponent(m_textures.back());
+	m_gameObjects.back()->addComponent(m_textureSwitch.back());
 	m_gameObjects.back()->addComponent(m_oscilate.back());
 
 	m_UBOs.push_back(m_pResources->getUBO("Matrices"));
