@@ -39,9 +39,16 @@ namespace Engine
 		\return A pointer to the command
 		*/
 		static RenderCommand* setBackfaceCullingCommand(bool enabled);
-
+		//! Function to create a command to clear the colour buffer
+		/*!
+		\return A pointer to the command
+		*/
 		static RenderCommand* clearColourBufferCommand();
-
+		//! Function to create a command to turn alpha blending on or off
+		/*!
+		\param enabled If turning on or off
+		\return A pointer to the command
+		*/
 		static RenderCommand* setOneMinusAlphaBlendingCommand(bool enabled);
 	};
 }

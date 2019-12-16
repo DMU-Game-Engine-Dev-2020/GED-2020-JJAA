@@ -23,10 +23,10 @@ namespace Engine
 		static AssetManager<Material> s_materials; //!< Material asset manager
 		static AssetManager<UniformBuffer> s_UBOs; //!< Uniform buffer asset manager
 
-		static std::map<std::string, std::vector<Character>> s_characters;
-		static const int s_ASCIIStart = 32;
-		static const int s_ASCIIEnd = 126;
-		static std::shared_ptr<Texture> s_fontTexture;
+		static std::map<std::string, std::vector<Character>> s_characters; //!< Stores all loaded characters in all fonts and sizes
+		static const int s_ASCIIStart = 32; //!< First ascii value being used
+		static const int s_ASCIIEnd = 126; //!< Last ascii value being used
+		static std::shared_ptr<Texture> s_fontTexture; //!< Pointer to the texture with all of the characters on it
 
 		//! Function to get the name of a file from a file path
 		/*!
@@ -121,21 +121,40 @@ namespace Engine
 		\return A pointer to the buffer
 		*/
 		static std::shared_ptr<UniformBuffer> addUBO(const std::string& name, std::shared_ptr<UniformBufferLayout> layout, const std::string& shaderName);
-
+		//! Function to add a uniform buffer
+		/*!
+		\param name The name of the buffer
+		\param rangeStart
+		\param rangeEnd
+		\param layout Pointer to the buffer layout
+		\param shaderName The name of the shader the layout came from
+		\return A pointer to the buffer
+		*/
 		static std::shared_ptr<UniformBuffer> addUBO(const std::string& name, unsigned int rangeStart, unsigned int rangeEnd, std::shared_ptr<UniformBufferLayout> layout, const std::string& shaderName);
 
 		//! Function to get a uniform buffer
 		/*!
+		\param name The name of the buffer
 		\return A pointer to a uniform buffer
 		*/
-		inline static std::shared_ptr<UniformBuffer> getUBO(const std::string& name) { return s_UBOs.get(name); }
-		///////// CHANGE TO CHECK IF EXISTS
-		inline static std::shared_ptr<Shader> getShader(const std::string& name) { return s_shaders.get(name); }
+		static std::shared_ptr<UniformBuffer> getUBO(const std::string& name);
 
+		//! Function to create a texture with all characters that can be used
+		/*!
+		\param fontsAndSizes A map of fonts and sizes to load characters in
+		*/
 		static void populateCharacters(std::unordered_map<std::string, unsigned int> fontsAndSizes);
-
+		//! Function to get a character
+		/*!
+		\param font The font of the character being got
+		\param ASCIICode Which character
+		/return A pointer to a character
+		*/
 		static std::shared_ptr<Character> getCharacter(std::string font, unsigned int ASCIICode);
-
+		//! Function to get the character texture
+		/*!
+		\return a pointer to the character texture
+		*/
 		inline static std::shared_ptr<Texture> getFontTexture() { return s_fontTexture; }
 	};
 }

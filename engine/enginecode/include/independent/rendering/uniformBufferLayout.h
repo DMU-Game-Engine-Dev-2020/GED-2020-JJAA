@@ -42,24 +42,24 @@ namespace Engine
 		*/
 		inline unsigned int getSize() const { return m_iSize; }
 
-		//! Used to get the first element in the vector
+		//! Used to set an iterator to the start of the vector
 		/*!
-		\return The first element in the vector of buffer elements
+		\return An iterator at the start of the vector
 		*/
 		std::vector<BufferElement>::iterator begin() { return m_elements.begin(); }
-		//! Used to get the last element in the vector
+		//! Used to set an iterator to the end of the vector
 		/*!
-		\return The last element in the vector of buffer elements
+		\return An iterator at the end of the vector
 		*/
 		std::vector<BufferElement>::iterator end() { return m_elements.end(); }
-		//! Used to get the first element in the vector, const so that is can be called in a for loop
+		//! Used to set an iterator to the start of the vector
 		/*!
-		\return The first element in the vector of buffer elements
+		\return An iterator at the start of the vector
 		*/
 		std::vector<BufferElement>::const_iterator begin() const { return m_elements.begin(); }
-		//! Used to get the last element in the vector, const so that is can be called in a for loop
+		//! Used to set an iterator to the end of the vector
 		/*!
-		\return The last element in the vector of buffer elements
+		\return An iterator at the end of the vector
 		*/
 		std::vector<BufferElement>::const_iterator end() const { return m_elements.end(); }
 

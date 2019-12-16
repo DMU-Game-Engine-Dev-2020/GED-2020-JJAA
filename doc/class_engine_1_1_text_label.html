@@ -52,6 +52,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Base class for allowing to render more than one character at once.  
+ <a href="class_engine_1_1_text_label.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="text_label_8h_source.html">textLabel.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Engine::TextLabel:</div>
@@ -59,53 +62,71 @@ Inheritance diagram for Engine::TextLabel:</div>
  <div class="center">
   <img src="class_engine_1_1_text_label.png" usemap="#Engine::TextLabel_map" alt=""/>
   <map id="Engine::TextLabel_map" name="Engine::TextLabel_map">
-<area href="class_engine_1_1_basic_text_label.html" alt="Engine::BasicTextLabel" shape="rect" coords="0,56,142,80"/>
+<area href="class_engine_1_1_basic_text_label.html" title="Simple text label that just draws more than one character." alt="Engine::BasicTextLabel" shape="rect" coords="0,56,142,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aac9a52633268363e7722f7d4c8b1a5e8"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_text_label.html#aac9a52633268363e7722f7d4c8b1a5e8">setFont</a> (const std::string &amp;fontName)=0</td></tr>
+<tr class="memdesc:aac9a52633268363e7722f7d4c8b1a5e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set the font of the text.  <a href="class_engine_1_1_text_label.html#aac9a52633268363e7722f7d4c8b1a5e8">More...</a><br /></td></tr>
 <tr class="separator:aac9a52633268363e7722f7d4c8b1a5e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a328daef09c7e87fc2966cb6740f28f26"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_text_label.html#a328daef09c7e87fc2966cb6740f28f26">setCharSize</a> (unsigned int charSize)=0</td></tr>
+<tr class="memdesc:a328daef09c7e87fc2966cb6740f28f26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set the character size of the text.  <a href="class_engine_1_1_text_label.html#a328daef09c7e87fc2966cb6740f28f26">More...</a><br /></td></tr>
 <tr class="separator:a328daef09c7e87fc2966cb6740f28f26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abdde609c98915851dab2f10f37852769"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_text_label.html#abdde609c98915851dab2f10f37852769">setText</a> (const std::string &amp;text)=0</td></tr>
+<tr class="memdesc:abdde609c98915851dab2f10f37852769"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set the text being shown.  <a href="class_engine_1_1_text_label.html#abdde609c98915851dab2f10f37852769">More...</a><br /></td></tr>
 <tr class="separator:abdde609c98915851dab2f10f37852769"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2483092f9b933af3e76d36b214ed476"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_text_label.html#ac2483092f9b933af3e76d36b214ed476">setPosition</a> (const glm::vec2 &amp;position)=0</td></tr>
+<tr class="memdesc:ac2483092f9b933af3e76d36b214ed476"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set the position of the text.  <a href="class_engine_1_1_text_label.html#ac2483092f9b933af3e76d36b214ed476">More...</a><br /></td></tr>
 <tr class="separator:ac2483092f9b933af3e76d36b214ed476"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50dc44deb37682227fe6c3a8c117909e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_text_label.html#a50dc44deb37682227fe6c3a8c117909e">setOrientation</a> (float angle)=0</td></tr>
+<tr class="memdesc:a50dc44deb37682227fe6c3a8c117909e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set the orientation of the text.  <a href="class_engine_1_1_text_label.html#a50dc44deb37682227fe6c3a8c117909e">More...</a><br /></td></tr>
 <tr class="separator:a50dc44deb37682227fe6c3a8c117909e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5371184eb26faf78fa16d43e9d056bfc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_text_label.html#a5371184eb26faf78fa16d43e9d056bfc">setScale</a> (float scale)=0</td></tr>
+<tr class="memdesc:a5371184eb26faf78fa16d43e9d056bfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set the scale of the text.  <a href="class_engine_1_1_text_label.html#a5371184eb26faf78fa16d43e9d056bfc">More...</a><br /></td></tr>
 <tr class="separator:a5371184eb26faf78fa16d43e9d056bfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73b439bdf930d8c9fde277d2e97afc7c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_text_label.html#a73b439bdf930d8c9fde277d2e97afc7c">setColour</a> (const glm::vec3 &amp;colour)=0</td></tr>
+<tr class="memdesc:a73b439bdf930d8c9fde277d2e97afc7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set the colour of the text.  <a href="class_engine_1_1_text_label.html#a73b439bdf930d8c9fde277d2e97afc7c">More...</a><br /></td></tr>
 <tr class="separator:a73b439bdf930d8c9fde277d2e97afc7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21c704c16cc63f76f94e84502f2a8681"><td class="memItemLeft" align="right" valign="top">virtual const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_text_label.html#a21c704c16cc63f76f94e84502f2a8681">getFont</a> () const =0</td></tr>
+<tr class="memdesc:a21c704c16cc63f76f94e84502f2a8681"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the font.  <a href="class_engine_1_1_text_label.html#a21c704c16cc63f76f94e84502f2a8681">More...</a><br /></td></tr>
 <tr class="separator:a21c704c16cc63f76f94e84502f2a8681"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2993070ae4bc4d7c83fdcd4a502899c"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_text_label.html#ab2993070ae4bc4d7c83fdcd4a502899c">getCharSize</a> () const =0</td></tr>
+<tr class="memdesc:ab2993070ae4bc4d7c83fdcd4a502899c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the character size.  <a href="class_engine_1_1_text_label.html#ab2993070ae4bc4d7c83fdcd4a502899c">More...</a><br /></td></tr>
 <tr class="separator:ab2993070ae4bc4d7c83fdcd4a502899c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62333bc8eed9df7b601476aabc99f7e0"><td class="memItemLeft" align="right" valign="top">virtual const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_text_label.html#a62333bc8eed9df7b601476aabc99f7e0">getText</a> () const =0</td></tr>
+<tr class="memdesc:a62333bc8eed9df7b601476aabc99f7e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the text.  <a href="class_engine_1_1_text_label.html#a62333bc8eed9df7b601476aabc99f7e0">More...</a><br /></td></tr>
 <tr class="separator:a62333bc8eed9df7b601476aabc99f7e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59b221a33b40c052216ce150c52d4b75"><td class="memItemLeft" align="right" valign="top">virtual glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_text_label.html#a59b221a33b40c052216ce150c52d4b75">getPosition</a> () const =0</td></tr>
+<tr class="memdesc:a59b221a33b40c052216ce150c52d4b75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the position.  <a href="class_engine_1_1_text_label.html#a59b221a33b40c052216ce150c52d4b75">More...</a><br /></td></tr>
 <tr class="separator:a59b221a33b40c052216ce150c52d4b75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a106bfe4a2679f36f33610949791499"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_text_label.html#a2a106bfe4a2679f36f33610949791499">getOrientation</a> () const =0</td></tr>
+<tr class="memdesc:a2a106bfe4a2679f36f33610949791499"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the orientation.  <a href="class_engine_1_1_text_label.html#a2a106bfe4a2679f36f33610949791499">More...</a><br /></td></tr>
 <tr class="separator:a2a106bfe4a2679f36f33610949791499"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a055a6cdf7df4751b2754d963b671867e"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_text_label.html#a055a6cdf7df4751b2754d963b671867e">getScale</a> () const =0</td></tr>
+<tr class="memdesc:a055a6cdf7df4751b2754d963b671867e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the scale.  <a href="class_engine_1_1_text_label.html#a055a6cdf7df4751b2754d963b671867e">More...</a><br /></td></tr>
 <tr class="separator:a055a6cdf7df4751b2754d963b671867e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05eea23ad7ef6e0b34008b559bca75ad"><td class="memItemLeft" align="right" valign="top">virtual glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_text_label.html#a05eea23ad7ef6e0b34008b559bca75ad">getColour</a> () const =0</td></tr>
+<tr class="memdesc:a05eea23ad7ef6e0b34008b559bca75ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the colour.  <a href="class_engine_1_1_text_label.html#a05eea23ad7ef6e0b34008b559bca75ad">More...</a><br /></td></tr>
 <tr class="separator:a05eea23ad7ef6e0b34008b559bca75ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42d4eb34b5129599b1e92a77d47bc40c"><td class="memItemLeft" align="right" valign="top">virtual glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_text_label.html#a42d4eb34b5129599b1e92a77d47bc40c">getModel</a> () const =0</td></tr>
+<tr class="memdesc:a42d4eb34b5129599b1e92a77d47bc40c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the model.  <a href="class_engine_1_1_text_label.html#a42d4eb34b5129599b1e92a77d47bc40c">More...</a><br /></td></tr>
 <tr class="separator:a42d4eb34b5129599b1e92a77d47bc40c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26f627792f605ce9ac46b1dd9e4177c9"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; <a class="el" href="class_engine_1_1_material.html">Material</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_text_label.html#a26f627792f605ce9ac46b1dd9e4177c9">getMaterial</a> () const =0</td></tr>
+<tr class="memdesc:a26f627792f605ce9ac46b1dd9e4177c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the material.  <a href="class_engine_1_1_text_label.html#a26f627792f605ce9ac46b1dd9e4177c9">More...</a><br /></td></tr>
 <tr class="separator:a26f627792f605ce9ac46b1dd9e4177c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a783f76a3c1b36dd5ad515e9724ad6d2f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_text_label.html">TextLabel</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_text_label.html#a783f76a3c1b36dd5ad515e9724ad6d2f">create</a> (const std::string &amp;fontName, unsigned int charSize, const std::string &amp;text, const glm::vec2 &amp;position, float orientation, float scale, const glm::vec3 &amp;colour)</td></tr>
+<tr class="memdesc:a783f76a3c1b36dd5ad515e9724ad6d2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a text label.  <a href="class_engine_1_1_text_label.html#a783f76a3c1b36dd5ad515e9724ad6d2f">More...</a><br /></td></tr>
 <tr class="separator:a783f76a3c1b36dd5ad515e9724ad6d2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="text_label_8h_source.html#l00010">10</a> of file <a class="el" href="text_label_8h_source.html">textLabel.h</a>.</p>
+<div class="textblock"><p>Base class for allowing to render more than one character at once. </p>
+
+<p class="definition">Definition at line <a class="el" href="text_label_8h_source.html#l00016">16</a> of file <a class="el" href="text_label_8h_source.html">textLabel.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a783f76a3c1b36dd5ad515e9724ad6d2f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a783f76a3c1b36dd5ad515e9724ad6d2f">&#9670;&nbsp;</a></span>create()</h2>
@@ -171,7 +192,22 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="text_label_8cpp_source.html#l00009">9</a> of file <a class="el" href="text_label_8cpp_source.html">textLabel.cpp</a>.</p>
+<p>Function to create a text label. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fontName</td><td>The name of the font to give the text </td></tr>
+    <tr><td class="paramname">charSize</td><td>The character size </td></tr>
+    <tr><td class="paramname">text</td><td>The text to write </td></tr>
+    <tr><td class="paramname">position</td><td>The position of the text </td></tr>
+    <tr><td class="paramname">orientation</td><td>The orientation of the text </td></tr>
+    <tr><td class="paramname">scale</td><td>The scale to give the text </td></tr>
+    <tr><td class="paramname">colour</td><td>The colour to give the text </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the label class </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="text_label_8cpp_source.html#l00011">11</a> of file <a class="el" href="text_label_8cpp_source.html">textLabel.cpp</a>.</p>
 
 </div>
 </div>
@@ -197,6 +233,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Function to get the character size. </p>
+<dl class="section return"><dt>Returns</dt><dd>The charactersize </dd></dl>
 
 <p>Implemented in <a class="el" href="class_engine_1_1_basic_text_label.html#a1996d1cca59855a820a527cc6d22d3b5">Engine::BasicTextLabel</a>.</p>
 
@@ -225,6 +264,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Function to get the colour. </p>
+<dl class="section return"><dt>Returns</dt><dd>The colour </dd></dl>
+
 <p>Implemented in <a class="el" href="class_engine_1_1_basic_text_label.html#a7b4d2aeb08a1d91743606a75eabb720c">Engine::BasicTextLabel</a>.</p>
 
 </div>
@@ -251,6 +293,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Function to get the font. </p>
+<dl class="section return"><dt>Returns</dt><dd>The font </dd></dl>
 
 <p>Implemented in <a class="el" href="class_engine_1_1_basic_text_label.html#a61b22d08348e2cc3dcd16ab8b3789d9a">Engine::BasicTextLabel</a>.</p>
 
@@ -279,6 +324,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Function to get the material. </p>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the material </dd></dl>
+
 <p>Implemented in <a class="el" href="class_engine_1_1_basic_text_label.html#a51ae357a397a210c14b74f49005be58b">Engine::BasicTextLabel</a>.</p>
 
 </div>
@@ -305,6 +353,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Function to get the model. </p>
+<dl class="section return"><dt>Returns</dt><dd>The model </dd></dl>
 
 <p>Implemented in <a class="el" href="class_engine_1_1_basic_text_label.html#a99768d4c2f1db2bc46f27100d8a64ac0">Engine::BasicTextLabel</a>.</p>
 
@@ -333,6 +384,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Function to get the orientation. </p>
+<dl class="section return"><dt>Returns</dt><dd>The orientation </dd></dl>
+
 <p>Implemented in <a class="el" href="class_engine_1_1_basic_text_label.html#a5e2fbd0e0fc236a9e499ef8ed5496e6b">Engine::BasicTextLabel</a>.</p>
 
 </div>
@@ -359,6 +413,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Function to get the position. </p>
+<dl class="section return"><dt>Returns</dt><dd>The position </dd></dl>
 
 <p>Implemented in <a class="el" href="class_engine_1_1_basic_text_label.html#a38c9a3d8e08b7489dd332139ab5a3a2e">Engine::BasicTextLabel</a>.</p>
 
@@ -387,6 +444,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Function to get the scale. </p>
+<dl class="section return"><dt>Returns</dt><dd>The scale </dd></dl>
+
 <p>Implemented in <a class="el" href="class_engine_1_1_basic_text_label.html#a8dd83d6fdf9096ba7539c89279f9f2cb">Engine::BasicTextLabel</a>.</p>
 
 </div>
@@ -413,6 +473,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Function to get the text. </p>
+<dl class="section return"><dt>Returns</dt><dd>The text </dd></dl>
 
 <p>Implemented in <a class="el" href="class_engine_1_1_basic_text_label.html#a444e8f2e80482c8a770d243a48353154">Engine::BasicTextLabel</a>.</p>
 
@@ -442,6 +505,14 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Function to set the character size of the text. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">charSize</td><td>The new size </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="class_engine_1_1_basic_text_label.html#a41c155ab1a2495a934eb80a75ec0e316">Engine::BasicTextLabel</a>.</p>
 
 </div>
@@ -469,6 +540,14 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Function to set the colour of the text. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">colour</td><td>The new colour </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="class_engine_1_1_basic_text_label.html#a38fbcb6654cc3c2fc029082ea73d8379">Engine::BasicTextLabel</a>.</p>
 
@@ -498,6 +577,14 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Function to set the font of the text. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fontName</td><td>The name of the new font </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="class_engine_1_1_basic_text_label.html#a82ce382cf394f84aa207cf132d2a8b34">Engine::BasicTextLabel</a>.</p>
 
 </div>
@@ -525,6 +612,14 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Function to set the orientation of the text. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">angle</td><td>The new angle </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="class_engine_1_1_basic_text_label.html#a1db9ddd67c861c97394c83a3eacfdc07">Engine::BasicTextLabel</a>.</p>
 
@@ -554,6 +649,14 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Function to set the position of the text. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>The new position </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="class_engine_1_1_basic_text_label.html#ad62effa4edfcb0b2b7b308ff1b943f79">Engine::BasicTextLabel</a>.</p>
 
 </div>
@@ -582,6 +685,14 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Function to set the scale of the text. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scale</td><td>The new scale of the text </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="class_engine_1_1_basic_text_label.html#a236fa5eff6d25f8cee366c266728d498">Engine::BasicTextLabel</a>.</p>
 
 </div>
@@ -609,6 +720,14 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Function to set the text being shown. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>The new text to show </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="class_engine_1_1_basic_text_label.html#afd24d45a8ac195a298e145edbe270c90">Engine::BasicTextLabel</a>.</p>
 

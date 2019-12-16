@@ -208,7 +208,7 @@ namespace Engine
 			// Set y position so that the viewport is in the middle of the window
 			iViewportPositionY = (iWindowHeight - m_iViewportHeight) / 2;
 		}
-
+		// Use the calculated viewport width and height to create a pillarbox/letterbox effect
 		glViewport(iViewportPositionX, iViewportPositionY, m_iViewportWidth, m_iViewportHeight);
 
 		glEnable(GL_SCISSOR_TEST);

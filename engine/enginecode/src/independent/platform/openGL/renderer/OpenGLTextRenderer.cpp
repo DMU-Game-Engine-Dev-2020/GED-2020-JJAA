@@ -1,3 +1,5 @@
+/** \file OpenGLTextRenderer.cpp
+*/
 #include "engine_pch.h"
 
 #include "platform/openGL/renderer/OpenGLTextRenderer.h"

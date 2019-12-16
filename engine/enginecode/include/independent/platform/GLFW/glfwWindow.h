@@ -89,8 +89,15 @@ namespace Engine
 		*/
 		inline bool isVSync() const override { return m_properties.m_isVSync; }
 
+		//! Function to get the width of the viewport
+		/*!
+		\return The width of the viewport
+		*/
 		inline int getViewportWidth() const override { return m_iViewportWidth; }
-
+		//! Function to get the height of the viewport
+		/*!
+		\return The height of the viewport
+		*/
 		inline int getViewportHeight() const override { return m_iViewportHeight; }
 	};
 }

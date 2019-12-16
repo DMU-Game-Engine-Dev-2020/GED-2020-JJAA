@@ -31,7 +31,7 @@ namespace Engine
 		m_pTimer->start();
 
 #ifdef NG_PLATFORM_WINDOWS // If the engine is running on a windows computer
-		m_pWindows = GLFWWindowsSystem::getInstance(); // Create an instance of the GLFW windows system
+		m_pWindows.reset(new GLFWWindowsSystem); // Create an instance of the GLFW windows system
 #endif // NG_PLATFORM_WINDOWS
 		m_pWindows->start(); // Start the windows system
 		LOG_INFO("Windows system initialised");

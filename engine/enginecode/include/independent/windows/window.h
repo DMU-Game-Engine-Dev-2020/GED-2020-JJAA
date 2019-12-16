@@ -113,8 +113,15 @@ namespace Engine
 		*/
 		virtual bool isVSync() const = 0;
 
+		//! Function to get the width of the viewport
+		/*!
+		\return The width of the viewport
+		*/
 		virtual int getViewportWidth() const = 0;
-
+		//! Function to get the height of the viewport
+		/*!
+		\return The height of the viewport
+		*/
 		virtual int getViewportHeight() const = 0;
 
 		//! Create a window and return a pointer to it

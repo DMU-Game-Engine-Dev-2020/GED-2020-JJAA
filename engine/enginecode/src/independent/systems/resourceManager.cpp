@@ -175,6 +175,19 @@ namespace Engine
 		return temp; // Return the temporary pointer
 	}
 
+	std::shared_ptr<UniformBuffer> ResourceManager::getUBO(const std::string& name)
+	{
+		// If the uniform buffer exists
+		if (s_UBOs.contains(name))
+		{
+			return s_UBOs.get(name); // Return the buffer
+		}
+		else // If the uniform buffer doesn't exist
+		{
+			LOG_ERROR("Uniform buffer with name '{0}' doesn't exist", name);
+		}
+	}
+
 	void ResourceManager::populateCharacters(std::unordered_map<std::string, unsigned int> fontsAndSizes)
 	{
 		FT_Library ft;

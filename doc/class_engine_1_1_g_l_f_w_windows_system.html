@@ -45,9 +45,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="class_engine_1_1_g_l_f_w_windows_system-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Engine::GLFWWindowsSystem Class Reference</div>  </div>
@@ -82,62 +80,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a4ed810746929ee960ea5fa6648230c48 inherit pub_methods_class_engine_1_1_system"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="class_engine_1_1_system.html#a4ed810746929ee960ea5fa6648230c48">More...</a><br /></td></tr>
 <tr class="separator:a4ed810746929ee960ea5fa6648230c48 inherit pub_methods_class_engine_1_1_system"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a9bd1048aba4dedf6d48afb9d579bc45c"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_engine_1_1_g_l_f_w_windows_system.html">GLFWWindowsSystem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_g_l_f_w_windows_system.html#a9bd1048aba4dedf6d48afb9d579bc45c">getInstance</a> ()</td></tr>
-<tr class="memdesc:a9bd1048aba4dedf6d48afb9d579bc45c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an instance of the class and returns a pointer to it.  <a href="class_engine_1_1_g_l_f_w_windows_system.html#a9bd1048aba4dedf6d48afb9d579bc45c">More...</a><br /></td></tr>
-<tr class="separator:a9bd1048aba4dedf6d48afb9d579bc45c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a181085f70e0d88407d2321d58389f3a8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_g_l_f_w_windows_system.html#a181085f70e0d88407d2321d58389f3a8">m_bGLFWInitialized</a></td></tr>
 <tr class="memdesc:a181085f70e0d88407d2321d58389f3a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">A boolean for if glfw is initialized.  <a href="class_engine_1_1_g_l_f_w_windows_system.html#a181085f70e0d88407d2321d58389f3a8">More...</a><br /></td></tr>
 <tr class="separator:a181085f70e0d88407d2321d58389f3a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
-Static Private Attributes</h2></td></tr>
-<tr class="memitem:afc2142677985b4df897944bc6009d84b"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_g_l_f_w_windows_system.html#afc2142677985b4df897944bc6009d84b">s_bInstanceFlag</a> = false</td></tr>
-<tr class="memdesc:afc2142677985b4df897944bc6009d84b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A boolean for if the system is running.  <a href="class_engine_1_1_g_l_f_w_windows_system.html#afc2142677985b4df897944bc6009d84b">More...</a><br /></td></tr>
-<tr class="separator:afc2142677985b4df897944bc6009d84b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9355df02170f358707ca17fe0dc44f4"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_engine_1_1_g_l_f_w_windows_system.html">GLFWWindowsSystem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_g_l_f_w_windows_system.html#af9355df02170f358707ca17fe0dc44f4">s_pThis</a> = nullptr</td></tr>
-<tr class="memdesc:af9355df02170f358707ca17fe0dc44f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the system.  <a href="class_engine_1_1_g_l_f_w_windows_system.html#af9355df02170f358707ca17fe0dc44f4">More...</a><br /></td></tr>
-<tr class="separator:af9355df02170f358707ca17fe0dc44f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>GLFW specific <a class="el" href="class_engine_1_1_windows_system.html" title="API agnostic windows system.">WindowsSystem</a> class, used to initialize and terminate glfw. </p>
 
 <p class="definition">Definition at line <a class="el" href="_g_l_f_w_windows_system_8h_source.html#l00013">13</a> of file <a class="el" href="_g_l_f_w_windows_system_8h_source.html">GLFWWindowsSystem.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9bd1048aba4dedf6d48afb9d579bc45c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9bd1048aba4dedf6d48afb9d579bc45c">&#9670;&nbsp;</a></span>getInstance()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_engine_1_1_g_l_f_w_windows_system.html">GLFWWindowsSystem</a> &gt; Engine::GLFWWindowsSystem::getInstance </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates an instance of the class and returns a pointer to it. </p>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to the system </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="_g_l_f_w_windows_system_8cpp_source.html#l00012">12</a> of file <a class="el" href="_g_l_f_w_windows_system_8cpp_source.html">GLFWWindowsSystem.cpp</a>.</p>
-
-</div>
-</div>
 <a id="ab69ce4d42d0cfd99aee7b2d4c1da3a88"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab69ce4d42d0cfd99aee7b2d4c1da3a88">&#9670;&nbsp;</a></span>start()</h2>
 
@@ -176,7 +129,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="class_engine_1_1_windows_system.html#ac1c786ccf49ab25f5eff8ac9f9a04e42">Engine::WindowsSystem</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_g_l_f_w_windows_system_8cpp_source.html#l00027">27</a> of file <a class="el" href="_g_l_f_w_windows_system_8cpp_source.html">GLFWWindowsSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_g_l_f_w_windows_system_8cpp_source.html#l00009">9</a> of file <a class="el" href="_g_l_f_w_windows_system_8cpp_source.html">GLFWWindowsSystem.cpp</a>.</p>
 
 </div>
 </div>
@@ -218,7 +171,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="class_engine_1_1_windows_system.html#a684ac4ccdd3860b08881eaa4829b3d23">Engine::WindowsSystem</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_g_l_f_w_windows_system_8cpp_source.html#l00036">36</a> of file <a class="el" href="_g_l_f_w_windows_system_8cpp_source.html">GLFWWindowsSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_g_l_f_w_windows_system_8cpp_source.html#l00018">18</a> of file <a class="el" href="_g_l_f_w_windows_system_8cpp_source.html">GLFWWindowsSystem.cpp</a>.</p>
 
 </div>
 </div>
@@ -245,59 +198,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>A boolean for if glfw is initialized. </p>
 
-<p class="definition">Definition at line <a class="el" href="_g_l_f_w_windows_system_8h_source.html#l00019">19</a> of file <a class="el" href="_g_l_f_w_windows_system_8h_source.html">GLFWWindowsSystem.h</a>.</p>
-
-</div>
-</div>
-<a id="afc2142677985b4df897944bc6009d84b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc2142677985b4df897944bc6009d84b">&#9670;&nbsp;</a></span>s_bInstanceFlag</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Engine::GLFWWindowsSystem::s_bInstanceFlag = false</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>A boolean for if the system is running. </p>
-
 <p class="definition">Definition at line <a class="el" href="_g_l_f_w_windows_system_8h_source.html#l00016">16</a> of file <a class="el" href="_g_l_f_w_windows_system_8h_source.html">GLFWWindowsSystem.h</a>.</p>
-
-</div>
-</div>
-<a id="af9355df02170f358707ca17fe0dc44f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9355df02170f358707ca17fe0dc44f4">&#9670;&nbsp;</a></span>s_pThis</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_engine_1_1_g_l_f_w_windows_system.html">GLFWWindowsSystem</a> &gt; Engine::GLFWWindowsSystem::s_pThis = nullptr</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Pointer to the system. </p>
-
-<p class="definition">Definition at line <a class="el" href="_g_l_f_w_windows_system_8h_source.html#l00017">17</a> of file <a class="el" href="_g_l_f_w_windows_system_8h_source.html">GLFWWindowsSystem.h</a>.</p>
 
 </div>
 </div>

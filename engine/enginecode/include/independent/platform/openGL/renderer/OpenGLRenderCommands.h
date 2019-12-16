@@ -76,7 +76,10 @@ namespace Engine
 		void action() override; //!< Action the command
 	};
 
-
+	/**
+	\class OpenGLClearColourBufferCommand
+	\brief Open GL command to clear the colour buffer
+	*/
 	class OpenGLClearColourBufferCommand : public RenderCommand
 	{
 	public:
@@ -85,7 +88,10 @@ namespace Engine
 		void action() override; //!< Action the command
 	};
 
-
+	/**
+	\class OpenGLSetOneMinusAlphaBlendingCommand
+	\brief Open GL command to turn alpha blending on or off
+	*/
 	class OpenGLSetOneMinusAlphaBlendingCommand : public RenderCommand
 	{
 	private:

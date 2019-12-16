@@ -51,7 +51,10 @@ namespace Engine
 		\return A pointer to the renderer
 		*/
 		static Renderer* createBasic3D();
-
+		//! Function to create a text renderer
+		/*!
+		\return A pointer to the renderer
+		*/
 		static Renderer* createText();
 	};
 }

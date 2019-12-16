@@ -144,14 +144,14 @@ namespace Engine
 			return result;
 		}
 
-		//! Used to get the first element in the vector
+		//! Used to set an iterator to the start of the vector
 		/*!
-		\return The first element in the vector of components
+		\return An iterator at the start of the vector
 		*/
 		inline std::vector<std::shared_ptr<Component>>::iterator begin() { return m_components.begin(); }
-		//! Used to get the last element in the vector
+		//! Used to set an iterator to the end of the vector
 		/*!
-		\return The last element in the vector of components
+		\return An iterator at the end of the vector
 		*/
 		inline std::vector<std::shared_ptr<Component>>::iterator end() { return m_components.end(); }
 	};

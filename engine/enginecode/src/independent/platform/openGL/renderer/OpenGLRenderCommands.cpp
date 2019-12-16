@@ -55,6 +55,7 @@ namespace Engine
 
 	void OpenGLClearColourBufferCommand::action()
 	{
+		// Clear the colour buffer
 		glClear(GL_COLOR_BUFFER_BIT);
 	}
 
