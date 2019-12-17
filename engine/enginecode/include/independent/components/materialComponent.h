@@ -5,6 +5,8 @@
 #include "CGO.h"
 #include "rendering/material.h"
 
+#include "systems/timer.h"
+
 namespace Engine
 {
 	/**
@@ -15,6 +17,17 @@ namespace Engine
 	{
 	private:
 		std::shared_ptr<Material> m_pMaterial; //!< Pointer to the material
+
+		//! Function to set a data element when receiving a UniformUpload message
+		/*!
+		\param data The uniform data to be set
+		*/
+		void uniformUpload(void* data)
+		{
+			// Get the data from the message
+			std::pair<std::string, void*> castData = *(std::pair<std::string, void*>*)data;
+			m_pMaterial->setDataElement(castData.first, castData.second); // Set the data element in the material
+		}
 	public:
 		//! Constructor
 		/*!
@@ -34,15 +47,9 @@ namespace Engine
 		*/
 		void receiveMessage(const ComponentMessage& msg) override
 		{
-			// Do different things depending on the message type
-			switch (msg.m_msgType)
-			{
-			case ComponentMessageType::UniformSet:
-				// Get the data from the message
-				std::pair<std::string, void*> data = *(std::pair<std::string, void*>*)msg.m_msgData;
-				m_pMaterial->setDataElement(data.first, data.second); // Set the data element in the material
-				return;
-			}
+			MessageDispatcher dispatcher(msg);
+
+			dispatcher.dispatch(ComponentMessageType::UniformSet, std::bind(&MaterialComponent::uniformUpload, this, std::placeholders::_1));
 		}
 	};
 }

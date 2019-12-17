@@ -75,9 +75,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad9ee72f9dcddd167ecb434ab3e13bf21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_orthographic_camera2_d.html#ad9ee72f9dcddd167ecb434ab3e13bf21">reset</a> (float left, float right, float bottom, float top)</td></tr>
 <tr class="memdesc:ad9ee72f9dcddd167ecb434ab3e13bf21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to reset the camera.  <a href="class_engine_1_1_orthographic_camera2_d.html#ad9ee72f9dcddd167ecb434ab3e13bf21">More...</a><br /></td></tr>
 <tr class="separator:ad9ee72f9dcddd167ecb434ab3e13bf21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac619c05528f0853237b0c3ec1eb97cf7"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_orthographic_camera2_d.html#ac619c05528f0853237b0c3ec1eb97cf7">getPosition</a> () const</td></tr>
-<tr class="memdesc:ac619c05528f0853237b0c3ec1eb97cf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the position of the camera.  <a href="class_engine_1_1_orthographic_camera2_d.html#ac619c05528f0853237b0c3ec1eb97cf7">More...</a><br /></td></tr>
-<tr class="separator:ac619c05528f0853237b0c3ec1eb97cf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac17e65fcf9dbf57d865ea216c5b5b931"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_orthographic_camera2_d.html#ac17e65fcf9dbf57d865ea216c5b5b931">getPosition</a> () const override</td></tr>
+<tr class="memdesc:ac17e65fcf9dbf57d865ea216c5b5b931"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the position of the camera.  <a href="class_engine_1_1_orthographic_camera2_d.html#ac17e65fcf9dbf57d865ea216c5b5b931">More...</a><br /></td></tr>
+<tr class="separator:ac17e65fcf9dbf57d865ea216c5b5b931"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade45ab346979a628c617b940348abfd5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_orthographic_camera2_d.html#ade45ab346979a628c617b940348abfd5">getRotation</a> () const</td></tr>
 <tr class="memdesc:ade45ab346979a628c617b940348abfd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the rotation of the camera.  <a href="class_engine_1_1_orthographic_camera2_d.html#ade45ab346979a628c617b940348abfd5">More...</a><br /></td></tr>
 <tr class="separator:ade45ab346979a628c617b940348abfd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -188,8 +188,8 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac619c05528f0853237b0c3ec1eb97cf7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac619c05528f0853237b0c3ec1eb97cf7">&#9670;&nbsp;</a></span>getPosition()</h2>
+<a id="ac17e65fcf9dbf57d865ea216c5b5b931"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac17e65fcf9dbf57d865ea216c5b5b931">&#9670;&nbsp;</a></span>getPosition()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -198,7 +198,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">glm::vec2 Engine::OrthographicCamera2D::getPosition </td>
+          <td class="memname">glm::vec3 Engine::OrthographicCamera2D::getPosition </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -206,13 +206,15 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Function to get the position of the camera. </p>
 <dl class="section return"><dt>Returns</dt><dd>The position of the camera </dd></dl>
+
+<p>Implements <a class="el" href="class_engine_1_1_camera.html#a255ea026a2d4bdc35fd2f9c029818688">Engine::Camera</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="orthographic_camera2_d_8h_source.html#l00044">44</a> of file <a class="el" href="orthographic_camera2_d_8h_source.html">orthographicCamera2D.h</a>.</p>
 

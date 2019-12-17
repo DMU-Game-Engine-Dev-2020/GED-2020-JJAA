@@ -17,7 +17,7 @@ namespace Engine
 			glm::vec2 currentMousePos = InputPoller::getMousePosition();
 			glm::vec2 mouseDelta = currentMousePos - m_lastMousePosition;
 
-			m_velocity = glm::vec3(mouseDelta.y * 10, mouseDelta.x * 10, 0.f);
+			m_velocity = glm::vec3(mouseDelta.y * -10, mouseDelta.x * 10, 0.f);
 
 			m_lastMousePosition = currentMousePos;
 		}

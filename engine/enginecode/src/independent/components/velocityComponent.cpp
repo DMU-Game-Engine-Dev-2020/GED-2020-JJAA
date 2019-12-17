@@ -15,18 +15,22 @@ namespace Engine
 
 	void VelocityComponent::receiveMessage(const ComponentMessage& msg)
 	{
-		// Do different things depending on the message type
-		switch (msg.m_msgType)
-		{
-		case ComponentMessageType::VelocitySetLinear:
-			glm::vec3 linear = *(glm::vec3*)msg.m_msgData; // Get the data from the message
-			m_linear = linear; // Set the linear velocity
-			return;
-		case ComponentMessageType::VelocitySetAngular:
-			glm::vec3 angular = *(glm::vec3*)msg.m_msgData; // Get the data from the message
-			m_angular = angular; // Set the angular velocity
-			return;
-		}
+		MessageDispatcher dispatcher(msg);
+
+		dispatcher.dispatch(ComponentMessageType::VelocitySetLinear, std::bind(&VelocityComponent::setLinear, this, std::placeholders::_1));
+		dispatcher.dispatch(ComponentMessageType::VelocitySetAngular, std::bind(&VelocityComponent::setAngular, this, std::placeholders::_1));
+	}
+
+	void VelocityComponent::setLinear(void* data)
+	{
+		glm::vec3 linear = *(glm::vec3*)data; // Get the data from the message
+		m_linear = linear; // Set the linear velocity
+	}
+	
+	void VelocityComponent::setAngular(void* data)
+	{
+		glm::vec3 angular = *(glm::vec3*)data; // Get the data from the message
+		m_angular = angular; // Set the angular velocity
 	}
 
 	void VelocityComponent::sendMessage(const ComponentMessage& msg)

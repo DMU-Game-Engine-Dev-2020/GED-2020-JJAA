@@ -18,6 +18,17 @@ namespace Engine
 		glm::vec3 m_linear; //!< Linear velocity
 		glm::vec3 m_angular; //!< Angular velocity
 
+		//! Function to set linear velocity
+		/*!
+		\param data The new velocity
+		*/
+		void setLinear(void* data);
+		//! Function to set angular velocity
+		/*!
+		\param data The new velocity
+		*/
+		void setAngular(void* data);
+
 		//! Function to send a message to another component on the gameobject
 		/*!
 		\param msg The message being sent

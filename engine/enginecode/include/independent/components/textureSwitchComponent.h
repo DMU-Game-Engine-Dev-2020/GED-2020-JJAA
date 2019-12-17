@@ -18,6 +18,12 @@ namespace Engine
 		std::shared_ptr<Texture> m_tex2; //!< Pointer to the texture
 
 		unsigned int m_iTexSlot; //!< The current texture slot
+
+		//! Function to set a texture
+		/*!
+		\param data Which texture to set to
+		*/
+		void textureSet(void* data);
 	public:
 		//! Constructor
 		/*!

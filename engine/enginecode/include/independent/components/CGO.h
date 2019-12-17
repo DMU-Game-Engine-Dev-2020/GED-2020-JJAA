@@ -33,10 +33,42 @@ namespace Engine
 		\param type The message type
 		\param data The data being sent
 		*/
-		ComponentMessage(ComponentMessageType type, void* data) : m_msgType(type), m_msgData(data) {}
+		ComponentMessage(ComponentMessageType type, void* data) : 
+			m_msgType(type), m_msgData(data) {}
 
 		ComponentMessageType m_msgType; //!< The type of the message
 		void* m_msgData; //!< The message data
+	};
+
+	/**
+	\class MessageDispatcher
+	\brief Dispatches messages to the correct receive functions
+	*/
+	class MessageDispatcher
+	{
+		using ReceiveFunc = std::function<void(void*)>; //!< ReceiveFunc is a function which returns nothing and takes a void pointer
+	private:
+		const ComponentMessage& m_message; //!< The message
+	public:
+		//! Constructor
+		/*!
+		\param msg The message
+		*/
+		MessageDispatcher(const ComponentMessage& msg) : m_message(msg) {}
+
+		//! Function to check if the message type matches and to call the receive function if it does
+		bool dispatch(ComponentMessageType type, const ReceiveFunc& func)
+		{
+			// Iff the message type matches the one passed in
+			if (m_message.m_msgType == type)
+			{
+				// Call the function
+				func(m_message.m_msgData);
+				return true;
+			}
+			return
+				false;
+		}
 	};
 
 	class GameObject;

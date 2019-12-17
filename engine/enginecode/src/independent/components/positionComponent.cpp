@@ -39,25 +39,10 @@ namespace Engine
 
 	void PositionComponent::receiveMessage(const ComponentMessage& msg)
 	{
-		// Do different things depending on the message type
-		switch (msg.m_msgType)
-		{
-		case ComponentMessageType::PositionSet:
-			glm::vec3 pos = *(glm::vec3*)msg.m_msgData; // Get the data from the message
-			m_transVec = pos; // Set the position
-			calculateModel(); // Calculate the model
-			return;
-		case ComponentMessageType::PositionIntegrate:
-			// Get the data from the message
-			std::pair<glm::vec3, glm::vec3> vel = *(std::pair<glm::vec3, glm::vec3>*)msg.m_msgData;
-			// Calculate new translation and rotation
-			m_transVec += vel.first;
-			m_rotVec.x += glm::radians(vel.second.x);
-			m_rotVec.y += glm::radians(vel.second.y);
-			m_rotVec.y += glm::radians(vel.second.z);
-			calculateModel(); // Calculate the model
-			return;
-		}
+		MessageDispatcher dispatcher(msg);
+
+		dispatcher.dispatch(ComponentMessageType::PositionSet, std::bind(&PositionComponent::positionSet, this, std::placeholders::_1));
+		dispatcher.dispatch(ComponentMessageType::PositionIntegrate, std::bind(&PositionComponent::positionIntegrate, this, std::placeholders::_1));
 	}
 
 	void PositionComponent::calculateModel()
@@ -69,6 +54,25 @@ namespace Engine
 		// Calculate a scale matrix
 		m_scale = glm::scale(glm::mat4(1.0f), m_scaleVec);
 		m_model = m_translation * m_rotation * m_scale; // Calculate the model
+	}
+
+	void PositionComponent::positionSet(void* data)
+	{
+		glm::vec3 pos = *(glm::vec3*)data; // Get the data from the message
+		m_transVec = pos; // Set the position
+		calculateModel(); // Calculate the model
+	}
+
+	void PositionComponent::positionIntegrate(void* data)
+	{
+		// Get the data from the message
+		std::pair<glm::vec3, glm::vec3> vel = *(std::pair<glm::vec3, glm::vec3>*)data;
+		// Calculate new translation and rotation
+		m_transVec += vel.first;
+		m_rotVec.x += glm::radians(vel.second.x);
+		m_rotVec.y += glm::radians(vel.second.y);
+		m_rotVec.y += glm::radians(vel.second.z);
+		calculateModel(); // Calculate the model
 	}
 
 	void PositionComponent::sendMessage(const ComponentMessage& msg)

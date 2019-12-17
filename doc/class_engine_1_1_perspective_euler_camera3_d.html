@@ -75,12 +75,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aece59196ad2dbcd1859cda9129f24ec4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_perspective_euler_camera3_d.html#aece59196ad2dbcd1859cda9129f24ec4">reset</a> (float fov, float aspectRatio, float nearClip, float farClip)</td></tr>
 <tr class="memdesc:aece59196ad2dbcd1859cda9129f24ec4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to reset the camera.  <a href="class_engine_1_1_perspective_euler_camera3_d.html#aece59196ad2dbcd1859cda9129f24ec4">More...</a><br /></td></tr>
 <tr class="separator:aece59196ad2dbcd1859cda9129f24ec4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee96b3912dfc71a34548cc13291e72f0"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_perspective_euler_camera3_d.html#aee96b3912dfc71a34548cc13291e72f0">getPosition</a> ()</td></tr>
-<tr class="memdesc:aee96b3912dfc71a34548cc13291e72f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the position of the camera.  <a href="class_engine_1_1_perspective_euler_camera3_d.html#aee96b3912dfc71a34548cc13291e72f0">More...</a><br /></td></tr>
-<tr class="separator:aee96b3912dfc71a34548cc13291e72f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8bc04d7fd818cb26887189e55ef4ee76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_perspective_euler_camera3_d.html#a8bc04d7fd818cb26887189e55ef4ee76">setView</a> (const glm::mat4 &amp;view)</td></tr>
-<tr class="memdesc:a8bc04d7fd818cb26887189e55ef4ee76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set the cameras view.  <a href="class_engine_1_1_perspective_euler_camera3_d.html#a8bc04d7fd818cb26887189e55ef4ee76">More...</a><br /></td></tr>
-<tr class="separator:a8bc04d7fd818cb26887189e55ef4ee76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9560f5ffa37475b5b68d26f5ddb04e6"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_perspective_euler_camera3_d.html#aa9560f5ffa37475b5b68d26f5ddb04e6">getPosition</a> () const override</td></tr>
+<tr class="memdesc:aa9560f5ffa37475b5b68d26f5ddb04e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the position of the camera.  <a href="class_engine_1_1_perspective_euler_camera3_d.html#aa9560f5ffa37475b5b68d26f5ddb04e6">More...</a><br /></td></tr>
+<tr class="separator:aa9560f5ffa37475b5b68d26f5ddb04e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac22712b102be1a9ca93738410328e4f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_perspective_euler_camera3_d.html#ac22712b102be1a9ca93738410328e4f0">setViewAndPos</a> (const glm::mat4 &amp;view, glm::vec3 pos)</td></tr>
+<tr class="memdesc:ac22712b102be1a9ca93738410328e4f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set the cameras view and position.  <a href="class_engine_1_1_perspective_euler_camera3_d.html#ac22712b102be1a9ca93738410328e4f0">More...</a><br /></td></tr>
+<tr class="separator:ac22712b102be1a9ca93738410328e4f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_engine_1_1_camera"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_engine_1_1_camera')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_engine_1_1_camera.html">Engine::Camera</a></td></tr>
 <tr class="memitem:a7ec5bca0185b61f79768228c570a8032 inherit pub_methods_class_engine_1_1_camera"><td class="memItemLeft" align="right" valign="top">const glm::mat4 &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_camera.html#a7ec5bca0185b61f79768228c570a8032">getProjection</a> ()</td></tr>
 <tr class="memdesc:a7ec5bca0185b61f79768228c570a8032 inherit pub_methods_class_engine_1_1_camera"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the projection.  <a href="class_engine_1_1_camera.html#a7ec5bca0185b61f79768228c570a8032">More...</a><br /></td></tr>
@@ -176,8 +176,8 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aee96b3912dfc71a34548cc13291e72f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee96b3912dfc71a34548cc13291e72f0">&#9670;&nbsp;</a></span>getPosition()</h2>
+<a id="aa9560f5ffa37475b5b68d26f5ddb04e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9560f5ffa37475b5b68d26f5ddb04e6">&#9670;&nbsp;</a></span>getPosition()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -189,18 +189,20 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">glm::vec3 Engine::PerspectiveEulerCamera3D::getPosition </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Function to get the position of the camera. </p>
 <dl class="section return"><dt>Returns</dt><dd>The cameras position </dd></dl>
+
+<p>Implements <a class="el" href="class_engine_1_1_camera.html#a255ea026a2d4bdc35fd2f9c029818688">Engine::Camera</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="perspective_euler_camera3_d_8h_source.html#l00043">43</a> of file <a class="el" href="perspective_euler_camera3_d_8h_source.html">perspectiveEulerCamera3D.h</a>.</p>
 
@@ -259,8 +261,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a8bc04d7fd818cb26887189e55ef4ee76"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8bc04d7fd818cb26887189e55ef4ee76">&#9670;&nbsp;</a></span>setView()</h2>
+<a id="ac22712b102be1a9ca93738410328e4f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac22712b102be1a9ca93738410328e4f0">&#9670;&nbsp;</a></span>setViewAndPos()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -269,11 +271,21 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Engine::PerspectiveEulerCamera3D::setView </td>
+          <td class="memname">void Engine::PerspectiveEulerCamera3D::setViewAndPos </td>
           <td>(</td>
           <td class="paramtype">const glm::mat4 &amp;&#160;</td>
-          <td class="paramname"><em>view</em></td><td>)</td>
+          <td class="paramname"><em>view</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">glm::vec3&#160;</td>
+          <td class="paramname"><em>pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -283,15 +295,16 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Function to set the cameras view. </p>
+<p>Function to set the cameras view and position. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">view</td><td>The new view </td></tr>
+    <tr><td class="paramname">pos</td><td>The position of the camera </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="perspective_euler_camera3_d_8h_source.html#l00048">48</a> of file <a class="el" href="perspective_euler_camera3_d_8h_source.html">perspectiveEulerCamera3D.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="perspective_euler_camera3_d_8h_source.html#l00049">49</a> of file <a class="el" href="perspective_euler_camera3_d_8h_source.html">perspectiveEulerCamera3D.h</a>.</p>
 
 </div>
 </div>

@@ -91,6 +91,12 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
+<tr class="memitem:af5883bf08bb906b145f10033d56ce5b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_velocity_component.html#af5883bf08bb906b145f10033d56ce5b7">setLinear</a> (void *data)</td></tr>
+<tr class="memdesc:af5883bf08bb906b145f10033d56ce5b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set linear velocity.  <a href="class_engine_1_1_velocity_component.html#af5883bf08bb906b145f10033d56ce5b7">More...</a><br /></td></tr>
+<tr class="separator:af5883bf08bb906b145f10033d56ce5b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca94406c1b993013f0ec53c2838bf491"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_velocity_component.html#aca94406c1b993013f0ec53c2838bf491">setAngular</a> (void *data)</td></tr>
+<tr class="memdesc:aca94406c1b993013f0ec53c2838bf491"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set angular velocity.  <a href="class_engine_1_1_velocity_component.html#aca94406c1b993013f0ec53c2838bf491">More...</a><br /></td></tr>
+<tr class="separator:aca94406c1b993013f0ec53c2838bf491"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75f0a049eeac8a89318ba003668babdd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_velocity_component.html#a75f0a049eeac8a89318ba003668babdd">sendMessage</a> (const <a class="el" href="class_engine_1_1_component_message.html">ComponentMessage</a> &amp;msg) override</td></tr>
 <tr class="memdesc:a75f0a049eeac8a89318ba003668babdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to send a message to another component on the gameobject.  <a href="class_engine_1_1_velocity_component.html#a75f0a049eeac8a89318ba003668babdd">More...</a><br /></td></tr>
 <tr class="separator:a75f0a049eeac8a89318ba003668babdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -159,7 +165,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="velocity_component_8h_source.html#l00032">32</a> of file <a class="el" href="velocity_component_8h_source.html">velocityComponent.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="velocity_component_8h_source.html#l00043">43</a> of file <a class="el" href="velocity_component_8h_source.html">velocityComponent.h</a>.</p>
 
 </div>
 </div>
@@ -274,7 +280,79 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="class_engine_1_1_component.html#a6eaffbec797496837a42cccadf383c93">Engine::Component</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="velocity_component_8cpp_source.html#l00032">32</a> of file <a class="el" href="velocity_component_8cpp_source.html">velocityComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="velocity_component_8cpp_source.html#l00036">36</a> of file <a class="el" href="velocity_component_8cpp_source.html">velocityComponent.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aca94406c1b993013f0ec53c2838bf491"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca94406c1b993013f0ec53c2838bf491">&#9670;&nbsp;</a></span>setAngular()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::VelocityComponent::setAngular </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function to set angular velocity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>The new velocity </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="velocity_component_8cpp_source.html#l00030">30</a> of file <a class="el" href="velocity_component_8cpp_source.html">velocityComponent.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af5883bf08bb906b145f10033d56ce5b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5883bf08bb906b145f10033d56ce5b7">&#9670;&nbsp;</a></span>setLinear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::VelocityComponent::setLinear </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function to set linear velocity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>The new velocity </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="velocity_component_8cpp_source.html#l00024">24</a> of file <a class="el" href="velocity_component_8cpp_source.html">velocityComponent.cpp</a>.</p>
 
 </div>
 </div>

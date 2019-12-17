@@ -29,24 +29,25 @@ namespace Engine
 
 	void TextureSwitchComponent::receiveMessage(const ComponentMessage& msg)
 	{
-		// Do different things depending on the message type
-		switch (msg.m_msgType)
-		{
-		case ComponentMessageType::TextureSet:
-			OscilateComponent::state data = *(OscilateComponent::state*)msg.m_msgData; // Get the data from the message
+		MessageDispatcher dispatcher(msg);
+
+		dispatcher.dispatch(ComponentMessageType::TextureSet, std::bind(&TextureSwitchComponent::textureSet, this, std::placeholders::_1));
+	}
+
+	void TextureSwitchComponent::textureSet(void* data)
+	{
+		OscilateComponent::state tex = *(OscilateComponent::state*)data; // Get the data from the message
 
 			// If the state is up
-			if (data == OscilateComponent::state::UP)
-			{
-				// Make the current texture slot the one from the first texture
-				m_iTexSlot = m_tex1->getSlot();
-			}
-			else if (data == OscilateComponent::state::DOWN) // If the state is down
-			{
-				// Make the current texture slot the one from the second texture
-				m_iTexSlot = m_tex2->getSlot();
-			}
-			return;
+		if (tex == OscilateComponent::state::UP)
+		{
+			// Make the current texture slot the one from the first texture
+			m_iTexSlot = m_tex1->getSlot();
+		}
+		else if (tex == OscilateComponent::state::DOWN) // If the state is down
+		{
+			// Make the current texture slot the one from the second texture
+			m_iTexSlot = m_tex2->getSlot();
 		}
 	}
 }

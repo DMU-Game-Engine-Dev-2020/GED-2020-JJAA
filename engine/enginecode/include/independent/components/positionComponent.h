@@ -26,6 +26,17 @@ namespace Engine
 		//! Funcion to calculate the model
 		inline void calculateModel();
 
+		//! Function to set a position when receiving a message
+		/*!
+		\param data The new position
+		*/
+		void positionSet(void* data);
+		//! Function to set a position based on velocities received in a message
+		/*!
+		\param data The velocities
+		*/
+		void positionIntegrate(void* data);
+
 		//! Function to send a message to another component on the gameobject
 		/*!
 		\param msg The message being sent
