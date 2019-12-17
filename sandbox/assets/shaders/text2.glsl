@@ -9,8 +9,7 @@ out vec2 texCoord;
 
 layout (std140) uniform TextMatrices
 {
-        mat4 u_projection;
-	mat4 u_view;
+        mat4 u_viewProjection;
 };
 
 uniform mat4 u_model;
@@ -18,7 +17,7 @@ uniform mat4 u_model;
 void main()
 {
 	texCoord = a_texCoord;
-	gl_Position = u_projection * u_view * u_model * vec4(a_vertexPosition, 0, 1);
+	gl_Position = u_viewProjection * u_model * vec4(a_vertexPosition, 0, 1);
 }
 
 #region Fragment

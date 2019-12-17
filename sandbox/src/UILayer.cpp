@@ -38,8 +38,7 @@ void UILayer::onUpdate(float timestep)
 
 	std::vector<void*> tempData;
 	// Add Matrices data to vector
-	tempData.push_back((void*)&m_pCamera->getCamera()->getProjection()[0][0]);
-	tempData.push_back((void*)&m_pCamera->getCamera()->getView()[0][0]);
+	tempData.push_back((void*)&m_pCamera->getCamera()->getViewProjection()[0][0]);
 
 	m_sceneData.insert(std::make_pair(m_UBOs.back(), tempData));
 

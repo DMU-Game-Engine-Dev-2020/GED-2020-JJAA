@@ -15,6 +15,8 @@ private:
 	std::vector<std::shared_ptr<Engine::VelocityComponent>> m_velocities; //!< Container of pointers to velocity components
 	std::vector<std::shared_ptr<Engine::OscilateComponent>> m_oscilate; //!< Container of pointers to oscilate components
 	std::vector<std::shared_ptr<Engine::TextureSwitchComponent>> m_textureSwitch; //!< Container of pointers to texture switch components
+	std::vector<std::shared_ptr<Engine::TextureComponent>> m_textures; //!< Container of pointers to texture components
+	std::vector<std::shared_ptr<Engine::RotateComponent>> m_rotation; //!< Container of pointers to rotation components
 
 	glm::vec3 m_lightColour; //!< Colour of the light in the scene
 	glm::vec3 m_lightPosition; //!< Position of the light in the scene

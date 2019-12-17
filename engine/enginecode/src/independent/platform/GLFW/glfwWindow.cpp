@@ -20,8 +20,7 @@ namespace Engine
 
 	GLFWWindowImpl::~GLFWWindowImpl()
 	{
-		// Call function close to close the window
-		close();
+
 	}
 
 	void GLFWWindowImpl::init(const WindowProperties& properties)

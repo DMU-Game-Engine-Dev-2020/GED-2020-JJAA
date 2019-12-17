@@ -36,3 +36,4 @@
 #include "components/oscilateComponent.h"
 #include "components/textureComponent.h"
 #include "components/textureSwitchComponent.h"
+#include "components/rotateComponent.h"

@@ -97,6 +97,6 @@ namespace Engine
 		// Calculate the view
 		m_view = glm::lookAt(m_position, m_position + m_forward, m_up);
 		// Set the view in the camera
-		m_camera->setView(m_view);
+		m_camera->setViewAndPos(m_view, m_position);
 	}
 }

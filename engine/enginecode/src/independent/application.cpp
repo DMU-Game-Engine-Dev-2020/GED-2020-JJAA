@@ -55,6 +55,7 @@ namespace Engine
 		// Run the stop functions of the systems
 		m_pLayerStack->stop();
 		m_pResources->stop();
+		m_pWindow->close(); // Close the window
 		m_pWindows->stop();
 		m_pTimer->stop();
 		m_pLogger->stop();

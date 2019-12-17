@@ -40,11 +40,17 @@ namespace Engine
 		/*!
 		\return The cameras position
 		*/
-		inline glm::vec3 getPosition() { return m_position; }
-		//! Function to set the cameras view
+		inline glm::vec3 getPosition() const override { return m_position; }
+		//! Function to set the cameras view and position
 		/*!
 		\param view The new view
+		\param pos The position of the camera
 		*/
-		void setView(const glm::mat4& view) { m_view = view; m_viewProjection = m_projection * m_view; }
+		void setViewAndPos(const glm::mat4& view, glm::vec3 pos) 
+		{ 
+			m_view = view; 
+			m_viewProjection = m_projection * m_view; 
+			m_position = pos;
+		}
 	};
 }

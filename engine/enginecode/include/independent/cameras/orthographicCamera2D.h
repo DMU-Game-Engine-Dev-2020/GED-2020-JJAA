@@ -41,7 +41,7 @@ namespace Engine
 		/*!
 		\return The position of the camera
 		*/
-		inline glm::vec2 getPosition() const { return m_position; }
+		inline glm::vec3 getPosition() const override { return glm::vec3(m_position, 0.f); }
 		//! Function to get the rotation of the camera
 		/*!
 		\return The rotation of the camera

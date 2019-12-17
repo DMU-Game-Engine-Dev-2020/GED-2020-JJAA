@@ -26,7 +26,6 @@ namespace Engine
 		\param properties The properties to give the new window
 		*/
 		void init(const WindowProperties& properties) override;
-		void close() override; //!< Called from the destructor to close the window
 		WindowProperties m_properties; //!< Stores the properties of the window
 		std::function<void(Event&)> m_callback; //!< Callback for events, bound to Application::onEvent
 	public:
@@ -37,6 +36,10 @@ namespace Engine
 		GLFWWindowImpl(const WindowProperties& properties);
 		//! Destructor
 		~GLFWWindowImpl();
+
+		//! Called to close the window
+		void close() override; 
+
 		//! Called every frame to update the window
 		/*!
 		\param timestep The time passed after previous onUpdate function call

@@ -78,6 +78,8 @@ GameLayer::GameLayer(const std::string& name) : Layer(name)
 	m_gameObjects.back()->addComponent(m_velocities.back());
 	m_gameObjects.back()->addComponent(m_oscilate.back());
 
+	std::shared_ptr<Engine::Material> controlCubeMat = m_pResources->addMaterial("controlCube", tempSetupShader, tempSetupVAO);
+
 	//////////////////////////////////////////////////////////
 	// Added textured phong shader and cube //////////////////
 	//////////////////////////////////////////////////////////
@@ -136,6 +138,21 @@ GameLayer::GameLayer(const std::string& name) : Layer(name)
 	m_gameObjects.back()->addComponent(m_textureSwitch.back());
 	m_gameObjects.back()->addComponent(m_oscilate.back());
 
+	
+
+	m_materials.push_back(std::make_shared<Engine::MaterialComponent>(Engine::MaterialComponent(controlCubeMat)));
+	m_positions.push_back(std::make_shared<Engine::PositionComponent>(Engine::PositionComponent(
+		glm::vec3(-4.5f, -0.6f, 4.f), glm::vec3(0.f), glm::vec3(0.8f))));
+	m_velocities.push_back(std::make_shared<Engine::VelocityComponent>(Engine::VelocityComponent(
+		glm::vec3(0.f), glm::vec3(0.f, 0.f, 0.f))));
+	m_rotation.push_back(std::make_shared<Engine::RotateComponent>(Engine::RotateComponent()));
+
+	m_gameObjects.push_back(std::make_shared<Engine::GameObject>());
+	m_gameObjects.back()->addComponent(m_materials.back());
+	m_gameObjects.back()->addComponent(m_positions.back());
+	m_gameObjects.back()->addComponent(m_velocities.back());
+	m_gameObjects.back()->addComponent(m_rotation.back());
+
 	m_UBOs.push_back(m_pResources->getUBO("Matrices"));
 	m_UBOs.push_back(m_pResources->getUBO("Light"));
 	
@@ -167,13 +184,12 @@ void GameLayer::onUpdate(float timestep)
 	// Data for light uniform block
 	m_lightColour = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 	m_lightPosition = glm::vec4(1.0f, 4.0f, -6.0f, 1.0f);
-	m_viewPosition = glm::vec4(0.0f, 0.0f, -4.5f, 1.0f);
+	m_viewPosition = glm::vec4(m_pCamera->getCamera()->getPosition(), 1.0f);
 	
 	// Two vectors of data for Matrices uniform block and Light uniform block
 	std::vector<void*> tempData[2];
 	// Add Matrices data to vector
-	tempData[0].push_back((void*)&m_pCamera->getCamera()->getProjection()[0][0]);
-	tempData[0].push_back((void*)&m_pCamera->getCamera()->getView()[0][0]);
+	tempData[0].push_back((void*)&m_pCamera->getCamera()->getViewProjection()[0][0]);
 	
 	// Add Light data to vector
 	tempData[1].push_back((void*)&m_lightColour[0]);

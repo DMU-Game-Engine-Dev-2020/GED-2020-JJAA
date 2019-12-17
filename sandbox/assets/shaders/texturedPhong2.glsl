@@ -12,8 +12,7 @@ out vec2 texCoord;
 
 layout (std140) uniform Matrices
 {
-        mat4 u_projection;
-	mat4 u_view;
+        mat4 u_viewProjection;
 };
 
 uniform mat4 u_model;
@@ -24,7 +23,7 @@ void main()
 	normal = mat3(transpose(inverse(u_model))) * a_vertexNormal;
 	texCoord = vec2(a_texCoord.x, a_texCoord.y);
 
-	gl_Position =  u_projection * u_view * u_model * vec4(a_vertexPosition, 1.0);
+	gl_Position =  u_viewProjection * u_model * vec4(a_vertexPosition, 1.0);
 }
 				
 #region Fragment

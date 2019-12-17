@@ -35,5 +35,10 @@ namespace Engine
 		\return The camera view projection matrix
 		*/
 		const glm::mat4& getViewProjection() { return m_viewProjection; }
+		//! Function to get the position of the camera in the 3D world space
+		/*!
+		\return The position of the camera
+		*/
+		virtual glm::vec3 getPosition() const = 0;
 	};
 }
