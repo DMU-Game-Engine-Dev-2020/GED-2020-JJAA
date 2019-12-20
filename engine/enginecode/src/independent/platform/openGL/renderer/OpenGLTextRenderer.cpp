@@ -11,7 +11,8 @@ namespace Engine
 	void OpenGLTextRenderer::actionCommand(RenderCommand* command)
 	{
 		command->action(); // Perform the command
-		delete command; // Delete the command
+		if (command->toKill())
+			delete command; // Delete the command
 	}
 
 	void OpenGLTextRenderer::beginScene(const SceneData& sceneData)

@@ -13,10 +13,20 @@ namespace Engine
 	*/
 	class OpenGLClearDepthColourBufferCommand : public RenderCommand
 	{
+	private:
+		bool m_keepAlive; //!< If the command will be used again
 	public:
 		//! Constructor
-		OpenGLClearDepthColourBufferCommand() {}
+		/*!
+		\param keepAlive If the command should be deleted after being used
+		*/
+		OpenGLClearDepthColourBufferCommand(bool keepAlive) : m_keepAlive(keepAlive) {}
 		void action() override; //!< Action the command
+		//! Function to check if the command needs to be deleted
+		/*!
+		\return A bool for if the command should be deleted
+		*/
+		bool toKill() override { return !m_keepAlive; }
 	};
 
 	/**
@@ -30,6 +40,8 @@ namespace Engine
 		float m_g; //!< Green channel value
 		float m_b; //!< Blue channel value
 		float m_a; //!< Alpha channel value
+
+		bool m_keepAlive; //!< If the command will be used again
 	public:
 		//! Constructor
 		/*!
@@ -37,9 +49,16 @@ namespace Engine
 		\param g New value for the green channel
 		\param b New value for the blue channel
 		\param a New value for the alpha channel
+		\param keepAlive If the command should be deleted after being used
 		*/
-		OpenGLSetClearColourCommand(float r, float g, float b, float a) : m_r(r), m_g(g), m_b(b), m_a(a) {}
+		OpenGLSetClearColourCommand(float r, float g, float b, float a, bool keepAlive) : 
+			m_r(r), m_g(g), m_b(b), m_a(a), m_keepAlive(keepAlive) {}
 		void action() override; //!< Action the command
+		//! Function to check if the command needs to be deleted
+		/*!
+		\return A bool for if the command should be deleted
+		*/
+		bool toKill() override { return !m_keepAlive; }
 	};
 
 	/**
@@ -50,13 +69,21 @@ namespace Engine
 	{
 	private:
 		bool m_bEnabled; //!< If turning on or off
+
+		bool m_keepAlive; //!< If the command will be used again
 	public:
 		//! Constructor
 		/*!
 		\param enabled If turning on or off
+		\param keepAlive If the command should be deleted after being used
 		*/
-		OpenGLSetDepthTestLessCommand(bool enabled) : m_bEnabled(enabled) {}
+		OpenGLSetDepthTestLessCommand(bool enabled, bool keepAlive) : m_bEnabled(enabled), m_keepAlive(keepAlive) {}
 		void action() override; //!< Action the command
+		//! Function to check if the command needs to be deleted
+		/*!
+		\return A bool for if the command should be deleted
+		*/
+		bool toKill() override { return !m_keepAlive; }
 	};
 
 	/**
@@ -67,13 +94,21 @@ namespace Engine
 	{
 	private:
 		bool m_bEnabled; //!< If turning on or off
+
+		bool m_keepAlive; //!< If the command will be used again
 	public:
 		//! Constructor
 		/*!
 		\param enabled If turning on or off
+		\param keepAlive If the command should be deleted after being used
 		*/
-		OpenGLSetBackfaceCullingCommand(bool enabled) : m_bEnabled(enabled) {}
+		OpenGLSetBackfaceCullingCommand(bool enabled, bool keepAlive) : m_bEnabled(enabled), m_keepAlive(keepAlive) {}
 		void action() override; //!< Action the command
+		//! Function to check if the command needs to be deleted
+		/*!
+		\return A bool for if the command should be deleted
+		*/
+		bool toKill() override { return !m_keepAlive; }
 	};
 
 	/**
@@ -82,10 +117,20 @@ namespace Engine
 	*/
 	class OpenGLClearColourBufferCommand : public RenderCommand
 	{
+	private:
+		bool m_keepAlive; //!< If the command will be used again
 	public:
 		//! Constructor
-		OpenGLClearColourBufferCommand() {}
+		/*!
+		\param keepAlive If the command should be deleted after being used
+		*/
+		OpenGLClearColourBufferCommand(bool keepAlive) : m_keepAlive(keepAlive) {}
 		void action() override; //!< Action the command
+		//! Function to check if the command needs to be deleted
+		/*!
+		\return A bool for if the command should be deleted
+		*/
+		bool toKill() override { return !m_keepAlive; }
 	};
 
 	/**
@@ -96,12 +141,20 @@ namespace Engine
 	{
 	private:
 		bool m_bEnabled; //!< If turning on or off
+
+		bool m_keepAlive; //!< If the command will be used again
 	public:
 		//! Constructor
 		/*!
 		\param enabled If turning on or off
+		\param keepAlive If the command should be deleted after being used
 		*/
-		OpenGLSetOneMinusAlphaBlendingCommand(bool enabled) : m_bEnabled(enabled) {}
+		OpenGLSetOneMinusAlphaBlendingCommand(bool enabled, bool keepAlive) : m_bEnabled(enabled), m_keepAlive(keepAlive) {}
 		void action() override; //!< Action the command
+		//! Function to check if the command needs to be deleted
+		/*!
+		\return A bool for if the command should be deleted
+		*/
+		bool toKill() override { return !m_keepAlive; }
 	};
 }

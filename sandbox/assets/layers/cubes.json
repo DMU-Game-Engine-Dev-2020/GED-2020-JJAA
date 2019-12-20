@@ -1,0 +1,227 @@
+{
+  "Asyncload": {
+    "shaders": [
+      { "filepath": "assets/shaders/flatColour2.glsl" },
+      { "filepath": "assets/shaders/texturedPhong2.glsl" }
+    ],
+    "textures": [
+      { "filepath": "assets/textures/letterCube.png" },
+      { "filepath": "assets/textures/numberCube.png" }
+    ]
+  },
+  "camera" :
+  {
+	"type" : "Euler3D",
+	"fov" : 45.0,
+	"aspectRatio" : 1.333333,
+	"nearClip" : 0.1,
+	"farClip" : 100.0
+  },
+  "renderer" :
+  {
+	"type" : "Basic3D"
+  },
+  "MemoryInfo" :
+  {
+	"gameObjects" : 3,
+	"materials" : 3,
+	"position" : 3,
+  "velocity" : 3,
+  "texture" : 1,
+	"controllers" : 4
+  },
+  "GameObjects": [
+    {
+
+      "name": "FCCube",
+      "material": {
+        "model": "assets/models/fccube.txt",
+        "shader": "assets/shaders/flatColour2.glsl"
+      },
+      "position": {
+        "trans": {
+          "x": 1.5,
+          "y": 0.0,
+          "z": 3.0
+        },
+        "rot": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "velocity": {
+        "linear": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "angular": {
+          "x": 0.0,
+          "y": 20.0,
+          "z": 0.0
+        }
+      },
+      "oscillate": {
+        "state": "down",
+        "time": 10.0
+      }
+    },
+    {
+      "name": "TPCube",
+      "material": {
+        "model": "assets/models/tpcube.txt",
+        "shader": "assets/shaders/texturedPhong2.glsl"
+      },
+      "position": {
+        "trans": {
+          "x": -1.5,
+          "y": 0.0,
+          "z": 3.0
+        },
+        "rot": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "velocity": {
+        "linear": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "angular": {
+          "x": 0.0,
+          "y": -20.0,
+          "z": 0.0
+        }
+      },
+      "textureSwitch": {
+        "tex1": "assets/textures/numberCube.png",
+        "tex2": "assets/textures/letterCube.png"
+      },
+      "oscillate": {
+        "state": "up",
+        "time": 10.0
+      }
+    },
+    {
+      "name": "TPCube2",
+      "material": {
+        "model": "assets/models/tpcube.txt",
+        "shader": "assets/shaders/texturedPhong2.glsl"
+      },
+      "position": {
+        "trans": {
+          "x": -4.5,
+          "y": -0.6,
+          "z": 4.0
+        },
+        "rot": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "scale": {
+          "x": 0.8,
+          "y": 0.8,
+          "z": 0.8
+        }
+      },
+      "velocity": {
+        "linear": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "angular": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        }
+      },
+      "rotate": {},
+      "texture": {
+        "tex": "assets/textures/numberCube.png"
+      }
+    }
+  ],
+  "UBOs": [
+    {
+    "name": "Matrices",
+	  "data": [
+        {
+          "type": "pointer",
+          "var": "CAM_VIEWPROJ"
+        }
+	  ]
+    }
+	,
+    {
+    "name": "Light",
+    "data": [
+      {
+        "type": "Float3",
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      {
+        "type": "Float3",
+        "x": 1.0,
+        "y": 4.0,
+        "z": -6.0
+      },
+      {
+        "type": "pointer",
+        "var": "CAM_POS"
+      }
+    ]
+    }
+  ]
+  ,
+  "RendererCommands": 
+  {
+  "predraw": [
+    {
+      "type": "SetClearColour",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    {
+      "type": "SetDepthTestLess",
+      "enabled": true
+    },
+    {
+      "type": "SetBackfaceCulling",
+      "enabled": true
+    },
+    {
+      "type": "ClearDepthColourBuffer"
+    }
+  ],
+	"postdraw" : [
+		{
+			"type" : "SetDepthTestLess",
+			"enabled" : false
+		},
+		{
+			"type" : "SetBackfaceCulling",
+			"enabled" : false
+		}
+	]
+  }
+}

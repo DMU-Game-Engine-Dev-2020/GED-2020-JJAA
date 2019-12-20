@@ -45,63 +45,97 @@ namespace Engine
 	{
 		std::shared_ptr<Shader> temp; // Make a temporary shared pointer
 		const std::string name = parseFilePath(filepath);
-
-		temp.reset(Shader::create(filepath)); // Create a shader on the temporary pointer
-		s_shaders.add(name, temp); // Add the shader to the shader asset manager
-
-		// Get any uniform buffer layouts from the shader just made
-		UniformBufferLayouts buffers = temp->getUniformBufferLayouts();
-
-		// If there is a uniform buffer
-		if (!buffers.empty())
+		// If the shader already exists
+		if (s_shaders.contains(name))
 		{
-			// For each element in the map
-			for (auto& element : buffers)
+			// Make temp the one that exists
+			temp = s_shaders.get(name);
+		}
+		else
+		{
+			temp.reset(Shader::create(filepath)); // Create a shader on the temporary pointer
+			s_shaders.add(name, temp); // Add the shader to the shader asset manager
+
+			// Get any uniform buffer layouts from the shader just made
+			UniformBufferLayouts buffers = temp->getUniformBufferLayouts();
+
+			// If there is a uniform buffer
+			if (!buffers.empty())
 			{
-				// Add a new uniform buffer
-				addUBO(element.first, element.second, name);
+				// For each element in the map
+				for (auto& element : buffers)
+				{
+					// Add a new uniform buffer
+					addUBO(element.first, element.second, name);
+				}
 			}
 		}
-
 		return temp; // Return the temporary pointer
 	}
 
 	std::shared_ptr<Shader> ResourceManager::addShader(const std::string& name, const std::string& vertexFilepath, const std::string& fragmentFilepath)
 	{
 		std::shared_ptr<Shader> temp; // Make a temporary shared pointer
-		temp.reset(Shader::create(vertexFilepath, fragmentFilepath)); // Create a shader on the temporary pointer
-		s_shaders.add(name, temp); // Add the shader to the shader asset manager
-
-		// Get any uniform buffer layouts from the shader just made
-		UniformBufferLayouts buffers = temp->getUniformBufferLayouts();
-
-		// If there is a uniform buffer
-		if (!buffers.empty())
+		// If the shader already exists
+		if (s_shaders.contains(name))
 		{
-			// For each element in the map
-			for (auto& element : buffers)
+			// Make temp the one that exists
+			temp = s_shaders.get(name);
+		}
+		else
+		{
+			temp.reset(Shader::create(vertexFilepath, fragmentFilepath)); // Create a shader on the temporary pointer
+			s_shaders.add(name, temp); // Add the shader to the shader asset manager
+
+			// Get any uniform buffer layouts from the shader just made
+			UniformBufferLayouts buffers = temp->getUniformBufferLayouts();
+
+			// If there is a uniform buffer
+			if (!buffers.empty())
 			{
-				// Add a new uniform buffer
-				addUBO(element.first, element.second, name);
+				// For each element in the map
+				for (auto& element : buffers)
+				{
+					// Add a new uniform buffer
+					addUBO(element.first, element.second, name);
+				}
 			}
 		}
-
 		return temp; // Return the temporary pointer
 	}
 
 	std::shared_ptr<Texture> ResourceManager::addTexture(const std::string& filepath)
 	{
 		std::shared_ptr<Texture> temp; // Make a temporary shared pointer
-		temp.reset(Texture::createFromFile(filepath)); // Create a texture on the temporary pointer
-		s_textures.add(parseFilePath(filepath), temp); // Add the texture to the texture asset manager
+		const std::string name = parseFilePath(filepath);
+		// If the texture already exists
+		if (s_textures.contains(name))
+		{
+			// Make temp the one that exists
+			temp = s_textures.get(name);
+		}
+		else
+		{
+			temp.reset(Texture::createFromFile(filepath)); // Create a texture on the temporary pointer
+			s_textures.add(name, temp); // Add the texture to the texture asset manager
+		}
 		return temp; // Return the temporary pointer
 	}
 
 	std::shared_ptr<Texture> ResourceManager::addTexture(const std::string& name, unsigned int width, unsigned int height, unsigned int channels, unsigned char* texData)
 	{
 		std::shared_ptr<Texture> temp; // Make a temporary shared pointer
-		temp.reset(Texture::createFromRawData(width, height, channels, texData)); // Create a texture on the temporary pointer
-		s_textures.add(name, temp); // Add the texture to the texture asset manager
+		// If the texture already exists
+		if (s_textures.contains(name))
+		{
+			// Make temp the one that exists
+			temp = s_textures.get(name);
+		}
+		else
+		{
+			temp.reset(Texture::createFromRawData(width, height, channels, texData)); // Create a texture on the temporary pointer
+			s_textures.add(name, temp); // Add the texture to the texture asset manager
+		}
 		return temp; // Return the temporary pointer
 	}
 
@@ -153,6 +187,24 @@ namespace Engine
 			temp = s_UBOs.get(name); // Set the temporary pointer to the uniform buffer
 		}
 		temp->attachShaderBlock(s_shaders.get(shaderName), name); // Attach the shader block to the buffer
+		return temp; // Return the temporary pointer
+	}
+
+	std::shared_ptr<UniformBuffer> ResourceManager::addUBO(const std::string& name, unsigned int stride, UniformBufferLayout layout)
+	{
+		std::shared_ptr<UniformBuffer> temp; // Make a temporary shared pointer
+
+		// If the uniform buffer doesn't already exist
+		if (!s_UBOs.contains(name))
+		{
+			// Create a new buffer on the temporary pointer
+			temp.reset(UniformBuffer::create(stride, layout));
+			s_UBOs.add(name, temp); // Add the buffer to the uniform buffer asset manager
+		}
+		else // If the uniform buffer already exists
+		{
+			temp = s_UBOs.get(name); // Set the temporary pointer to the uniform buffer
+		}
 		return temp; // Return the temporary pointer
 	}
 
@@ -255,7 +307,7 @@ namespace Engine
 					face->glyph->advance.x
 				));
 
-				memset(texMemory, (int)face->glyph->bitmap.buffer, maxSize[element.first].first * maxSize[element.first].second);
+
 
 				usedX += maxSize[element.first].first;
 			}

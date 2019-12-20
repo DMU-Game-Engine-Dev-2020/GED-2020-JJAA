@@ -37,3 +37,5 @@
 #include "components/textureComponent.h"
 #include "components/textureSwitchComponent.h"
 #include "components/rotateComponent.h"
+
+#include "json/JSONLayer.h"

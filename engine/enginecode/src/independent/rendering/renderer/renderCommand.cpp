@@ -9,7 +9,7 @@
 
 namespace Engine
 {
-	RenderCommand* RenderCommand::clearDepthColourBufferCommand()
+	RenderCommand* RenderCommand::clearDepthColourBufferCommand(bool keepAlive)
 	{
 		switch (RenderAPI::getAPI())
 		{
@@ -17,7 +17,7 @@ namespace Engine
 			LOG_CRITICAL("Lack of graphics API not supported"); // Log what's happening
 			break;
 		case RenderAPI::API::OpenGL: // If using openGL
-			return new OpenGLClearDepthColourBufferCommand(); // Create and return a pointer to an openGL render command
+			return new OpenGLClearDepthColourBufferCommand(keepAlive); // Create and return a pointer to an openGL render command
 			break;
 		case RenderAPI::API::Direct3D: // If using direct3D
 			LOG_CRITICAL("Direct 3D not supported"); // Log what's happening
@@ -27,7 +27,7 @@ namespace Engine
 		}
 	}
 
-	RenderCommand* RenderCommand::setClearColourCommand(float r, float g, float b, float a)
+	RenderCommand* RenderCommand::setClearColourCommand(float r, float g, float b, float a, bool keepAlive)
 	{
 		switch (RenderAPI::getAPI())
 		{
@@ -35,7 +35,7 @@ namespace Engine
 			LOG_CRITICAL("Lack of graphics API not supported"); // Log what's happening
 			break;
 		case RenderAPI::API::OpenGL: // If using openGL
-			return new OpenGLSetClearColourCommand(r, g, b, a); // Create and return a pointer to an openGL render command
+			return new OpenGLSetClearColourCommand(r, g, b, a, keepAlive); // Create and return a pointer to an openGL render command
 			break;
 		case RenderAPI::API::Direct3D: // If using direct3D
 			LOG_CRITICAL("Direct 3D not supported"); // Log what's happening
@@ -45,7 +45,7 @@ namespace Engine
 		}
 	}
 
-	RenderCommand* RenderCommand::setDepthTestLessCommand(bool enabled)
+	RenderCommand* RenderCommand::setDepthTestLessCommand(bool enabled, bool keepAlive)
 	{
 		switch (RenderAPI::getAPI())
 		{
@@ -53,7 +53,7 @@ namespace Engine
 			LOG_CRITICAL("Lack of graphics API not supported"); // Log what's happening
 			break;
 		case RenderAPI::API::OpenGL: // If using openGL
-			return new OpenGLSetDepthTestLessCommand(enabled); // Create and return a pointer to an openGL render command
+			return new OpenGLSetDepthTestLessCommand(enabled, keepAlive); // Create and return a pointer to an openGL render command
 			break;
 		case RenderAPI::API::Direct3D: // If using direct3D
 			LOG_CRITICAL("Direct 3D not supported"); // Log what's happening
@@ -63,7 +63,7 @@ namespace Engine
 		}
 	}
 
-	RenderCommand* RenderCommand::setBackfaceCullingCommand(bool enabled)
+	RenderCommand* RenderCommand::setBackfaceCullingCommand(bool enabled, bool keepAlive)
 	{
 		switch (RenderAPI::getAPI())
 		{
@@ -71,7 +71,7 @@ namespace Engine
 			LOG_CRITICAL("Lack of graphics API not supported"); // Log what's happening
 			break;
 		case RenderAPI::API::OpenGL: // If using openGL
-			return new OpenGLSetBackfaceCullingCommand(enabled); // Create and return a pointer to an openGL render command
+			return new OpenGLSetBackfaceCullingCommand(enabled, keepAlive); // Create and return a pointer to an openGL render command
 			break;
 		case RenderAPI::API::Direct3D: // If using direct3D
 			LOG_CRITICAL("Direct 3D not supported"); // Log what's happening
@@ -81,7 +81,7 @@ namespace Engine
 		}
 	}
 
-	RenderCommand* RenderCommand::clearColourBufferCommand()
+	RenderCommand* RenderCommand::clearColourBufferCommand(bool keepAlive)
 	{
 		switch (RenderAPI::getAPI())
 		{
@@ -89,7 +89,7 @@ namespace Engine
 			LOG_CRITICAL("Lack of graphics API not supported"); // Log what's happening
 			break;
 		case RenderAPI::API::OpenGL: // If using openGL
-			return new OpenGLClearColourBufferCommand(); // Create and return a pointer to an openGL render command
+			return new OpenGLClearColourBufferCommand(keepAlive); // Create and return a pointer to an openGL render command
 			break;
 		case RenderAPI::API::Direct3D: // If using direct3D
 			LOG_CRITICAL("Direct 3D not supported"); // Log what's happening
@@ -99,7 +99,7 @@ namespace Engine
 		}
 	}
 
-	RenderCommand* RenderCommand::setOneMinusAlphaBlendingCommand(bool enabled)
+	RenderCommand* RenderCommand::setOneMinusAlphaBlendingCommand(bool enabled, bool keepAlive)
 	{
 		switch (RenderAPI::getAPI())
 		{
@@ -107,7 +107,7 @@ namespace Engine
 			LOG_CRITICAL("Lack of graphics API not supported"); // Log what's happening
 			break;
 		case RenderAPI::API::OpenGL: // If using openGL
-			return new OpenGLSetOneMinusAlphaBlendingCommand(enabled); // Create and return a pointer to an openGL render command
+			return new OpenGLSetOneMinusAlphaBlendingCommand(enabled, keepAlive); // Create and return a pointer to an openGL render command
 			break;
 		case RenderAPI::API::Direct3D: // If using direct3D
 			LOG_CRITICAL("Direct 3D not supported"); // Log what's happening

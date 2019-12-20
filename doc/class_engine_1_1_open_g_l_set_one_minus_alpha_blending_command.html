@@ -68,48 +68,53 @@ Inheritance diagram for Engine::OpenGLSetOneMinusAlphaBlendingCommand:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad18b4c1c0000cc3e79826711082cf00f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_open_g_l_set_one_minus_alpha_blending_command.html#ad18b4c1c0000cc3e79826711082cf00f">OpenGLSetOneMinusAlphaBlendingCommand</a> (bool enabled)</td></tr>
-<tr class="memdesc:ad18b4c1c0000cc3e79826711082cf00f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="class_engine_1_1_open_g_l_set_one_minus_alpha_blending_command.html#ad18b4c1c0000cc3e79826711082cf00f">More...</a><br /></td></tr>
-<tr class="separator:ad18b4c1c0000cc3e79826711082cf00f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b52662fbe42cfc35fa7ce96ccde3632"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_open_g_l_set_one_minus_alpha_blending_command.html#a4b52662fbe42cfc35fa7ce96ccde3632">OpenGLSetOneMinusAlphaBlendingCommand</a> (bool enabled, bool keepAlive)</td></tr>
+<tr class="memdesc:a4b52662fbe42cfc35fa7ce96ccde3632"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="class_engine_1_1_open_g_l_set_one_minus_alpha_blending_command.html#a4b52662fbe42cfc35fa7ce96ccde3632">More...</a><br /></td></tr>
+<tr class="separator:a4b52662fbe42cfc35fa7ce96ccde3632"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb23a84cfe646a81b95b839deac1a5fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_open_g_l_set_one_minus_alpha_blending_command.html#afb23a84cfe646a81b95b839deac1a5fa">action</a> () override</td></tr>
-<tr class="memdesc:afb23a84cfe646a81b95b839deac1a5fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Action the command.  <a href="class_engine_1_1_open_g_l_set_one_minus_alpha_blending_command.html#afb23a84cfe646a81b95b839deac1a5fa">More...</a><br /></td></tr>
 <tr class="separator:afb23a84cfe646a81b95b839deac1a5fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29b2986a93d511f5b62f2934359db2aa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_open_g_l_set_one_minus_alpha_blending_command.html#a29b2986a93d511f5b62f2934359db2aa">toKill</a> () override</td></tr>
+<tr class="memdesc:a29b2986a93d511f5b62f2934359db2aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to check if the command needs to be deleted.  <a href="class_engine_1_1_open_g_l_set_one_minus_alpha_blending_command.html#a29b2986a93d511f5b62f2934359db2aa">More...</a><br /></td></tr>
+<tr class="separator:a29b2986a93d511f5b62f2934359db2aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a4c7f0007b9677156b502955d17d1ff90"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_open_g_l_set_one_minus_alpha_blending_command.html#a4c7f0007b9677156b502955d17d1ff90">m_bEnabled</a></td></tr>
 <tr class="memdesc:a4c7f0007b9677156b502955d17d1ff90"><td class="mdescLeft">&#160;</td><td class="mdescRight">If turning on or off.  <a href="class_engine_1_1_open_g_l_set_one_minus_alpha_blending_command.html#a4c7f0007b9677156b502955d17d1ff90">More...</a><br /></td></tr>
 <tr class="separator:a4c7f0007b9677156b502955d17d1ff90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf67b2d36e3d725ecf1dccb61dc43c5a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_open_g_l_set_one_minus_alpha_blending_command.html#aaf67b2d36e3d725ecf1dccb61dc43c5a">m_keepAlive</a></td></tr>
+<tr class="memdesc:aaf67b2d36e3d725ecf1dccb61dc43c5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the command will be used again.  <a href="class_engine_1_1_open_g_l_set_one_minus_alpha_blending_command.html#aaf67b2d36e3d725ecf1dccb61dc43c5a">More...</a><br /></td></tr>
+<tr class="separator:aaf67b2d36e3d725ecf1dccb61dc43c5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_static_methods_class_engine_1_1_render_command"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_class_engine_1_1_render_command')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="class_engine_1_1_render_command.html">Engine::RenderCommand</a></td></tr>
-<tr class="memitem:a7c401bffed985eb6d2039669a5126b7c inherit pub_static_methods_class_engine_1_1_render_command"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#a7c401bffed985eb6d2039669a5126b7c">clearDepthColourBufferCommand</a> ()</td></tr>
-<tr class="memdesc:a7c401bffed985eb6d2039669a5126b7c inherit pub_static_methods_class_engine_1_1_render_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to clear the colour buffer and the depth buffer.  <a href="class_engine_1_1_render_command.html#a7c401bffed985eb6d2039669a5126b7c">More...</a><br /></td></tr>
-<tr class="separator:a7c401bffed985eb6d2039669a5126b7c inherit pub_static_methods_class_engine_1_1_render_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a758dfce3b9d50ab17d49f420fe1cdee6 inherit pub_static_methods_class_engine_1_1_render_command"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#a758dfce3b9d50ab17d49f420fe1cdee6">setClearColourCommand</a> (float r, float g, float b, float a)</td></tr>
-<tr class="memdesc:a758dfce3b9d50ab17d49f420fe1cdee6 inherit pub_static_methods_class_engine_1_1_render_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to set the colour of the window.  <a href="class_engine_1_1_render_command.html#a758dfce3b9d50ab17d49f420fe1cdee6">More...</a><br /></td></tr>
-<tr class="separator:a758dfce3b9d50ab17d49f420fe1cdee6 inherit pub_static_methods_class_engine_1_1_render_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa2a6f11b4a789ca7ba929a87346e62b inherit pub_static_methods_class_engine_1_1_render_command"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#afa2a6f11b4a789ca7ba929a87346e62b">setDepthTestLessCommand</a> (bool enabled)</td></tr>
-<tr class="memdesc:afa2a6f11b4a789ca7ba929a87346e62b inherit pub_static_methods_class_engine_1_1_render_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to set the depth test value to less.  <a href="class_engine_1_1_render_command.html#afa2a6f11b4a789ca7ba929a87346e62b">More...</a><br /></td></tr>
-<tr class="separator:afa2a6f11b4a789ca7ba929a87346e62b inherit pub_static_methods_class_engine_1_1_render_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5000d6319edc398a4548c2a50f3d6e6b inherit pub_static_methods_class_engine_1_1_render_command"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#a5000d6319edc398a4548c2a50f3d6e6b">setBackfaceCullingCommand</a> (bool enabled)</td></tr>
-<tr class="memdesc:a5000d6319edc398a4548c2a50f3d6e6b inherit pub_static_methods_class_engine_1_1_render_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to turn backface culling on or off.  <a href="class_engine_1_1_render_command.html#a5000d6319edc398a4548c2a50f3d6e6b">More...</a><br /></td></tr>
-<tr class="separator:a5000d6319edc398a4548c2a50f3d6e6b inherit pub_static_methods_class_engine_1_1_render_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa20d3598018684201a2a510a1dfc2570 inherit pub_static_methods_class_engine_1_1_render_command"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#aa20d3598018684201a2a510a1dfc2570">clearColourBufferCommand</a> ()</td></tr>
-<tr class="memdesc:aa20d3598018684201a2a510a1dfc2570 inherit pub_static_methods_class_engine_1_1_render_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to clear the colour buffer.  <a href="class_engine_1_1_render_command.html#aa20d3598018684201a2a510a1dfc2570">More...</a><br /></td></tr>
-<tr class="separator:aa20d3598018684201a2a510a1dfc2570 inherit pub_static_methods_class_engine_1_1_render_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37154fc86d78232a5cb994d5bc0f19a0 inherit pub_static_methods_class_engine_1_1_render_command"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#a37154fc86d78232a5cb994d5bc0f19a0">setOneMinusAlphaBlendingCommand</a> (bool enabled)</td></tr>
-<tr class="memdesc:a37154fc86d78232a5cb994d5bc0f19a0 inherit pub_static_methods_class_engine_1_1_render_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to turn alpha blending on or off.  <a href="class_engine_1_1_render_command.html#a37154fc86d78232a5cb994d5bc0f19a0">More...</a><br /></td></tr>
-<tr class="separator:a37154fc86d78232a5cb994d5bc0f19a0 inherit pub_static_methods_class_engine_1_1_render_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6097288180be8cfe4e6fb0def0151398 inherit pub_static_methods_class_engine_1_1_render_command"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#a6097288180be8cfe4e6fb0def0151398">clearDepthColourBufferCommand</a> (bool keepAlive=false)</td></tr>
+<tr class="memdesc:a6097288180be8cfe4e6fb0def0151398 inherit pub_static_methods_class_engine_1_1_render_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to clear the colour buffer and the depth buffer.  <a href="class_engine_1_1_render_command.html#a6097288180be8cfe4e6fb0def0151398">More...</a><br /></td></tr>
+<tr class="separator:a6097288180be8cfe4e6fb0def0151398 inherit pub_static_methods_class_engine_1_1_render_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6ab37ee3c3b3d1a1a238a5866762c0c inherit pub_static_methods_class_engine_1_1_render_command"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#aa6ab37ee3c3b3d1a1a238a5866762c0c">setClearColourCommand</a> (float r, float g, float b, float a, bool keepAlive=false)</td></tr>
+<tr class="memdesc:aa6ab37ee3c3b3d1a1a238a5866762c0c inherit pub_static_methods_class_engine_1_1_render_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to set the colour of the window.  <a href="class_engine_1_1_render_command.html#aa6ab37ee3c3b3d1a1a238a5866762c0c">More...</a><br /></td></tr>
+<tr class="separator:aa6ab37ee3c3b3d1a1a238a5866762c0c inherit pub_static_methods_class_engine_1_1_render_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a376b8828bb8c12d703730a5ab6e066c6 inherit pub_static_methods_class_engine_1_1_render_command"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#a376b8828bb8c12d703730a5ab6e066c6">setDepthTestLessCommand</a> (bool enabled, bool keepAlive=false)</td></tr>
+<tr class="memdesc:a376b8828bb8c12d703730a5ab6e066c6 inherit pub_static_methods_class_engine_1_1_render_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to set the depth test value to less.  <a href="class_engine_1_1_render_command.html#a376b8828bb8c12d703730a5ab6e066c6">More...</a><br /></td></tr>
+<tr class="separator:a376b8828bb8c12d703730a5ab6e066c6 inherit pub_static_methods_class_engine_1_1_render_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dc2cbedc175d2b57cfcc5459ad97bda inherit pub_static_methods_class_engine_1_1_render_command"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#a0dc2cbedc175d2b57cfcc5459ad97bda">setBackfaceCullingCommand</a> (bool enabled, bool keepAlive=false)</td></tr>
+<tr class="memdesc:a0dc2cbedc175d2b57cfcc5459ad97bda inherit pub_static_methods_class_engine_1_1_render_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to turn backface culling on or off.  <a href="class_engine_1_1_render_command.html#a0dc2cbedc175d2b57cfcc5459ad97bda">More...</a><br /></td></tr>
+<tr class="separator:a0dc2cbedc175d2b57cfcc5459ad97bda inherit pub_static_methods_class_engine_1_1_render_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a038573daab451283bb1041a06e2d2122 inherit pub_static_methods_class_engine_1_1_render_command"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#a038573daab451283bb1041a06e2d2122">clearColourBufferCommand</a> (bool keepAlive=false)</td></tr>
+<tr class="memdesc:a038573daab451283bb1041a06e2d2122 inherit pub_static_methods_class_engine_1_1_render_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to clear the colour buffer.  <a href="class_engine_1_1_render_command.html#a038573daab451283bb1041a06e2d2122">More...</a><br /></td></tr>
+<tr class="separator:a038573daab451283bb1041a06e2d2122 inherit pub_static_methods_class_engine_1_1_render_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3b86bc24fe4df441a8afc60ed320278 inherit pub_static_methods_class_engine_1_1_render_command"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#ab3b86bc24fe4df441a8afc60ed320278">setOneMinusAlphaBlendingCommand</a> (bool enabled, bool keepAlive=false)</td></tr>
+<tr class="memdesc:ab3b86bc24fe4df441a8afc60ed320278 inherit pub_static_methods_class_engine_1_1_render_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to turn alpha blending on or off.  <a href="class_engine_1_1_render_command.html#ab3b86bc24fe4df441a8afc60ed320278">More...</a><br /></td></tr>
+<tr class="separator:ab3b86bc24fe4df441a8afc60ed320278 inherit pub_static_methods_class_engine_1_1_render_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Open GL command to turn alpha blending on or off. </p>
 
-<p class="definition">Definition at line <a class="el" href="_open_g_l_render_commands_8h_source.html#l00095">95</a> of file <a class="el" href="_open_g_l_render_commands_8h_source.html">OpenGLRenderCommands.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_open_g_l_render_commands_8h_source.html#l00140">140</a> of file <a class="el" href="_open_g_l_render_commands_8h_source.html">OpenGLRenderCommands.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad18b4c1c0000cc3e79826711082cf00f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad18b4c1c0000cc3e79826711082cf00f">&#9670;&nbsp;</a></span>OpenGLSetOneMinusAlphaBlendingCommand()</h2>
+<a id="a4b52662fbe42cfc35fa7ce96ccde3632"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b52662fbe42cfc35fa7ce96ccde3632">&#9670;&nbsp;</a></span>OpenGLSetOneMinusAlphaBlendingCommand()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -121,8 +126,18 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">Engine::OpenGLSetOneMinusAlphaBlendingCommand::OpenGLSetOneMinusAlphaBlendingCommand </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>enabled</em></td><td>)</td>
+          <td class="paramname"><em>enabled</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>keepAlive</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -136,11 +151,12 @@ Additional Inherited Members</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">enabled</td><td>If turning on or off </td></tr>
+    <tr><td class="paramname">keepAlive</td><td>If the command should be deleted after being used </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_open_g_l_render_commands_8h_source.html#l00104">104</a> of file <a class="el" href="_open_g_l_render_commands_8h_source.html">OpenGLRenderCommands.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_open_g_l_render_commands_8h_source.html#l00152">152</a> of file <a class="el" href="_open_g_l_render_commands_8h_source.html">OpenGLRenderCommands.h</a>.</p>
 
 </div>
 </div>
@@ -167,12 +183,43 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Action the command. </p>
+<p>Action the command </p>
 
 <p>Implements <a class="el" href="class_engine_1_1_render_command.html#a3658c27f2c4b60c802ebfd9515255c6f">Engine::RenderCommand</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="_open_g_l_render_commands_8cpp_source.html#l00062">62</a> of file <a class="el" href="_open_g_l_render_commands_8cpp_source.html">OpenGLRenderCommands.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a29b2986a93d511f5b62f2934359db2aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29b2986a93d511f5b62f2934359db2aa">&#9670;&nbsp;</a></span>toKill()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Engine::OpenGLSetOneMinusAlphaBlendingCommand::toKill </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function to check if the command needs to be deleted. </p>
+<dl class="section return"><dt>Returns</dt><dd>A bool for if the command should be deleted </dd></dl>
+
+<p>Implements <a class="el" href="class_engine_1_1_render_command.html#a3fcc0631022c54fbb126cded7e401823">Engine::RenderCommand</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_open_g_l_render_commands_8h_source.html#l00158">158</a> of file <a class="el" href="_open_g_l_render_commands_8h_source.html">OpenGLRenderCommands.h</a>.</p>
 
 </div>
 </div>
@@ -199,7 +246,33 @@ Additional Inherited Members</h2></td></tr>
 
 <p>If turning on or off. </p>
 
-<p class="definition">Definition at line <a class="el" href="_open_g_l_render_commands_8h_source.html#l00098">98</a> of file <a class="el" href="_open_g_l_render_commands_8h_source.html">OpenGLRenderCommands.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_open_g_l_render_commands_8h_source.html#l00143">143</a> of file <a class="el" href="_open_g_l_render_commands_8h_source.html">OpenGLRenderCommands.h</a>.</p>
+
+</div>
+</div>
+<a id="aaf67b2d36e3d725ecf1dccb61dc43c5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf67b2d36e3d725ecf1dccb61dc43c5a">&#9670;&nbsp;</a></span>m_keepAlive</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Engine::OpenGLSetOneMinusAlphaBlendingCommand::m_keepAlive</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>If the command will be used again. </p>
+
+<p class="definition">Definition at line <a class="el" href="_open_g_l_render_commands_8h_source.html#l00145">145</a> of file <a class="el" href="_open_g_l_render_commands_8h_source.html">OpenGLRenderCommands.h</a>.</p>
 
 </div>
 </div>

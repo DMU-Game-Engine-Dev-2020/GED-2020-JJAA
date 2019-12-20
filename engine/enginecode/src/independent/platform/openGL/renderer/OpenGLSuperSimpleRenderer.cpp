@@ -11,7 +11,8 @@ namespace Engine
 	void OpenGLSuperSimpleRenderer::actionCommand(RenderCommand* command)
 	{
 		command->action(); // Perform the command
-		delete command; // Delete the command
+		if (command->toKill())
+			delete command; // Delete the command
 	}
 
 	void OpenGLSuperSimpleRenderer::submit(const std::shared_ptr<Material>& material)

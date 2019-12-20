@@ -11,7 +11,8 @@ namespace Engine
 	void OpenGLBasicRenderer::actionCommand(RenderCommand* command)
 	{
 		command->action(); // Perform the command
-		delete command; // Delete the command
+		if (command->toKill())
+			delete command; // Delete the command
 	}
 
 	void OpenGLBasicRenderer::beginScene(const SceneData& sceneData)

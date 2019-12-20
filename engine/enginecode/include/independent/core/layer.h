@@ -14,11 +14,14 @@ namespace Engine
 	*/
 	class Layer
 	{
+	public:
+		std::shared_ptr<Renderer> m_pRenderer; //!< Pointer to a renderer
+		std::shared_ptr<CameraController> m_pCamera; //!< Pointer to a camera
 	protected:
 		std::string m_name; //!< The name of the layer
 		std::shared_ptr<ResourceManager> m_pResources; //!< Pointer to the resource manager
-		std::shared_ptr<Renderer> m_pRenderer; //!< Pointer to a renderer
-		std::shared_ptr<CameraController> m_pCamera; //!< Pointer to a camera
+		//std::shared_ptr<Renderer> m_pRenderer; //!< Pointer to a renderer
+		//std::shared_ptr<CameraController> m_pCamera; //!< Pointer to a camera
 		std::vector<std::shared_ptr<UniformBuffer>> m_UBOs; //!< Container of pointers to  uniform buffers
 
 		SceneData m_sceneData; //!< Scene data for rendering
@@ -49,5 +52,26 @@ namespace Engine
 		\return The name of the layer
 		*/
 		inline const std::string& getName() const { return m_name; }
+
+		//! Function to get the pointer to the camera controller
+		/*!
+		\return A pointer to the camera controller
+		*/
+		inline std::shared_ptr<CameraController> getCamera() { return m_pCamera; }
+		//! Function to get the resourceManager
+		/*!
+		\return A pointer to the resource manager
+		*/
+		inline std::shared_ptr<ResourceManager> getResources() { return m_pResources; }
+		//! Function to get the renderer
+		/*!
+		\return A pointer to the renderer
+		*/
+		inline std::shared_ptr<Renderer> getRenderer() { return m_pRenderer; }
+		//! Function to get the scene data
+		/*!
+		\return A pointer to the scene data
+		*/
+		inline SceneData* getSceneData() { return &m_sceneData; }
 	};
 }

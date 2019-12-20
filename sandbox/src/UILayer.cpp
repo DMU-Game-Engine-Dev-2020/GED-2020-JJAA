@@ -44,9 +44,9 @@ void UILayer::onUpdate(float timestep)
 
 	m_pRenderer->beginScene(m_sceneData);
 
-	m_model = m_pLabel->getModel();
+	m_model = glm::translate(glm::mat4(1), glm::vec3(0, 0, 0));
 	m_iTexSlot = m_pResources->getFontTexture()->getSlot();
-	m_colour = m_pLabel->getColour();
+	m_colour = glm::vec3(0.8f, 0.0f, 0.2f);
 
 	m_pMat->setDataElement("u_model", (void*)&m_model[0][0]);
 	m_pMat->setDataElement("u_texData", (void*)&m_iTexSlot);

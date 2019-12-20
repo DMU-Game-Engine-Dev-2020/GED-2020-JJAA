@@ -9,7 +9,8 @@
 
 engineApp::engineApp()
 {
-	m_pLayerStack->push(std::make_shared<GameLayer>(GameLayer("Game Layer")));
+	//m_pLayerStack->push(std::make_shared<GameLayer>(GameLayer("Game Layer")));
+	m_pLayerStack->push(std::make_shared<Engine::JSONLayer>(Engine::JSONLayer("assets/layers/cubes.json", "Game Layer")));
 	m_pLayerStack->push(std::make_shared<UILayer>(UILayer("UI Layer")));
 }
 

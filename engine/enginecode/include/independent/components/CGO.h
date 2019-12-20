@@ -118,9 +118,19 @@ namespace Engine
 	*/
 	class GameObject
 	{
+	private:
+		std::string m_name;
 	protected:
 		std::vector<std::shared_ptr<Component>> m_components; //!< A container of shared pointers to all the objects components
 	public:
+		//! Default constructor
+		GameObject() {}
+		//! Constructor
+		/*!
+		\param name The name of the object
+		*/
+		GameObject(const std::string& name) : m_name(name) {}
+
 		//! Function to update the object every frame
 		/*!
 		\param timestep The time since the previous frame

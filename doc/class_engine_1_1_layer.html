@@ -56,6 +56,15 @@ $(function() {
  <a href="class_engine_1_1_layer.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="layer_8h_source.html">layer.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Engine::Layer:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_engine_1_1_layer.png" usemap="#Engine::Layer_map" alt=""/>
+  <map id="Engine::Layer_map" name="Engine::Layer_map">
+<area href="class_engine_1_1_j_s_o_n_layer.html" alt="Engine::JSONLayer" shape="rect" coords="0,56,124,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -77,6 +86,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:addc61fdd2d9a62139f8317a4a7290084"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_layer.html#addc61fdd2d9a62139f8317a4a7290084">getName</a> () const</td></tr>
 <tr class="memdesc:addc61fdd2d9a62139f8317a4a7290084"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the name of the layer.  <a href="class_engine_1_1_layer.html#addc61fdd2d9a62139f8317a4a7290084">More...</a><br /></td></tr>
 <tr class="separator:addc61fdd2d9a62139f8317a4a7290084"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87b318fb210db1496f35badaefdbc246"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_engine_1_1_camera_controller.html">CameraController</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_layer.html#a87b318fb210db1496f35badaefdbc246">getCamera</a> ()</td></tr>
+<tr class="memdesc:a87b318fb210db1496f35badaefdbc246"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the pointer to the camera controller.  <a href="class_engine_1_1_layer.html#a87b318fb210db1496f35badaefdbc246">More...</a><br /></td></tr>
+<tr class="separator:a87b318fb210db1496f35badaefdbc246"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b0320f2cc7705e247bd857fbf8de7cd"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_engine_1_1_resource_manager.html">ResourceManager</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_layer.html#a8b0320f2cc7705e247bd857fbf8de7cd">getResources</a> ()</td></tr>
+<tr class="memdesc:a8b0320f2cc7705e247bd857fbf8de7cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the resourceManager.  <a href="class_engine_1_1_layer.html#a8b0320f2cc7705e247bd857fbf8de7cd">More...</a><br /></td></tr>
+<tr class="separator:a8b0320f2cc7705e247bd857fbf8de7cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0ac60619a30713c484e36ab705c02c6"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_engine_1_1_renderer.html">Renderer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_layer.html#af0ac60619a30713c484e36ab705c02c6">getRenderer</a> ()</td></tr>
+<tr class="memdesc:af0ac60619a30713c484e36ab705c02c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the renderer.  <a href="class_engine_1_1_layer.html#af0ac60619a30713c484e36ab705c02c6">More...</a><br /></td></tr>
+<tr class="separator:af0ac60619a30713c484e36ab705c02c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6949847b73e0e87005e473ce3ab74486"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_engine.html#aca9416107541cb949ca38b0df5c32c4a">SceneData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_layer.html#a6949847b73e0e87005e473ce3ab74486">getSceneData</a> ()</td></tr>
+<tr class="memdesc:a6949847b73e0e87005e473ce3ab74486"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the scene data.  <a href="class_engine_1_1_layer.html#a6949847b73e0e87005e473ce3ab74486">More...</a><br /></td></tr>
+<tr class="separator:a6949847b73e0e87005e473ce3ab74486"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -141,6 +162,36 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a87b318fb210db1496f35badaefdbc246"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87b318fb210db1496f35badaefdbc246">&#9670;&nbsp;</a></span>getCamera()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_engine_1_1_camera_controller.html">CameraController</a>&gt; Engine::Layer::getCamera </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function to get the pointer to the camera controller. </p>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the camera controller </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="layer_8h_source.html#l00057">57</a> of file <a class="el" href="layer_8h_source.html">layer.h</a>.</p>
+
+</div>
+</div>
 <a id="addc61fdd2d9a62139f8317a4a7290084"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#addc61fdd2d9a62139f8317a4a7290084">&#9670;&nbsp;</a></span>getName()</h2>
 
@@ -171,6 +222,96 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="af0ac60619a30713c484e36ab705c02c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0ac60619a30713c484e36ab705c02c6">&#9670;&nbsp;</a></span>getRenderer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_engine_1_1_renderer.html">Renderer</a>&gt; Engine::Layer::getRenderer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function to get the renderer. </p>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the renderer </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="layer_8h_source.html#l00067">67</a> of file <a class="el" href="layer_8h_source.html">layer.h</a>.</p>
+
+</div>
+</div>
+<a id="a8b0320f2cc7705e247bd857fbf8de7cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b0320f2cc7705e247bd857fbf8de7cd">&#9670;&nbsp;</a></span>getResources()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_engine_1_1_resource_manager.html">ResourceManager</a>&gt; Engine::Layer::getResources </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function to get the resourceManager. </p>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the resource manager </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="layer_8h_source.html#l00062">62</a> of file <a class="el" href="layer_8h_source.html">layer.h</a>.</p>
+
+</div>
+</div>
+<a id="a6949847b73e0e87005e473ce3ab74486"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6949847b73e0e87005e473ce3ab74486">&#9670;&nbsp;</a></span>getSceneData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_engine.html#aca9416107541cb949ca38b0df5c32c4a">SceneData</a>* Engine::Layer::getSceneData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function to get the scene data. </p>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the scene data </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="layer_8h_source.html#l00072">72</a> of file <a class="el" href="layer_8h_source.html">layer.h</a>.</p>
+
+</div>
+</div>
 <a id="a8222070c4ac0cb1d68266fff542da243"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8222070c4ac0cb1d68266fff542da243">&#9670;&nbsp;</a></span>onAttach()</h2>
 
@@ -195,6 +336,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Function called when the layer is added. </p>
+
+<p>Implemented in <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#adb2d47b7ee9731247a9eb61f696b887d">Engine::JSONLayer</a>.</p>
 
 </div>
 </div>
@@ -222,6 +365,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Function called when the layer is removed. </p>
+
+<p>Implemented in <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#a8faf533accb4fcc810ab06155f8fe5d6">Engine::JSONLayer</a>.</p>
 
 </div>
 </div>
@@ -257,6 +402,8 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
+<p>Implemented in <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#af226c67fc5f775a427d0b0892e33332f">Engine::JSONLayer</a>.</p>
+
 </div>
 </div>
 <a id="a53580c99b9b6c24cec0f529728f3a54f"></a>
@@ -290,6 +437,8 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p>Implemented in <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#a25ce24a1b0a96bfedb45f62154acb5aa">Engine::JSONLayer</a>.</p>
 
 </div>
 </div>

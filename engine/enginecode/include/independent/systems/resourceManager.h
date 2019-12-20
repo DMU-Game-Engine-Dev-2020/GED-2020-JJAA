@@ -121,6 +121,14 @@ namespace Engine
 		\return A pointer to the buffer
 		*/
 		static std::shared_ptr<UniformBuffer> addUBO(const std::string& name, std::shared_ptr<UniformBufferLayout> layout, const std::string& shaderName);
+		//! Function to manually add a uniform buffer
+		/*!
+		\param name The name of the buffer
+		\param stride The stride of the buffer layout
+		\param layout The buffer layout
+		*/
+		static std::shared_ptr<UniformBuffer> addUBO(const std::string& name, unsigned int stride, UniformBufferLayout layout);
+
 		//! Function to add a uniform buffer
 		/*!
 		\param name The name of the buffer

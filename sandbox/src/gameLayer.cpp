@@ -3,7 +3,7 @@
 #include <Engine.h>
 #include "gameLayer.h"
 
-GameLayer::GameLayer(const std::string& name) : Layer(name)
+void GameLayer::onAttach()
 {
 	// Make a new basic renderer
 	m_pRenderer.reset(Engine::Renderer::createBasic3D());
@@ -78,8 +78,6 @@ GameLayer::GameLayer(const std::string& name) : Layer(name)
 	m_gameObjects.back()->addComponent(m_velocities.back());
 	m_gameObjects.back()->addComponent(m_oscilate.back());
 
-	std::shared_ptr<Engine::Material> controlCubeMat = m_pResources->addMaterial("controlCube", tempSetupShader, tempSetupVAO);
-
 	//////////////////////////////////////////////////////////
 	// Added textured phong shader and cube //////////////////
 	//////////////////////////////////////////////////////////
@@ -138,31 +136,28 @@ GameLayer::GameLayer(const std::string& name) : Layer(name)
 	m_gameObjects.back()->addComponent(m_textureSwitch.back());
 	m_gameObjects.back()->addComponent(m_oscilate.back());
 
-	
+	std::shared_ptr<Engine::Material> controlCubeMat = m_pResources->addMaterial("controlCube", tempSetupShader, tempSetupVAO);
 
 	m_materials.push_back(std::make_shared<Engine::MaterialComponent>(Engine::MaterialComponent(controlCubeMat)));
 	m_positions.push_back(std::make_shared<Engine::PositionComponent>(Engine::PositionComponent(
 		glm::vec3(-4.5f, -0.6f, 4.f), glm::vec3(0.f), glm::vec3(0.8f))));
 	m_velocities.push_back(std::make_shared<Engine::VelocityComponent>(Engine::VelocityComponent(
-		glm::vec3(0.f), glm::vec3(0.f, 0.f, 0.f))));
+		glm::vec3(0.f), glm::vec3(0.f))));
 	m_rotation.push_back(std::make_shared<Engine::RotateComponent>(Engine::RotateComponent()));
+	m_textures.push_back(std::make_shared<Engine::TextureComponent>(Engine::TextureComponent(numberTex)));
 
 	m_gameObjects.push_back(std::make_shared<Engine::GameObject>());
 	m_gameObjects.back()->addComponent(m_materials.back());
 	m_gameObjects.back()->addComponent(m_positions.back());
 	m_gameObjects.back()->addComponent(m_velocities.back());
 	m_gameObjects.back()->addComponent(m_rotation.back());
+	m_gameObjects.back()->addComponent(m_textures.back());
 
 	m_UBOs.push_back(m_pResources->getUBO("Matrices"));
 	m_UBOs.push_back(m_pResources->getUBO("Light"));
-	
+
 	m_pCamera.reset(new Engine::FPSCameraControllerEuler);
 	m_pCamera->init(45.f, 4.f / 3.f, 0.1f, 100.f);
-}
-
-void GameLayer::onAttach()
-{
-	
 }
 
 void GameLayer::onDetach()

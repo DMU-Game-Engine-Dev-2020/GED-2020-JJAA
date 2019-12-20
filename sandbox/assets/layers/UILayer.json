@@ -1,0 +1,131 @@
+{
+  "Asyncload": {
+    "shaders": [
+      { "filepath": "assets/shaders/text1.glsl" }
+    ],
+	"fonts" : [
+	  { "filepath" : "assets/fonts/arial.ttf", "charSize" : 32},
+	  { "filepath" : "assets/fonts/cour.ttf", "charSize" : 64}
+	]
+  },
+  "camera": {
+    "type": "FixedOrtho2D",
+    "top": 0.0,
+    "left": 0.0,
+    "width": 800.0,
+    "height": 600.0
+  },
+  "renderer": {
+    "type": "BasicText2D"
+  },
+  "MemoryInfo": {
+    "gameObjects": 2,
+    "materials": 2,
+    "position": 2,
+    "velocity": 0,
+    "controllers": 0
+  },
+  "GameObjects": [
+    {
+      "name": "HeaderLabel",
+      "material": {
+        "text": "I am the header",
+        "font": "arial",
+        "charSize": 32,
+        "colour": {
+          "r": 0.4,
+          "g": 0.9,
+          "b": 0.4
+        }
+      },
+      "position": {
+        "trans": {
+          "x": 150.0,
+          "y": 200.0,
+          "z": 0.0
+        },
+        "rot": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "scale": {
+          "x": 2.0,
+          "y": 2.0,
+          "z": 2.0
+        }
+      }
+    },
+    {
+      "name": "FooterLabel",
+      "material": {
+        "text": "I am the footer",
+        "font": "arial",
+        "charSize": 32,
+        "colour": {
+          "r": 0.9,
+          "g": 0.4,
+          "b": 0.4
+        }
+      },
+      "position": {
+        "trans": {
+          "x": 250.0,
+          "y": 500.0,
+          "z": 0.0
+        },
+        "rot": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    }
+  ],
+  "UBOs": [
+    {
+      "name": "Matrices2D",
+      "layout": [
+        "Mat4",
+        "Mat4"
+      ],
+      "shaders": [
+        {
+          "filepath": "assets/shaders/text1.glsl",
+          "block": "Matrices"
+        }
+      ],
+      "data": [
+        {
+          "type": "pointer",
+          "var": "CAM_PROJ"
+        },
+        {
+          "type": "pointer",
+          "var": "CAM_VIEW"
+        }
+      ]
+    }
+  ]
+  ,
+  "RendererCommands": 
+  { 
+	"predraw" : [
+		{
+			"type" : "SetOneMinusAlphaBlending",
+			"enabled" : true
+		}
+	],
+	"postdraw" : [
+		{
+			"type" : "SetOneMinusAlphaBlending",
+			"enabled" : false
+		}
+	]
+  }
+} 

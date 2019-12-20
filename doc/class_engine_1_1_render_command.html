@@ -74,29 +74,31 @@ Inheritance diagram for Engine::RenderCommand:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3658c27f2c4b60c802ebfd9515255c6f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#a3658c27f2c4b60c802ebfd9515255c6f">action</a> ()=0</td></tr>
-<tr class="memdesc:a3658c27f2c4b60c802ebfd9515255c6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Action the command.  <a href="class_engine_1_1_render_command.html#a3658c27f2c4b60c802ebfd9515255c6f">More...</a><br /></td></tr>
 <tr class="separator:a3658c27f2c4b60c802ebfd9515255c6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fcc0631022c54fbb126cded7e401823"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#a3fcc0631022c54fbb126cded7e401823">toKill</a> ()=0</td></tr>
+<tr class="memdesc:a3fcc0631022c54fbb126cded7e401823"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to check if the command needs to be deleted.  <a href="class_engine_1_1_render_command.html#a3fcc0631022c54fbb126cded7e401823">More...</a><br /></td></tr>
+<tr class="separator:a3fcc0631022c54fbb126cded7e401823"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a7c401bffed985eb6d2039669a5126b7c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#a7c401bffed985eb6d2039669a5126b7c">clearDepthColourBufferCommand</a> ()</td></tr>
-<tr class="memdesc:a7c401bffed985eb6d2039669a5126b7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to clear the colour buffer and the depth buffer.  <a href="class_engine_1_1_render_command.html#a7c401bffed985eb6d2039669a5126b7c">More...</a><br /></td></tr>
-<tr class="separator:a7c401bffed985eb6d2039669a5126b7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a758dfce3b9d50ab17d49f420fe1cdee6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#a758dfce3b9d50ab17d49f420fe1cdee6">setClearColourCommand</a> (float r, float g, float b, float a)</td></tr>
-<tr class="memdesc:a758dfce3b9d50ab17d49f420fe1cdee6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to set the colour of the window.  <a href="class_engine_1_1_render_command.html#a758dfce3b9d50ab17d49f420fe1cdee6">More...</a><br /></td></tr>
-<tr class="separator:a758dfce3b9d50ab17d49f420fe1cdee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa2a6f11b4a789ca7ba929a87346e62b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#afa2a6f11b4a789ca7ba929a87346e62b">setDepthTestLessCommand</a> (bool enabled)</td></tr>
-<tr class="memdesc:afa2a6f11b4a789ca7ba929a87346e62b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to set the depth test value to less.  <a href="class_engine_1_1_render_command.html#afa2a6f11b4a789ca7ba929a87346e62b">More...</a><br /></td></tr>
-<tr class="separator:afa2a6f11b4a789ca7ba929a87346e62b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5000d6319edc398a4548c2a50f3d6e6b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#a5000d6319edc398a4548c2a50f3d6e6b">setBackfaceCullingCommand</a> (bool enabled)</td></tr>
-<tr class="memdesc:a5000d6319edc398a4548c2a50f3d6e6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to turn backface culling on or off.  <a href="class_engine_1_1_render_command.html#a5000d6319edc398a4548c2a50f3d6e6b">More...</a><br /></td></tr>
-<tr class="separator:a5000d6319edc398a4548c2a50f3d6e6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa20d3598018684201a2a510a1dfc2570"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#aa20d3598018684201a2a510a1dfc2570">clearColourBufferCommand</a> ()</td></tr>
-<tr class="memdesc:aa20d3598018684201a2a510a1dfc2570"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to clear the colour buffer.  <a href="class_engine_1_1_render_command.html#aa20d3598018684201a2a510a1dfc2570">More...</a><br /></td></tr>
-<tr class="separator:aa20d3598018684201a2a510a1dfc2570"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37154fc86d78232a5cb994d5bc0f19a0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#a37154fc86d78232a5cb994d5bc0f19a0">setOneMinusAlphaBlendingCommand</a> (bool enabled)</td></tr>
-<tr class="memdesc:a37154fc86d78232a5cb994d5bc0f19a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to turn alpha blending on or off.  <a href="class_engine_1_1_render_command.html#a37154fc86d78232a5cb994d5bc0f19a0">More...</a><br /></td></tr>
-<tr class="separator:a37154fc86d78232a5cb994d5bc0f19a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6097288180be8cfe4e6fb0def0151398"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#a6097288180be8cfe4e6fb0def0151398">clearDepthColourBufferCommand</a> (bool keepAlive=false)</td></tr>
+<tr class="memdesc:a6097288180be8cfe4e6fb0def0151398"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to clear the colour buffer and the depth buffer.  <a href="class_engine_1_1_render_command.html#a6097288180be8cfe4e6fb0def0151398">More...</a><br /></td></tr>
+<tr class="separator:a6097288180be8cfe4e6fb0def0151398"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6ab37ee3c3b3d1a1a238a5866762c0c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#aa6ab37ee3c3b3d1a1a238a5866762c0c">setClearColourCommand</a> (float r, float g, float b, float a, bool keepAlive=false)</td></tr>
+<tr class="memdesc:aa6ab37ee3c3b3d1a1a238a5866762c0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to set the colour of the window.  <a href="class_engine_1_1_render_command.html#aa6ab37ee3c3b3d1a1a238a5866762c0c">More...</a><br /></td></tr>
+<tr class="separator:aa6ab37ee3c3b3d1a1a238a5866762c0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a376b8828bb8c12d703730a5ab6e066c6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#a376b8828bb8c12d703730a5ab6e066c6">setDepthTestLessCommand</a> (bool enabled, bool keepAlive=false)</td></tr>
+<tr class="memdesc:a376b8828bb8c12d703730a5ab6e066c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to set the depth test value to less.  <a href="class_engine_1_1_render_command.html#a376b8828bb8c12d703730a5ab6e066c6">More...</a><br /></td></tr>
+<tr class="separator:a376b8828bb8c12d703730a5ab6e066c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dc2cbedc175d2b57cfcc5459ad97bda"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#a0dc2cbedc175d2b57cfcc5459ad97bda">setBackfaceCullingCommand</a> (bool enabled, bool keepAlive=false)</td></tr>
+<tr class="memdesc:a0dc2cbedc175d2b57cfcc5459ad97bda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to turn backface culling on or off.  <a href="class_engine_1_1_render_command.html#a0dc2cbedc175d2b57cfcc5459ad97bda">More...</a><br /></td></tr>
+<tr class="separator:a0dc2cbedc175d2b57cfcc5459ad97bda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a038573daab451283bb1041a06e2d2122"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#a038573daab451283bb1041a06e2d2122">clearColourBufferCommand</a> (bool keepAlive=false)</td></tr>
+<tr class="memdesc:a038573daab451283bb1041a06e2d2122"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to clear the colour buffer.  <a href="class_engine_1_1_render_command.html#a038573daab451283bb1041a06e2d2122">More...</a><br /></td></tr>
+<tr class="separator:a038573daab451283bb1041a06e2d2122"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3b86bc24fe4df441a8afc60ed320278"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_render_command.html#ab3b86bc24fe4df441a8afc60ed320278">setOneMinusAlphaBlendingCommand</a> (bool enabled, bool keepAlive=false)</td></tr>
+<tr class="memdesc:ab3b86bc24fe4df441a8afc60ed320278"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a command to turn alpha blending on or off.  <a href="class_engine_1_1_render_command.html#ab3b86bc24fe4df441a8afc60ed320278">More...</a><br /></td></tr>
+<tr class="separator:ab3b86bc24fe4df441a8afc60ed320278"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class for any render commands. </p>
@@ -125,15 +127,14 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Action the command. </p>
+<p>Action the command </p>
 
 <p>Implemented in <a class="el" href="class_engine_1_1_open_g_l_set_one_minus_alpha_blending_command.html#afb23a84cfe646a81b95b839deac1a5fa">Engine::OpenGLSetOneMinusAlphaBlendingCommand</a>, <a class="el" href="class_engine_1_1_open_g_l_clear_colour_buffer_command.html#a4701233fd02d4b30cd9082a3bd3c92ea">Engine::OpenGLClearColourBufferCommand</a>, <a class="el" href="class_engine_1_1_open_g_l_set_backface_culling_command.html#add930c659e2c6c5eff0ef2260832ed74">Engine::OpenGLSetBackfaceCullingCommand</a>, <a class="el" href="class_engine_1_1_open_g_l_set_depth_test_less_command.html#a0ddaf5133cdfdcb07282c98a58d472d4">Engine::OpenGLSetDepthTestLessCommand</a>, <a class="el" href="class_engine_1_1_open_g_l_set_clear_colour_command.html#a75ba9aafe67538979aa2e20066d1637a">Engine::OpenGLSetClearColourCommand</a>, and <a class="el" href="class_engine_1_1_open_g_l_clear_depth_colour_buffer_command.html#afc70893db9239ca651b47d66c24f640a">Engine::OpenGLClearDepthColourBufferCommand</a>.</p>
 
 </div>
 </div>
-<a id="aa20d3598018684201a2a510a1dfc2570"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa20d3598018684201a2a510a1dfc2570">&#9670;&nbsp;</a></span>clearColourBufferCommand()</h2>
+<a id="a038573daab451283bb1041a06e2d2122"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a038573daab451283bb1041a06e2d2122">&#9670;&nbsp;</a></span>clearColourBufferCommand()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -144,7 +145,8 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> * Engine::RenderCommand::clearColourBufferCommand </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>keepAlive</em> = <code>false</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -156,14 +158,20 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Function to create a command to clear the colour buffer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">keepAlive</td><td>If the command should be deleted after being used </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the command </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="render_command_8cpp_source.html#l00084">84</a> of file <a class="el" href="render_command_8cpp_source.html">renderCommand.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a7c401bffed985eb6d2039669a5126b7c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c401bffed985eb6d2039669a5126b7c">&#9670;&nbsp;</a></span>clearDepthColourBufferCommand()</h2>
+<a id="a6097288180be8cfe4e6fb0def0151398"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6097288180be8cfe4e6fb0def0151398">&#9670;&nbsp;</a></span>clearDepthColourBufferCommand()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -174,7 +182,8 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> * Engine::RenderCommand::clearDepthColourBufferCommand </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>keepAlive</em> = <code>false</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -186,14 +195,20 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Function to create a command to clear the colour buffer and the depth buffer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">keepAlive</td><td>If the command should be deleted after being used </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the command </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="render_command_8cpp_source.html#l00012">12</a> of file <a class="el" href="render_command_8cpp_source.html">renderCommand.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a5000d6319edc398a4548c2a50f3d6e6b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5000d6319edc398a4548c2a50f3d6e6b">&#9670;&nbsp;</a></span>setBackfaceCullingCommand()</h2>
+<a id="a0dc2cbedc175d2b57cfcc5459ad97bda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dc2cbedc175d2b57cfcc5459ad97bda">&#9670;&nbsp;</a></span>setBackfaceCullingCommand()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -205,8 +220,18 @@ Static Public Member Functions</h2></td></tr>
           <td class="memname"><a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> * Engine::RenderCommand::setBackfaceCullingCommand </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>enabled</em></td><td>)</td>
+          <td class="paramname"><em>enabled</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>keepAlive</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -220,6 +245,7 @@ Static Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">enabled</td><td>If turning on or off </td></tr>
+    <tr><td class="paramname">keepAlive</td><td>If the command should be deleted after being used </td></tr>
   </table>
   </dd>
 </dl>
@@ -229,8 +255,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a758dfce3b9d50ab17d49f420fe1cdee6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a758dfce3b9d50ab17d49f420fe1cdee6">&#9670;&nbsp;</a></span>setClearColourCommand()</h2>
+<a id="aa6ab37ee3c3b3d1a1a238a5866762c0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6ab37ee3c3b3d1a1a238a5866762c0c">&#9670;&nbsp;</a></span>setClearColourCommand()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -260,7 +286,13 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>keepAlive</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -282,6 +314,7 @@ Static Public Member Functions</h2></td></tr>
     <tr><td class="paramname">g</td><td>New value for the green channel </td></tr>
     <tr><td class="paramname">b</td><td>New value for the blue channel </td></tr>
     <tr><td class="paramname">a</td><td>New value for the alpha channel </td></tr>
+    <tr><td class="paramname">keepAlive</td><td>If the command should be deleted after being used </td></tr>
   </table>
   </dd>
 </dl>
@@ -291,8 +324,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="afa2a6f11b4a789ca7ba929a87346e62b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa2a6f11b4a789ca7ba929a87346e62b">&#9670;&nbsp;</a></span>setDepthTestLessCommand()</h2>
+<a id="a376b8828bb8c12d703730a5ab6e066c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a376b8828bb8c12d703730a5ab6e066c6">&#9670;&nbsp;</a></span>setDepthTestLessCommand()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -304,8 +337,18 @@ Static Public Member Functions</h2></td></tr>
           <td class="memname"><a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> * Engine::RenderCommand::setDepthTestLessCommand </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>enabled</em></td><td>)</td>
+          <td class="paramname"><em>enabled</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>keepAlive</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -319,6 +362,7 @@ Static Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">enabled</td><td>If turning on or off </td></tr>
+    <tr><td class="paramname">keepAlive</td><td>If the command should be deleted after being used </td></tr>
   </table>
   </dd>
 </dl>
@@ -328,8 +372,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a37154fc86d78232a5cb994d5bc0f19a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37154fc86d78232a5cb994d5bc0f19a0">&#9670;&nbsp;</a></span>setOneMinusAlphaBlendingCommand()</h2>
+<a id="ab3b86bc24fe4df441a8afc60ed320278"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3b86bc24fe4df441a8afc60ed320278">&#9670;&nbsp;</a></span>setOneMinusAlphaBlendingCommand()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -341,8 +385,18 @@ Static Public Member Functions</h2></td></tr>
           <td class="memname"><a class="el" href="class_engine_1_1_render_command.html">RenderCommand</a> * Engine::RenderCommand::setOneMinusAlphaBlendingCommand </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>enabled</em></td><td>)</td>
+          <td class="paramname"><em>enabled</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>keepAlive</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -356,12 +410,43 @@ Static Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">enabled</td><td>If turning on or off </td></tr>
+    <tr><td class="paramname">keepAlive</td><td>If the command should be deleted after being used </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the command </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="render_command_8cpp_source.html#l00102">102</a> of file <a class="el" href="render_command_8cpp_source.html">renderCommand.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a3fcc0631022c54fbb126cded7e401823"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fcc0631022c54fbb126cded7e401823">&#9670;&nbsp;</a></span>toKill()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Engine::RenderCommand::toKill </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function to check if the command needs to be deleted. </p>
+<dl class="section return"><dt>Returns</dt><dd>A bool for if the command should be deleted </dd></dl>
+
+<p>Implemented in <a class="el" href="class_engine_1_1_open_g_l_set_one_minus_alpha_blending_command.html#a29b2986a93d511f5b62f2934359db2aa">Engine::OpenGLSetOneMinusAlphaBlendingCommand</a>, <a class="el" href="class_engine_1_1_open_g_l_clear_colour_buffer_command.html#a3cb6af7f148a76b7e31e7e9adb2c7624">Engine::OpenGLClearColourBufferCommand</a>, <a class="el" href="class_engine_1_1_open_g_l_set_backface_culling_command.html#a70cdf7e09f551ba0344c0e579124dd39">Engine::OpenGLSetBackfaceCullingCommand</a>, <a class="el" href="class_engine_1_1_open_g_l_set_depth_test_less_command.html#a4012a2323b1b5ef144239564cffb9cdf">Engine::OpenGLSetDepthTestLessCommand</a>, <a class="el" href="class_engine_1_1_open_g_l_set_clear_colour_command.html#a071f1c2f941298831fd4c267ba998ab7">Engine::OpenGLSetClearColourCommand</a>, and <a class="el" href="class_engine_1_1_open_g_l_clear_depth_colour_buffer_command.html#aa5bcfe5e9ffd4895e150b3f9407cae02">Engine::OpenGLClearDepthColourBufferCommand</a>.</p>
 
 </div>
 </div>

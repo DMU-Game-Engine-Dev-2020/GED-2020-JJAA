@@ -23,9 +23,9 @@ namespace Engine
 		/*!
 		\param layer A pointer to the layer being added
 		*/
-		void push(std::shared_ptr<Layer> layer) { m_layers.push_back(layer); }
+		void push(std::shared_ptr<Layer> layer) { m_layers.push_back(layer); m_layers.back()->onAttach(); }
 		//! Function to remove a layer
-		void pop() { m_layers.pop_back(); }
+		void pop() { m_layers.back()->onDetach(); m_layers.pop_back(); }
 
 		//! Used to set an iterator to the start of the vector
 		/*!

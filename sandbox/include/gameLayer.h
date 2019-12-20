@@ -26,7 +26,7 @@ public:
 	/*!
 	\param name The name of the layer
 	*/
-	GameLayer(const std::string& name = "Layer");
+	GameLayer(const std::string& name = "Layer") : Layer(name) {}
 
 	//! Function called when the layer is added
 	void onAttach() override;
