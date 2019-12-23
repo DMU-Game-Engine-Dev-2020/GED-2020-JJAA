@@ -12,7 +12,7 @@ out vec2 texCoord;
 
 layout (std140) uniform Matrices
 {
-        mat4 u_viewProjection;
+	mat4 u_viewProjection;
 };
 
 uniform mat4 u_model;

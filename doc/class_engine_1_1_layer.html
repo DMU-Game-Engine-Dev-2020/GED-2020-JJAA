@@ -62,7 +62,7 @@ Inheritance diagram for Engine::Layer:</div>
  <div class="center">
   <img src="class_engine_1_1_layer.png" usemap="#Engine::Layer_map" alt=""/>
   <map id="Engine::Layer_map" name="Engine::Layer_map">
-<area href="class_engine_1_1_j_s_o_n_layer.html" alt="Engine::JSONLayer" shape="rect" coords="0,56,124,80"/>
+<area href="class_engine_1_1_j_s_o_n_layer.html" title="Class that creates a layer from a loaded JSON file." alt="Engine::JSONLayer" shape="rect" coords="0,56,124,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -98,6 +98,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6949847b73e0e87005e473ce3ab74486"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_engine.html#aca9416107541cb949ca38b0df5c32c4a">SceneData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_layer.html#a6949847b73e0e87005e473ce3ab74486">getSceneData</a> ()</td></tr>
 <tr class="memdesc:a6949847b73e0e87005e473ce3ab74486"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the scene data.  <a href="class_engine_1_1_layer.html#a6949847b73e0e87005e473ce3ab74486">More...</a><br /></td></tr>
 <tr class="separator:a6949847b73e0e87005e473ce3ab74486"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ea37fa82779d92c366032be211049c4"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a2ea37fa82779d92c366032be211049c4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_engine_1_1_layer.html#a2ea37fa82779d92c366032be211049c4">createCamera</a> ()</td></tr>
+<tr class="memdesc:a2ea37fa82779d92c366032be211049c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function which makes a new camera controller.  <a href="class_engine_1_1_layer.html#a2ea37fa82779d92c366032be211049c4">More...</a><br /></td></tr>
+<tr class="separator:a2ea37fa82779d92c366032be211049c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a263ec4a2c6a064790db8ab7b625a0394"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_layer.html#a263ec4a2c6a064790db8ab7b625a0394">createRenderer</a> (<a class="el" href="class_engine_1_1_renderer.html">Renderer</a> *renderer)</td></tr>
+<tr class="memdesc:a263ec4a2c6a064790db8ab7b625a0394"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that sets the renderer pointer.  <a href="class_engine_1_1_layer.html#a263ec4a2c6a064790db8ab7b625a0394">More...</a><br /></td></tr>
+<tr class="separator:a263ec4a2c6a064790db8ab7b625a0394"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -162,6 +169,73 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2ea37fa82779d92c366032be211049c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ea37fa82779d92c366032be211049c4">&#9670;&nbsp;</a></span>createCamera()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::Layer::createCamera </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function which makes a new camera controller. </p>
+
+<p class="definition">Definition at line <a class="el" href="layer_8h_source.html#l00076">76</a> of file <a class="el" href="layer_8h_source.html">layer.h</a>.</p>
+
+</div>
+</div>
+<a id="a263ec4a2c6a064790db8ab7b625a0394"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a263ec4a2c6a064790db8ab7b625a0394">&#9670;&nbsp;</a></span>createRenderer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::Layer::createRenderer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_engine_1_1_renderer.html">Renderer</a> *&#160;</td>
+          <td class="paramname"><em>renderer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function that sets the renderer pointer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>Pointer to the new renderer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="layer_8h_source.html#l00081">81</a> of file <a class="el" href="layer_8h_source.html">layer.h</a>.</p>
+
+</div>
+</div>
 <a id="a87b318fb210db1496f35badaefdbc246"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a87b318fb210db1496f35badaefdbc246">&#9670;&nbsp;</a></span>getCamera()</h2>
 

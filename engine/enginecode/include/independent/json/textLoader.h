@@ -1,3 +1,5 @@
+/** \file texlLoader.h
+*/
 #pragma once
 
 #include <string>
@@ -6,25 +8,39 @@
 
 namespace Engine
 {
+	/**
+	\class TextModel
+	\brief Contains values for the model being loaded with the TextLoader
+	*/
 	class TextModel
 	{
 	public:
-		TextModel() : vertices(nullptr), indices(nullptr), verticesSize(0), indicesSize(0), shader(nullptr), texture(nullptr) {}
-		~TextModel()
-		{
+		//! Constructor
+		TextModel() : vertices(nullptr), indices(nullptr), verticesSize(0), indicesSize(0), shader(nullptr) {}
+		//! Destructor
+		~TextModel() {}
 
-		}
-		float * vertices;
-		unsigned int* indices;
-		unsigned int verticesSize;
-		unsigned int indicesSize;
-		std::shared_ptr<Shader> shader;
-		std::shared_ptr<Texture> texture;
+		float * vertices; //!< Pointer to the verices of the model being loaded
+		unsigned int* indices; //!< Pointer to the indices of the model being loaded
+		unsigned int verticesSize; //!< The number of values of the vertices being loaded
+		unsigned int indicesSize; //!< The number of values of the indices being loaded
+		std::shared_ptr<Shader> shader; //!< The shader for the model being loaded
 	};
 
+	/**
+	\class TextLoader
+	\brief Class which loads a model from text values
+	*/
 	class TextLoader
 	{
 	public:
+		//! Function which loads a model
+		/*!
+		\param res A pointer to the layers resource manager
+		\param filepath The location of the file
+		\param model The values of the model
+		\return A bool for if the loading was successful or not
+		*/
 		static bool loadModel(std::shared_ptr<ResourceManager> res, const std::string& filepath, TextModel& model)
 		{
 			std::fstream handle(filepath, std::ios::in);
@@ -97,15 +113,7 @@ namespace Engine
 			{
 				model.shader = res->addShader(line);
 			}
-			else model.texture = nullptr;
-
-			// read texture
-			getline(handle, line);
-			if (line.compare("NULL") != 0)
-			{
-				model.texture = res->addTexture(line);
-			}
-			else model.texture = nullptr;
+			else model.shader = nullptr;
 		}
 	};
 }

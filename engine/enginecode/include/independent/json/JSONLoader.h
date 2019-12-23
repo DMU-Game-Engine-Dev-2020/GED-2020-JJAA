@@ -1,3 +1,5 @@
+/** \file JSONLoader.h
+*/
 #pragma once
 
 #include <fstream>
@@ -15,10 +17,18 @@
 
 namespace Engine
 {
+	/**
+	\class JSONLoader
+	\brief Class which loads a layer from a JSON file
+	*/
 	class JSONLoader
 	{
-	private:
 	public:
+		//! Function which loads a layer
+		/*!
+		\param filepath The location of the JSON file being loaded
+		\param layer The layer that the file is being loaded to
+		*/
 		static void load(const std::string& filepath, JSONLayer& layer)
 		{
 			std::fstream handle(filepath, std::ios::in);
@@ -60,8 +70,7 @@ namespace Engine
 				std::string type = layerJSON["camera"]["type"].get<std::string>();
 				if (type.compare("Euler3D") == 0)
 				{
-					//layer.getCamera().reset(new FPSCameraControllerEuler);
-					layer.m_pCamera.reset(new FPSCameraControllerEuler);
+					layer.createCamera<FPSCameraControllerEuler>();
 					float fov = layerJSON["camera"]["fov"].get<float>();
 					float aspectRatio = layerJSON["camera"]["aspectRatio"].get<float>();
 					float nearClip = layerJSON["camera"]["nearClip"].get<float>();
@@ -70,7 +79,7 @@ namespace Engine
 				}
 				else if (type.compare("FreeOrtho2D") == 0)
 				{
-					layer.getCamera().reset(new FreeOrthoCameraController2D);
+					layer.createCamera<FreeOrthoCameraController2D>();
 					float top = layerJSON["camera"]["top"].get<float>();
 					float left = layerJSON["camera"]["left"].get<float>();
 					float width = layerJSON["camera"]["width"].get<float>();
@@ -82,12 +91,8 @@ namespace Engine
 			if (layerJSON.count("renderer") > 0)
 			{
 				std::string type = layerJSON["renderer"]["type"].get<std::string>();
-				if (type.compare("Basic3D") == 0)
-				{
-					//layer.getRenderer().reset(Renderer::createBasic3D());
-					layer.m_pRenderer.reset(Renderer::createBasic3D());
-				}
-				if (type.compare("BasicText2D") == 0) layer.getRenderer().reset(Renderer::createText());
+				if (type.compare("Basic3D") == 0) layer.createRenderer(Renderer::createBasic3D());
+				if (type.compare("BasicText2D") == 0) layer.createRenderer(Renderer::createText());
 			}
 
 			if (layerJSON.count("MemoryInfo") > 0)
@@ -129,11 +134,6 @@ namespace Engine
 							VAO->setVertexBuffer(layer.getResources()->addVBO(name, model.vertices, sizeof(float) * model.verticesSize, model.shader->getBufferLayout()));
 							VAO->setIndexBuffer(layer.getResources()->addIndexBuffer(name, model.indices, model.indicesSize));
 							std::shared_ptr<Material> mat = layer.getResources()->addMaterial(name, model.shader, VAO);
-							//if (model.texture != nullptr)
-							//{
-							//	layer.getData().push_back((void *)new int(model.texture->getSlot()));
-							//	mat->setDataElement("u_texData", (void*)layer.getData().back());
-							//}
 							layer.getMaterials().at(materialsIndex) = std::make_shared<MaterialComponent>(MaterialComponent(mat));
 							gameObject->addComponent(layer.getMaterials().at(materialsIndex));
 							materialsIndex++;

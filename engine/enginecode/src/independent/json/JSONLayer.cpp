@@ -1,3 +1,5 @@
+/** \file JSONLayer.cpp
+*/
 #include "engine_pch.h"
 
 #include "json/JSONLayer.h"
@@ -7,6 +9,7 @@ namespace Engine
 {
 	void JSONLayer::onAttach()
 	{
+		// Load the layer
 		JSONLoader::load(m_filepath, *this);
 
 		// Call all init render commands

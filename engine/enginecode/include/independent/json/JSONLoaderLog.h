@@ -1,3 +1,5 @@
+/** \file JSONLoaderLog.h
+*/
 #pragma once
 
 #include <fstream>
@@ -7,9 +9,17 @@
 
 namespace Engine
 {
+	/**
+	\class JSONLoaderLog
+	\brief Class which outputs everything that is being loaded from JSON files
+	*/
 	class JSONLoaderLog
 	{
 	public:
+		//! Function to log what is being loaded
+		/*!
+		\param filepath The location of the JSON file being loaded
+		*/
 		static void load(const std::string& filepath)
 		{
 			std::fstream handle(filepath, std::ios::in);

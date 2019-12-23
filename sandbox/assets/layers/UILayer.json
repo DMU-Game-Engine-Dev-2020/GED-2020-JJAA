@@ -23,6 +23,7 @@
     "materials": 2,
     "position": 2,
     "velocity": 0,
+    "texture": 0,
     "controllers": 0
   },
   "GameObjects": [
@@ -90,24 +91,10 @@
   "UBOs": [
     {
       "name": "Matrices2D",
-      "layout": [
-        "Mat4",
-        "Mat4"
-      ],
-      "shaders": [
-        {
-          "filepath": "assets/shaders/text1.glsl",
-          "block": "Matrices"
-        }
-      ],
       "data": [
         {
           "type": "pointer",
-          "var": "CAM_PROJ"
-        },
-        {
-          "type": "pointer",
-          "var": "CAM_VIEW"
+          "var": "CAM_VIEWPROJ"
         }
       ]
     }
