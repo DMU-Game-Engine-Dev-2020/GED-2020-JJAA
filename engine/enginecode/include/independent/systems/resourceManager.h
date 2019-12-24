@@ -24,8 +24,8 @@ namespace Engine
 		static AssetManager<UniformBuffer> s_UBOs; //!< Uniform buffer asset manager
 
 		static std::map<std::string, std::vector<Character>> s_characters; //!< Stores all loaded characters in all fonts and sizes
-		static const int s_ASCIIStart = 32; //!< First ascii value being used
-		static const int s_ASCIIEnd = 126; //!< Last ascii value being used
+		static const int s_ASCIIStart = 32; //!< First ascii value being used ' '
+		static const int s_ASCIIEnd = 126; //!< Last ascii value being used '~'
 		static std::shared_ptr<Texture> s_fontTexture; //!< Pointer to the texture with all of the characters on it
 
 		//! Function to get the name of a file from a file path

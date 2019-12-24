@@ -9,19 +9,20 @@
 class UILayer : public Engine::Layer
 {
 private:
-	std::shared_ptr<Engine::Material> m_pMat;
-	std::shared_ptr<Engine::Texture> m_pTexture;
-	std::shared_ptr<Engine::TextLabel> m_pLabel;
+	std::vector<std::shared_ptr<Engine::GameObject>> m_gameObjects; //!< Container of pointers to gameobjects
+	std::vector<std::shared_ptr<Engine::MaterialComponent>> m_materials; //!< Container of pointers to material components
+	std::vector<std::shared_ptr<Engine::PositionComponent>> m_positions; //!< Container of pointers to position components
+	std::vector<std::shared_ptr<Engine::TextureComponent>> m_textures; //!< Container of pointers to texture components
 
-	glm::mat4 m_model;
-	unsigned int m_iTexSlot;
-	glm::vec3 m_colour;
+	std::shared_ptr<Engine::UniformBuffer> m_pUBO; //!< Matrices uniform buffer
+	std::shared_ptr<Engine::TextLabel> m_pLabel; //!< The text
+	std::shared_ptr<Engine::TextLabel> m_pLabel2;
 public:
 	//! Constructor
 	/*!
 	\param name The name of the layer
 	*/
-	UILayer(const std::string& name = "Layer");
+	UILayer(const std::string& name = "Layer") : Layer(name) {}
 
 	//! Function called when the layer is added
 	void onAttach() override;

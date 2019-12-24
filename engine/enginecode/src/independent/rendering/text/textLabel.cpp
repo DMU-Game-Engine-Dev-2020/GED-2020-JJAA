@@ -4,7 +4,6 @@
 
 #include "rendering/text/textLabel.h"
 #include "rendering/text/basicTextLabel.h"
-#include "systems/log.h"
 
 namespace Engine
 {

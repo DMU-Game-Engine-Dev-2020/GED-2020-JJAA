@@ -244,97 +244,93 @@ namespace Engine
 	{
 		FT_Library ft;
 		FT_Face face;
-
+		// Initialize freetype
 		if (FT_Init_FreeType(&ft))
 			LOG_CRITICAL("Could not start FreeType");
 
-		unsigned char* texMemory;
-		int memH = 1024;
+		unsigned char* texMemory; // Texture memory for characters
+		int memH = 1024; // Memory size
 		int memW = 1024;
 		int usedX = 0;
 		int usedY = 0;
-
+		// Allocate and clear memory for the texture
 		texMemory = (unsigned char*)malloc(memW * memH);
 		memset(texMemory, 0, memW * memH);
 
-		std::map<std::string, std::pair<unsigned int, unsigned int>> maxSize;
-
+		std::map<std::string, std::pair<unsigned int, unsigned int>> maxSize; // Stores the maximum size for characters for each font
+		// For each size and font
 		for (auto& element : fontsAndSizes)
 		{
+			// Load the font
 			if (FT_New_Face(ft, element.first.c_str(), 0, &face))
 				LOG_CRITICAL("FreeType coudn't loat font: {0}", element.first);
-
+			// Set the font size
 			if (FT_Set_Pixel_Sizes(face, 0, element.second))
 				LOG_CRITICAL("FreeType couldn't set font face size of {0}", element.second);
-
+			// Add a value to the map to get the max sizes
 			maxSize.insert(std::make_pair(element.first, std::make_pair(0, 0)));
-
+			// For each ASCII value being used for characters
 			for (int i = s_ASCIIStart; i <= s_ASCIIEnd; i++)
 			{
+				// Load the character
 				if (FT_Load_Char(face, i, FT_LOAD_RENDER))
 					LOG_CRITICAL("Could not load the character {0}", i);
-
+				// If either of the sizes are bigger than the corresponding stored ones, change the stored one
 				maxSize[element.first].first = std::max(maxSize[element.first].first, face->glyph->bitmap.width);
 				maxSize[element.first].second = std::max(maxSize[element.first].second, face->glyph->bitmap.rows);
 			}
+			FT_Done_Face(face); // Done with the face
 		}
-
-		std::string thing;
+		// For each size and font
 		for (auto& element : fontsAndSizes)
 		{
+			// Load the font
 			if (FT_New_Face(ft, element.first.c_str(), 0, &face))
 				LOG_CRITICAL("FreeType coudn't loat font: {0}", element.first);
-
+			// Set the font size
 			if (FT_Set_Pixel_Sizes(face, 0, element.second))
 				LOG_CRITICAL("FreeType couldn't set font face size of {0}", element.second);
-
-			std::vector<Character> characters;
-
+			// Add the font to the map
+			s_characters.insert(std::make_pair(element.first, std::vector<Character>()));
+			// For each ASCII value being used for characters
 			for (int i = s_ASCIIStart; i <= s_ASCIIEnd; i++)
 			{
+				// Load the character
 				if (FT_Load_Char(face, i, FT_LOAD_RENDER))
 					LOG_CRITICAL("Could not load the character {0}", i);
-
-				if (usedX + maxSize[element.first].first > memW)
-				{
-					usedY += maxSize[element.first].second;
-					usedX = 0;
-				}
-				
-				characters.push_back(Character(
-					glm::vec2(face->glyph->bitmap.width, face->glyph->bitmap.rows),
-					glm::vec2(face->glyph->bitmap_left, face->glyph->bitmap_top),
-					face->glyph->advance.x
+				// Set the character values and add it to the vector in the map
+				s_characters[element.first].push_back(Character(
+					glm::ivec2(face->glyph->bitmap.width, face->glyph->bitmap.rows),
+					glm::ivec2(face->glyph->bitmap_left, face->glyph->bitmap_top),
+					face->glyph->advance.x,
+					glm::vec2((float)usedX / (float)memW, (float)usedY / (float)memH),
+					glm::vec2(((float)usedX + (float)face->glyph->bitmap.width) / (float)memW, ((float)usedY + (float)face->glyph->bitmap.rows) / (float)memH)
 				));
-
-
-
+				// Get the face buffer (texture data)
+				unsigned char* buffer = face->glyph->bitmap.buffer;
+				// For each row
+				for (int i = 0; i < face->glyph->bitmap.rows; i++)
+				{
+					// Copy the row from the buffer to the new texture
+					memcpy(texMemory + (((memW * usedY) + (i * memW)) + usedX), buffer + (i * face->glyph->bitmap.width), face->glyph->bitmap.width);
+				}
+				// Increase the used x value
 				usedX += maxSize[element.first].first;
+				// If reached the edge
+				if (usedX >= memW)
+				{
+					usedX = 0; // Reset used x
+					usedY += maxSize[element.first].second; // Move down a row
+				}
 			}
-
-			s_characters.insert(std::make_pair(parseFilePath(element.first), characters));
-			thing = element.first;
+			FT_Done_Face(face); // Done with the face
 		}
-
-		usedY += maxSize[thing].second;
-
-		memW = usedX;
-		memH = usedY;
-
-		unsigned char* texMemory2;
-		texMemory2 = (unsigned char*)malloc(memW * memH);
-		memset(texMemory2, 0, memW * memH);
-		memcpy(texMemory2, texMemory, sizeof(texMemory2));
-
-		for (auto element : s_characters)
-			for (auto it = element.second.begin(); it != element.second.end(); it++)
-				it->setUVs(glm::vec2((float)it->getSize().x / (float)memW, (float)it->getSize().y / (float)memH), 
-					glm::vec2((float)it->getSize().x / (float)memW, (float)it->getSize().y / (float)memH));
-
+		
+		FT_Done_FreeType(ft); // Done with freetype
+		// Create a texture from the data created
 		s_fontTexture.reset(Texture::createFromRawData(memW, memH, 1, texMemory));
-
+		// Free the memory
 		free(texMemory);
-		free(texMemory2);
 	}
 
 	std::shared_ptr<Character> ResourceManager::getCharacter(std::string font, unsigned int ASCIICode)

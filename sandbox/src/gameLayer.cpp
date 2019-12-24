@@ -153,8 +153,8 @@ void GameLayer::onAttach()
 	m_gameObjects.back()->addComponent(m_rotation.back());
 	m_gameObjects.back()->addComponent(m_textures.back());
 
-	m_UBOs.push_back(m_pResources->getUBO("Matrices"));
-	m_UBOs.push_back(m_pResources->getUBO("Light"));
+	m_MatUBO = m_pResources->getUBO("Matrices");
+	m_LightUBO = m_pResources->getUBO("Light");
 
 	m_pCamera.reset(new Engine::FPSCameraControllerEuler);
 	m_pCamera->init(45.f, 4.f / 3.f, 0.1f, 100.f);
@@ -191,12 +191,8 @@ void GameLayer::onUpdate(float timestep)
 	tempData[1].push_back((void*)&m_lightPosition[0]);
 	tempData[1].push_back((void*)&m_viewPosition[0]);
 
-	int i = 0;
-	for (auto& it : m_UBOs)
-	{
-		m_sceneData.insert(std::make_pair(it, tempData[i]));
-		i++;
-	}
+	m_sceneData.insert(std::make_pair(m_MatUBO, tempData[0]));
+	m_sceneData.insert(std::make_pair(m_LightUBO, tempData[1]));
 
 	m_pRenderer->actionCommand(Engine::RenderCommand::setClearColourCommand(0, 0, 0, 1));
 	m_pRenderer->actionCommand(Engine::RenderCommand::setDepthTestLessCommand(true));

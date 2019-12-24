@@ -228,8 +228,8 @@ namespace Engine
 							}
 							if (type == "Float3")
 							{
-								layer.getData().push_back(new glm::vec4(object2["x"].get<float>(), object2["y"].get<float>(), object2["z"].get<float>(), 1.0f));
-								ptr = (void*)&(*(glm::vec4*)layer.getData().back())[0];
+								layer.getData().push_back(new glm::vec3(object2["x"].get<float>(), object2["y"].get<float>(), object2["z"].get<float>()));
+								ptr = (void*)&(*(glm::vec3*)layer.getData().back())[0];
 							}
 							uboData.push_back(ptr);
 						}

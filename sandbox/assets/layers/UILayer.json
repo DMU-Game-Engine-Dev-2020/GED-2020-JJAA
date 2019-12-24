@@ -1,11 +1,10 @@
 {
   "Asyncload": {
     "shaders": [
-      { "filepath": "assets/shaders/text1.glsl" }
+      { "filepath": "assets/shaders/text2.glsl" }
     ],
 	"fonts" : [
-	  { "filepath" : "assets/fonts/arial.ttf", "charSize" : 32},
-	  { "filepath" : "assets/fonts/cour.ttf", "charSize" : 64}
+	  { "filepath" : "assets/fonts/arial_narrow_7.ttf", "charSize" : 64}
 	]
   },
   "camera": {
@@ -23,7 +22,7 @@
     "materials": 2,
     "position": 2,
     "velocity": 0,
-    "texture": 0,
+    "texture": 2,
     "controllers": 0
   },
   "GameObjects": [
@@ -31,8 +30,8 @@
       "name": "HeaderLabel",
       "material": {
         "text": "I am the header",
-        "font": "arial",
-        "charSize": 32,
+        "font": "arial_narrow_7",
+        "charSize": 64,
         "colour": {
           "r": 0.4,
           "g": 0.9,
@@ -61,8 +60,8 @@
       "name": "FooterLabel",
       "material": {
         "text": "I am the footer",
-        "font": "arial",
-        "charSize": 32,
+        "font": "arial_narrow_7",
+        "charSize": 64,
         "colour": {
           "r": 0.9,
           "g": 0.4,
@@ -90,7 +89,7 @@
   ],
   "UBOs": [
     {
-      "name": "Matrices2D",
+      "name": "TextMatrices",
       "data": [
         {
           "type": "pointer",

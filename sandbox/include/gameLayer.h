@@ -21,6 +21,9 @@ private:
 	glm::vec3 m_lightColour; //!< Colour of the light in the scene
 	glm::vec3 m_lightPosition; //!< Position of the light in the scene
 	glm::vec3 m_viewPosition; //!< Where the light in the scene is being viewed from
+
+	std::shared_ptr<Engine::UniformBuffer> m_MatUBO; //!< Matrices uniform buffer
+	std::shared_ptr<Engine::UniformBuffer> m_LightUBO; //!< Light uniform buffer
 public:
 	//! Constructor
 	/*!

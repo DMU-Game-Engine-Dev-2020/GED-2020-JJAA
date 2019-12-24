@@ -47,7 +47,7 @@ namespace Engine
 		/*!
 		\param trans The translation vector
 		\param rot The rotation vector
-		\param scale
+		\param scale The scale of the text
 		*/
 		PositionComponent(glm::vec3 trans, glm::vec3 rot, glm::vec3 scale);
 

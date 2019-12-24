@@ -19,7 +19,6 @@ namespace Engine
 		std::shared_ptr<ResourceManager> m_pResources; //!< Pointer to the resource manager
 		std::shared_ptr<Renderer> m_pRenderer; //!< Pointer to a renderer
 		std::shared_ptr<CameraController> m_pCamera; //!< Pointer to a camera
-		std::vector<std::shared_ptr<UniformBuffer>> m_UBOs; //!< Container of pointers to  uniform buffers
 
 		SceneData m_sceneData; //!< Scene data for rendering
 	public:

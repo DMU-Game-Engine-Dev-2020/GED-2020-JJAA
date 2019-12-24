@@ -10,7 +10,7 @@
 namespace Engine
 {
 	PositionComponent::PositionComponent(glm::vec3 trans, glm::vec3 rot, glm::vec3 scale) : 
-		m_transVec(trans), m_rotVec(rot), m_scaleVec(scale), m_model(glm::mat4(1.0f))
+		m_transVec(trans), m_rotVec(rot), m_scaleVec(scale), m_model(glm::mat4(1.f))
 	{
 		// Change the rotation matrix passed in to radians and then calculate the model
 		m_rotVec.x = glm::radians(m_rotVec.x);

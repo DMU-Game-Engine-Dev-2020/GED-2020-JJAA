@@ -20,8 +20,6 @@ namespace Engine
 		int m_iAdvance; //!< The advance
 	public:
 		//! Constructor
-		Character() {}
-		//! Constructor
 		/*!
 		\param size The characters size
 		\param bearing The bearing
