@@ -8,7 +8,7 @@
 	]
   },
   "camera": {
-    "type": "FixedOrtho2D",
+    "type": "FreeOrtho2D",
     "top": 0.0,
     "left": 0.0,
     "width": 800.0,
@@ -29,61 +29,51 @@
     {
       "name": "HeaderLabel",
       "material": {
-        "text": "I am the header",
+        "text": "Level 1",
         "font": "arial_narrow_7",
         "charSize": 64,
+        "position": {
+          "x": 250,
+          "y": 50
+        },
+        "rotation": 0,
+        "scale": 1.5,
         "colour": {
-          "r": 0.4,
-          "g": 0.9,
-          "b": 0.4
+          "r": 0.8,
+          "g": 0,
+          "b": 0.2
         }
       },
       "position": {
-        "trans": {
-          "x": 150.0,
-          "y": 200.0,
-          "z": 0.0
-        },
-        "rot": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0
-        },
-        "scale": {
-          "x": 2.0,
-          "y": 2.0,
-          "z": 2.0
-        }
+        "type": "functions"
+      },
+      "texture": {
+        "tex": "text"
       }
     },
     {
       "name": "FooterLabel",
       "material": {
-        "text": "I am the footer",
+        "text": "Footer",
         "font": "arial_narrow_7",
         "charSize": 64,
+        "position": {
+          "x": 50,
+          "y": 500
+        },
+        "rotation": 0,
+        "scale": 1,
         "colour": {
-          "r": 0.9,
-          "g": 0.4,
-          "b": 0.4
+          "r": 0.2,
+          "g": 0.8,
+          "b": 0.2
         }
       },
       "position": {
-        "trans": {
-          "x": 250.0,
-          "y": 500.0,
-          "z": 0.0
-        },
-        "rot": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
+        "type": "functions"
+      },
+      "texture": {
+        "tex": "text"
       }
     }
   ],

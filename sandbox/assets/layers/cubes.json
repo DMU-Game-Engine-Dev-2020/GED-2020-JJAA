@@ -39,6 +39,7 @@
         "shader": "assets/shaders/flatColour2.glsl"
       },
       "position": {
+        "type": "values",
         "trans": {
           "x": 1.5,
           "y": 0.0,
@@ -79,6 +80,7 @@
         "shader": "assets/shaders/texturedPhong2.glsl"
       },
       "position": {
+        "type": "values",
         "trans": {
           "x": -1.5,
           "y": 0.0,
@@ -123,6 +125,7 @@
         "shader": "assets/shaders/texturedPhong2.glsl"
       },
       "position": {
+        "type": "values",
         "trans": {
           "x": -4.5,
           "y": -0.6,

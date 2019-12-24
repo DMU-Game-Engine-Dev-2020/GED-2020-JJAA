@@ -123,6 +123,8 @@ namespace Engine
 					auto gameObject = layer.getGameObjects().at(goIndex);
 					goIndex++;
 
+					std::shared_ptr<TextLabel> label;
+
 
 					// Check which components need adding
 					if (object.count("material") > 0) {
@@ -143,13 +145,17 @@ namespace Engine
 							std::string text = object["material"]["text"].get<std::string>();
 							std::string font = object["material"]["font"].get<std::string>();
 							int charSize = object["material"]["charSize"].get<int>();
+							float posX = object["material"]["position"]["x"].get<float>();
+							float posY = object["material"]["position"]["y"].get<float>();
+							float rot = object["material"]["rotation"].get<float>();
+							float scale = object["material"]["scale"].get<float>();
 							float r = object["material"]["colour"]["r"].get<float>();
 							float g = object["material"]["colour"]["g"].get<float>();
 							float b = object["material"]["colour"]["b"].get<float>();
-							std::shared_ptr<TextLabel> label(TextLabel::create(font, charSize, text, glm::vec2(), 0.f, 0.f, glm::vec3(r, g, b)));
+							label.reset(TextLabel::create(font, charSize, text, glm::vec2(posX, posY), rot, scale, glm::vec3(r, g, b)));
 							auto& mat = label->getMaterial();
-							layer.getData().push_back((void *) new int(layer.getResources()->getFontTexture()->getSlot()));
-							mat->setDataElement("u_texData", (void*)layer.getData().back());
+							//layer.getData().push_back((void *) new int(layer.getResources()->getFontTexture()->getSlot()));
+							//mat->setDataElement("u_texData", (void*)layer.getData().back());
 							layer.getData().push_back((void *)new glm::vec3(r, g, b));
 							mat->setDataElement("u_fontColour", (void*)&(*(glm::vec3*)layer.getData().back())[0]);
 
@@ -159,10 +165,18 @@ namespace Engine
 						}
 					}
 					if (object.count("position") > 0) {
-						glm::vec3 translation(object["position"]["trans"]["x"].get<float>(), object["position"]["trans"]["y"].get<float>(), object["position"]["trans"]["z"].get<float>());
-						glm::vec3 rotation(object["position"]["rot"]["x"].get<float>(), object["position"]["rot"]["y"].get<float>(), object["position"]["rot"]["z"].get<float>());
-						glm::vec3 scale(object["position"]["scale"]["x"].get<float>(), object["position"]["scale"]["y"].get<float>(), object["position"]["scale"]["z"].get<float>());
-						layer.getPositions().at(positionsIndex) = std::make_shared<PositionComponent>(PositionComponent(translation, rotation, scale));
+						if (object["position"]["type"].get<std::string>().compare("functions") == 0)
+						{
+							layer.getPositions().at(positionsIndex) = std::make_shared<PositionComponent>(PositionComponent(
+								glm::vec3(label->getPosition(), 0), glm::vec3(0, label->getOrientation(), 0), glm::vec3(label->getScale())));
+						}
+						else if (object["position"]["type"].get<std::string>().compare("values") == 0)
+						{
+							glm::vec3 translation(object["position"]["trans"]["x"].get<float>(), object["position"]["trans"]["y"].get<float>(), object["position"]["trans"]["z"].get<float>());
+							glm::vec3 rotation(object["position"]["rot"]["x"].get<float>(), object["position"]["rot"]["y"].get<float>(), object["position"]["rot"]["z"].get<float>());
+							glm::vec3 scale(object["position"]["scale"]["x"].get<float>(), object["position"]["scale"]["y"].get<float>(), object["position"]["scale"]["z"].get<float>());
+							layer.getPositions().at(positionsIndex) = std::make_shared<PositionComponent>(PositionComponent(translation, rotation, scale));
+						}
 						gameObject->addComponent(layer.getPositions().at(positionsIndex));
 						positionsIndex++;
 					}
@@ -174,7 +188,9 @@ namespace Engine
 						velocitiesIndex++;
 					}
 					if (object.count("texture") > 0) {
-						std::shared_ptr<Texture> tex = layer.getResources()->addTexture(object["texture"]["tex"].get<std::string>());
+						std::shared_ptr<Texture> tex;
+						if (object["texture"]["tex"].get<std::string>().compare("text") == 0) tex = layer.getResources()->getFontTexture();
+						else tex = layer.getResources()->addTexture(object["texture"]["tex"].get<std::string>());
 						layer.getTextures().at(texturesIndex) = std::make_shared<TextureComponent>(TextureComponent(tex));
 						gameObject->addComponent(layer.getTextures().at(texturesIndex));
 						texturesIndex++;

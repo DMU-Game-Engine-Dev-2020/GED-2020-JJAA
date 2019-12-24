@@ -291,7 +291,7 @@ namespace Engine
 			if (FT_Set_Pixel_Sizes(face, 0, element.second))
 				LOG_CRITICAL("FreeType couldn't set font face size of {0}", element.second);
 			// Add the font to the map
-			s_characters.insert(std::make_pair(element.first, std::vector<Character>()));
+			s_characters.insert(std::make_pair(parseFilePath(element.first), std::vector<Character>()));
 			// For each ASCII value being used for characters
 			for (int i = s_ASCIIStart; i <= s_ASCIIEnd; i++)
 			{
@@ -299,7 +299,7 @@ namespace Engine
 				if (FT_Load_Char(face, i, FT_LOAD_RENDER))
 					LOG_CRITICAL("Could not load the character {0}", i);
 				// Set the character values and add it to the vector in the map
-				s_characters[element.first].push_back(Character(
+				s_characters[parseFilePath(element.first)].push_back(Character(
 					glm::ivec2(face->glyph->bitmap.width, face->glyph->bitmap.rows),
 					glm::ivec2(face->glyph->bitmap_left, face->glyph->bitmap_top),
 					face->glyph->advance.x,
@@ -336,13 +336,14 @@ namespace Engine
 	std::shared_ptr<Character> ResourceManager::getCharacter(std::string font, unsigned int ASCIICode)
 	{
 		std::map<std::string, std::vector<Character>>::iterator it; // Make an iterator for the map
-		it = s_characters.find(font); // Find the key in the map
+		std::string fontName = parseFilePath(font);
+		it = s_characters.find(fontName); // Find the key in the map
 
 		// If the key is not in the map
 		if (it == s_characters.end())
 		{
 			// Log an error, cannot find key in the map
-			LOG_ERROR("Font: '{0}' can't be found", font);
+			LOG_ERROR("Font: '{0}' can't be found", fontName);
 			return nullptr; // Return a null pointer
 		}
 		else // If the key is in the map
