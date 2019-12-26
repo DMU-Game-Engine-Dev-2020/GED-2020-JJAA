@@ -12,6 +12,7 @@
 #include "components/rotateComponent.h"
 #include "components/textureComponent.h"
 #include "components/textureSwitchComponent.h"
+#include "components/textComponent.h"
 
 namespace Engine 
 {
@@ -24,6 +25,7 @@ namespace Engine
 	protected:
 		std::vector<std::shared_ptr<Engine::GameObject>> m_gameObjects;			//!< Game objects which belong to the layer
 		std::vector<std::shared_ptr<Engine::MaterialComponent>> m_materials;	//!< Material components
+		std::vector<std::shared_ptr<Engine::TextComponent>> m_texts;            //!< Text components
 		std::vector<std::shared_ptr<Engine::PositionComponent>> m_positions;	//!< Position components
 		std::vector<std::shared_ptr<Engine::VelocityComponent>> m_velocities;	//!< Velocity components
 		std::vector<std::shared_ptr<Engine::TextureComponent>> m_textures;	    //!< Texture components
@@ -69,6 +71,11 @@ namespace Engine
 		\return A vector containing shared pointers to all of the material components
 		*/
 		inline std::vector<std::shared_ptr<Engine::MaterialComponent>>& getMaterials() { return m_materials; }
+		//! Function to get the text components in the layer
+		/*!
+		\return A vector containing shared pointers to all of the text components
+		*/
+		inline std::vector<std::shared_ptr<Engine::TextComponent>>& getTexts() { return m_texts; }
 		//! Function to get the position components in the layer
 		/*!
 		\return A vector containing shared pointers to all of the position components

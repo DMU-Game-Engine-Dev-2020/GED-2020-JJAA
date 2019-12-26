@@ -11,12 +11,11 @@ class UILayer : public Engine::Layer
 private:
 	std::vector<std::shared_ptr<Engine::GameObject>> m_gameObjects; //!< Container of pointers to gameobjects
 	std::vector<std::shared_ptr<Engine::MaterialComponent>> m_materials; //!< Container of pointers to material components
+	std::vector<std::shared_ptr<Engine::TextComponent>> m_text; //!< Container of pointers to text components
 	std::vector<std::shared_ptr<Engine::PositionComponent>> m_positions; //!< Container of pointers to position components
 	std::vector<std::shared_ptr<Engine::TextureComponent>> m_textures; //!< Container of pointers to texture components
 
 	std::shared_ptr<Engine::UniformBuffer> m_pUBO; //!< Matrices uniform buffer
-	std::shared_ptr<Engine::TextLabel> m_pLabel; //!< The text
-	std::shared_ptr<Engine::TextLabel> m_pLabel2;
 public:
 	//! Constructor
 	/*!

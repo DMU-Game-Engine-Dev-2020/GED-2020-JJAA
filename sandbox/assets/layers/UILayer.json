@@ -26,6 +26,7 @@
   },
   "MemoryInfo": {
     "gameObjects": 2,
+    "text": 2,
     "materials": 2,
     "position": 2,
     "velocity": 0,
@@ -35,7 +36,7 @@
   "GameObjects": [
     {
       "name": "HeaderLabel",
-      "material": {
+      "text": {
         "text": "Level 1",
         "font": "arial_narrow_7",
         "charSize": 64,
@@ -51,8 +52,11 @@
           "b": 0.2
         }
       },
+      "material": {
+        "text": {}
+      },
       "position": {
-        "type": "functions"
+        "type": "text"
       },
       "texture": {
         "tex": "text"
@@ -60,7 +64,7 @@
     },
     {
       "name": "FooterLabel",
-      "material": {
+      "text": {
         "text": "Footer",
         "font": "steelfish eb",
         "charSize": 32,
@@ -76,8 +80,11 @@
           "b": 0.2
         }
       },
+      "material": {
+        "text": {}
+      },
       "position": {
-        "type": "functions"
+        "type": "text"
       },
       "texture": {
         "tex": "text"

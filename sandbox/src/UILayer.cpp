@@ -8,31 +8,36 @@ void UILayer::onAttach()
 	m_pRenderer.reset(Engine::Renderer::createText());
 
 	std::unordered_multimap<std::string, unsigned int> map;
-	std::string fontFilepath = "assets/fonts/arial_narrow_7.ttf";
+	std::string fontFilepath = "assets/fonts/arial_narrow_7/arial_narrow_7.ttf";
 	map.insert(std::make_pair(fontFilepath, 64));
 	m_pResources->populateCharacters(map);
 
-	m_pLabel.reset(Engine::TextLabel::create(fontFilepath, 64, "Footer", glm::vec2(50, 500), 0, 1, glm::vec3(0.2f, 0.8f, 0.2f)));
-	m_pLabel2.reset(Engine::TextLabel::create(fontFilepath, 64, "Level 1", glm::vec2(250, 50), 0, 1.2, glm::vec3(0.8f, 0.f, 0.2f)));
+	std::shared_ptr<Engine::TextLabel> label;
+	label.reset(Engine::TextLabel::create(fontFilepath, 64, "Footer", glm::vec2(50, 500), 0, 1, glm::vec3(0.2f, 0.8f, 0.2f)));
 
-	m_materials.push_back(std::make_shared<Engine::MaterialComponent>(Engine::MaterialComponent(m_pLabel->getMaterial())));
+	m_materials.push_back(std::make_shared<Engine::MaterialComponent>(Engine::MaterialComponent(label->getMaterial())));
+	m_text.push_back(std::make_shared<Engine::TextComponent>(Engine::TextComponent(label)));
 	m_positions.push_back(std::make_shared<Engine::PositionComponent>(Engine::PositionComponent(
-		glm::vec3(m_pLabel->getPosition(), 0), glm::vec3(0, m_pLabel->getOrientation(), 0), glm::vec3(m_pLabel->getScale()))));
+		glm::vec3(label->getPosition(), 0), glm::vec3(0, label->getOrientation(), 0), glm::vec3(label->getScale()))));
 	m_textures.push_back(std::make_shared<Engine::TextureComponent>(Engine::TextureComponent(m_pResources->getFontTexture())));
 
 	m_gameObjects.push_back(std::make_shared<Engine::GameObject>());
 	m_gameObjects.back()->addComponent(m_materials.back());
+	m_gameObjects.back()->addComponent(m_text.back());
 	m_gameObjects.back()->addComponent(m_positions.back());
 	m_gameObjects.back()->addComponent(m_textures.back());
 
+	label.reset(Engine::TextLabel::create(fontFilepath, 64, "Level 1", glm::vec2(250, 50), 0, 1.2, glm::vec3(0.8f, 0.f, 0.2f)));
 
-	m_materials.push_back(std::make_shared<Engine::MaterialComponent>(Engine::MaterialComponent(m_pLabel2->getMaterial())));
+	m_materials.push_back(std::make_shared<Engine::MaterialComponent>(Engine::MaterialComponent(label->getMaterial())));
+	m_text.push_back(std::make_shared<Engine::TextComponent>(Engine::TextComponent(label)));
 	m_positions.push_back(std::make_shared<Engine::PositionComponent>(Engine::PositionComponent(
-		glm::vec3(m_pLabel2->getPosition(), 0), glm::vec3(0, m_pLabel2->getOrientation(), 0), glm::vec3(m_pLabel2->getScale()))));
+		glm::vec3(label->getPosition(), 0), glm::vec3(0, label->getOrientation(), 0), glm::vec3(label->getScale()))));
 	m_textures.push_back(std::make_shared<Engine::TextureComponent>(Engine::TextureComponent(m_pResources->getFontTexture())));
 
 	m_gameObjects.push_back(std::make_shared<Engine::GameObject>());
 	m_gameObjects.back()->addComponent(m_materials.back());
+	m_gameObjects.back()->addComponent(m_text.back());
 	m_gameObjects.back()->addComponent(m_positions.back());
 	m_gameObjects.back()->addComponent(m_textures.back());
 
@@ -64,8 +69,8 @@ void UILayer::onUpdate(float timestep)
 
 	m_pRenderer->beginScene(m_sceneData);
 
-	m_pLabel->getMaterial()->setDataElement("u_fontColour", (void*)&m_pLabel->getColour()[0]);
-	m_pLabel2->getMaterial()->setDataElement("u_fontColour", (void*)&m_pLabel2->getColour()[0]);
+	for (auto& text : m_text)
+		text->getLabel()->getMaterial()->setDataElement("u_fontColour", (void*)&text->getLabel()->getColour()[0]);
 
 	for (auto& mat : m_materials)
 		m_pRenderer->submit(mat->getMaterial());

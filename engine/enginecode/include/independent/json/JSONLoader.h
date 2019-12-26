@@ -109,6 +109,7 @@ namespace Engine
 			{
 				layer.getGameObjects().resize(layerJSON["MemoryInfo"]["gameObjects"].get<int>());
 				layer.getMaterials().resize(layerJSON["MemoryInfo"]["materials"].get<int>());
+				layer.getTexts().resize(layerJSON["MemoryInfo"]["text"].get<int>());
 				layer.getPositions().resize(layerJSON["MemoryInfo"]["position"].get<int>());
 				layer.getVelocities().resize(layerJSON["MemoryInfo"]["velocity"].get<int>());
 				layer.getTextures().resize(layerJSON["MemoryInfo"]["texture"].get<int>());
@@ -120,6 +121,7 @@ namespace Engine
 			{
 				int goIndex = 0;
 				int materialsIndex = 0;
+				int textIndex = 0;
 				int positionsIndex = 0;
 				int velocitiesIndex = 0;
 				int texturesIndex = 0;
@@ -133,10 +135,26 @@ namespace Engine
 					auto gameObject = layer.getGameObjects().at(goIndex);
 					goIndex++;
 
-					std::shared_ptr<TextLabel> label;
-
 
 					// Check which components need adding
+					if (object.count("text") > 0) {
+						std::string text = object["text"]["text"].get<std::string>();
+						std::string font = object["text"]["font"].get<std::string>();
+						int charSize = object["text"]["charSize"].get<int>();
+						float posX = object["text"]["position"]["x"].get<float>();
+						float posY = object["text"]["position"]["y"].get<float>();
+						float rot = object["text"]["rotation"].get<float>();
+						float scale = object["text"]["scale"].get<float>();
+						float r = object["text"]["colour"]["r"].get<float>();
+						float g = object["text"]["colour"]["g"].get<float>();
+						float b = object["text"]["colour"]["b"].get<float>();
+						std::shared_ptr<TextLabel> label;
+						label.reset(TextLabel::create(font, charSize, text, glm::vec2(posX, posY), rot, scale, glm::vec3(r, g, b)));
+
+						layer.getTexts().at(textIndex) = std::make_shared<TextComponent>(TextComponent(label));
+						gameObject->addComponent(layer.getTexts().at(textIndex));
+						textIndex++;
+					}
 					if (object.count("material") > 0) {
 						if (object["material"].count("model") > 0)
 						{
@@ -152,19 +170,8 @@ namespace Engine
 						}
 						else if (object["material"].count("text") > 0)
 						{
-							std::string text = object["material"]["text"].get<std::string>();
-							std::string font = object["material"]["font"].get<std::string>();
-							int charSize = object["material"]["charSize"].get<int>();
-							float posX = object["material"]["position"]["x"].get<float>();
-							float posY = object["material"]["position"]["y"].get<float>();
-							float rot = object["material"]["rotation"].get<float>();
-							float scale = object["material"]["scale"].get<float>();
-							float r = object["material"]["colour"]["r"].get<float>();
-							float g = object["material"]["colour"]["g"].get<float>();
-							float b = object["material"]["colour"]["b"].get<float>();
-							label.reset(TextLabel::create(font, charSize, text, glm::vec2(posX, posY), rot, scale, glm::vec3(r, g, b)));
-							auto& mat = label->getMaterial();
-							layer.getData().push_back((void *)new glm::vec3(r, g, b));
+							auto& mat = layer.getTexts().at(textIndex - 1)->getLabel()->getMaterial();
+							layer.getData().push_back((void *)new glm::vec3(layer.getTexts().at(textIndex - 1)->getLabel()->getColour()));
 							mat->setDataElement("u_fontColour", (void*)&(*(glm::vec3*)layer.getData().back())[0]);
 							layer.getMaterials().at(materialsIndex) = std::make_shared<MaterialComponent>(MaterialComponent(mat));
 							gameObject->addComponent(layer.getMaterials().at(materialsIndex));
@@ -172,10 +179,12 @@ namespace Engine
 						}
 					}
 					if (object.count("position") > 0) {
-						if (object["position"]["type"].get<std::string>().compare("functions") == 0)
+						if (object["position"]["type"].get<std::string>().compare("text") == 0)
 						{
 							layer.getPositions().at(positionsIndex) = std::make_shared<PositionComponent>(PositionComponent(
-								glm::vec3(label->getPosition(), 0), glm::vec3(0, label->getOrientation(), 0), glm::vec3(label->getScale())));
+								glm::vec3(layer.getTexts().at(textIndex - 1)->getLabel()->getPosition(), 0), 
+								glm::vec3(0, layer.getTexts().at(textIndex - 1)->getLabel()->getOrientation(), 0), 
+								glm::vec3(layer.getTexts().at(textIndex - 1)->getLabel()->getScale())));
 						}
 						else if (object["position"]["type"].get<std::string>().compare("values") == 0)
 						{

@@ -125,12 +125,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a8f4634fa3443037b400ecf95b0328e49"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_engine_1_1_uniform_buffer.html">UniformBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#a8f4634fa3443037b400ecf95b0328e49">getUBO</a> (const std::string &amp;name)</td></tr>
 <tr class="memdesc:a8f4634fa3443037b400ecf95b0328e49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get a uniform buffer.  <a href="class_engine_1_1_resource_manager.html#a8f4634fa3443037b400ecf95b0328e49">More...</a><br /></td></tr>
 <tr class="separator:a8f4634fa3443037b400ecf95b0328e49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a902d93a43116c252ec93d9dd20accd9d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#a902d93a43116c252ec93d9dd20accd9d">populateCharacters</a> (std::unordered_map&lt; std::string, unsigned int &gt; fontsAndSizes)</td></tr>
-<tr class="memdesc:a902d93a43116c252ec93d9dd20accd9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a texture with all characters that can be used.  <a href="class_engine_1_1_resource_manager.html#a902d93a43116c252ec93d9dd20accd9d">More...</a><br /></td></tr>
-<tr class="separator:a902d93a43116c252ec93d9dd20accd9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35e6e42e13ba5ffb6d94af62e8314f5b"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_engine_1_1_character.html">Character</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#a35e6e42e13ba5ffb6d94af62e8314f5b">getCharacter</a> (std::string font, unsigned int ASCIICode)</td></tr>
-<tr class="memdesc:a35e6e42e13ba5ffb6d94af62e8314f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get a character.  <a href="class_engine_1_1_resource_manager.html#a35e6e42e13ba5ffb6d94af62e8314f5b">More...</a><br /></td></tr>
-<tr class="separator:a35e6e42e13ba5ffb6d94af62e8314f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a761eb8507bfd5110ee9514a8682ce29e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#a761eb8507bfd5110ee9514a8682ce29e">populateCharacters</a> (std::unordered_multimap&lt; std::string, unsigned int &gt; fontsAndSizes)</td></tr>
+<tr class="memdesc:a761eb8507bfd5110ee9514a8682ce29e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a texture with all characters that can be used.  <a href="class_engine_1_1_resource_manager.html#a761eb8507bfd5110ee9514a8682ce29e">More...</a><br /></td></tr>
+<tr class="separator:a761eb8507bfd5110ee9514a8682ce29e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab307db4062c963dbff7fd33ea3e898da"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_engine_1_1_character.html">Character</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#ab307db4062c963dbff7fd33ea3e898da">getCharacter</a> (std::string font, unsigned int size, unsigned int ASCIICode)</td></tr>
+<tr class="memdesc:ab307db4062c963dbff7fd33ea3e898da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get a character.  <a href="class_engine_1_1_resource_manager.html#ab307db4062c963dbff7fd33ea3e898da">More...</a><br /></td></tr>
+<tr class="separator:ab307db4062c963dbff7fd33ea3e898da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0251dc346033958368ebc2cf9eb58d9b"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_engine_1_1_texture.html">Texture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#a0251dc346033958368ebc2cf9eb58d9b">getFontTexture</a> ()</td></tr>
 <tr class="memdesc:a0251dc346033958368ebc2cf9eb58d9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the character texture.  <a href="class_engine_1_1_resource_manager.html#a0251dc346033958368ebc2cf9eb58d9b">More...</a><br /></td></tr>
 <tr class="separator:a0251dc346033958368ebc2cf9eb58d9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,9 +164,9 @@ Static Private Attributes</h2></td></tr>
 <tr class="memitem:aa9d89fb064e67f17560bc4bd4582e33b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine_1_1_asset_manager.html">AssetManager</a>&lt; <a class="el" href="class_engine_1_1_uniform_buffer.html">UniformBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#aa9d89fb064e67f17560bc4bd4582e33b">s_UBOs</a></td></tr>
 <tr class="memdesc:aa9d89fb064e67f17560bc4bd4582e33b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uniform buffer asset manager.  <a href="class_engine_1_1_resource_manager.html#aa9d89fb064e67f17560bc4bd4582e33b">More...</a><br /></td></tr>
 <tr class="separator:aa9d89fb064e67f17560bc4bd4582e33b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1043c5c810c29a4ed43c99c21097d48e"><td class="memItemLeft" align="right" valign="top">static std::map&lt; std::string, std::vector&lt; <a class="el" href="class_engine_1_1_character.html">Character</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#a1043c5c810c29a4ed43c99c21097d48e">s_characters</a></td></tr>
-<tr class="memdesc:a1043c5c810c29a4ed43c99c21097d48e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores all loaded characters in all fonts and sizes.  <a href="class_engine_1_1_resource_manager.html#a1043c5c810c29a4ed43c99c21097d48e">More...</a><br /></td></tr>
-<tr class="separator:a1043c5c810c29a4ed43c99c21097d48e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b6984f590994ddce68cc8dce3b6b12d"><td class="memItemLeft" align="right" valign="top">static std::map&lt; std::pair&lt; std::string, unsigned int &gt;, std::vector&lt; <a class="el" href="class_engine_1_1_character.html">Character</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#a3b6984f590994ddce68cc8dce3b6b12d">s_characters</a></td></tr>
+<tr class="memdesc:a3b6984f590994ddce68cc8dce3b6b12d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores all loaded characters in all fonts and sizes.  <a href="class_engine_1_1_resource_manager.html#a3b6984f590994ddce68cc8dce3b6b12d">More...</a><br /></td></tr>
+<tr class="separator:a3b6984f590994ddce68cc8dce3b6b12d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:accf3588711fba8c114c07b6ca78590a7"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_resource_manager.html#accf3588711fba8c114c07b6ca78590a7">s_ASCIIStart</a> = 32</td></tr>
 <tr class="memdesc:accf3588711fba8c114c07b6ca78590a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">First ascii value being used ' '.  <a href="class_engine_1_1_resource_manager.html#accf3588711fba8c114c07b6ca78590a7">More...</a><br /></td></tr>
 <tr class="separator:accf3588711fba8c114c07b6ca78590a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -852,8 +852,8 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a35e6e42e13ba5ffb6d94af62e8314f5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35e6e42e13ba5ffb6d94af62e8314f5b">&#9670;&nbsp;</a></span>getCharacter()</h2>
+<a id="ab307db4062c963dbff7fd33ea3e898da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab307db4062c963dbff7fd33ea3e898da">&#9670;&nbsp;</a></span>getCharacter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -866,6 +866,12 @@ Static Private Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>font</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -890,12 +896,13 @@ Static Private Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">font</td><td>The font of the character being got </td></tr>
+    <tr><td class="paramname">size</td><td>The size of the character </td></tr>
     <tr><td class="paramname">ASCIICode</td><td>Which character /return A pointer to a character </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00336">336</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00338">338</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -925,7 +932,7 @@ Static Private Attributes</h2></td></tr>
 <p>Function to get the character texture. </p>
 <dl class="section return"><dt>Returns</dt><dd>a pointer to the character texture </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="resource_manager_8h_source.html#l00166">166</a> of file <a class="el" href="resource_manager_8h_source.html">resourceManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="resource_manager_8h_source.html#l00167">167</a> of file <a class="el" href="resource_manager_8h_source.html">resourceManager.h</a>.</p>
 
 </div>
 </div>
@@ -999,12 +1006,12 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The name of the file </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00354">354</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="resource_manager_8cpp_source.html#l00357">357</a> of file <a class="el" href="resource_manager_8cpp_source.html">resourceManager.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a902d93a43116c252ec93d9dd20accd9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a902d93a43116c252ec93d9dd20accd9d">&#9670;&nbsp;</a></span>populateCharacters()</h2>
+<a id="a761eb8507bfd5110ee9514a8682ce29e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a761eb8507bfd5110ee9514a8682ce29e">&#9670;&nbsp;</a></span>populateCharacters()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1015,7 +1022,7 @@ Static Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">void Engine::ResourceManager::populateCharacters </td>
           <td>(</td>
-          <td class="paramtype">std::unordered_map&lt; std::string, unsigned int &gt;&#160;</td>
+          <td class="paramtype">std::unordered_multimap&lt; std::string, unsigned int &gt;&#160;</td>
           <td class="paramname"><em>fontsAndSizes</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1176,8 +1183,8 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a1043c5c810c29a4ed43c99c21097d48e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1043c5c810c29a4ed43c99c21097d48e">&#9670;&nbsp;</a></span>s_characters</h2>
+<a id="a3b6984f590994ddce68cc8dce3b6b12d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b6984f590994ddce68cc8dce3b6b12d">&#9670;&nbsp;</a></span>s_characters</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1186,7 +1193,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::map&lt; std::string, std::vector&lt; <a class="el" href="class_engine_1_1_character.html">Character</a> &gt; &gt; Engine::ResourceManager::s_characters</td>
+          <td class="memname">std::map&lt; std::pair&lt; std::string, unsigned int &gt;, std::vector&lt; <a class="el" href="class_engine_1_1_character.html">Character</a> &gt; &gt; Engine::ResourceManager::s_characters</td>
         </tr>
       </table>
   </td>

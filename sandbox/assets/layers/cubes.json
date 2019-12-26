@@ -21,14 +21,14 @@
   {
 	"type" : "Basic3D"
   },
-  "MemoryInfo" :
-  {
-	"gameObjects" : 3,
-  "materials": 3,
-	"position" : 3,
-  "velocity" : 3,
-  "texture" : 1,
-	"controllers" : 4
+  "MemoryInfo": {
+    "gameObjects": 3,
+    "text": 0,
+    "materials": 3,
+    "position": 3,
+    "velocity": 3,
+    "texture": 1,
+    "controllers": 4
   },
   "GameObjects": [
     {
