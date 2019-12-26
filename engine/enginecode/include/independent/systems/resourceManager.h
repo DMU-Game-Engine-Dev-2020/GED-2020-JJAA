@@ -23,7 +23,7 @@ namespace Engine
 		static AssetManager<Material> s_materials; //!< Material asset manager
 		static AssetManager<UniformBuffer> s_UBOs; //!< Uniform buffer asset manager
 
-		static std::map<std::string, std::vector<Character>> s_characters; //!< Stores all loaded characters in all fonts and sizes
+		static std::map<std::pair<std::string, unsigned int>, std::vector<Character>> s_characters; //!< Stores all loaded characters in all fonts and sizes
 		static const int s_ASCIIStart = 32; //!< First ascii value being used ' '
 		static const int s_ASCIIEnd = 126; //!< Last ascii value being used '~'
 		static std::shared_ptr<Texture> s_fontTexture; //!< Pointer to the texture with all of the characters on it
@@ -151,14 +151,15 @@ namespace Engine
 		/*!
 		\param fontsAndSizes A map of fonts and sizes to load characters in
 		*/
-		static void populateCharacters(std::unordered_map<std::string, unsigned int> fontsAndSizes);
+		static void populateCharacters(std::unordered_multimap<std::string, unsigned int> fontsAndSizes);
 		//! Function to get a character
 		/*!
 		\param font The font of the character being got
+		\param size The size of the character
 		\param ASCIICode Which character
 		/return A pointer to a character
 		*/
-		static std::shared_ptr<Character> getCharacter(std::string font, unsigned int ASCIICode);
+		static std::shared_ptr<Character> getCharacter(std::string font, unsigned int size, unsigned int ASCIICode);
 		//! Function to get the character texture
 		/*!
 		\return a pointer to the character texture

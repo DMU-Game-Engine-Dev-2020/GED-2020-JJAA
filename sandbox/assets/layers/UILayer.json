@@ -3,12 +3,19 @@
     "shaders": [
       { "filepath": "assets/shaders/text2.glsl" }
     ],
-	"fonts" : [
-	  { "filepath" : "assets/fonts/arial_narrow_7.ttf", "charSize" : 64}
-	]
+    "fonts": [
+      {
+        "filepath": "assets/fonts/arial_narrow_7/arial_narrow_7.ttf",
+        "charSize": 64
+      },
+      {
+        "filepath": "assets/fonts/steelfish/steelfish eb.ttf",
+        "charSize": 32
+      }
+    ]
   },
   "camera": {
-    "type": "FreeOrtho2D",
+    "type": "FixedOrtho2D",
     "top": 0.0,
     "left": 0.0,
     "width": 800.0,
@@ -37,7 +44,7 @@
           "y": 50
         },
         "rotation": 0,
-        "scale": 1.5,
+        "scale": 1.2,
         "colour": {
           "r": 0.8,
           "g": 0,
@@ -55,14 +62,14 @@
       "name": "FooterLabel",
       "material": {
         "text": "Footer",
-        "font": "arial_narrow_7",
-        "charSize": 64,
+        "font": "steelfish eb",
+        "charSize": 32,
         "position": {
           "x": 50,
-          "y": 500
+          "y": 490
         },
         "rotation": 0,
-        "scale": 1,
+        "scale": 1.4,
         "colour": {
           "r": 0.2,
           "g": 0.8,

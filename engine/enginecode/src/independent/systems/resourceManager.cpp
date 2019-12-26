@@ -18,7 +18,7 @@ namespace Engine
 	AssetManager<Material> ResourceManager::s_materials;
 	AssetManager<UniformBuffer> ResourceManager::s_UBOs;
 
-	std::map<std::string, std::vector<Character>> ResourceManager::s_characters;
+	std::map<std::pair<std::string, unsigned int>, std::vector<Character>> ResourceManager::s_characters;
 	std::shared_ptr<Texture> ResourceManager::s_fontTexture;
 
 	void ResourceManager::stop(SystemSignal close, ...)
@@ -240,7 +240,7 @@ namespace Engine
 		}
 	}
 
-	void ResourceManager::populateCharacters(std::unordered_map<std::string, unsigned int> fontsAndSizes)
+	void ResourceManager::populateCharacters(std::unordered_multimap<std::string, unsigned int> fontsAndSizes)
 	{
 		FT_Library ft;
 		FT_Face face;
@@ -257,7 +257,7 @@ namespace Engine
 		texMemory = (unsigned char*)malloc(memW * memH);
 		memset(texMemory, 0, memW * memH);
 
-		std::map<std::string, std::pair<unsigned int, unsigned int>> maxSize; // Stores the maximum size for characters for each font
+		std::map<std::pair<std::string, unsigned int>, std::pair<unsigned int, unsigned int>> maxSize; // Stores the maximum size for characters for each font and size
 		// For each size and font
 		for (auto& element : fontsAndSizes)
 		{
@@ -268,7 +268,7 @@ namespace Engine
 			if (FT_Set_Pixel_Sizes(face, 0, element.second))
 				LOG_CRITICAL("FreeType couldn't set font face size of {0}", element.second);
 			// Add a value to the map to get the max sizes
-			maxSize.insert(std::make_pair(element.first, std::make_pair(0, 0)));
+			maxSize.insert(std::make_pair(element, std::make_pair(0, 0)));
 			// For each ASCII value being used for characters
 			for (int i = s_ASCIIStart; i <= s_ASCIIEnd; i++)
 			{
@@ -276,8 +276,8 @@ namespace Engine
 				if (FT_Load_Char(face, i, FT_LOAD_RENDER))
 					LOG_CRITICAL("Could not load the character {0}", i);
 				// If either of the sizes are bigger than the corresponding stored ones, change the stored one
-				maxSize[element.first].first = std::max(maxSize[element.first].first, face->glyph->bitmap.width);
-				maxSize[element.first].second = std::max(maxSize[element.first].second, face->glyph->bitmap.rows);
+				maxSize[element].first = std::max(maxSize[element].first, face->glyph->bitmap.width);
+				maxSize[element].second = std::max(maxSize[element].second, face->glyph->bitmap.rows);
 			}
 			FT_Done_Face(face); // Done with the face
 		}
@@ -290,8 +290,8 @@ namespace Engine
 			// Set the font size
 			if (FT_Set_Pixel_Sizes(face, 0, element.second))
 				LOG_CRITICAL("FreeType couldn't set font face size of {0}", element.second);
-			// Add the font to the map
-			s_characters.insert(std::make_pair(parseFilePath(element.first), std::vector<Character>()));
+			// Add the font and size to the map
+			s_characters.insert(std::make_pair(std::make_pair(parseFilePath(element.first), element.second), std::vector<Character>()));
 			// For each ASCII value being used for characters
 			for (int i = s_ASCIIStart; i <= s_ASCIIEnd; i++)
 			{
@@ -299,7 +299,7 @@ namespace Engine
 				if (FT_Load_Char(face, i, FT_LOAD_RENDER))
 					LOG_CRITICAL("Could not load the character {0}", i);
 				// Set the character values and add it to the vector in the map
-				s_characters[parseFilePath(element.first)].push_back(Character(
+				s_characters[std::make_pair(parseFilePath(element.first), element.second)].push_back(Character(
 					glm::ivec2(face->glyph->bitmap.width, face->glyph->bitmap.rows),
 					glm::ivec2(face->glyph->bitmap_left, face->glyph->bitmap_top),
 					face->glyph->advance.x,
@@ -311,16 +311,18 @@ namespace Engine
 				// For each row
 				for (int i = 0; i < face->glyph->bitmap.rows; i++)
 				{
+					if (usedY + maxSize[element].second > memH)
+						LOG_CRITICAL("Can't fit all characters on the texture, use smaller character sizes and scale");
 					// Copy the row from the buffer to the new texture
 					memcpy(texMemory + (((memW * usedY) + (i * memW)) + usedX), buffer + (i * face->glyph->bitmap.width), face->glyph->bitmap.width);
 				}
 				// Increase the used x value
-				usedX += maxSize[element.first].first;
+				usedX += maxSize[element].first;
 				// If reached the edge
 				if (usedX >= memW)
 				{
 					usedX = 0; // Reset used x
-					usedY += maxSize[element.first].second; // Move down a row
+					usedY += maxSize[element].second; // Move down a row
 				}
 			}
 			FT_Done_Face(face); // Done with the face
@@ -333,17 +335,17 @@ namespace Engine
 		free(texMemory);
 	}
 
-	std::shared_ptr<Character> ResourceManager::getCharacter(std::string font, unsigned int ASCIICode)
+	std::shared_ptr<Character> ResourceManager::getCharacter(std::string font, unsigned int size, unsigned int ASCIICode)
 	{
-		std::map<std::string, std::vector<Character>>::iterator it; // Make an iterator for the map
+		std::map<std::pair<std::string, unsigned int>, std::vector<Character>>::iterator it; // Make an iterator for the map
 		std::string fontName = parseFilePath(font);
-		it = s_characters.find(fontName); // Find the key in the map
+		it = s_characters.find(std::make_pair(fontName, size)); // Find the key in the map
 
 		// If the key is not in the map
 		if (it == s_characters.end())
 		{
 			// Log an error, cannot find key in the map
-			LOG_ERROR("Font: '{0}' can't be found", fontName);
+			LOG_ERROR("Font: '{0}' of size '{1}' can't be found", fontName, size);
 			return nullptr; // Return a null pointer
 		}
 		else // If the key is in the map

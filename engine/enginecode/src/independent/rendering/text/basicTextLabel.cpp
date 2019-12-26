@@ -22,9 +22,9 @@ namespace Engine
 		for (int i = 0; i < text.length(); i++)
 		{
 			// Get the character
-			std::shared_ptr<Character> ch = ResourceManager::getCharacter(fontName, (unsigned int)text.at(i));
+			std::shared_ptr<Character> ch = ResourceManager::getCharacter(fontName, charSize, (unsigned int)text.at(i));
 			// Set the y start position
-			yStart = (ch->getSize().y - ch->getBearing().y) * m_fScale;
+			yStart = -(ch->getSize().y - ch->getBearing().y) * m_fScale;
 			// Make temporary vertices for just this character
 			float vert[4 * 4] = {
 				previousAdvance,                                yStart,                                ch->getStartUV().x,  ch->getStartUV().y,

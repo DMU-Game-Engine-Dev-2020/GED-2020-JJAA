@@ -7,7 +7,7 @@ void UILayer::onAttach()
 {
 	m_pRenderer.reset(Engine::Renderer::createText());
 
-	std::unordered_map<std::string, unsigned int> map;
+	std::unordered_multimap<std::string, unsigned int> map;
 	std::string fontFilepath = "assets/fonts/arial_narrow_7.ttf";
 	map.insert(std::make_pair(fontFilepath, 64));
 	m_pResources->populateCharacters(map);

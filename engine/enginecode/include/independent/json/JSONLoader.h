@@ -9,6 +9,7 @@
 #include "rendering/text/textLabel.h"
 #include "cameras/freeOrthoCameraController2D.h"
 #include "cameras/FPSCameraControllerEuler.h"
+#include "cameras/fixedOrthoCameraController2D.h"
 
 #include "systems/log.h"
 
@@ -56,10 +57,10 @@ namespace Engine
 				}
 				if (layerJSON["Asyncload"].count("fonts") > 0)
 				{
-					std::unordered_map<std::string, unsigned int> fonts;
+					std::unordered_multimap<std::string, unsigned int> fonts;
 					for (auto& filepath : layerJSON["Asyncload"]["fonts"])
 					{
-						fonts[filepath["filepath"].get<std::string>()] = filepath["charSize"].get<int>();
+						fonts.insert(std::make_pair(filepath["filepath"].get<std::string>(), filepath["charSize"].get<int>()));
 					}
 					if (!fonts.empty()) layer.getResources()->populateCharacters(fonts);
 				}
@@ -80,6 +81,15 @@ namespace Engine
 				else if (type.compare("FreeOrtho2D") == 0)
 				{
 					layer.createCamera<FreeOrthoCameraController2D>();
+					float top = layerJSON["camera"]["top"].get<float>();
+					float left = layerJSON["camera"]["left"].get<float>();
+					float width = layerJSON["camera"]["width"].get<float>();
+					float height = layerJSON["camera"]["height"].get<float>();
+					layer.getCamera()->init(left, top, width, height);
+				}
+				else if (type.compare("FixedOrtho2D") == 0)
+				{
+					layer.createCamera<FixedOrthoCameraController2d>();
 					float top = layerJSON["camera"]["top"].get<float>();
 					float left = layerJSON["camera"]["left"].get<float>();
 					float width = layerJSON["camera"]["width"].get<float>();
@@ -154,11 +164,8 @@ namespace Engine
 							float b = object["material"]["colour"]["b"].get<float>();
 							label.reset(TextLabel::create(font, charSize, text, glm::vec2(posX, posY), rot, scale, glm::vec3(r, g, b)));
 							auto& mat = label->getMaterial();
-							//layer.getData().push_back((void *) new int(layer.getResources()->getFontTexture()->getSlot()));
-							//mat->setDataElement("u_texData", (void*)layer.getData().back());
 							layer.getData().push_back((void *)new glm::vec3(r, g, b));
 							mat->setDataElement("u_fontColour", (void*)&(*(glm::vec3*)layer.getData().back())[0]);
-
 							layer.getMaterials().at(materialsIndex) = std::make_shared<MaterialComponent>(MaterialComponent(mat));
 							gameObject->addComponent(layer.getMaterials().at(materialsIndex));
 							materialsIndex++;
