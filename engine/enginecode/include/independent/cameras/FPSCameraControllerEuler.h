@@ -6,6 +6,7 @@
 #include "perspectiveEulerCamera3D.h"
 
 #include "events/mouseEvents.h"
+#include "events/keyEvents.h"
 
 namespace Engine
 {
@@ -29,12 +30,17 @@ namespace Engine
 		float m_fTranslationSpeed = 5.f; //!< The speed the camera will move
 		float m_fRotationSpeed = 4.f; //!< The speed the camera will rotate
 		glm::vec2 m_lastMousePosition; //!< The previous mouse position, for using the mouse to rotate the camera
+
+		bool m_bUpdate = true; //!< If the camera is updating
 		
 		//! Function to update the cameras view
 		void updateView();
 	public:
 		//! Constructor
-		FPSCameraControllerEuler() {}
+		/*!
+		\param update If the camera can be updated when the level loads
+		*/
+		FPSCameraControllerEuler(bool update) : m_bUpdate(update) {}
 
 		//! Function to initialize the controller
 		/*!
@@ -71,5 +77,11 @@ namespace Engine
 		\return If the event was successful or not
 		*/
 		bool onMouseButtonPressed(MouseButtonPressedEvent& e);
+		//! Function to handle key press events
+		/*!
+		\param e The event
+		\return If the event was successful or not
+		*/
+		bool onKeyPressed(KeyPressedEvent& e);
 	};
 }

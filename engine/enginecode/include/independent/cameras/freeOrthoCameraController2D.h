@@ -5,6 +5,8 @@
 #include "cameraController.h"
 #include "orthographicCamera2D.h"
 
+#include "events/keyEvents.h"
+
 namespace Engine
 {
 	/**
@@ -19,9 +21,14 @@ namespace Engine
 		float m_fRotation = 0.f; //!< The cameras rotation, for calculations
 		float m_fTranslationSpeed = 100.f; //!< The speed the camera will move
 		float m_fRotationSpeed = 10.f; //!< The speed the camera will rotate
+
+		bool m_bUpdate = true; //!< If the camera is being updated
 	public:
 		//! Constructor
-		FreeOrthoCameraController2D() {}
+		/*!
+		\param update If the camera can be updated when the level loads
+		*/
+		FreeOrthoCameraController2D(bool update) : m_bUpdate(update) {}
 
 		//! Function to initialize the controller
 		/*!
@@ -45,11 +52,18 @@ namespace Engine
 		/*!
 		\param e The event
 		*/
-		void onEvent(Event& e) override {}
+		void onEvent(Event& e) override;
 		//! Function to handle window resize events
 		/*!
 		\param e The event
+		\return If the event was successful or not
 		*/
 		bool onResize(WindowResizeEvent& e) override { return true; }
+		//! Function to handle key press events
+		/*!
+		\param e The event
+		\return If the event was successful or not
+		*/
+		bool onKeyPressed(KeyPressedEvent& e);
 	};
 }

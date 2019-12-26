@@ -98,10 +98,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6949847b73e0e87005e473ce3ab74486"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_engine.html#aca9416107541cb949ca38b0df5c32c4a">SceneData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_layer.html#a6949847b73e0e87005e473ce3ab74486">getSceneData</a> ()</td></tr>
 <tr class="memdesc:a6949847b73e0e87005e473ce3ab74486"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the scene data.  <a href="class_engine_1_1_layer.html#a6949847b73e0e87005e473ce3ab74486">More...</a><br /></td></tr>
 <tr class="separator:a6949847b73e0e87005e473ce3ab74486"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ea37fa82779d92c366032be211049c4"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a2ea37fa82779d92c366032be211049c4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_engine_1_1_layer.html#a2ea37fa82779d92c366032be211049c4">createCamera</a> ()</td></tr>
-<tr class="memdesc:a2ea37fa82779d92c366032be211049c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function which makes a new camera controller.  <a href="class_engine_1_1_layer.html#a2ea37fa82779d92c366032be211049c4">More...</a><br /></td></tr>
-<tr class="separator:a2ea37fa82779d92c366032be211049c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af159ec6ab99933e703de226f0112ddcd"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:af159ec6ab99933e703de226f0112ddcd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_engine_1_1_layer.html#af159ec6ab99933e703de226f0112ddcd">createCamera</a> (bool update=false)</td></tr>
+<tr class="memdesc:af159ec6ab99933e703de226f0112ddcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function which makes a new camera controller.  <a href="class_engine_1_1_layer.html#af159ec6ab99933e703de226f0112ddcd">More...</a><br /></td></tr>
+<tr class="separator:af159ec6ab99933e703de226f0112ddcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a263ec4a2c6a064790db8ab7b625a0394"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_layer.html#a263ec4a2c6a064790db8ab7b625a0394">createRenderer</a> (<a class="el" href="class_engine_1_1_renderer.html">Renderer</a> *renderer)</td></tr>
 <tr class="memdesc:a263ec4a2c6a064790db8ab7b625a0394"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that sets the renderer pointer.  <a href="class_engine_1_1_layer.html#a263ec4a2c6a064790db8ab7b625a0394">More...</a><br /></td></tr>
 <tr class="separator:a263ec4a2c6a064790db8ab7b625a0394"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -166,8 +166,8 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2ea37fa82779d92c366032be211049c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ea37fa82779d92c366032be211049c4">&#9670;&nbsp;</a></span>createCamera()</h2>
+<a id="af159ec6ab99933e703de226f0112ddcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af159ec6ab99933e703de226f0112ddcd">&#9670;&nbsp;</a></span>createCamera()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -180,7 +180,8 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void Engine::Layer::createCamera </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>update</em> = <code>false</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -192,8 +193,14 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Function which makes a new camera controller. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">update</td><td>If the camera can be updated when the level loads </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="layer_8h_source.html#l00075">75</a> of file <a class="el" href="layer_8h_source.html">layer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="layer_8h_source.html#l00078">78</a> of file <a class="el" href="layer_8h_source.html">layer.h</a>.</p>
 
 </div>
 </div>
@@ -229,7 +236,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="layer_8h_source.html#l00080">80</a> of file <a class="el" href="layer_8h_source.html">layer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="layer_8h_source.html#l00083">83</a> of file <a class="el" href="layer_8h_source.html">layer.h</a>.</p>
 
 </div>
 </div>

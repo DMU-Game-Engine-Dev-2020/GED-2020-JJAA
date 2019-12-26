@@ -71,8 +71,11 @@ namespace Engine
 		inline SceneData* getSceneData() { return &m_sceneData; }
 
 		//! Function which makes a new camera controller
+		/*!
+		\param update If the camera can be updated when the level loads
+		*/
 		template <typename T>
-		void createCamera() { m_pCamera.reset(new T); } // Reset the camera controller pointer with a new controller of type T
+		void createCamera(bool update = false) { m_pCamera.reset(new T(update)); } // Reset the camera controller pointer with a new controller of type T
 		//! Function that sets the renderer pointer
 		/*!
 		\param renderer Pointer to the new renderer

@@ -71,7 +71,8 @@ namespace Engine
 				std::string type = layerJSON["camera"]["type"].get<std::string>();
 				if (type.compare("Euler3D") == 0)
 				{
-					layer.createCamera<FPSCameraControllerEuler>();
+					bool update = layerJSON["camera"]["update"].get<bool>();
+					layer.createCamera<FPSCameraControllerEuler>(update);
 					float fov = layerJSON["camera"]["fov"].get<float>();
 					float aspectRatio = layerJSON["camera"]["aspectRatio"].get<float>();
 					float nearClip = layerJSON["camera"]["nearClip"].get<float>();
@@ -80,7 +81,8 @@ namespace Engine
 				}
 				else if (type.compare("FreeOrtho2D") == 0)
 				{
-					layer.createCamera<FreeOrthoCameraController2D>();
+					bool update = layerJSON["camera"]["update"].get<bool>();
+					layer.createCamera<FreeOrthoCameraController2D>(update);
 					float top = layerJSON["camera"]["top"].get<float>();
 					float left = layerJSON["camera"]["left"].get<float>();
 					float width = layerJSON["camera"]["width"].get<float>();
@@ -89,7 +91,7 @@ namespace Engine
 				}
 				else if (type.compare("FixedOrtho2D") == 0)
 				{
-					layer.createCamera<FixedOrthoCameraController2d>();
+					layer.createCamera<FixedOrthoCameraController2D>();
 					float top = layerJSON["camera"]["top"].get<float>();
 					float left = layerJSON["camera"]["left"].get<float>();
 					float width = layerJSON["camera"]["width"].get<float>();
@@ -120,8 +122,8 @@ namespace Engine
 			if (layerJSON.count("GameObjects") > 0)
 			{
 				int goIndex = 0;
-				int materialsIndex = 0;
 				int textIndex = 0;
+				int materialsIndex = 0;
 				int positionsIndex = 0;
 				int velocitiesIndex = 0;
 				int texturesIndex = 0;

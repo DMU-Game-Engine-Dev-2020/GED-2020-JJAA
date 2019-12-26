@@ -156,7 +156,7 @@ void GameLayer::onAttach()
 	m_MatUBO = m_pResources->getUBO("Matrices");
 	m_LightUBO = m_pResources->getUBO("Light");
 
-	m_pCamera.reset(new Engine::FPSCameraControllerEuler);
+	m_pCamera.reset(new Engine::FPSCameraControllerEuler(false));
 	m_pCamera->init(45.f, 4.f / 3.f, 0.1f, 100.f);
 }
 

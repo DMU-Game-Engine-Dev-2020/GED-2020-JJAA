@@ -9,13 +9,13 @@
       { "filepath": "assets/textures/numberCube.png" }
     ]
   },
-  "camera" :
-  {
-	"type" : "Euler3D",
-	"fov" : 45.0,
-	"aspectRatio" : 1.333333,
-	"nearClip" : 0.1,
-	"farClip" : 100.0
+  "camera": {
+    "type": "Euler3D",
+    "update": false,
+    "fov": 45.0,
+    "aspectRatio": 1.333333,
+    "nearClip": 0.1,
+    "farClip": 100.0
   },
   "renderer" :
   {

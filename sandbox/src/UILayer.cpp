@@ -44,7 +44,7 @@ void UILayer::onAttach()
 
 	m_pUBO = m_pResources->getUBO("TextMatrices");
 
-	m_pCamera.reset(new Engine::FreeOrthoCameraController2D);
+	m_pCamera.reset(new Engine::FreeOrthoCameraController2D(true));
 	m_pCamera->init(0.f, 0.f, 800.f, 600.f);
 }
 

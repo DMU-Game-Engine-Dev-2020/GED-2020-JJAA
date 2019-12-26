@@ -8,17 +8,20 @@
 namespace Engine
 {
 	/**
-	\class FixedOrthoCameraController2d
+	\class FixedOrthoCameraController2D
 	\brief Controller for a 2D orthographic camera that can't be moved
 	*/
-	class FixedOrthoCameraController2d : public CameraController
+	class FixedOrthoCameraController2D : public CameraController
 	{
 	private:
 		std::shared_ptr<OrthographicCamera2D> m_camera; //!< Pointer to the camera
 		glm::vec2 m_position = glm::vec2(0.f); //!< The cameras position, for calculations
 	public:
 		//! Constructor
-		FixedOrthoCameraController2d() {}
+		/*!
+		\param update If the camera can be updated when the level loads
+		*/
+		FixedOrthoCameraController2D(bool update) {}
 
 		//! Function to initialize the controller
 		/*!
@@ -42,10 +45,11 @@ namespace Engine
 		/*!
 		\param e The event
 		*/
-		void onEvent(Event& e) override {}
+		void onEvent(Event& e) override;
 		//! Function to handle window resize events
 		/*!
 		\param e The event
+		\return If the event was successful or not
 		*/
 		bool onResize(WindowResizeEvent& e) override { return true; }
 	};

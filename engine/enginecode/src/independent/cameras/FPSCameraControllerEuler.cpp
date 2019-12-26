@@ -21,42 +21,45 @@ namespace Engine
 
 	void FPSCameraControllerEuler::onUpdate(float timestep)
 	{
-		glm::vec3 pos = m_position;
-
-		// If W, A, S or D is pressed, move forward, left, back or right
-		if (InputPoller::isKeyPressed(ENGINE_KEY_W))
-			pos += m_forward * m_fTranslationSpeed * timestep;
-		if (InputPoller::isKeyPressed(ENGINE_KEY_S))
-			pos -= m_forward * m_fTranslationSpeed * timestep;
-		if (InputPoller::isKeyPressed(ENGINE_KEY_A))
-			pos -= m_right * m_fTranslationSpeed * timestep;
-		if (InputPoller::isKeyPressed(ENGINE_KEY_D))
-			pos += m_right * m_fTranslationSpeed * timestep;
-
-		// Keep the y position the same
-		pos.y = m_position.y;
-		m_position = pos;
-
-		// If the left mouse button is pressed, rotate the camera with the mouse movement
-		if (InputPoller::isMouseButtonPressed(ENGINE_MOUSE_BUTTON_LEFT))
+		if (m_bUpdate)
 		{
-			glm::vec2 currentMousePosition = InputPoller::getMousePosition();
-			glm::vec2 mouseDelta = currentMousePosition - m_lastMousePosition;
+			glm::vec3 pos = m_position;
 
-			m_fYaw -= mouseDelta.x * m_fRotationSpeed * timestep;
-			m_fPitch -= mouseDelta.y * m_fRotationSpeed * timestep;
+			// If W, A, S or D is pressed, move forward, left, back or right
+			if (InputPoller::isKeyPressed(ENGINE_KEY_W))
+				pos += m_forward * m_fTranslationSpeed * timestep;
+			if (InputPoller::isKeyPressed(ENGINE_KEY_S))
+				pos -= m_forward * m_fTranslationSpeed * timestep;
+			if (InputPoller::isKeyPressed(ENGINE_KEY_A))
+				pos -= m_right * m_fTranslationSpeed * timestep;
+			if (InputPoller::isKeyPressed(ENGINE_KEY_D))
+				pos += m_right * m_fTranslationSpeed * timestep;
 
-			// Prevent the camera rotating too far up or down
-			if (m_fPitch > 89.f)
-				m_fPitch = 89.f;
-			if (m_fPitch < -89.f)
-				m_fPitch = -89.f;
+			// Keep the y position the same
+			pos.y = m_position.y;
+			m_position = pos;
 
-			m_lastMousePosition = currentMousePosition;
+			// If the left mouse button is pressed, rotate the camera with the mouse movement
+			if (InputPoller::isMouseButtonPressed(ENGINE_MOUSE_BUTTON_LEFT))
+			{
+				glm::vec2 currentMousePosition = InputPoller::getMousePosition();
+				glm::vec2 mouseDelta = currentMousePosition - m_lastMousePosition;
+
+				m_fYaw -= mouseDelta.x * m_fRotationSpeed * timestep;
+				m_fPitch -= mouseDelta.y * m_fRotationSpeed * timestep;
+
+				// Prevent the camera rotating too far up or down
+				if (m_fPitch > 89.f)
+					m_fPitch = 89.f;
+				if (m_fPitch < -89.f)
+					m_fPitch = -89.f;
+
+				m_lastMousePosition = currentMousePosition;
+			}
+
+			// Update the camera view
+			updateView();
 		}
-
-		// Update the camera view
-		updateView();
 	}
 
 	void FPSCameraControllerEuler::onEvent(Event& event)
@@ -64,7 +67,9 @@ namespace Engine
 		// Create event dispatcher
 		EventDispatcher dispatcher(event);
 		// If the Event type matches, call the corresponding function
+		dispatcher.dispatch<WindowResizeEvent>(std::bind(&FPSCameraControllerEuler::onResize, this, std::placeholders::_1));
 		dispatcher.dispatch<MouseButtonPressedEvent>(std::bind(&FPSCameraControllerEuler::onMouseButtonPressed, this, std::placeholders::_1));
+		dispatcher.dispatch<KeyPressedEvent>(std::bind(&FPSCameraControllerEuler::onKeyPressed, this, std::placeholders::_1));
 	}
 
 	bool FPSCameraControllerEuler::onMouseButtonPressed(MouseButtonPressedEvent& e)
@@ -74,6 +79,18 @@ namespace Engine
 		{
 			// Set the last mouse position to the current mouse position
 			m_lastMousePosition = InputPoller::getMousePosition();
+			return true;
+		}
+		else
+			return false;
+	}
+
+	bool FPSCameraControllerEuler::onKeyPressed(KeyPressedEvent& e)
+	{
+		// The event was the enter being pressed
+		if (e.getKeyCode() == ENGINE_KEY_ENTER)
+		{
+			m_bUpdate = !m_bUpdate;
 			return true;
 		}
 		else

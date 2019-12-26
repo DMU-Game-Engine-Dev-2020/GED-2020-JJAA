@@ -2,8 +2,8 @@
 */
 #include "engine_pch.h"
 
-#include "json/JSONLayer.h"
-#include "json/JSONLoader.h"
+#include "load/JSONLayer.h"
+#include "load/JSONLoader.h"
 
 namespace Engine
 {

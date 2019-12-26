@@ -15,7 +15,8 @@
     ]
   },
   "camera": {
-    "type": "FixedOrtho2D",
+    "type": "FreeOrtho2D",
+    "update": true,
     "top": 0.0,
     "left": 0.0,
     "width": 800.0,
