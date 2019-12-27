@@ -40,3 +40,4 @@
 #include "components/textComponent.h"
 
 #include "load/JSONLayer.h"
+#include "load/JSONSetup.h"

@@ -42,8 +42,8 @@
           "z": 0.0
         },
         "scale": {
-          "x": 1.0,
-          "y": 1.0,
+          "x": 0.8,
+          "y": 1.3,
           "z": 1.0
         }
       },
@@ -284,37 +284,38 @@
     }
   ]
   ,
-  "RendererCommands": 
-  {
-  "predraw": [
-    {
-      "type": "SetClearColour",
-      "r": 0.0,
-      "g": 0.0,
-      "b": 0.0,
-      "a": 1.0
-    },
-    {
-      "type": "SetDepthTestLess",
-      "enabled": true
-    },
-    {
-      "type": "SetBackfaceCulling",
-      "enabled": true
-    },
-    {
-      "type": "ClearDepthColourBuffer"
-    }
-  ],
-	"postdraw" : [
-		{
-			"type" : "SetDepthTestLess",
-			"enabled" : false
-		},
-		{
-			"type" : "SetBackfaceCulling",
-			"enabled" : false
-		}
-	]
+  "RendererCommands": {
+    "init": [
+      {
+        "type": "SetClearColour",
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 1.0
+      }
+    ],
+    "predraw": [
+      {
+        "type": "SetDepthTestLess",
+        "enabled": true
+      },
+      {
+        "type": "SetBackfaceCulling",
+        "enabled": true
+      },
+      {
+        "type": "ClearDepthColourBuffer"
+      }
+    ],
+    "postdraw": [
+      {
+        "type": "SetDepthTestLess",
+        "enabled": false
+      },
+      {
+        "type": "SetBackfaceCulling",
+        "enabled": false
+      }
+    ]
   }
 }

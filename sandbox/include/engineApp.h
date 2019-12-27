@@ -9,6 +9,8 @@
 
 class engineApp : public Engine::Application
 {
+private:
+	Engine::JSONSetup m_setup; //!< The leel setup object
 public:
 	engineApp();
 	~engineApp() override;

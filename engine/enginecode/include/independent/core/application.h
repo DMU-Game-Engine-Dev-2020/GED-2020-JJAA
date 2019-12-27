@@ -12,6 +12,8 @@
 
 namespace Engine 
 {
+	//! A map with layer information, level name and the key code of the key to press to load the level
+	using Levels = std::map<std::map<std::string, std::string>, int>; 
 	/**
 	\class Application
 	\brief Fundemental class of the engine. A singleton which runs the game loop infinitely.
@@ -25,7 +27,10 @@ namespace Engine
 		std::shared_ptr<Timer> m_pTimer; //!< Pointer to the Timer system object
 		std::shared_ptr<WindowsSystem> m_pWindows; //!< Pointer to the Windows system
 		std::shared_ptr<ResourceManager> m_pResources; //!< Pointer to the resource manager system
-		std::shared_ptr<Layerstack> m_pLayerStack;
+		std::shared_ptr<Layerstack> m_pLayerStack; //!< Pointer to the layerstack
+
+		Levels m_levels; //!< Info for level loading
+		int m_iCurrentLevel = 0; //!< Key code to load current level
 	private:
 		static Application* s_instance; //!< Singleton instance of the application
 
@@ -74,6 +79,12 @@ namespace Engine
 		\return A reference to the current window
 		*/
 		inline Window& getWindow() { return *m_pWindow; }
+
+		//! Function to load another level
+		/*!
+		\param A map of filepaths and names for the layers in the level
+		*/
+		void loadLevel(Levels::iterator& layers);
 	};
 
 	// To be defined in users code

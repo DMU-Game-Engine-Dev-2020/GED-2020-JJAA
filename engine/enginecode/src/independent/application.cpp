@@ -44,6 +44,7 @@ namespace Engine
 		// Make a new resource manager
 		m_pResources.reset(new ResourceManager);
 
+		// Make a new layer stack
 		m_pLayerStack.reset(new Layerstack);
 		m_pLayerStack->start();
 
@@ -118,6 +119,25 @@ namespace Engine
 			LOG_TRACE("Window closing"); // Log what's happening
 			m_bRunning = false; // Stop the application from running
 			return true; // Leave the function
+		}
+		// For each level
+		for (Levels::iterator& level = m_levels.begin(); level != m_levels.end(); level++)
+		{
+			// If the key code matches the one to load the current level
+			if (e.getKeyCode() == m_iCurrentLevel)
+			{
+				// Do nothing and return
+				return true;
+			}
+			// If the key code matches the one to load another level
+			if (e.getKeyCode() == level->second)
+			{
+				// Remove the resources to have only the stuff for the current level loaded
+				m_pResources->stop();
+				// Load the level
+				loadLevel(level);
+				return true; // Leave the function
+			}
 		}
 		return false;
 	}

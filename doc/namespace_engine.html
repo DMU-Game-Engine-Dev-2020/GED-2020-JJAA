@@ -129,6 +129,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_j_s_o_n_loader_log.html">JSONLoaderLog</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class which outputs everything that is being loaded from JSON files.  <a href="class_engine_1_1_j_s_o_n_loader_log.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_j_s_o_n_setup.html">JSONSetup</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class which sets up level loading order.  <a href="class_engine_1_1_j_s_o_n_setup.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_key_event.html">KeyEvent</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class inheriting from <a class="el" href="class_engine_1_1_event.html" title="Base class for all events.">Event</a>, for all key events.  <a href="class_engine_1_1_key_event.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -330,6 +333,9 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:afc0d822d4cea75ab3eadbe8c0209e6c4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_engine.html#afc0d822d4cea75ab3eadbe8c0209e6c4">Levels</a> = std::map&lt; std::map&lt; std::string, std::string &gt;, int &gt;</td></tr>
+<tr class="memdesc:afc0d822d4cea75ab3eadbe8c0209e6c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">A map with layer information, level name and the key code of the key to press to load the level.  <a href="namespace_engine.html#afc0d822d4cea75ab3eadbe8c0209e6c4">More...</a><br /></td></tr>
+<tr class="separator:afc0d822d4cea75ab3eadbe8c0209e6c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca9416107541cb949ca38b0df5c32c4a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_engine.html#aca9416107541cb949ca38b0df5c32c4a">SceneData</a> = std::unordered_map&lt; std::shared_ptr&lt; <a class="el" href="class_engine_1_1_uniform_buffer.html">UniformBuffer</a> &gt;, std::vector&lt; void * &gt; &gt;</td></tr>
 <tr class="memdesc:aca9416107541cb949ca38b0df5c32c4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">SceneData is a map of shared pointers to uniform buffers and vectors containing the data to be uploaded.  <a href="namespace_engine.html#aca9416107541cb949ca38b0df5c32c4a">More...</a><br /></td></tr>
 <tr class="separator:aca9416107541cb949ca38b0df5c32c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -448,6 +454,24 @@ Functions</h2></td></tr>
 <tr class="separator:aae0ecaccce240f0d60c94d6be1396c19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
+<a id="afc0d822d4cea75ab3eadbe8c0209e6c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc0d822d4cea75ab3eadbe8c0209e6c4">&#9670;&nbsp;</a></span>Levels</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespace_engine.html#afc0d822d4cea75ab3eadbe8c0209e6c4">Engine::Levels</a> = typedef std::map&lt;std::map&lt;std::string, std::string&gt;, int&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A map with layer information, level name and the key code of the key to press to load the level. </p>
+
+<p class="definition">Definition at line <a class="el" href="application_8h_source.html#l00016">16</a> of file <a class="el" href="application_8h_source.html">application.h</a>.</p>
+
+</div>
+</div>
 <a id="a31226c7d597d98ac5cd3542ad65814a5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a31226c7d597d98ac5cd3542ad65814a5">&#9670;&nbsp;</a></span>PerDrawData</h2>
 
