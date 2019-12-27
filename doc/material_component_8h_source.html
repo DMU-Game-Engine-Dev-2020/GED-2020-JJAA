@@ -79,12 +79,13 @@ $(function() {
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
 <div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_engine_1_1_material_component.html#a522c8f6b476120092dae22115dccf614">   48</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_engine_1_1_material_component.html#a522c8f6b476120092dae22115dccf614">receiveMessage</a>(<span class="keyword">const</span> <a class="code" href="class_engine_1_1_component_message.html">ComponentMessage</a>&amp; msg)<span class="keyword"> override</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <a class="code" href="class_engine_1_1_message_dispatcher.html">MessageDispatcher</a> dispatcher(msg);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            dispatcher.<a class="code" href="class_engine_1_1_message_dispatcher.html#a4fbc06e979489b1cc6d32156eac429a7">dispatch</a>(<a class="code" href="namespace_engine.html#a42b52035259cb56ecdcff7b25822abe5ae3cd598ca491dcfb1da76b4785ae1e10">ComponentMessageType::UniformSet</a>, std::bind(&amp;<a class="code" href="class_engine_1_1_material_component.html#a6a339a09425b560e60d213cb7164e70e">MaterialComponent::uniformUpload</a>, <span class="keyword">this</span>, std::placeholders::_1));</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    };</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="comment">// Create message dispatcher</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <a class="code" href="class_engine_1_1_message_dispatcher.html">MessageDispatcher</a> dispatcher(msg);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="comment">// If the message type matches, call the corresponding function</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            dispatcher.<a class="code" href="class_engine_1_1_message_dispatcher.html#a4fbc06e979489b1cc6d32156eac429a7">dispatch</a>(<a class="code" href="namespace_engine.html#a42b52035259cb56ecdcff7b25822abe5ae3cd598ca491dcfb1da76b4785ae1e10">ComponentMessageType::UniformSet</a>, std::bind(&amp;<a class="code" href="class_engine_1_1_material_component.html#a6a339a09425b560e60d213cb7164e70e">MaterialComponent::uniformUpload</a>, <span class="keyword">this</span>, std::placeholders::_1));</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    };</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespace_engine_html"><div class="ttname"><a href="namespace_engine.html">Engine</a></div><div class="ttdef"><b>Definition:</b> <a href="camera_8h_source.html#l00008">camera.h:8</a></div></div>
 <div class="ttc" id="a_c_g_o_8h_html"><div class="ttname"><a href="_c_g_o_8h.html">CGO.h</a></div><div class="ttdoc">Contains classes for components, component messages and gameobjects.</div></div>

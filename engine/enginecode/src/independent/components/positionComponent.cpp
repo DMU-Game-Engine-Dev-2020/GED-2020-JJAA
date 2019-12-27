@@ -39,9 +39,11 @@ namespace Engine
 
 	void PositionComponent::receiveMessage(const ComponentMessage& msg)
 	{
+		// Create message dispatcher
 		MessageDispatcher dispatcher(msg);
-
+		// If the message type matches, call the corresponding function
 		dispatcher.dispatch(ComponentMessageType::PositionSet, std::bind(&PositionComponent::positionSet, this, std::placeholders::_1));
+		dispatcher.dispatch(ComponentMessageType::RotationSet, std::bind(&PositionComponent::rotationSet, this, std::placeholders::_1));
 		dispatcher.dispatch(ComponentMessageType::PositionIntegrate, std::bind(&PositionComponent::positionIntegrate, this, std::placeholders::_1));
 	}
 
@@ -60,6 +62,15 @@ namespace Engine
 	{
 		glm::vec3 pos = *(glm::vec3*)data; // Get the data from the message
 		m_transVec = pos; // Set the position
+		calculateModel(); // Calculate the model
+	}
+
+	void PositionComponent::rotationSet(void* data)
+	{
+		glm::vec3 rot = *(glm::vec3*)data; // Get the data from the message
+		m_rotVec.x = glm::radians(rot.x);
+		m_rotVec.y = glm::radians(rot.y);
+		m_rotVec.z = glm::radians(rot.z);
 		calculateModel(); // Calculate the model
 	}
 

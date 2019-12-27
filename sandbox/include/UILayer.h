@@ -16,6 +16,8 @@ private:
 	std::vector<std::shared_ptr<Engine::TextureComponent>> m_textures; //!< Container of pointers to texture components
 
 	std::shared_ptr<Engine::UniformBuffer> m_pUBO; //!< Matrices uniform buffer
+
+	std::shared_ptr<Engine::Material> m_material;
 public:
 	//! Constructor
 	/*!

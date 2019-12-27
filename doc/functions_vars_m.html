@@ -51,6 +51,9 @@ $(function() {
 <li>m_b
 : <a class="el" href="class_engine_1_1_open_g_l_set_clear_colour_command.html#a964b1097e3f3bf6c877497325e801a90">Engine::OpenGLSetClearColourCommand</a>
 </li>
+<li>m_bCam1
+: <a class="el" href="class_engine_1_1_player_component.html#a5b621378ee860578be6ae0ac7aeff860">Engine::PlayerComponent</a>
+</li>
 <li>m_bearing
 : <a class="el" href="class_engine_1_1_character.html#a7835cbcec844ed95757ead92dd2d5f8a">Engine::Character</a>
 </li>
@@ -78,16 +81,34 @@ $(function() {
 : <a class="el" href="class_engine_1_1_open_g_l_shader.html#a73b5685f571e0d37c40806d6fd5876bb">Engine::OpenGLShader</a>
 </li>
 <li>m_bUpdate
-: <a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#a9ecb83dac01228ace1742dac20d0a879">Engine::FPSCameraControllerEuler</a>
+: <a class="el" href="class_engine_1_1_camera_controller3rd_person.html#ad8b2b4f3d59cd28c9d17fedb2956ecbc">Engine::CameraController3rdPerson</a>
+, <a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#a9ecb83dac01228ace1742dac20d0a879">Engine::FPSCameraControllerEuler</a>
 , <a class="el" href="class_engine_1_1_free_ortho_camera_controller2_d.html#a20c338503dc64a8277f4c1bd2d3876ab">Engine::FreeOrthoCameraController2D</a>
+, <a class="el" href="class_engine_1_1_player_component.html#a6a76687231566196ce3fc84c6725cc1e">Engine::PlayerComponent</a>
 </li>
 <li>m_callback
 : <a class="el" href="class_engine_1_1_g_l_f_w_window_impl.html#a6117974b092fee92047f42e5fff0eb1e">Engine::GLFWWindowImpl</a>
 </li>
 <li>m_camera
-: <a class="el" href="class_engine_1_1_fixed_ortho_camera_controller2_d.html#ac29287b6b70e457841dea12a6b0c8280">Engine::FixedOrthoCameraController2D</a>
+: <a class="el" href="class_engine_1_1_camera_controller3rd_person.html#a18d81b9a60e0de603a73b4d6cf45d380">Engine::CameraController3rdPerson</a>
+, <a class="el" href="class_engine_1_1_fixed_ortho_camera_controller2_d.html#ac29287b6b70e457841dea12a6b0c8280">Engine::FixedOrthoCameraController2D</a>
 , <a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#afb784788dba09421f0b9898fd87c1236">Engine::FPSCameraControllerEuler</a>
 , <a class="el" href="class_engine_1_1_free_ortho_camera_controller2_d.html#ab51b3d479437c3fa1bb6e8b1603246c5">Engine::FreeOrthoCameraController2D</a>
+</li>
+<li>m_cameras
+: <a class="el" href="class_engine_1_1_player_component.html#a9c514d730bde2595cd5fd56c263f0c0d">Engine::PlayerComponent</a>
+</li>
+<li>m_camPos
+: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#a9b8aad141461fe90a8acebad219b2a3d">Engine::JSONLayer</a>
+</li>
+<li>m_camProj
+: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#a21415dc549f2d41b9b9684f362b61035">Engine::JSONLayer</a>
+</li>
+<li>m_camView
+: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#a6542295309c94d32dc35c11dc7002536">Engine::JSONLayer</a>
+</li>
+<li>m_camViewProj
+: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#a05903821bd6a53344d7c6b5c50fa5a58">Engine::JSONLayer</a>
 </li>
 <li>m_colour
 : <a class="el" href="class_engine_1_1_basic_text_label.html#a13fad61a1b9eeab2f496db8aad9fe710">Engine::BasicTextLabel</a>
@@ -102,7 +123,7 @@ $(function() {
 : <a class="el" href="class_engine_1_1_window.html#aab162cb1a1572464283d8327413f1e08">Engine::Window</a>
 </li>
 <li>m_controllers
-: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#aa6224543bb14c32dcac9005f9c4b01a1">Engine::JSONLayer</a>
+: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#a4598d61ae48366bce2455123c09807fc">Engine::JSONLayer</a>
 </li>
 <li>m_data
 : <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#a4a831e3d8d25d6f2a4c05a4c5e71e469">Engine::JSONLayer</a>
@@ -122,7 +143,7 @@ $(function() {
 : <a class="el" href="class_engine_1_1_event_dispatcher.html#a44fb6bbdb1061127eb21764aa81e9609">Engine::EventDispatcher</a>
 </li>
 <li>m_exitCommands
-: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#a37eab53d5dc1830815a5083cdb40e474">Engine::JSONLayer</a>
+: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#a3d3fddf3f9bb56e0a67907d7d5ee19a0">Engine::JSONLayer</a>
 </li>
 <li>m_fAngle
 : <a class="el" href="class_engine_1_1_basic_text_label.html#a6a4195d55980b65de9a812903e986674">Engine::BasicTextLabel</a>
@@ -143,18 +164,23 @@ $(function() {
 : <a class="el" href="class_engine_1_1_basic_text_label.html#a891531f908bc7fd424b3fac8a9081531">Engine::BasicTextLabel</a>
 </li>
 <li>m_forward
-: <a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#ac0c2664cee77bf26264852cdcce52f75">Engine::FPSCameraControllerEuler</a>
+: <a class="el" href="class_engine_1_1_camera_controller3rd_person.html#a1a3e05892af39b0372a8dd4d9708e0ee">Engine::CameraController3rdPerson</a>
+, <a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#ac0c2664cee77bf26264852cdcce52f75">Engine::FPSCameraControllerEuler</a>
+, <a class="el" href="class_engine_1_1_player_component.html#a99302efe6bb325f8f6406ad195b3e869">Engine::PlayerComponent</a>
 </li>
 <li>m_fPitch
-: <a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#afcbee95628d9b2a74fc3aef84a16ec04">Engine::FPSCameraControllerEuler</a>
+: <a class="el" href="class_engine_1_1_camera_controller3rd_person.html#a77e267d7c197f59613efb61b5ad17f46">Engine::CameraController3rdPerson</a>
+, <a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#afcbee95628d9b2a74fc3aef84a16ec04">Engine::FPSCameraControllerEuler</a>
 </li>
 <li>m_fRotation
 : <a class="el" href="class_engine_1_1_free_ortho_camera_controller2_d.html#ad1c684a0751eec0c7abc67995eac691c">Engine::FreeOrthoCameraController2D</a>
 , <a class="el" href="class_engine_1_1_orthographic_camera2_d.html#a6f8b677fe170deca127e2628de796604">Engine::OrthographicCamera2D</a>
 </li>
 <li>m_fRotationSpeed
-: <a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#abe60799b0139613439d252b1178f9282">Engine::FPSCameraControllerEuler</a>
+: <a class="el" href="class_engine_1_1_camera_controller3rd_person.html#ad7b174d91a19629ee6f15443fcf6c7e7">Engine::CameraController3rdPerson</a>
+, <a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#abe60799b0139613439d252b1178f9282">Engine::FPSCameraControllerEuler</a>
 , <a class="el" href="class_engine_1_1_free_ortho_camera_controller2_d.html#a9aa8d552ddd393489e71a37bfd9ab7bb">Engine::FreeOrthoCameraController2D</a>
+, <a class="el" href="class_engine_1_1_player_component.html#a93229da46c356896651091c1ccec1ff5">Engine::PlayerComponent</a>
 </li>
 <li>m_fScale
 : <a class="el" href="class_engine_1_1_basic_text_label.html#afcc644aed71bc1c6bc4b3d70b77fb10f">Engine::BasicTextLabel</a>
@@ -169,8 +195,10 @@ $(function() {
 : <a class="el" href="class_engine_1_1_application.html#a3ee0686e252bf90905881e0c5983740e">Engine::Application</a>
 </li>
 <li>m_fTranslationSpeed
-: <a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#ac735f89fe31158f36b11e74257bc58d8">Engine::FPSCameraControllerEuler</a>
+: <a class="el" href="class_engine_1_1_camera_controller3rd_person.html#aec38910be979118941fcb4e84fcfc34b">Engine::CameraController3rdPerson</a>
+, <a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#ac735f89fe31158f36b11e74257bc58d8">Engine::FPSCameraControllerEuler</a>
 , <a class="el" href="class_engine_1_1_free_ortho_camera_controller2_d.html#a9e5d406917a3c936ecefad5542a67017">Engine::FreeOrthoCameraController2D</a>
+, <a class="el" href="class_engine_1_1_player_component.html#a4b8f8c4d32df6ec08a06a968745f696d">Engine::PlayerComponent</a>
 </li>
 <li>m_fXOffset
 : <a class="el" href="class_engine_1_1_mouse_scrolled_event.html#a5e8172f052e1c5df5a378f135cc99a8d">Engine::MouseScrolledEvent</a>
@@ -180,7 +208,9 @@ $(function() {
 , <a class="el" href="class_engine_1_1_window_lost_focus_event.html#ae92dc89d65c8994a6314aa15d4b052c6">Engine::WindowLostFocusEvent</a>
 </li>
 <li>m_fYaw
-: <a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#a21ffe77e6eacc81248aab8348403223e">Engine::FPSCameraControllerEuler</a>
+: <a class="el" href="class_engine_1_1_camera_controller3rd_person.html#ae622fa0fedc04c32f5e2f3c2b75bcfff">Engine::CameraController3rdPerson</a>
+, <a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#a21ffe77e6eacc81248aab8348403223e">Engine::FPSCameraControllerEuler</a>
+, <a class="el" href="class_engine_1_1_player_component.html#ab5de30848f456a583ddfba424bc332c1">Engine::PlayerComponent</a>
 </li>
 <li>m_fYOffset
 : <a class="el" href="class_engine_1_1_mouse_scrolled_event.html#a6d186cfabcc770076160c6a3b54a79db">Engine::MouseScrolledEvent</a>
@@ -193,7 +223,7 @@ $(function() {
 : <a class="el" href="class_engine_1_1_open_g_l_set_clear_colour_command.html#a49fe9307681bf9ce2f8f9eeccb023ae9">Engine::OpenGLSetClearColourCommand</a>
 </li>
 <li>m_gameObjects
-: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#ae77c65c11d165b323ff23215ef859ffc">Engine::JSONLayer</a>
+: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#af5b6aa12fba54cab7773643edf4ae32b">Engine::JSONLayer</a>
 </li>
 <li>m_height
 : <a class="el" href="struct_engine_1_1_window_properties.html#a01a614a9f1e06bf22dbe4c17c0a0a6a5">Engine::WindowProperties</a>
@@ -227,7 +257,7 @@ $(function() {
 : <a class="el" href="class_engine_1_1_key_event.html#ac767b7780566e3f5361fe9956889539a">Engine::KeyEvent</a>
 </li>
 <li>m_initCommands
-: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#a95dfb0beca3f5b1bf35c8f3375494fd0">Engine::JSONLayer</a>
+: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#add640ee164e86f1b40e1f5bd3dd783e6">Engine::JSONLayer</a>
 </li>
 <li>m_iOffset
 : <a class="el" href="class_engine_1_1_buffer_element.html#aa41582388a7ee8f5fe938d5cb5de8f71">Engine::BufferElement</a>
@@ -296,7 +326,9 @@ $(function() {
 , <a class="el" href="class_engine_1_1_open_g_l_set_one_minus_alpha_blending_command.html#aaf67b2d36e3d725ecf1dccb61dc43c5a">Engine::OpenGLSetOneMinusAlphaBlendingCommand</a>
 </li>
 <li>m_lastMousePosition
-: <a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#a52e00111a11965694fc3c2f63ed36d10">Engine::FPSCameraControllerEuler</a>
+: <a class="el" href="class_engine_1_1_camera_controller3rd_person.html#a6757ca0e79d325ffa5e18248d197d472">Engine::CameraController3rdPerson</a>
+, <a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#a52e00111a11965694fc3c2f63ed36d10">Engine::FPSCameraControllerEuler</a>
+, <a class="el" href="class_engine_1_1_player_component.html#afa5dbbb1d1e303f7b9b47a0d362645a8">Engine::PlayerComponent</a>
 , <a class="el" href="class_engine_1_1_rotate_component.html#a34f0d7ebdeb8470e2913802cc2ac5f6d">Engine::RotateComponent</a>
 </li>
 <li>m_layers
@@ -316,7 +348,7 @@ $(function() {
 : <a class="el" href="class_engine_1_1_basic_text_label.html#a1323c356775297839c4e2b260b4eec34">Engine::BasicTextLabel</a>
 </li>
 <li>m_materials
-: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#a32da195b2535a9f15c62822d59acbf0c">Engine::JSONLayer</a>
+: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#aa4b008c36dc82a6b5461517bf825bec5">Engine::JSONLayer</a>
 </li>
 <li>m_message
 : <a class="el" href="class_engine_1_1_message_dispatcher.html#a11d514d4bc00358d71aa42d77e8e2d91">Engine::MessageDispatcher</a>
@@ -353,6 +385,15 @@ $(function() {
 <li>m_pLabel
 : <a class="el" href="class_engine_1_1_text_component.html#a094ddbc146fb0d69b71adeb83e875a9c">Engine::TextComponent</a>
 </li>
+<li>m_player
+: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#a75037f671c40377921960bc150792f0a">Engine::JSONLayer</a>
+</li>
+<li>m_playerOffset
+: <a class="el" href="class_engine_1_1_camera_controller3rd_person.html#a4ca1c1d82cfe47318b3f294803bbdafb">Engine::CameraController3rdPerson</a>
+</li>
+<li>m_playerPosition
+: <a class="el" href="class_engine_1_1_camera_controller3rd_person.html#afec95b3f58f6bf4d6d90df80cd3cf743">Engine::CameraController3rdPerson</a>
+</li>
 <li>m_pLayerStack
 : <a class="el" href="class_engine_1_1_application.html#a77a682b43d99587285d28990143bf016">Engine::Application</a>
 </li>
@@ -370,23 +411,25 @@ $(function() {
 </li>
 <li>m_position
 : <a class="el" href="class_engine_1_1_basic_text_label.html#a3d50ea7655fa0b8d83f4543aaf4c6b11">Engine::BasicTextLabel</a>
+, <a class="el" href="class_engine_1_1_camera_controller3rd_person.html#a3f52e8a64d9ad8f1573f4e47cf5594a1">Engine::CameraController3rdPerson</a>
 , <a class="el" href="class_engine_1_1_fixed_ortho_camera_controller2_d.html#aa4325e7be701902e5b8a76145dfcbcb0">Engine::FixedOrthoCameraController2D</a>
 , <a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#ad29501638240c1433470c5c3ca0efb59">Engine::FPSCameraControllerEuler</a>
 , <a class="el" href="class_engine_1_1_free_ortho_camera_controller2_d.html#aa9ee4b33e779eda5c781677be6ef21f9">Engine::FreeOrthoCameraController2D</a>
 , <a class="el" href="class_engine_1_1_orthographic_camera2_d.html#afc7ceeea4f25a0ff6888e111d6cbac30">Engine::OrthographicCamera2D</a>
 , <a class="el" href="class_engine_1_1_perspective_euler_camera3_d.html#a08928bb7890080e9532eb01dfadabeab">Engine::PerspectiveEulerCamera3D</a>
+, <a class="el" href="class_engine_1_1_player_component.html#a32fa106bbefdb847fb283c896972ec0a">Engine::PlayerComponent</a>
 </li>
 <li>m_positions
-: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#a3ab6ffd828eba9e3990c16757a12d17a">Engine::JSONLayer</a>
+: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#a89b57f7344ac6987ecd5530cbf25e453">Engine::JSONLayer</a>
 </li>
 <li>m_postdrawCommands
-: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#a4e8a1cc96734536e22eff3b4983ffe6d">Engine::JSONLayer</a>
+: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#a4c2e7b32dfe1a530418e032e287637f1">Engine::JSONLayer</a>
 </li>
 <li>m_pOwner
 : <a class="el" href="class_engine_1_1_component.html#a3446964e0c83a0af3c1370da0c563dba">Engine::Component</a>
 </li>
 <li>m_predrawCommands
-: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#a5493448b71fa25a2bbc796f21c574066">Engine::JSONLayer</a>
+: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#ac5519ad6641ddd202002e7f119f88c3e">Engine::JSONLayer</a>
 </li>
 <li>m_pRenderer
 : <a class="el" href="class_engine_1_1_layer.html#a516cad4aa2e84fa0e5cce5d5a5dbe48e">Engine::Layer</a>
@@ -421,7 +464,9 @@ $(function() {
 : <a class="el" href="class_engine_1_1_open_g_l_set_clear_colour_command.html#a210d8c8b358876fd51a2b52e399dfe73">Engine::OpenGLSetClearColourCommand</a>
 </li>
 <li>m_right
-: <a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#a13a709610d37daa1dedfe74cb1f8ceb8">Engine::FPSCameraControllerEuler</a>
+: <a class="el" href="class_engine_1_1_camera_controller3rd_person.html#a17c87590f119dd438f0261006437390c">Engine::CameraController3rdPerson</a>
+, <a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#a13a709610d37daa1dedfe74cb1f8ceb8">Engine::FPSCameraControllerEuler</a>
+, <a class="el" href="class_engine_1_1_player_component.html#a511e51c9bae2896cd065397200256f44">Engine::PlayerComponent</a>
 </li>
 <li>m_rotation
 : <a class="el" href="class_engine_1_1_position_component.html#a13918dcdb33b6150881e6bfc65ecb7b7">Engine::PositionComponent</a>
@@ -478,10 +523,10 @@ $(function() {
 : <a class="el" href="class_engine_1_1_basic_text_label.html#ae4983fdf71e48a95e9d236ccbb1e8e0f">Engine::BasicTextLabel</a>
 </li>
 <li>m_texts
-: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#a603b9c28c3a13958abb8e708ac1d24e9">Engine::JSONLayer</a>
+: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#afd54746fc66bd5c77df5954290f1ad84">Engine::JSONLayer</a>
 </li>
 <li>m_textures
-: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#ae1fc6ffed3d37486efea32a78955c2ab">Engine::JSONLayer</a>
+: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#a17e00d50a7d2858858b52e7450c4f9a5">Engine::JSONLayer</a>
 </li>
 <li>m_title
 : <a class="el" href="struct_engine_1_1_window_properties.html#aa27ba6c50e97deb268242550a7aed00f">Engine::WindowProperties</a>
@@ -502,19 +547,21 @@ $(function() {
 : <a class="el" href="class_engine_1_1_open_g_l_shader.html#aca3ea83f842a4eb412b6fe9daa806c5c">Engine::OpenGLShader</a>
 </li>
 <li>m_up
-: <a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#aab4aa70c089205a1624d5175fe3b1708">Engine::FPSCameraControllerEuler</a>
+: <a class="el" href="class_engine_1_1_camera_controller3rd_person.html#ab2885d53885d15ddcdd7caba3c05a6bf">Engine::CameraController3rdPerson</a>
+, <a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#aab4aa70c089205a1624d5175fe3b1708">Engine::FPSCameraControllerEuler</a>
 </li>
 <li>m_uploadFunc
 : <a class="el" href="class_engine_1_1_open_g_l_uniform_element.html#ab123970f17c85d21ba4345e269d992be">Engine::OpenGLUniformElement</a>
 </li>
 <li>m_velocities
-: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#a67134814c257dc49e5efb5303f144c1c">Engine::JSONLayer</a>
+: <a class="el" href="class_engine_1_1_j_s_o_n_layer.html#a553f5d8b5fa88c1e8bedc038e7779991">Engine::JSONLayer</a>
 </li>
 <li>m_velocity
 : <a class="el" href="class_engine_1_1_rotate_component.html#a71fd28dbb154dd5b177d7bee17c0af0c">Engine::RotateComponent</a>
 </li>
 <li>m_view
 : <a class="el" href="class_engine_1_1_camera.html#ab3d7b6eab7565dd9b495e8f7504de298">Engine::Camera</a>
+, <a class="el" href="class_engine_1_1_camera_controller3rd_person.html#a58465c7a543bde84c297d60c47857052">Engine::CameraController3rdPerson</a>
 , <a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#a0168eb753f070cf203cf507a986dcbd5">Engine::FPSCameraControllerEuler</a>
 </li>
 <li>m_viewProjection
@@ -524,7 +571,9 @@ $(function() {
 : <a class="el" href="struct_engine_1_1_window_properties.html#ae127d04cab173562dc0457c367d0c9fb">Engine::WindowProperties</a>
 </li>
 <li>m_worldUp
-: <a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#aba98f9f1fef15309473391f6352c7de9">Engine::FPSCameraControllerEuler</a>
+: <a class="el" href="class_engine_1_1_camera_controller3rd_person.html#a0816088b9dd1427923e56d5ce00926ca">Engine::CameraController3rdPerson</a>
+, <a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#aba98f9f1fef15309473391f6352c7de9">Engine::FPSCameraControllerEuler</a>
+, <a class="el" href="class_engine_1_1_player_component.html#ac898742660921a3d31ea3669d151de31">Engine::PlayerComponent</a>
 </li>
 </ul>
 </div><!-- contents -->

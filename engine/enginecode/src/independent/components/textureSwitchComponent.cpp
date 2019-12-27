@@ -29,8 +29,9 @@ namespace Engine
 
 	void TextureSwitchComponent::receiveMessage(const ComponentMessage& msg)
 	{
+		// Create message dispatcher
 		MessageDispatcher dispatcher(msg);
-
+		// If the message type matches, call the corresponding function
 		dispatcher.dispatch(ComponentMessageType::TextureSet, std::bind(&TextureSwitchComponent::textureSet, this, std::placeholders::_1));
 	}
 

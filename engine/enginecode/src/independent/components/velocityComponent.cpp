@@ -15,8 +15,9 @@ namespace Engine
 
 	void VelocityComponent::receiveMessage(const ComponentMessage& msg)
 	{
+		// Create message dispatcher
 		MessageDispatcher dispatcher(msg);
-
+		// If the message type matches, call the corresponding function
 		dispatcher.dispatch(ComponentMessageType::VelocitySetLinear, std::bind(&VelocityComponent::setLinear, this, std::placeholders::_1));
 		dispatcher.dispatch(ComponentMessageType::VelocitySetAngular, std::bind(&VelocityComponent::setAngular, this, std::placeholders::_1));
 	}

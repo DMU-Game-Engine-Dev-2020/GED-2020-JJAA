@@ -15,8 +15,7 @@
     ]
   },
   "camera": {
-    "type": "FreeOrtho2D",
-    "update": true,
+    "type": "FixedOrtho2D",
     "top": 0.0,
     "left": 0.0,
     "width": 800.0,
@@ -26,59 +25,31 @@
     "type": "BasicText2D"
   },
   "MemoryInfo": {
-    "gameObjects": 2,
-    "text": 2,
-    "materials": 2,
-    "position": 2,
+    "gameObjects": 1,
+    "text": 1,
+    "materials": 1,
+    "position": 1,
     "velocity": 0,
-    "texture": 2,
+    "texture": 1,
     "controllers": 0
   },
   "GameObjects": [
     {
       "name": "HeaderLabel",
       "text": {
-        "text": "Level 1",
+        "text": "Level 2",
         "font": "arial_narrow_7",
         "charSize": 64,
         "position": {
-          "x": 250,
+          "x": 300,
           "y": 50
         },
         "rotation": 0,
-        "scale": 1.2,
-        "colour": {
-          "r": 0.8,
-          "g": 0,
-          "b": 0.2
-        }
-      },
-      "material": {
-        "text": {}
-      },
-      "position": {
-        "type": "text"
-      },
-      "texture": {
-        "tex": "text"
-      }
-    },
-    {
-      "name": "FooterLabel",
-      "text": {
-        "text": "Footer",
-        "font": "steelfish eb",
-        "charSize": 32,
-        "position": {
-          "x": 50,
-          "y": 490
-        },
-        "rotation": 0,
-        "scale": 1.4,
+        "scale": 1,
         "colour": {
           "r": 0.2,
-          "g": 0.8,
-          "b": 0.2
+          "g": 0.7,
+          "b": 0
         }
       },
       "material": {

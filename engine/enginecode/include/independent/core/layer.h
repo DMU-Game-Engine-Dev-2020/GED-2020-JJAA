@@ -53,7 +53,7 @@ namespace Engine
 		/*!
 		\return A pointer to the camera controller
 		*/
-		inline std::shared_ptr<CameraController> getCamera() { return m_pCamera; }
+		inline std::shared_ptr<CameraController>& getCamera() { return m_pCamera; }
 		//! Function to get the resourceManager
 		/*!
 		\return A pointer to the resource manager
@@ -63,23 +63,11 @@ namespace Engine
 		/*!
 		\return A pointer to the renderer
 		*/
-		inline std::shared_ptr<Renderer> getRenderer() { return m_pRenderer; }
+		inline std::shared_ptr<Renderer>& getRenderer() { return m_pRenderer; }
 		//! Function to get the scene data
 		/*!
 		\return A pointer to the scene data
 		*/
 		inline SceneData* getSceneData() { return &m_sceneData; }
-
-		//! Function which makes a new camera controller
-		/*!
-		\param update If the camera can be updated when the level loads
-		*/
-		template <typename T>
-		void createCamera(bool update = false) { m_pCamera.reset(new T(update)); } // Reset the camera controller pointer with a new controller of type T
-		//! Function that sets the renderer pointer
-		/*!
-		\param renderer Pointer to the new renderer
-		*/
-		void createRenderer(Renderer* renderer) { m_pRenderer.reset(renderer); }
 	};
 }

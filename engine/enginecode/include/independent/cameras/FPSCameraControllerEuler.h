@@ -48,8 +48,9 @@ namespace Engine
 		\param aspectRatio The cameras aspect ratio
 		\param nearClip Closest something can be drawn
 		\param farClip Furthest something can be drawn
+		\param position The position for the camera to start in
 		*/
-		void init(float fov, float aspectRatio, float nearClip, float farClip) override;
+		void init(float fov, float aspectRatio, float nearClip, float farClip, glm::vec3 position) override;
 		//! Function to get the camera
 		/*!
 		\return A pointer to the camera

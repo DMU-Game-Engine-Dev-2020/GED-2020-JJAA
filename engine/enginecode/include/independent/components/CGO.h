@@ -14,7 +14,7 @@ namespace Engine
 	enum class ComponentMessageType
 	{
 		None = 0,
-		PositionIntegrate, PositionSet, RelativePositionSet,
+		PositionIntegrate, PositionSet, RelativePositionSet, RotationSet,
 		VelocityIntegrate, VelocitySetLinear, VelocitySetAngular,
 		AccelerationSet,
 		KeyPressed, KeyReleased, MouseButton, MouseScroll, MouseMoved,

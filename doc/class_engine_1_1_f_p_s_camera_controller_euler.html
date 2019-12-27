@@ -72,9 +72,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae23273c48e6f409f96e3c4a39f7b035a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#ae23273c48e6f409f96e3c4a39f7b035a">FPSCameraControllerEuler</a> (bool update)</td></tr>
 <tr class="memdesc:ae23273c48e6f409f96e3c4a39f7b035a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="class_engine_1_1_f_p_s_camera_controller_euler.html#ae23273c48e6f409f96e3c4a39f7b035a">More...</a><br /></td></tr>
 <tr class="separator:ae23273c48e6f409f96e3c4a39f7b035a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc2da6193cdd18a81ed4fe4736a9a927"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#acc2da6193cdd18a81ed4fe4736a9a927">init</a> (float fov, float aspectRatio, float nearClip, float farClip) override</td></tr>
-<tr class="memdesc:acc2da6193cdd18a81ed4fe4736a9a927"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to initialize the controller.  <a href="class_engine_1_1_f_p_s_camera_controller_euler.html#acc2da6193cdd18a81ed4fe4736a9a927">More...</a><br /></td></tr>
-<tr class="separator:acc2da6193cdd18a81ed4fe4736a9a927"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa28445ffd7e4f8bf25b9b132a8ffb13e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#aa28445ffd7e4f8bf25b9b132a8ffb13e">init</a> (float fov, float aspectRatio, float nearClip, float farClip, glm::vec3 position) override</td></tr>
+<tr class="memdesc:aa28445ffd7e4f8bf25b9b132a8ffb13e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to initialize the controller.  <a href="class_engine_1_1_f_p_s_camera_controller_euler.html#aa28445ffd7e4f8bf25b9b132a8ffb13e">More...</a><br /></td></tr>
+<tr class="separator:aa28445ffd7e4f8bf25b9b132a8ffb13e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af454f2ebeca2ae097648a1c7e5f75b97"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_engine_1_1_camera.html">Camera</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_f_p_s_camera_controller_euler.html#af454f2ebeca2ae097648a1c7e5f75b97">getCamera</a> () override</td></tr>
 <tr class="memdesc:af454f2ebeca2ae097648a1c7e5f75b97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the camera.  <a href="class_engine_1_1_f_p_s_camera_controller_euler.html#af454f2ebeca2ae097648a1c7e5f75b97">More...</a><br /></td></tr>
 <tr class="separator:af454f2ebeca2ae097648a1c7e5f75b97"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -212,12 +212,12 @@ Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="class_engine_1_1_camera_controller.html#ac64d48184bc2fa5ff1724e29d3ef4eef">Engine::CameraController</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_f_p_s_camera_controller_euler_8h_source.html#l00057">57</a> of file <a class="el" href="_f_p_s_camera_controller_euler_8h_source.html">FPSCameraControllerEuler.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_f_p_s_camera_controller_euler_8h_source.html#l00058">58</a> of file <a class="el" href="_f_p_s_camera_controller_euler_8h_source.html">FPSCameraControllerEuler.h</a>.</p>
 
 </div>
 </div>
-<a id="acc2da6193cdd18a81ed4fe4736a9a927"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc2da6193cdd18a81ed4fe4736a9a927">&#9670;&nbsp;</a></span>init()</h2>
+<a id="aa28445ffd7e4f8bf25b9b132a8ffb13e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa28445ffd7e4f8bf25b9b132a8ffb13e">&#9670;&nbsp;</a></span>init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -247,7 +247,13 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>farClip</em>&#160;</td>
+          <td class="paramname"><em>farClip</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec3&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -269,11 +275,12 @@ Private Attributes</h2></td></tr>
     <tr><td class="paramname">aspectRatio</td><td>The cameras aspect ratio </td></tr>
     <tr><td class="paramname">nearClip</td><td>Closest something can be drawn </td></tr>
     <tr><td class="paramname">farClip</td><td>Furthest something can be drawn </td></tr>
+    <tr><td class="paramname">position</td><td>The position for the camera to start in </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="class_engine_1_1_camera_controller.html#abb001ad918cb86b0d2370f3714a1db8b">Engine::CameraController</a>.</p>
+<p>Implements <a class="el" href="class_engine_1_1_camera_controller.html#a02f36cede00ece1dcd51b06729ee7500">Engine::CameraController</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="_f_p_s_camera_controller_euler_8cpp_source.html#l00011">11</a> of file <a class="el" href="_f_p_s_camera_controller_euler_8cpp_source.html">FPSCameraControllerEuler.cpp</a>.</p>
 
@@ -410,7 +417,7 @@ Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="class_engine_1_1_camera_controller.html#af93aaf1b0169c5f00a657515ed89ca0f">Engine::CameraController</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_f_p_s_camera_controller_euler_8h_source.html#l00073">73</a> of file <a class="el" href="_f_p_s_camera_controller_euler_8h_source.html">FPSCameraControllerEuler.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_f_p_s_camera_controller_euler_8h_source.html#l00074">74</a> of file <a class="el" href="_f_p_s_camera_controller_euler_8h_source.html">FPSCameraControllerEuler.h</a>.</p>
 
 </div>
 </div>

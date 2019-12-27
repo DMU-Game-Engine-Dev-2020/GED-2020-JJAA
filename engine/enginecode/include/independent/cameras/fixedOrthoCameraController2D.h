@@ -21,7 +21,7 @@ namespace Engine
 		/*!
 		\param update If the camera can be updated when the level loads
 		*/
-		FixedOrthoCameraController2D(bool update) {}
+		FixedOrthoCameraController2D(bool update = false) {}
 
 		//! Function to initialize the controller
 		/*!
@@ -30,7 +30,7 @@ namespace Engine
 		\param width The width of the camera in pixels
 		\param height The height of the camera in pixels
 		*/
-		void init(float left, float top, float width, float height) override;
+		void init(float left, float top, float width, float height, glm::vec3) override;
 		//! Function to get the camera
 		/*!
 		\return A pointer to the camera

@@ -10,12 +10,17 @@
     ]
   },
   "camera": {
-    "type": "Euler3D",
+    "type": "Euler3DFPS",
     "update": false,
     "fov": 45.0,
     "aspectRatio": 1.333333,
     "nearClip": 0.1,
-    "farClip": 100.0
+    "farClip": 100.0,
+    "position": {
+      "x": 0,
+      "y": 0,
+      "z": -4.5
+    }
   },
   "renderer" :
   {
@@ -32,7 +37,6 @@
   },
   "GameObjects": [
     {
-
       "name": "FCCube",
       "material": {
         "model": "assets/models/fccube.txt",

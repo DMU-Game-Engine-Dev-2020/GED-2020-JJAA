@@ -37,7 +37,7 @@ namespace Engine
 		\param width The width of the camera in pixels
 		\param height The height of the camera in pixels
 		*/
-		void init(float left, float top, float width, float height) override;
+		void init(float left, float top, float width, float height, glm::vec3) override;
 		//! Function to get the camera
 		/*!
 		\return A pointer to the camera

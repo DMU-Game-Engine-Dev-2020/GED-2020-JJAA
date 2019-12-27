@@ -72,6 +72,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_camera_controller.html">CameraController</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for all camera controllers to inherit from.  <a href="class_engine_1_1_camera_controller.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_camera_controller3rd_person.html">CameraController3rdPerson</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controller for a 3rd person camera.  <a href="class_engine_1_1_camera_controller3rd_person.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_character.html">Character</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores all of a characters meta-data.  <a href="class_engine_1_1_character.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -231,6 +234,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_perspective_euler_camera3_d.html">PerspectiveEulerCamera3D</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">3 dimensional camera to move around in world space  <a href="class_engine_1_1_perspective_euler_camera3_d.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_player_component.html">PlayerComponent</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_engine_1_1_component.html" title="Base class for all components to be put on a gameobject.">Component</a> which makes the gameobject controllable as a player object.  <a href="class_engine_1_1_player_component.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_position_component.html">PositionComponent</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_engine_1_1_component.html" title="Base class for all components to be put on a gameobject.">Component</a> to give a gameobject a position.  <a href="class_engine_1_1_position_component.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -348,17 +354,18 @@ Enumerations</h2></td></tr>
 <a class="el" href="namespace_engine.html#a42b52035259cb56ecdcff7b25822abe5a07348789a9cd5946e1f078c6f4457e2b">ComponentMessageType::PositionSet</a>, 
 <a class="el" href="namespace_engine.html#a42b52035259cb56ecdcff7b25822abe5ac13ef5ed0dac6b7f5e0f3dc5d9c63e63">ComponentMessageType::RelativePositionSet</a>, 
 <br />
-&#160;&#160;<a class="el" href="namespace_engine.html#a42b52035259cb56ecdcff7b25822abe5aa6419f96acce6d11dbf8b0fbf67cf799">ComponentMessageType::VelocityIntegrate</a>, 
+&#160;&#160;<a class="el" href="namespace_engine.html#a42b52035259cb56ecdcff7b25822abe5ab3f53040cd0bf1c6c56e6b3def2a0ab6">ComponentMessageType::RotationSet</a>, 
+<a class="el" href="namespace_engine.html#a42b52035259cb56ecdcff7b25822abe5aa6419f96acce6d11dbf8b0fbf67cf799">ComponentMessageType::VelocityIntegrate</a>, 
 <a class="el" href="namespace_engine.html#a42b52035259cb56ecdcff7b25822abe5afb5e8c0826e8937e550695fc3b2dfef9">ComponentMessageType::VelocitySetLinear</a>, 
 <a class="el" href="namespace_engine.html#a42b52035259cb56ecdcff7b25822abe5a4035c653f00082983c07b2b87263a9d3">ComponentMessageType::VelocitySetAngular</a>, 
-<a class="el" href="namespace_engine.html#a42b52035259cb56ecdcff7b25822abe5a50573cf55832e9d891e35e912a7a50dd">ComponentMessageType::AccelerationSet</a>, 
 <br />
-&#160;&#160;<a class="el" href="namespace_engine.html#a42b52035259cb56ecdcff7b25822abe5ac17e6984c1e5a887a49831beadee6bca">ComponentMessageType::KeyPressed</a>, 
+&#160;&#160;<a class="el" href="namespace_engine.html#a42b52035259cb56ecdcff7b25822abe5a50573cf55832e9d891e35e912a7a50dd">ComponentMessageType::AccelerationSet</a>, 
+<a class="el" href="namespace_engine.html#a42b52035259cb56ecdcff7b25822abe5ac17e6984c1e5a887a49831beadee6bca">ComponentMessageType::KeyPressed</a>, 
 <a class="el" href="namespace_engine.html#a42b52035259cb56ecdcff7b25822abe5a4a77f07c8ad223b71ab4ce78a63841ab">ComponentMessageType::KeyReleased</a>, 
 <a class="el" href="namespace_engine.html#a42b52035259cb56ecdcff7b25822abe5a49dabe49d62a3521f7c10400138c38d5">ComponentMessageType::MouseButton</a>, 
-<a class="el" href="namespace_engine.html#a42b52035259cb56ecdcff7b25822abe5ab4efa1e1d0671dddbd78735a0bd24274">ComponentMessageType::MouseScroll</a>, 
 <br />
-&#160;&#160;<a class="el" href="namespace_engine.html#a42b52035259cb56ecdcff7b25822abe5ac2770ad109c8063ce69a3608a9a16c08">ComponentMessageType::MouseMoved</a>, 
+&#160;&#160;<a class="el" href="namespace_engine.html#a42b52035259cb56ecdcff7b25822abe5ab4efa1e1d0671dddbd78735a0bd24274">ComponentMessageType::MouseScroll</a>, 
+<a class="el" href="namespace_engine.html#a42b52035259cb56ecdcff7b25822abe5ac2770ad109c8063ce69a3608a9a16c08">ComponentMessageType::MouseMoved</a>, 
 <a class="el" href="namespace_engine.html#a42b52035259cb56ecdcff7b25822abe5ae3cd598ca491dcfb1da76b4785ae1e10">ComponentMessageType::UniformSet</a>, 
 <a class="el" href="namespace_engine.html#a42b52035259cb56ecdcff7b25822abe5ac7d8ba80f7929450489c9a671996a2f3">ComponentMessageType::TextureSet</a>
 <br />
@@ -556,6 +563,7 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a42b52035259cb56ecdcff7b25822abe5a4a73c4e62d78d42bfa1e6e07ba36133b"></a>PositionIntegrate&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a42b52035259cb56ecdcff7b25822abe5a07348789a9cd5946e1f078c6f4457e2b"></a>PositionSet&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a42b52035259cb56ecdcff7b25822abe5ac13ef5ed0dac6b7f5e0f3dc5d9c63e63"></a>RelativePositionSet&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42b52035259cb56ecdcff7b25822abe5ab3f53040cd0bf1c6c56e6b3def2a0ab6"></a>RotationSet&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a42b52035259cb56ecdcff7b25822abe5aa6419f96acce6d11dbf8b0fbf67cf799"></a>VelocityIntegrate&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a42b52035259cb56ecdcff7b25822abe5afb5e8c0826e8937e550695fc3b2dfef9"></a>VelocitySetLinear&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a42b52035259cb56ecdcff7b25822abe5a4035c653f00082983c07b2b87263a9d3"></a>VelocitySetAngular&#160;</td><td class="fielddoc"></td></tr>

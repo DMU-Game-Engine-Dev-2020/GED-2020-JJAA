@@ -10,6 +10,7 @@
 #include "cameras/freeOrthoCameraController2D.h"
 #include "cameras/FPSCameraControllerEuler.h"
 #include "cameras/fixedOrthoCameraController2D.h"
+#include "cameras/cameraController3rdPerson.h"
 
 #include "systems/log.h"
 
@@ -69,20 +70,23 @@ namespace Engine
 			if (layerJSON.count("camera") > 0)
 			{
 				std::string type = layerJSON["camera"]["type"].get<std::string>();
-				if (type.compare("Euler3D") == 0)
+				if (type.compare("Euler3DFPS") == 0)
 				{
 					bool update = layerJSON["camera"]["update"].get<bool>();
-					layer.createCamera<FPSCameraControllerEuler>(update);
+					layer.getCamera().reset(new FPSCameraControllerEuler(update));
 					float fov = layerJSON["camera"]["fov"].get<float>();
 					float aspectRatio = layerJSON["camera"]["aspectRatio"].get<float>();
 					float nearClip = layerJSON["camera"]["nearClip"].get<float>();
 					float farClip = layerJSON["camera"]["farClip"].get<float>();
-					layer.getCamera()->init(fov, aspectRatio, nearClip, farClip);
+					float xPos = layerJSON["camera"]["position"]["x"].get<float>();
+					float yPos = layerJSON["camera"]["position"]["y"].get<float>();
+					float zPos = layerJSON["camera"]["position"]["z"].get<float>();
+					layer.getCamera()->init(fov, aspectRatio, nearClip, farClip, glm::vec3(xPos, yPos, zPos));
 				}
 				else if (type.compare("FreeOrtho2D") == 0)
 				{
 					bool update = layerJSON["camera"]["update"].get<bool>();
-					layer.createCamera<FreeOrthoCameraController2D>(update);
+					layer.getCamera().reset(new FreeOrthoCameraController2D(update));
 					float top = layerJSON["camera"]["top"].get<float>();
 					float left = layerJSON["camera"]["left"].get<float>();
 					float width = layerJSON["camera"]["width"].get<float>();
@@ -91,20 +95,33 @@ namespace Engine
 				}
 				else if (type.compare("FixedOrtho2D") == 0)
 				{
-					layer.createCamera<FixedOrthoCameraController2D>();
+					layer.getCamera().reset(new FixedOrthoCameraController2D());
 					float top = layerJSON["camera"]["top"].get<float>();
 					float left = layerJSON["camera"]["left"].get<float>();
 					float width = layerJSON["camera"]["width"].get<float>();
 					float height = layerJSON["camera"]["height"].get<float>();
 					layer.getCamera()->init(left, top, width, height);
 				}
+				else if (type.compare("3rdPerson") == 0)
+				{
+					bool update = layerJSON["camera"]["update"].get<bool>();
+					layer.getCamera().reset(new CameraController3rdPerson(update));
+					float fov = layerJSON["camera"]["fov"].get<float>();
+					float aspectRatio = layerJSON["camera"]["aspectRatio"].get<float>();
+					float nearClip = layerJSON["camera"]["nearClip"].get<float>();
+					float farClip = layerJSON["camera"]["farClip"].get<float>();
+					float xPos = layerJSON["camera"]["position"]["x"].get<float>();
+					float yPos = layerJSON["camera"]["position"]["y"].get<float>();
+					float zPos = layerJSON["camera"]["position"]["z"].get<float>();
+					layer.getCamera()->init(fov, aspectRatio, nearClip, farClip, glm::vec3(xPos, yPos, zPos));
+				}
 			}
 
 			if (layerJSON.count("renderer") > 0)
 			{
 				std::string type = layerJSON["renderer"]["type"].get<std::string>();
-				if (type.compare("Basic3D") == 0) layer.createRenderer(Renderer::createBasic3D());
-				if (type.compare("BasicText2D") == 0) layer.createRenderer(Renderer::createText());
+				if (type.compare("Basic3D") == 0) layer.getRenderer().reset(Renderer::createBasic3D());
+				if (type.compare("BasicText2D") == 0) layer.getRenderer().reset(Renderer::createText());
 			}
 
 			if (layerJSON.count("MemoryInfo") > 0)
@@ -235,6 +252,46 @@ namespace Engine
 						layer.getControllers().at(controllersIndex) = std::make_shared<RotateComponent>(RotateComponent());
 						gameObject->addComponent(layer.getControllers().at(controllersIndex));
 						controllersIndex++;
+					}
+					if (object.count("player") > 0) {
+						if (object["player"].count("cameras") > 0)
+						{
+							bool update;
+							std::pair<std::shared_ptr<CameraController>, std::shared_ptr<CameraController>> cameras = 
+								std::make_pair(nullptr, nullptr);
+							for (auto& cam : object["player"]["cameras"])
+							{
+								std::string type = cam["type"].get<std::string>();
+								if (type.compare("Euler3DFPS") == 0)
+								{
+									update = object["player"]["update"].get<bool>();
+									layer.getCamera().reset(new FPSCameraControllerEuler(update));
+									float fov = cam["fov"].get<float>();
+									float aspectRatio = cam["aspectRatio"].get<float>();
+									float nearClip = cam["nearClip"].get<float>();
+									float farClip = cam["farClip"].get<float>();
+									layer.getCamera()->init(fov, aspectRatio, nearClip, farClip, layer.getPositions().at(positionsIndex - 1)->getPosition());
+								}
+								else if (type.compare("3rdPerson") == 0)
+								{
+									update = object["player"]["update"].get<bool>();
+									layer.getCamera().reset(new CameraController3rdPerson(update));
+									float fov = cam["fov"].get<float>();
+									float aspectRatio = cam["aspectRatio"].get<float>();
+									float nearClip = cam["nearClip"].get<float>();
+									float farClip = cam["farClip"].get<float>();
+									layer.getCamera()->init(fov, aspectRatio, nearClip, farClip, layer.getPositions().at(positionsIndex - 1)->getPosition());
+								}
+								if (cameras.first == nullptr) cameras.first = layer.getCamera();
+								else cameras.second = layer.getCamera();
+							}
+							bool which = object["player"]["which"].get<bool>();
+							std::shared_ptr<PlayerComponent> player = std::make_shared<PlayerComponent>(PlayerComponent(
+								update, layer.getPositions().at(positionsIndex - 1)->getPosition(), cameras, which));
+							layer.getPlayer() = player;
+							gameObject->addComponent(layer.getPlayer());
+							layer.getCamera() = layer.getPlayer()->getCurrentCamera();
+						}
 					};
 				}
 			}
@@ -255,10 +312,10 @@ namespace Engine
 							auto& type = object2["type"];
 							if (type == "pointer")
 							{
-								if (object2["var"].get<std::string>().compare("CAM_VIEW") == 0) ptr = (void *)&layer.getCamera()->getCamera()->getView();
-								if (object2["var"].get<std::string>().compare("CAM_PROJ") == 0) ptr = (void *)&layer.getCamera()->getCamera()->getProjection();
-								if (object2["var"].get<std::string>().compare("CAM_VIEWPROJ") == 0) ptr = (void *)&layer.getCamera()->getCamera()->getViewProjection();
-								if (object2["var"].get<std::string>().compare("CAM_POS") == 0) ptr = (void *)&layer.getCamera()->getCamera()->getPosition();
+								if (object2["var"].get<std::string>().compare("CAM_VIEW") == 0) ptr = (void *)&layer.getCamView();
+								if (object2["var"].get<std::string>().compare("CAM_PROJ") == 0) ptr = (void *)&layer.getCamProj();
+								if (object2["var"].get<std::string>().compare("CAM_VIEWPROJ") == 0) ptr = (void *)&layer.getCamViewProj();
+								if (object2["var"].get<std::string>().compare("CAM_POS") == 0) ptr = (void *)&layer.getCamPos();
 							}
 							if (type == "Float3")
 							{

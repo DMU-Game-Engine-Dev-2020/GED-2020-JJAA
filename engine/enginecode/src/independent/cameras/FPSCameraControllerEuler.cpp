@@ -8,11 +8,11 @@
 
 namespace Engine
 {
-	void FPSCameraControllerEuler::init(float fov, float aspectRatio, float nearClip, float farClip)
+	void FPSCameraControllerEuler::init(float fov, float aspectRatio, float nearClip, float farClip, glm::vec3 position)
 	{
 		// Make a new camera
 		m_camera.reset(new PerspectiveEulerCamera3D(fov, aspectRatio, nearClip, farClip));
-		m_position = glm::vec3(0.f, 0.f, -4.5f); // Initialize the position
+		m_position = glm::vec3(position); // Initialize the position
 		m_worldUp = glm::vec3(0.f, 1.f, 0.f); // Initialize the world up axis
 		m_fYaw = 0; // Initialize the yaw
 		m_fPitch = 0; // Initialize the pitch

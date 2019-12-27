@@ -16,7 +16,7 @@ namespace Engine
 	{
 	public:
 		//! Function to initialize the controller
-		virtual void init(float, float, float, float) = 0;
+		virtual void init(float, float, float, float, glm::vec3 = glm::vec3(0)) = 0;
 		//! Function to get the camera
 		/*!
 		\return A pointer to the camera

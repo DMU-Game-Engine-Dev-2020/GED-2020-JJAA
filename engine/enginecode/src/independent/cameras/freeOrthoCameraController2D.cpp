@@ -8,7 +8,7 @@
 
 namespace Engine
 {
-	void FreeOrthoCameraController2D::init(float left, float top, float width, float height)
+	void FreeOrthoCameraController2D::init(float left, float top, float width, float height, glm::vec3)
 	{
 		// Create a new camera
 		m_camera.reset(new OrthographicCamera2D(left, left + width, top + height, top));

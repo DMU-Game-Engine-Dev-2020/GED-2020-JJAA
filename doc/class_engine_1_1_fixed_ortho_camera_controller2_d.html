@@ -68,12 +68,12 @@ Inheritance diagram for Engine::FixedOrthoCameraController2D:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a88cf55e5f7c8d6fa8cb8a521051ea229"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_fixed_ortho_camera_controller2_d.html#a88cf55e5f7c8d6fa8cb8a521051ea229">FixedOrthoCameraController2D</a> (bool update)</td></tr>
-<tr class="memdesc:a88cf55e5f7c8d6fa8cb8a521051ea229"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="class_engine_1_1_fixed_ortho_camera_controller2_d.html#a88cf55e5f7c8d6fa8cb8a521051ea229">More...</a><br /></td></tr>
-<tr class="separator:a88cf55e5f7c8d6fa8cb8a521051ea229"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e9faba0b3df064eacd635377d7d16df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_fixed_ortho_camera_controller2_d.html#a4e9faba0b3df064eacd635377d7d16df">init</a> (float left, float top, float width, float height) override</td></tr>
-<tr class="memdesc:a4e9faba0b3df064eacd635377d7d16df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to initialize the controller.  <a href="class_engine_1_1_fixed_ortho_camera_controller2_d.html#a4e9faba0b3df064eacd635377d7d16df">More...</a><br /></td></tr>
-<tr class="separator:a4e9faba0b3df064eacd635377d7d16df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3cc6566546c752ff502308576f6dbe2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_fixed_ortho_camera_controller2_d.html#ad3cc6566546c752ff502308576f6dbe2">FixedOrthoCameraController2D</a> (bool update=false)</td></tr>
+<tr class="memdesc:ad3cc6566546c752ff502308576f6dbe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="class_engine_1_1_fixed_ortho_camera_controller2_d.html#ad3cc6566546c752ff502308576f6dbe2">More...</a><br /></td></tr>
+<tr class="separator:ad3cc6566546c752ff502308576f6dbe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af57bd32409d4801aa123907b75a0892f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_fixed_ortho_camera_controller2_d.html#af57bd32409d4801aa123907b75a0892f">init</a> (float left, float top, float width, float height, glm::vec3) override</td></tr>
+<tr class="memdesc:af57bd32409d4801aa123907b75a0892f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to initialize the controller.  <a href="class_engine_1_1_fixed_ortho_camera_controller2_d.html#af57bd32409d4801aa123907b75a0892f">More...</a><br /></td></tr>
+<tr class="separator:af57bd32409d4801aa123907b75a0892f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac468ce9e0868a88532888a5460209806"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_engine_1_1_camera.html">Camera</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_fixed_ortho_camera_controller2_d.html#ac468ce9e0868a88532888a5460209806">getCamera</a> () override</td></tr>
 <tr class="memdesc:ac468ce9e0868a88532888a5460209806"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the camera.  <a href="class_engine_1_1_fixed_ortho_camera_controller2_d.html#ac468ce9e0868a88532888a5460209806">More...</a><br /></td></tr>
 <tr class="separator:ac468ce9e0868a88532888a5460209806"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -101,8 +101,8 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="fixed_ortho_camera_controller2_d_8h_source.html#l00014">14</a> of file <a class="el" href="fixed_ortho_camera_controller2_d_8h_source.html">fixedOrthoCameraController2D.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a88cf55e5f7c8d6fa8cb8a521051ea229"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88cf55e5f7c8d6fa8cb8a521051ea229">&#9670;&nbsp;</a></span>FixedOrthoCameraController2D()</h2>
+<a id="ad3cc6566546c752ff502308576f6dbe2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3cc6566546c752ff502308576f6dbe2">&#9670;&nbsp;</a></span>FixedOrthoCameraController2D()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -114,7 +114,7 @@ Private Attributes</h2></td></tr>
           <td class="memname">Engine::FixedOrthoCameraController2D::FixedOrthoCameraController2D </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>update</em></td><td>)</td>
+          <td class="paramname"><em>update</em> = <code>false</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -170,8 +170,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a4e9faba0b3df064eacd635377d7d16df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e9faba0b3df064eacd635377d7d16df">&#9670;&nbsp;</a></span>init()</h2>
+<a id="af57bd32409d4801aa123907b75a0892f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af57bd32409d4801aa123907b75a0892f">&#9670;&nbsp;</a></span>init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -201,7 +201,13 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>height</em>&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec3&#160;</td>
+          <td class="paramname">&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -227,7 +233,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="class_engine_1_1_camera_controller.html#abb001ad918cb86b0d2370f3714a1db8b">Engine::CameraController</a>.</p>
+<p>Implements <a class="el" href="class_engine_1_1_camera_controller.html#a02f36cede00ece1dcd51b06729ee7500">Engine::CameraController</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="fixed_ortho_camera_controller2_d_8cpp_source.html#l00009">9</a> of file <a class="el" href="fixed_ortho_camera_controller2_d_8cpp_source.html">fixedOrthoCameraController2D.cpp</a>.</p>
 

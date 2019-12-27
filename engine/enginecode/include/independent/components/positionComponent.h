@@ -31,6 +31,11 @@ namespace Engine
 		\param data The new position
 		*/
 		void positionSet(void* data);
+		//! Function to set a rotation when receiving a message
+		/*!
+		\param data The new rotation
+		*/
+		void rotationSet(void* data);
 		//! Function to set a position based on velocities received in a message
 		/*!
 		\param data The velocities
@@ -56,6 +61,12 @@ namespace Engine
 		\return The transform of the object
 		*/
 		inline std::shared_ptr<glm::mat4> getTransform() { return std::make_shared<glm::mat4>(m_model); }
+
+		//! Function to get the objects position
+		/*!
+		\return The position of the object
+		*/
+		inline glm::vec3 getPosition() { return m_transVec; }
 
 		//! Function called when the component is attached to a gameobject
 		/*!

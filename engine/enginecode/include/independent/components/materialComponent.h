@@ -47,8 +47,9 @@ namespace Engine
 		*/
 		void receiveMessage(const ComponentMessage& msg) override
 		{
+			// Create message dispatcher
 			MessageDispatcher dispatcher(msg);
-
+			// If the message type matches, call the corresponding function
 			dispatcher.dispatch(ComponentMessageType::UniformSet, std::bind(&MaterialComponent::uniformUpload, this, std::placeholders::_1));
 		}
 	};
