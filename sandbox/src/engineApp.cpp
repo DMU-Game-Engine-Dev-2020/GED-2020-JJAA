@@ -33,20 +33,3 @@ Engine::Application* Engine::startApplication()
 	return new engineApp();
 }
 
-void Engine::Application::loadLevel(Levels::iterator& layers)
-{
-	// While the layer stack has layers in it
-	while (m_pLayerStack->begin() != m_pLayerStack->end())
-	{
-		// Remove a layer
-		m_pLayerStack->pop();
-	}
-	// For each layer in the new level
-	for (auto& layer : layers->first)
-	{
-		// Push the layer onto the stack
-		m_pLayerStack->push(std::make_shared<Engine::JSONLayer>(Engine::JSONLayer(layer.first, layer.second)));
-	}
-	// Set which level key code is active
-	m_iCurrentLevel = layers->second;
-}

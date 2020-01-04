@@ -161,6 +161,6 @@ namespace Engine
 		/*!
 		\return The current cameras position
 		*/
-		inline glm::vec3 getCamPos() { return m_camPos; }
+		inline glm::vec3& getCamPos() { return m_camPos; }
 	};
 }
