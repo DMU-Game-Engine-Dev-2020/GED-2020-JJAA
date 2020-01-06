@@ -12,9 +12,8 @@ namespace Engine
 	{
 		// Make a new camera
 		m_camera.reset(new PerspectiveEulerCamera3D(fov, aspectRatio, nearClip, farClip));
-		m_playerPosition = glm::vec3(position); // Initialize the player position
+		m_playerPosition = position; // Initialize the player position
 		m_playerOffset = glm::vec3(0.2, 0.6, -5.5); // Initialize the player offset
-		m_position = m_playerPosition + m_playerOffset; // Initialize the position
 		m_worldUp = glm::vec3(0.f, 1.f, 0.f); // Initialize the world up axis
 		m_fYaw = 0; // Initialize the yaw
 		m_fPitch = 0; // Initialize the pitch
@@ -114,7 +113,7 @@ namespace Engine
 		m_up = glm::normalize(glm::cross(m_right, m_forward));
 
 		// Calculate camera position based on player position and offset
-		m_position = m_playerPosition + ((m_forward * m_playerOffset.z) + (m_up * m_playerOffset.y) + (m_right * m_playerOffset.x));
+		m_position = m_playerPosition + glm::vec3((m_forward * m_playerOffset.z) + (m_up * m_playerOffset.y) + (m_right * m_playerOffset.x));
 		// Calculate the view
 		m_view = glm::lookAt(m_position, m_position + m_forward, m_up);
 		// Set the view in the camera

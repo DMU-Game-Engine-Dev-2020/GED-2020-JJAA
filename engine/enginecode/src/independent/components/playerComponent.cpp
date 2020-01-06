@@ -35,6 +35,7 @@ namespace Engine
 				glm::vec2 mouseDelta = currentMousePosition - m_lastMousePosition;
 
 				m_fYaw -= mouseDelta.x * m_fRotationSpeed * timestep;
+				m_fPitch -= mouseDelta.y * m_fRotationSpeed * timestep;
 
 				m_lastMousePosition = currentMousePosition;
 			}
@@ -100,9 +101,9 @@ namespace Engine
 	{
 		// Calculate a new forward vector from the yaw and the pitch (always 0)
 		glm::vec3 forward;
-		forward.x = sin(glm::radians(m_fYaw)) * cos(glm::radians(0.f));
-		forward.y = sin(glm::radians(0.f));
-		forward.z = cos(glm::radians(m_fYaw)) * cos(glm::radians(0.f));
+		forward.x = sin(glm::radians(m_fYaw)) * cos(glm::radians(m_fPitch));
+		forward.y = sin(glm::radians(m_fPitch));
+		forward.z = cos(glm::radians(m_fYaw)) * cos(glm::radians(m_fPitch));
 
 		m_forward = glm::normalize(forward);
 

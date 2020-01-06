@@ -27,6 +27,7 @@ namespace Engine
 		glm::vec3 m_forward; //!< The forward axis
 		glm::vec3 m_right; //!< The right axis
 		float m_fYaw = 0; //!< The yaw
+		float m_fPitch = 0; //!< The pitch (in order to move at the same speed as the cameras)
 		glm::vec3 m_worldUp = glm::vec3(0.f, 1.f, 0.f); //!< The world up axis
 
 		bool m_bUpdate; //!< If the component is being updated

@@ -108,3 +108,8 @@ TEST(Events, KeyEventTypes)
 	EXPECT_EQ(gotPressedType, gotRepeatType); // Pressed and repeat should have the same type
 	EXPECT_NE(gotPressedType, gotTypedType); // Pressed and typed should have different types
 }
+
+TEST(Window, EventCallback)
+{
+
+}
