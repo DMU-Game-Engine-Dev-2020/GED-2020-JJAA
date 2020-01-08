@@ -131,6 +131,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ab5de30848f456a583ddfba424bc332c1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_player_component.html#ab5de30848f456a583ddfba424bc332c1">m_fYaw</a> = 0</td></tr>
 <tr class="memdesc:ab5de30848f456a583ddfba424bc332c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The yaw.  <a href="class_engine_1_1_player_component.html#ab5de30848f456a583ddfba424bc332c1">More...</a><br /></td></tr>
 <tr class="separator:ab5de30848f456a583ddfba424bc332c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41f9ecddea6fa8f9d34d55811ba69a5c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_player_component.html#a41f9ecddea6fa8f9d34d55811ba69a5c">m_fPitch</a> = 0</td></tr>
+<tr class="memdesc:a41f9ecddea6fa8f9d34d55811ba69a5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The pitch (in order to move at the same speed as the cameras)  <a href="class_engine_1_1_player_component.html#a41f9ecddea6fa8f9d34d55811ba69a5c">More...</a><br /></td></tr>
+<tr class="separator:a41f9ecddea6fa8f9d34d55811ba69a5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac898742660921a3d31ea3669d151de31"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_1_1_player_component.html#ac898742660921a3d31ea3669d151de31">m_worldUp</a> = glm::vec3(0.f, 1.f, 0.f)</td></tr>
 <tr class="memdesc:ac898742660921a3d31ea3669d151de31"><td class="mdescLeft">&#160;</td><td class="mdescRight">The world up axis.  <a href="class_engine_1_1_player_component.html#ac898742660921a3d31ea3669d151de31">More...</a><br /></td></tr>
 <tr class="separator:ac898742660921a3d31ea3669d151de31"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -217,7 +220,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="player_component_8h_source.html#l00047">47</a> of file <a class="el" href="player_component_8h_source.html">playerComponent.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="player_component_8h_source.html#l00048">48</a> of file <a class="el" href="player_component_8h_source.html">playerComponent.h</a>.</p>
 
 </div>
 </div>
@@ -248,7 +251,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Function to get both cameras. </p>
 <dl class="section return"><dt>Returns</dt><dd>A pair containing pointers to both cameras </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="player_component_8h_source.html#l00054">54</a> of file <a class="el" href="player_component_8h_source.html">playerComponent.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="player_component_8h_source.html#l00055">55</a> of file <a class="el" href="player_component_8h_source.html">playerComponent.h</a>.</p>
 
 </div>
 </div>
@@ -278,7 +281,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Function to get the current camera being used. </p>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the camera currently being used </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="player_component_8h_source.html#l00060">60</a> of file <a class="el" href="player_component_8h_source.html">playerComponent.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="player_component_8h_source.html#l00061">61</a> of file <a class="el" href="player_component_8h_source.html">playerComponent.h</a>.</p>
 
 </div>
 </div>
@@ -316,7 +319,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="class_engine_1_1_component.html#aa235f9b05864c178696b957fade68d20">Engine::Component</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="player_component_8cpp_source.html#l00051">51</a> of file <a class="el" href="player_component_8cpp_source.html">playerComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="player_component_8cpp_source.html#l00052">52</a> of file <a class="el" href="player_component_8cpp_source.html">playerComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -345,7 +348,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>If the event was successful or not </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="player_component_8cpp_source.html#l00073">73</a> of file <a class="el" href="player_component_8cpp_source.html">playerComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="player_component_8cpp_source.html#l00074">74</a> of file <a class="el" href="player_component_8cpp_source.html">playerComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -374,7 +377,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>If the event was successful or not </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="player_component_8cpp_source.html#l00060">60</a> of file <a class="el" href="player_component_8cpp_source.html">playerComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="player_component_8cpp_source.html#l00061">61</a> of file <a class="el" href="player_component_8cpp_source.html">playerComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -450,7 +453,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_engine_1_1_component.html#ae1a04e092fe4d1193d476d941b4a6288">Engine::Component</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="player_component_8h_source.html#l00078">78</a> of file <a class="el" href="player_component_8h_source.html">playerComponent.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="player_component_8h_source.html#l00079">79</a> of file <a class="el" href="player_component_8h_source.html">playerComponent.h</a>.</p>
 
 </div>
 </div>
@@ -479,7 +482,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Function to set the forward and right axis. </p>
 
-<p class="definition">Definition at line <a class="el" href="player_component_8cpp_source.html#l00099">99</a> of file <a class="el" href="player_component_8cpp_source.html">playerComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="player_component_8cpp_source.html#l00100">100</a> of file <a class="el" href="player_component_8cpp_source.html">playerComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -506,7 +509,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Which camera is being used. </p>
 
-<p class="definition">Definition at line <a class="el" href="player_component_8h_source.html#l00035">35</a> of file <a class="el" href="player_component_8h_source.html">playerComponent.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="player_component_8h_source.html#l00036">36</a> of file <a class="el" href="player_component_8h_source.html">playerComponent.h</a>.</p>
 
 </div>
 </div>
@@ -532,7 +535,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>If the component is being updated. </p>
 
-<p class="definition">Definition at line <a class="el" href="player_component_8h_source.html#l00032">32</a> of file <a class="el" href="player_component_8h_source.html">playerComponent.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="player_component_8h_source.html#l00033">33</a> of file <a class="el" href="player_component_8h_source.html">playerComponent.h</a>.</p>
 
 </div>
 </div>
@@ -558,7 +561,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>The cameras being used. </p>
 
-<p class="definition">Definition at line <a class="el" href="player_component_8h_source.html#l00034">34</a> of file <a class="el" href="player_component_8h_source.html">playerComponent.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="player_component_8h_source.html#l00035">35</a> of file <a class="el" href="player_component_8h_source.html">playerComponent.h</a>.</p>
 
 </div>
 </div>
@@ -585,6 +588,32 @@ Additional Inherited Members</h2></td></tr>
 <p>The forward axis. </p>
 
 <p class="definition">Definition at line <a class="el" href="player_component_8h_source.html#l00027">27</a> of file <a class="el" href="player_component_8h_source.html">playerComponent.h</a>.</p>
+
+</div>
+</div>
+<a id="a41f9ecddea6fa8f9d34d55811ba69a5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41f9ecddea6fa8f9d34d55811ba69a5c">&#9670;&nbsp;</a></span>m_fPitch</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Engine::PlayerComponent::m_fPitch = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The pitch (in order to move at the same speed as the cameras) </p>
+
+<p class="definition">Definition at line <a class="el" href="player_component_8h_source.html#l00030">30</a> of file <a class="el" href="player_component_8h_source.html">playerComponent.h</a>.</p>
 
 </div>
 </div>
@@ -766,7 +795,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>The world up axis. </p>
 
-<p class="definition">Definition at line <a class="el" href="player_component_8h_source.html#l00030">30</a> of file <a class="el" href="player_component_8h_source.html">playerComponent.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="player_component_8h_source.html#l00031">31</a> of file <a class="el" href="player_component_8h_source.html">playerComponent.h</a>.</p>
 
 </div>
 </div>

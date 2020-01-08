@@ -28,7 +28,7 @@ namespace Engine
 			pos.y = m_position.y;
 			m_position = pos;
 
-			// If the left mouse button is pressed, rotate the object with the mouse movement in the y axis
+			// If the left mouse button is pressed, rotate the object with the mouse movement
 			if (InputPoller::isMouseButtonPressed(ENGINE_MOUSE_BUTTON_LEFT))
 			{
 				glm::vec2 currentMousePosition = InputPoller::getMousePosition();
