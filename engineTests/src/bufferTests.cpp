@@ -4,9 +4,9 @@ TEST(VertexBuffer, Stride)
 {
 	Engine::BufferLayout layout;
 
-	//layout.addElement(type1);
-	//layout.addElement(type2);
-	//layout.addElement(type3);
+	layout.addElement(type1);
+	layout.addElement(type2);
+	layout.addElement(type3);
 
 	unsigned int stride = 0;
 	stride += Engine::ShaderDataTypeSize(type1);
