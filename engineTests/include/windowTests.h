@@ -7,7 +7,7 @@
 
 #include "platform/GLFW/glfwWindow.h"
 
-// Commented out, tests don't work due to unknown error using GLFWWindowImpl class
+// Commented out, tests don't work due to error using GLFWWindowImpl class
 //Engine::GLFWWindowImpl* window = new Engine::GLFWWindowImpl(Engine::WindowProperties());
 
 bool worked = false; // If the callback function is set correctly

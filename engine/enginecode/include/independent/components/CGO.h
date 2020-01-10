@@ -175,11 +175,6 @@ namespace Engine
 				// Delete the component
 				iter = m_components.erase(iter);
 			}
-			else // If there is no component
-			{
-				// Show an error
-				LOG_ERROR("Game object does not contain component to remove");
-			}
 		}
 
 		//! Function to get a component

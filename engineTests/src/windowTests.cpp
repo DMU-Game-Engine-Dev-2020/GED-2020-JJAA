@@ -1,6 +1,6 @@
 #include "windowTests.h"
 
-// Commented out, tests don't work due to unknown error using GLFWWindowImpl class
+// Commented out, tests don't work due to error using GLFWWindowImpl class
 //TEST(Window, EventCallback)
 //{	
 //	// Set the window event callback function
