@@ -366,7 +366,7 @@ namespace Engine
 		else // If '/' and '.' were not found
 		{
 			// Log an error
-			LOG_ERROR("Problem finding name of file: {0}, using full filepath", str);
+			LOG_INFO("Problem finding name of file: {0}, using full filepath", str);
 			return str; // Return the full filepath
 		}
 	}

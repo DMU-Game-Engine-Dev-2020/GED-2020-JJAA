@@ -5,6 +5,8 @@
 
 #include "events/event.h"
 
+#include "systems/log.h"
+
 namespace Engine
 {
 	/**
@@ -165,7 +167,20 @@ namespace Engine
 		/*!
 		\param iter The component being removed
 		*/
-		void removeComponent(std::vector<std::shared_ptr<Component>>::iterator iter);
+		void removeComponent(std::vector<std::shared_ptr<Component>>::iterator iter) 
+		{
+			// If the component being deleted is part of the game object
+			if (iter != m_components.end())
+			{
+				// Delete the component
+				iter = m_components.erase(iter);
+			}
+			else // If there is no component
+			{
+				// Show an error
+				LOG_ERROR("Game object does not contain component to remove");
+			}
+		}
 
 		//! Function to get a component
 		/*!

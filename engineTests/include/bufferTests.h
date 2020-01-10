@@ -1,6 +1,6 @@
 #pragma once
 #include <gtest/gtest.h>
-
+// TESTS FOR THE BUFFER LAYOUT
 #include "rendering/vertexBuffer.h"
 #include "rendering/bufferLayout.h"
 #include "rendering/shaderData.h"
