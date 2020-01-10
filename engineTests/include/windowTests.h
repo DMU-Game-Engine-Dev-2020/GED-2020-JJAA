@@ -1,14 +1,15 @@
 #pragma once
 #include <gtest/gtest.h>
+#define private public
 
 #include "events/event.h"
 #include "events/keyEvents.h"
 
 #include "platform/GLFW/glfwWindow.h"
 
-#define private public
 
-Engine::GLFWWindowImpl* window = new Engine::GLFWWindowImpl(Engine::WindowProperties());
+
+//Engine::GLFWWindowImpl* window = new Engine::GLFWWindowImpl(Engine::WindowProperties());
 
 bool worked = false;
 
