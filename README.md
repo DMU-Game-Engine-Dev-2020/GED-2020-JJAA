@@ -1,5 +1,5 @@
 # CW2019
-## Alfie Horton
+## Alfie Horton, Adam Hubble, Joseph Hill, Jack Moorin and Josh
 
 - Press the **space** key to toggle fullscreen.
 - Press the **escape** key to close the window.
