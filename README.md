@@ -1,8 +1,5 @@
 # Game Engine Development
-### Alfie Horton 
-### Adam Hubble 
-### Joseph Hill
-### Jack Moorin
+### Alfie Horton ● Adam Hubble ● Joseph Hill ● Jack Moorin
 
 - Press the **Space** key to toggle fullscreen.
 - Press the **Escape** key to close the window.
